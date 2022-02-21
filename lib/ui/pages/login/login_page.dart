@@ -1,3 +1,4 @@
+import 'package:delivery_express/l10n/strings/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -39,14 +40,14 @@ class _LoginPageState extends State<LoginPage> {
                         children: [
                           SvgPicture.asset(Images.mapEg),
                           const SizedBox(height: 8),
-                          const Text(
-                            'Encontre entregadores \nna sua região!',
-                            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 24),
+                          Text(
+                            AppLocalizations.of(context)!.welcomeCardTitle,
+                            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 24),
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 8),
-                          const Text(
-                            'Utiliza o nosso Mapa de Localização \ne encontre encontre entregadores de \nacordo com a sua demanda',
+                          Text(
+                            AppLocalizations.of(context)!.welcomeCardMenssage,
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -56,22 +57,22 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 16,
                   ),
-                  const Text(
-                    'Efetue login para continuar',
+                  Text(
+                    AppLocalizations.of(context)!.loginMenssage,
                     textAlign: TextAlign.center,
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'E-mail',
-                      label: Text('E-mail'),
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.email,
+                      label: Text(AppLocalizations.of(context)!.email),
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: 'Senha',
-                      label: const Text('Senha'),
+                      hintText: AppLocalizations.of(context)!.password,
+                      label: Text(AppLocalizations.of(context)!.password),
                       suffixIcon: IconButton(
                         focusColor: AppColors.primaryRed,
                         icon: visibilityIcon,
@@ -92,25 +93,25 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const Text('Esqueceu sua senha?'),
+                      Text(AppLocalizations.of(context)!.forgotPasswordMenssage),
                       TextButton(
                         onPressed: () {},
-                        child: const Text('Clique aqui'),
+                        child: Text(AppLocalizations.of(context)!.forgotPasswordButton),
                       ),
                     ],
                   ),
                   ElevatedButton(
                     onPressed: () {},
-                    child: const Text('LOGIN'),
+                    child: Text(AppLocalizations.of(context)!.loginButton.toUpperCase()),
                     //color: Colors.red,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Não tem uma conta?'),
+                      Text(AppLocalizations.of(context)!.signUpMessage),
                       TextButton(
                         onPressed: () {},
-                        child: const Text('Registrar'),
+                        child: Text(AppLocalizations.of(context)!.signUpButton),
                       ),
                     ],
                   ),
