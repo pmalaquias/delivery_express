@@ -1,0 +1,13 @@
+{
+  "email": "E-mail",
+  "forgotPasswordButton": "Clique aqui",
+  "forgotPasswordMenssage": "Esqueceu sua senha?",
+  "helloWorld": "Olá mundo!!",
+  "loginButton": "Entrar",
+  "loginMenssage": "Efetue login para continuar",
+  "password": "Senha",
+  "signUpButton": "Registrar",
+  "signUpMessage": "Não tem uma contar?",
+  "welcomeCardMenssage": "Utiliza o nosso Mapa de Localização e encontre encontre entregadores de acordo com a sua demanda",
+  "welcomeCardTitle": "Encontre entregadores na sua região!"
+}

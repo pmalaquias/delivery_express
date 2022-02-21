@@ -1,0 +1,16 @@
+{
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "email": "E-mail",
+  "forgotPasswordButton": "Click here",
+  "forgotPasswordMenssage": "Forgot your password?",
+  "helloWorld": "Hello World!",
+  "loginButton": "Login",
+  "loginMenssage": "Please login to continue",
+  "password": "Password",
+  "signUpButton": "Sign Up",
+  "signUpMessage": "Don't have an account?",
+  "welcomeCardMenssage": "Use our Location Map and find couriers according to your demand",
+  "welcomeCardTitle": "Find delivery people in your area!"
+}

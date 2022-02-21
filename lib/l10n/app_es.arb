@@ -1,0 +1,13 @@
+{
+  "email": "E-mail",
+  "forgotPasswordButton": "Haga clic aquí",
+  "forgotPasswordMenssage": "Olvidaste tu contraseña?",
+  "helloWorld": "¡Hola Mundo!",
+  "loginButton": "Acceso",
+  "loginMenssage": "Por favor inicie sesión para continuar",
+  "password": "Clave",
+  "signUpButton": "Registrarse",
+  "signUpMessage": "¿No tienes una cuenta?",
+  "welcomeCardMenssage": "Usa nuestro Mapa de Ubicación y encuentra mensajeros de acuerdo a tu demanda",
+  "welcomeCardTitle": "¡Encuentra mensajeros en tu área!"
+}
