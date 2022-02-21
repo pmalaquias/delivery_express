@@ -1,6 +1,6 @@
 ![banner](/lib/ui/assets/images/png/BannerDeliveryExpress.png)
 <!-- # Delivery Express -->
-
+---
 ## Table of Contents
 
 * [Description](#description)
@@ -19,6 +19,8 @@
 ## Description
 Delivery Express is a mobile application that connects couriers (who own the vehicle and want to make deliveries) to customers (who have delivery demands and are looking for couriers to make them).
 
+![flutter](https://img.shields.io/badge/Flutter-2.10.1-005598)
+
 ## Project Status
 
 ## How to used
@@ -30,6 +32,8 @@ Delivery Express is a mobile application that connects couriers (who own the veh
 ### Project Installation
 
 ### Running the project
+
+### Internationalization
 ## Technologies
 
 
