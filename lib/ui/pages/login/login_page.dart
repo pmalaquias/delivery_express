@@ -13,11 +13,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  IconData visibilityIcon = Icons.visibility;
+  bool visibilityPassword = true;
+
   @override
   Widget build(BuildContext context) {
-    Icon visibilityIcon = const Icon(Icons.visibility);
-    bool visibilityPassword = true;
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -75,14 +75,15 @@ class _LoginPageState extends State<LoginPage> {
                       label: Text(AppLocalizations.of(context)!.password),
                       suffixIcon: IconButton(
                         focusColor: AppColors.primaryRed,
-                        icon: visibilityIcon,
+                        icon: Icon(visibilityIcon),
                         onPressed: () {
                           setState(() {
-                            visibilityPassword = !visibilityPassword;
-                            if (visibilityIcon == const Icon(Icons.visibility)) {
-                              visibilityIcon = const Icon(Icons.visibility_off);
+                            if (visibilityPassword == true) {
+                              visibilityPassword = false;
+                              visibilityIcon = Icons.visibility_off;
                             } else {
-                              visibilityIcon = const Icon(Icons.visibility);
+                              visibilityPassword = true;
+                              visibilityIcon = Icons.visibility;
                             }
                           });
                         },
