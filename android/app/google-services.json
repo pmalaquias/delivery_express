@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "684226451943",
+    "project_id": "delivery-express-d5446",
+    "storage_bucket": "delivery-express-d5446.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684226451943:android:0abcda0eb74bdb8990c542",
+        "android_client_info": {
+          "package_name": "br.org.malaquias.delivery_express"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684226451943-2gv08g6p77md41jsoboh7s1q80jsunof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrVb-suQGWQ7TrWx0eKnDYnr_FP2nQU-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684226451943-2gv08g6p77md41jsoboh7s1q80jsunof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
