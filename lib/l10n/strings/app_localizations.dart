@@ -96,6 +96,36 @@ abstract class AppLocalizations {
     Locale('pt')
   ];
 
+  /// No description provided for @clientLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Client'**
+  String get clientLabel;
+
+  /// No description provided for @clientText.
+  ///
+  /// In en, this message translates to:
+  /// **'I have a business and I\'m looking for delivery guys'**
+  String get clientText;
+
+  /// No description provided for @continueButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueButton;
+
+  /// No description provided for @deleverymanLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliveryman'**
+  String get deleverymanLabel;
+
+  /// No description provided for @deliverymanText.
+  ///
+  /// In en, this message translates to:
+  /// **'I have my own vehicle and I want to deliver'**
+  String get deliverymanText;
+
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
@@ -149,6 +179,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Don\'t have an account?'**
   String get signUpMessage;
+
+  /// No description provided for @signupPopUpLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'How do you want to register?'**
+  String get signupPopUpLabel;
 
   /// No description provided for @welcomeCardMenssage.
   ///

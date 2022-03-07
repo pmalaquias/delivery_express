@@ -1,4 +1,9 @@
 {
+  "clientLabel": "Cliente",
+  "clientText": "Tengo un negocio y estoy buscando repartidores.",
+  "continueButton": "Continuar",
+  "deleverymanLabel": "Repartidor",
+  "deliverymanText": "Tengo vehiculo propio y quiero entregar",
   "email": "E-mail",
   "forgotPasswordButton": "Haga clic aquí",
   "forgotPasswordMenssage": "Olvidaste tu contraseña?",
@@ -8,6 +13,7 @@
   "password": "Clave",
   "signUpButton": "Registrarse",
   "signUpMessage": "¿No tienes una cuenta?",
+  "signupPopUpLabel": "¿Cómo quieres registrarte?",
   "welcomeCardMenssage": "Usa nuestro Mapa de Ubicación y encuentra mensajeros de acuerdo a tu demanda",
   "welcomeCardTitle": "¡Encuentra mensajeros en tu área!"
 }

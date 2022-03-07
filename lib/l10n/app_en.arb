@@ -2,6 +2,11 @@
   "@helloWorld": {
     "description": "The conventional newborn programmer greeting"
   },
+  "clientLabel": "Client",
+  "clientText": "I have a business and I'm looking for delivery guys",
+  "continueButton": "Continue",
+  "deleverymanLabel": "Deliveryman",
+  "deliverymanText": "I have my own vehicle and I want to deliver",
   "email": "E-mail",
   "forgotPasswordButton": "Click here",
   "forgotPasswordMenssage": "Forgot your password?",
@@ -11,6 +16,7 @@
   "password": "Password",
   "signUpButton": "Sign Up",
   "signUpMessage": "Don't have an account?",
+  "signupPopUpLabel": "How do you want to register?",
   "welcomeCardMenssage": "Use our Location Map and find couriers according to your demand",
   "welcomeCardTitle": "Find delivery people in your area!"
 }

@@ -1,4 +1,9 @@
 {
+  "clientLabel": "Cliente",
+  "clientText": "Possuo um comércio e estou em busca de entregadores",
+  "continueButton": "Continuar",
+  "deleverymanLabel": "Entregador",
+  "deliverymanText": "Possuo um veiculo próprio e desejo realizar entregas",
   "email": "E-mail",
   "forgotPasswordButton": "Clique aqui",
   "forgotPasswordMenssage": "Esqueceu sua senha?",
@@ -8,6 +13,7 @@
   "password": "Senha",
   "signUpButton": "Registrar",
   "signUpMessage": "Não tem uma contar?",
+  "signupPopUpLabel": "Como você deseja se cadastrar?",
   "welcomeCardMenssage": "Utiliza o nosso Mapa de Localização e encontre encontre entregadores de acordo com a sua demanda",
   "welcomeCardTitle": "Encontre entregadores na sua região!"
 }

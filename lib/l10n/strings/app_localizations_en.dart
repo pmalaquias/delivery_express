@@ -8,6 +8,21 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get clientLabel => 'Client';
+
+  @override
+  String get clientText => 'I have a business and I\'m looking for delivery guys';
+
+  @override
+  String get continueButton => 'Continue';
+
+  @override
+  String get deleverymanLabel => 'Deliveryman';
+
+  @override
+  String get deliverymanText => 'I have my own vehicle and I want to deliver';
+
+  @override
   String get email => 'E-mail';
 
   @override
@@ -33,6 +48,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get signUpMessage => 'Don\'t have an account?';
+
+  @override
+  String get signupPopUpLabel => 'How do you want to register?';
 
   @override
   String get welcomeCardMenssage => 'Use our Location Map and find couriers according to your demand';
