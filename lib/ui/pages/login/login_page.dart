@@ -1,20 +1,47 @@
-import 'package:delivery_express/l10n/strings/app_localizations.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
-import '../../theme/theme.dart' show AppColors;
-import '../../utils/images.dart';
+import '../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../mixins/mixins.dart';
+import '../../utils/images.dart' show Images;
+import 'login.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final LoginPresenter presenter;
+
+  const LoginPage({
+    Key? key,
+    required this.presenter,
+  }) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingManager, NavigationManager, UiErrorManager {
+  final _formKey = GlobalKey<FormState>();
+
   IconData visibilityIcon = Icons.visibility;
   bool visibilityPassword = true;
+
+  final _emailTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
+
+  Future<FirebaseApp> _initializeFirebase() async {
+    FirebaseApp firebaseApp = await Firebase.initializeApp();
+    return firebaseApp;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    handleLoading(context, widget.presenter.isLoadingStream);
+    handleMainError(context, widget.presenter.mainErrorStream);
+    handleNavigation(widget.presenter.navigateToStream, clear: true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,99 +51,76 @@ class _LoginPageState extends State<LoginPage> {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Image.asset(Images.logoApp),
-                  Card(
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                    elevation: 8,
-                    margin: const EdgeInsets.all(8),
-                    child: Padding(
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(Images.mapEg),
-                          const SizedBox(height: 8),
-                          Text(
-                            AppLocalizations.of(context)!.welcomeCardTitle,
-                            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 24),
-                            textAlign: TextAlign.center,
+              child: FutureBuilder(
+                future: _initializeFirebase(),
+                builder: ((context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Image.asset(Images.logoApp),
+                        Card(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                          elevation: 8,
+                          margin: const EdgeInsets.all(8),
+                          child: Padding(
+                            padding: const EdgeInsets.all(24.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(Images.mapEg),
+                                const SizedBox(height: 8),
+                                Text(
+                                  AppLocalizations.of(context)!.welcomeCardTitle,
+                                  style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 24),
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  AppLocalizations.of(context)!.welcomeCardMenssage,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(height: 8),
-                          Text(
-                            AppLocalizations.of(context)!.welcomeCardMenssage,
-                            textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!.loginMenssage,
+                          textAlign: TextAlign.center,
+                        ),
+                        Provider(
+                          create: (_) => widget.presenter,
+                          child: Form(
+                            key: _formKey,
+                            child: Column(
+                              children: [
+                                EmailField(
+                                  presenter: widget.presenter,
+                                  emailTextController: _emailTextController,
+                                ),
+                                const SizedBox(height: 8),
+                                PasswordField(
+                                  presenter: widget.presenter,
+                                  passwordTextController: _passwordTextController,
+                                ),
+                                const ForgotPasswordButton(),
+                                LoginButton(presenter: widget.presenter),
+                                SignUpButton(presenter: widget.presenter),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.loginMenssage,
-                    textAlign: TextAlign.center,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.email,
-                      label: Text(AppLocalizations.of(context)!.email),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.password,
-                      label: Text(AppLocalizations.of(context)!.password),
-                      suffixIcon: IconButton(
-                        focusColor: AppColors.primaryRed,
-                        icon: Icon(visibilityIcon),
-                        onPressed: () {
-                          setState(() {
-                            if (visibilityPassword == true) {
-                              visibilityPassword = false;
-                              visibilityIcon = Icons.visibility_off;
-                            } else {
-                              visibilityPassword = true;
-                              visibilityIcon = Icons.visibility;
-                            }
-                          });
-                        },
-                      ),
-                    ),
-                    obscureText: visibilityPassword,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(AppLocalizations.of(context)!.forgotPasswordMenssage),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(AppLocalizations.of(context)!.forgotPasswordButton),
-                      ),
-                    ],
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(AppLocalizations.of(context)!.loginButton.toUpperCase()),
-                    //color: Colors.red,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(AppLocalizations.of(context)!.signUpMessage),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(AppLocalizations.of(context)!.signUpButton),
-                      ),
-                    ],
-                  ),
-                ],
+                        ),
+                      ],
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }),
               ),
             ),
           ),
@@ -125,3 +129,36 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+/*  StreamBuilder<UIError>(
+                                    stream: widget.presenter.passwordErrorStream,
+                                    builder: (context, snapshot) {
+                                      return TextFormField(
+                                        controller: _passwordTextController,
+                                        decoration: InputDecoration(
+                                          hintText: AppLocalizations.of(context)!.password,
+                                          label: Text(AppLocalizations.of(context)!.password),
+                                          errorText: snapshot.hasData && snapshot.data != UIError.NO_ERROR
+                                              ? snapshot.data?.desscription
+                                              : null,
+                                          suffixIcon: IconButton(
+                                            focusColor: AppColors.primaryRed,
+                                            icon: Icon(visibilityIcon),
+                                            onPressed: () {
+                                              setState(() {
+                                                if (visibilityPassword == true) {
+                                                  visibilityPassword = false;
+                                                  visibilityIcon = Icons.visibility_off;
+                                                } else {
+                                                  visibilityPassword = true;
+                                                  visibilityIcon = Icons.visibility;
+                                                }
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                        obscureText: visibilityPassword,
+                                        validator: (value) => Validator.validatePassword(password: value!),
+                                        onChanged: widget.presenter.validatePassword,
+                                      );
+                                    }), */
