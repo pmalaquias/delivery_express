@@ -132,6 +132,12 @@ abstract class AppLocalizations {
   /// **'E-mail'**
   String get email;
 
+  /// No description provided for @emailInUseError.
+  ///
+  /// In en, this message translates to:
+  /// **'E-mail in use'**
+  String get emailInUseError;
+
   /// No description provided for @forgotPasswordButton.
   ///
   /// In en, this message translates to:
@@ -149,6 +155,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hello World!'**
   String get helloWorld;
+
+  /// No description provided for @invalidCredentialsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Credentials'**
+  String get invalidCredentialsError;
+
+  /// No description provided for @invalidFieldError.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Field'**
+  String get invalidFieldError;
 
   /// No description provided for @loginButton.
   ///
@@ -168,6 +186,12 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get password;
 
+  /// No description provided for @requiredFieldError.
+  ///
+  /// In en, this message translates to:
+  /// **'Required field'**
+  String get requiredFieldError;
+
   /// No description provided for @signUpButton.
   ///
   /// In en, this message translates to:
@@ -185,6 +209,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'How do you want to register?'**
   String get signupPopUpLabel;
+
+  /// No description provided for @spinnerMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait ...'**
+  String get spinnerMessage;
+
+  /// No description provided for @unexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something wrong happened. Please try again soon'**
+  String get unexpectedError;
 
   /// No description provided for @welcomeCardMenssage.
   ///

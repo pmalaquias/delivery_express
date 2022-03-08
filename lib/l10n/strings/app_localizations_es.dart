@@ -26,6 +26,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get email => 'E-mail';
 
   @override
+  String get emailInUseError => 'Correo electrónico en uso';
+
+  @override
   String get forgotPasswordButton => 'Haga clic aquí';
 
   @override
@@ -33,6 +36,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get helloWorld => '¡Hola Mundo!';
+
+  @override
+  String get invalidCredentialsError => 'Credenciales no válidas';
+
+  @override
+  String get invalidFieldError => 'Campo inválido';
 
   @override
   String get loginButton => 'Acceso';
@@ -44,6 +53,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get password => 'Clave';
 
   @override
+  String get requiredFieldError => 'Campo requerido';
+
+  @override
   String get signUpButton => 'Registrarse';
 
   @override
@@ -51,6 +63,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get signupPopUpLabel => '¿Cómo quieres registrarte?';
+
+  @override
+  String get spinnerMessage => 'Espere ...';
+
+  @override
+  String get unexpectedError => 'Algo malo paso. Vuelva a intentarlo pronto';
 
   @override
   String get welcomeCardMenssage => 'Usa nuestro Mapa de Ubicación y encuentra mensajeros de acuerdo a tu demanda';

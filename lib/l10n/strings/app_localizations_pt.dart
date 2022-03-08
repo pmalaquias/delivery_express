@@ -26,6 +26,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get email => 'E-mail';
 
   @override
+  String get emailInUseError => 'E-mail já em uso';
+
+  @override
   String get forgotPasswordButton => 'Clique aqui';
 
   @override
@@ -33,6 +36,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get helloWorld => 'Olá mundo!!';
+
+  @override
+  String get invalidCredentialsError => 'Credenciais inválidas';
+
+  @override
+  String get invalidFieldError => 'Campo inválido';
 
   @override
   String get loginButton => 'Entrar';
@@ -44,6 +53,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get password => 'Senha';
 
   @override
+  String get requiredFieldError => 'Campo Obrigatório';
+
+  @override
   String get signUpButton => 'Registrar';
 
   @override
@@ -51,6 +63,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get signupPopUpLabel => 'Como você deseja se cadastrar?';
+
+  @override
+  String get spinnerMessage => 'Aguarde ...';
+
+  @override
+  String get unexpectedError => 'Algo de errado aconteceu. Por favor tente novamente em breve';
 
   @override
   String get welcomeCardMenssage => 'Utiliza o nosso Mapa de Localização e encontre encontre entregadores de acordo com a sua demanda';
