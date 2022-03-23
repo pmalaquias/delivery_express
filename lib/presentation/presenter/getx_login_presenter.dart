@@ -80,20 +80,16 @@ class GetxLoginPresenter extends GetxController implements LoginPresenter {
 
   @override
   void goToSignUp() {
-    // TODO: implement goToSignUp
-    print('tido do login ${_loginType.value}');
-
     if (_loginType.value == 1) {
-      navigateTo = '/signup_deleveryman';
+      navigateTo = '/signup/deleveryman';
     } else if (_loginType.value == 2) {
-      navigateTo = '/signup_clent';
+      navigateTo = '/signup/client';
     }
   }
 
   @override
   void selectTypeSignUp(int type) {
     _loginType.value = type;
-    print('tipo: ${_loginType.value}');
   }
 
   @override
