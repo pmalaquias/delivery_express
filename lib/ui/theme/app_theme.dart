@@ -30,6 +30,7 @@ mixin AppTheme {
         scaffoldBackgroundColor: colorScheme.background,
         textTheme: AppTextTheme.montserratTextTheme,
         toggleableActiveColor: AppColors.primaryRed,
+        useMaterial3: true,
       );
 
   static const ColorScheme lightColorScheme = ColorScheme(
