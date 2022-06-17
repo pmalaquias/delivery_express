@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class VehicleDataView extends StatefulWidget {
   final PageController controller;
@@ -91,13 +92,12 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                       child: Card(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            //TODO: Colocar icones dos veiculos
-                            Icon(
-                              Icons.drive_eta,
-                              color: Colors.black,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/car.svg',
+                              width: 50,
                             ),
-                            Text('Carro'),
+                            const Text('Carro'),
                           ],
                         ),
                       ),
@@ -108,12 +108,12 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                       child: Card(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.drive_eta,
-                              color: Colors.black,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/pickup_truck.svg',
+                              width: 50,
                             ),
-                            Text('Caminhoneta'),
+                            const Text('Caminhoneta'),
                           ],
                         ),
                       ),
@@ -124,12 +124,12 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                       child: Card(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.drive_eta,
-                              color: Colors.black,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/truck.svg',
+                              width: 50,
                             ),
-                            Text('Caminhão'),
+                            const Text('Caminhão'),
                           ],
                         ),
                       ),
@@ -145,12 +145,12 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                       child: Card(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.drive_eta,
-                              color: Colors.black,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/motorcycle.svg',
+                              width: 50,
                             ),
-                            Text('Motocicleta'),
+                            const Text('Motocicleta'),
                           ],
                         ),
                       ),
@@ -161,12 +161,12 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                       child: Card(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.drive_eta,
-                              color: Colors.black,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/bicycle.svg',
+                              width: 50,
                             ),
-                            Text('Bicicleta'),
+                            const Text('Bicicleta'),
                           ],
                         ),
                       ),
@@ -177,12 +177,12 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                       child: Card(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Icon(
-                              Icons.drive_eta,
-                              color: Colors.black,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/other_vehicle.svg',
+                              width: 50,
                             ),
-                            Text('Outro'),
+                            const Text('Outro'),
                           ],
                         ),
                       ),
