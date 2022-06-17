@@ -45,6 +45,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
               builder: (context) {
                 return AlertDialog(
                   content: BlockPicker(
+                    useInShowDialog: true,
                     pickerColor: Colors.white,
                     onColorChanged: (color) {
                       setState(() => _currentColor = color);
@@ -91,6 +92,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
+                            //TODO: Colocar icones dos veiculos
                             Icon(
                               Icons.drive_eta,
                               color: Colors.black,
@@ -111,7 +113,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               Icons.drive_eta,
                               color: Colors.black,
                             ),
-                            Text('Carro'),
+                            Text('Caminhoneta'),
                           ],
                         ),
                       ),
@@ -127,7 +129,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               Icons.drive_eta,
                               color: Colors.black,
                             ),
-                            Text('Carro'),
+                            Text('Caminhão'),
                           ],
                         ),
                       ),
@@ -148,7 +150,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               Icons.drive_eta,
                               color: Colors.black,
                             ),
-                            Text('Carro'),
+                            Text('Motocicleta'),
                           ],
                         ),
                       ),
@@ -164,7 +166,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               Icons.drive_eta,
                               color: Colors.black,
                             ),
-                            Text('Carro'),
+                            Text('Bicicleta'),
                           ],
                         ),
                       ),
@@ -180,7 +182,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               Icons.drive_eta,
                               color: Colors.black,
                             ),
-                            Text('Carro'),
+                            Text('Outro'),
                           ],
                         ),
                       ),
@@ -196,6 +198,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
               ),
             ),
             //TODO: Colocar a cor do veiculo
+            const SizedBox(height: 8),
             buildColorPicker(context),
             TextFormField(
               decoration: const InputDecoration(

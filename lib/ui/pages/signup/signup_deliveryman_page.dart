@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'views/views.dart';
+
 class SignUpDeliveryMan extends StatefulWidget {
   const SignUpDeliveryMan({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class _SignUpDeliveryManState extends State<SignUpDeliveryMan> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastrar Cliente'),
+        title: const Text('Cadastrar Entregador'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -26,12 +28,12 @@ class _SignUpDeliveryManState extends State<SignUpDeliveryMan> {
               child: PageView(
                 physics: const NeverScrollableScrollPhysics(),
                 controller: controller,
-                children: const [
-                  //TODO: add PersonalDataView(),
-                  //TODO: add AccessDataView(),
-                  //TODO: add AddressDataView(),
-                  //TODO: add VehicleDataView(),
-                  //TODO: add BankDataView(),
+                children: [
+                  PersonalDataView(controller: controller),
+                  AccessDataView(controller: controller),
+                  AddressDataView(controller: controller),
+                  VehicleDataView(controller: controller),
+                  BankDataDeliverymanView(controller: controller),
                 ],
               ),
             ),

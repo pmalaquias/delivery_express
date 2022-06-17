@@ -1,4 +1,7 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../api/estados.dart';
 
 class AddressDataView extends StatefulWidget {
   final PageController controller;
@@ -10,103 +13,92 @@ class AddressDataView extends StatefulWidget {
 
 class _AddressDataViewState extends State<AddressDataView> {
   int _currentSliderValue = 0;
-  String dropdownCityValue = 'Option 1';
-  String dropdownStateValue = 'Option 1';
+  String? dropdownCityValue;
+  String? dropdownStateValue;
 
   Widget buildStateOption() {
-    return DropdownButton(
-      hint: const Text('UF'),
-      value: dropdownStateValue,
-      items: const [
-        DropdownMenuItem(
-          value: 'Option 1',
-          child: Text('Option 1'),
+    return DropdownButtonHideUnderline(
+      child: DropdownButton2(
+        hint: Text(
+          'UF',
+          style: TextStyle(
+            fontSize: 14,
+            color: Theme.of(context).hintColor,
+          ),
         ),
-        DropdownMenuItem(
-          value: 'Option 2',
-          child: Text('Option 2'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 3',
-          child: Text('Option 3'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 4',
-          child: Text('Option 4'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 5',
-          child: Text('Option 5'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 6',
-          child: Text('Option 6'),
-        ),
-      ],
-      onChanged: (value) {
-        setState(() {
-          dropdownStateValue = value as String;
-        });
-      },
+        items: estados
+            .map((item) => DropdownMenuItem<String>(
+                  value: item['nome'],
+                  child: Text(
+                    item['nome'],
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ))
+            .toList(),
+        value: dropdownStateValue,
+        onChanged: (value) {
+          setState(() {
+            dropdownStateValue = value as String;
+          });
+        },
+        buttonHeight: 40,
+        buttonWidth: 140,
+        itemHeight: 40,
+      ),
     );
   }
 
   Widget buildCityOption() {
-    return DropdownButton(
-      hint: const Text('Cidade'),
-      value: dropdownCityValue,
-      items: const [
-        DropdownMenuItem(
-          value: 'Option 1',
-          child: Text('Option 1'),
+    return DropdownButtonHideUnderline(
+      child: DropdownButton2(
+        hint: Text(
+          'Select Item',
+          style: TextStyle(
+            fontSize: 14,
+            color: Theme.of(context).hintColor,
+          ),
         ),
-        DropdownMenuItem(
-          value: 'Option 2',
-          child: Text('Option 2'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 3',
-          child: Text('Option 3'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 4',
-          child: Text('Option 4'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 5',
-          child: Text('Option 5'),
-        ),
-        DropdownMenuItem(
-          value: 'Option 6',
-          child: Text('Option 6'),
-        ),
-      ],
-      onChanged: (value) {
-        setState(() {
-          dropdownCityValue = value as String;
-        });
-      },
+        items: estados
+            .map((item) => DropdownMenuItem<String>(
+                  value: item['nome'],
+                  child: Text(
+                    item['nome'],
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ))
+            .toList(),
+        onChanged: (value) {
+          setState(() {
+            dropdownCityValue = value as String;
+          });
+        },
+        buttonHeight: 40,
+        buttonWidth: 140,
+        itemHeight: 40,
+      ),
     );
   }
 
-  Widget buildQuantityField() {
+  Widget buildDistanceOnTheMap() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
             const Text(
-              'Quantity',
+              'Distância máxima de exbição no mapa',
             ),
             const SizedBox(width: 16),
             Text(
-              _currentSliderValue.toInt().toString(),
+              '${_currentSliderValue.toInt().toString()} km',
             ),
           ],
         ),
         Slider(
-          //inactiveColor: _currentColor.withOpacity(0.5),
-          //activeColor: _currentColor,
           min: 0.0,
           max: 100.0,
           divisions: 100,
@@ -167,8 +159,10 @@ class _AddressDataViewState extends State<AddressDataView> {
               keyboardType: TextInputType.none,
             ),
             buildStateOption(),
-            buildCityOption(),
-            buildQuantityField(),
+            const SizedBox(height: 8),
+            //TODO: Biuld City
+            const SizedBox(height: 8),
+            buildDistanceOnTheMap(),
           ],
         ),
         Row(

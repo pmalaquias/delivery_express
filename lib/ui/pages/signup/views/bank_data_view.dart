@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../../theme/theme.dart';
-
-class BankDataView extends StatefulWidget {
+class BankDataDeliverymanView extends StatefulWidget {
   final PageController controller;
 
-  const BankDataView({Key? key, required this.controller}) : super(key: key);
+  const BankDataDeliverymanView({Key? key, required this.controller}) : super(key: key);
 
   @override
-  State<BankDataView> createState() => _BankDataViewState();
+  State<BankDataDeliverymanView> createState() => _BankDataDeliverymanViewState();
 }
 
-class _BankDataViewState extends State<BankDataView> {
+class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> {
   bool valueSwitch = false;
   bool valueCheckbox = false;
   @override
@@ -28,9 +26,10 @@ class _BankDataViewState extends State<BankDataView> {
             ListTile(
               title: const Text(
                 'Os dados pessoais e de endereço do beneficiário são os mesmos informados anteriormente.',
+                style: TextStyle(fontSize: 12),
               ),
               leading: Switch(
-                  activeColor: AppColors.primaryRed,
+                  //activeColor: AppColors.primaryRed,
                   value: valueSwitch,
                   onChanged: (value) {
                     setState(() {
@@ -38,10 +37,31 @@ class _BankDataViewState extends State<BankDataView> {
                     });
                   }),
             ),
-            //TODO: Nome do banco
-            // TODO: Tipo de conta
-            //TODO: agencia
-            //TODO: Número da conta
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Nome do Banco',
+                label: Text('Nome do Banco'),
+              ),
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Tipo de Conta',
+                label: Text('Tipo de Conta'),
+              ),
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Agência',
+                label: Text('Agência'),
+              ),
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Número da Conta',
+                label: Text('Número da Conta'),
+              ),
+            ),
+            const SizedBox(height: 8),
             const Text(
               'Você poderá alterar os dados para recebimento posteriormente nas Configurações do aplicativo.',
               textAlign: TextAlign.center,
@@ -50,7 +70,6 @@ class _BankDataViewState extends State<BankDataView> {
             Row(
               children: [
                 Checkbox(
-                  activeColor: AppColors.primaryRed,
                   value: valueCheckbox,
                   onChanged: (bool? value) {
                     setState(() {
