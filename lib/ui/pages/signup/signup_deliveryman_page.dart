@@ -29,7 +29,7 @@ class _SignUpDeliveryManState extends State<SignUpDeliveryMan> {
                 physics: const NeverScrollableScrollPhysics(),
                 controller: controller,
                 children: [
-                  PersonalDataView(controller: controller),
+                  PersonalDataDeliverymanView(controller: controller),
                   AccessDataView(controller: controller),
                   AddressDataView(controller: controller),
                   VehicleDataView(controller: controller),

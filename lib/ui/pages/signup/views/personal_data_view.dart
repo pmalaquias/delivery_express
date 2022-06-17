@@ -3,16 +3,16 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../theme/theme.dart';
 
-class PersonalDataView extends StatefulWidget {
+class PersonalDataDeliverymanView extends StatefulWidget {
   final PageController controller;
 
-  const PersonalDataView({Key? key, required this.controller}) : super(key: key);
+  const PersonalDataDeliverymanView({Key? key, required this.controller}) : super(key: key);
 
   @override
-  State<PersonalDataView> createState() => _PersonalDataViewState();
+  State<PersonalDataDeliverymanView> createState() => _PersonalDataDeliverymanViewState();
 }
 
-class _PersonalDataViewState extends State<PersonalDataView> {
+class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanView> {
   var cpfMaskFormatter = MaskTextInputFormatter(
     mask: '###.###.###-##',
     filter: {"#": RegExp(r'[0-9]')},
