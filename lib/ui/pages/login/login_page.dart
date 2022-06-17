@@ -61,7 +61,10 @@ class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingMana
                       children: [
                         Image.asset(Images.logoApp),
                         Card(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
                           elevation: 8,
                           margin: const EdgeInsets.all(8),
                           child: Padding(
@@ -129,36 +132,3 @@ class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingMana
     );
   }
 }
-
-/*  StreamBuilder<UIError>(
-                                    stream: widget.presenter.passwordErrorStream,
-                                    builder: (context, snapshot) {
-                                      return TextFormField(
-                                        controller: _passwordTextController,
-                                        decoration: InputDecoration(
-                                          hintText: AppLocalizations.of(context)!.password,
-                                          label: Text(AppLocalizations.of(context)!.password),
-                                          errorText: snapshot.hasData && snapshot.data != UIError.NO_ERROR
-                                              ? snapshot.data?.desscription
-                                              : null,
-                                          suffixIcon: IconButton(
-                                            focusColor: AppColors.primaryRed,
-                                            icon: Icon(visibilityIcon),
-                                            onPressed: () {
-                                              setState(() {
-                                                if (visibilityPassword == true) {
-                                                  visibilityPassword = false;
-                                                  visibilityIcon = Icons.visibility_off;
-                                                } else {
-                                                  visibilityPassword = true;
-                                                  visibilityIcon = Icons.visibility;
-                                                }
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        obscureText: visibilityPassword,
-                                        validator: (value) => Validator.validatePassword(password: value!),
-                                        onChanged: widget.presenter.validatePassword,
-                                      );
-                                    }), */
