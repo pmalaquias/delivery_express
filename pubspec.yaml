@@ -58,6 +58,7 @@ flutter:
           weight: 600
         - asset: lib/ui/assets/fonts/Montserrat-Bold.ttf
           weight: 700
+        - asset: lib/ui/assets/fonts/quick-express/QuickExpress.ttf
 
 flutter_icons:
   ios: true
