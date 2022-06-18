@@ -61,11 +61,10 @@ flutter:
         - asset: lib/ui/assets/fonts/quick-express/QuickExpress.ttf
 
 flutter_icons:
-  ios: true
   android: true
-  image_path_android: assets/logo/DeliveyExpressLogo.png
-  image_path_ios: assets/logo/DeliveyExpressLogo.png
+  image_path: "lib/ui/assets/images/png/delivery.png"
+  image_path_android: "lib/ui/assets/images/png/delivery.png"
   adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: assets/logo/DeliveyExpressLogoForeground.png
+  adaptive_icon_foreground: "lib/ui/assets/images/png/delivery.png"
 # flutter_intl:
 #   enabled: true
