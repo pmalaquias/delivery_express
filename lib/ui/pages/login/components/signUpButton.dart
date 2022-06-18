@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
-import '../login.dart';
+import '../../pages.dart';
 
 class SignUpButton extends StatelessWidget {
   final LoginPresenter presenter;
@@ -53,7 +53,14 @@ class SignUpButton extends StatelessWidget {
                   ),
                   actions: [
                     TextButton(
-                      onPressed: presenter.goToSignUp,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpClientPage(),
+                          ),
+                        );
+                      },
                       child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
                     ),
                   ],

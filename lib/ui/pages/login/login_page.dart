@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../components/components.dart';
 import '../../mixins/mixins.dart';
 import '../../utils/images.dart' show Images;
 import 'login.dart';
@@ -59,7 +60,7 @@ class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingMana
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Image.asset(Images.logoApp),
+                        const AppLogo(),
                         Card(
                           color: Colors.white,
                           shape: RoundedRectangleBorder(

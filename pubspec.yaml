@@ -58,6 +58,8 @@ flutter:
           weight: 600
         - asset: lib/ui/assets/fonts/Montserrat-Bold.ttf
           weight: 700
+    - family: QuickExpress
+      fonts:
         - asset: lib/ui/assets/fonts/quick-express/QuickExpress.ttf
 
 flutter_icons:
