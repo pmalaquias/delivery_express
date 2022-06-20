@@ -23,35 +23,14 @@ class SignUpButton extends StatelessWidget {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  content: SizedBox(
-                    height: 250,
-                    //color: Colors.white,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          onPressed: () => Navigator.pop(context),
-                          icon: const Icon(
-                            Icons.close,
-                            //color: Colors.black,
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text(
-                              AppLocalizations.of(context)!.signupPopUpLabel,
-                              style: const TextStyle(fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(height: 24),
-                            RadioButtonCustom(presenter: presenter),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  title: Text(AppLocalizations.of(context)!.signupPopUpLabel),
+                  content: RadioButtonCustom(presenter: presenter),
+                  scrollable: true,
                   actions: [
+                    TextButton(
+                      onPressed: () => Navigator.canPop(context),
+                      child: Text(AppLocalizations.of(context)!.cancelButton.toUpperCase()),
+                    ),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
