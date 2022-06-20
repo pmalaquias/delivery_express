@@ -34,7 +34,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
         Column(
           children: [
             Text(
-              'Dados Pessoais',
+              AppLocalizations.of(context)!.personalData,
               style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 32),
@@ -57,17 +57,17 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
             const SizedBox(height: 16),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
-                hintText: 'Nome Completo',
-                label: Text('Nome Completo'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.fullName,
+                label: Text(AppLocalizations.of(context)!.fullName),
               ),
               keyboardType: TextInputType.name,
             ),
             const SizedBox(height: 8),
             TextFormField(
-              decoration: const InputDecoration(
-                hintText: '15/01/200',
-                label: Text('Data de Nascimento'),
+              decoration: InputDecoration(
+                hintText: '15/01/2000',
+                label: Text(AppLocalizations.of(context)!.birthDate),
               ),
               keyboardType: TextInputType.datetime,
               inputFormatters: [MaskTextInputFormatter(mask: "##/##/####")],
@@ -87,23 +87,23 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                     }
                   }
                 }
-                return "wrong date";
+                return AppLocalizations.of(context)!.wrongDate;
               },
             ),
             const SizedBox(height: 8),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '999.999.999-99',
-                label: Text('CPF'),
+                label: Text(AppLocalizations.of(context)!.cpf),
               ),
               keyboardType: TextInputType.name,
               inputFormatters: [cpfMaskFormatter],
             ),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '(00) 0 0000-0000',
-                label: Text('Celular'),
+                label: Text(AppLocalizations.of(context)!.phoneNumber),
               ),
               keyboardType: TextInputType.phone,
               inputFormatters: [cellPhoneMaskFormatter],
@@ -119,7 +119,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                   Navigator.canPop(context);
                 }
               },
-              child: const Text('CANCELAR'),
+              child: Text(AppLocalizations.of(context)!.cancelButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -130,7 +130,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                   );
                 });
               },
-              child: const Text('CONTINUAR'),
+              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
             ),
           ],
         ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../l10n/strings/app_localizations.dart';
+
 class VehicleDataView extends StatefulWidget {
   final PageController controller;
   const VehicleDataView({Key? key, required this.controller}) : super(key: key);
@@ -33,13 +35,13 @@ class _VehicleDataViewState extends State<VehicleDataView> {
               color: _currentColor,
             ),
             const SizedBox(width: 8),
-            const Text(
-              'Color',
+            Text(
+              AppLocalizations.of(context)!.vehicleColor,
             ),
           ],
         ),
         TextButton(
-          child: const Text('Select'),
+          child: Text(AppLocalizations.of(context)!.selectButton),
           onPressed: () {
             showDialog(
               context: context,
@@ -54,7 +56,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                   ),
                   actions: [
                     TextButton(
-                      child: const Text('Save'),
+                      child: Text(AppLocalizations.of(context)!.saveButton),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -77,10 +79,10 @@ class _VehicleDataViewState extends State<VehicleDataView> {
         Column(
           children: [
             Text(
-              'Dados do Veículo',
+              AppLocalizations.of(context)!.vehicleData,
               style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
             ),
-            const Text('Tipo do Veiculo'),
+            Text(AppLocalizations.of(context)!.vehicleType),
             Column(
               children: [
                 Row(
@@ -97,7 +99,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               'lib/ui/assets/images/svg/car.svg',
                               width: 50,
                             ),
-                            const Text('Carro'),
+                            Text(AppLocalizations.of(context)!.vehicleCar),
                           ],
                         ),
                       ),
@@ -113,7 +115,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               'lib/ui/assets/images/svg/pickup_truck.svg',
                               width: 50,
                             ),
-                            const Text('Caminhoneta'),
+                            Text(AppLocalizations.of(context)!.vehiclePickupTruck),
                           ],
                         ),
                       ),
@@ -129,7 +131,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               'lib/ui/assets/images/svg/truck.svg',
                               width: 50,
                             ),
-                            const Text('Caminhão'),
+                            Text(AppLocalizations.of(context)!.vehicleTruck),
                           ],
                         ),
                       ),
@@ -150,7 +152,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               'lib/ui/assets/images/svg/motorcycle.svg',
                               width: 50,
                             ),
-                            const Text('Motocicleta'),
+                            Text(AppLocalizations.of(context)!.vehicleMotorcycle),
                           ],
                         ),
                       ),
@@ -166,7 +168,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               'lib/ui/assets/images/svg/bicycle.svg',
                               width: 50,
                             ),
-                            const Text('Bicicleta'),
+                            Text(AppLocalizations.of(context)!.vehicleBicycle),
                           ],
                         ),
                       ),
@@ -182,7 +184,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               'lib/ui/assets/images/svg/other_vehicle.svg',
                               width: 50,
                             ),
-                            const Text('Outro'),
+                            Text(AppLocalizations.of(context)!.vehicleOther),
                           ],
                         ),
                       ),
@@ -192,18 +194,18 @@ class _VehicleDataViewState extends State<VehicleDataView> {
               ],
             ),
             TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Modelo',
-                label: Text('Modelo'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.vehicleModel,
+                label: Text(AppLocalizations.of(context)!.vehicleModel),
               ),
             ),
             //TODO: Colocar a cor do veiculo
             const SizedBox(height: 8),
             buildColorPicker(context),
             TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Placa',
-                label: Text('Placa'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.licensePlate,
+                label: Text(AppLocalizations.of(context)!.licensePlate),
               ),
             ),
           ],
@@ -220,7 +222,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                   );
                 });
               },
-              child: const Text('VOLTAR'),
+              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -231,7 +233,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                   );
                 });
               },
-              child: const Text('CONTINUAR'),
+              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
             ),
           ],
         ),

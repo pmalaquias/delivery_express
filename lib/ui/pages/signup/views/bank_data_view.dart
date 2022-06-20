@@ -21,74 +21,81 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
-          children: [
-            Text(
-              'Dados para recebimento',
-              style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
-            ),
-            ListTile(
-              title: const Text(
-                'Os dados pessoais e de endereço do beneficiário são os mesmos informados anteriormente.',
-                style: TextStyle(fontSize: 12),
-              ),
-              leading: Switch(
-                  //activeColor: AppColors.primaryRed,
-                  value: valueSwitch,
-                  onChanged: (value) {
-                    setState(() {
-                      valueSwitch = value;
-                    });
-                  }),
-            ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Nome do Banco',
-                label: Text('Nome do Banco'),
-              ),
-            ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Tipo de Conta',
-                label: Text('Tipo de Conta'),
-              ),
-            ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Agência',
-                label: Text('Agência'),
-              ),
-            ),
-            TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Número da Conta',
-                label: Text('Número da Conta'),
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Você poderá alterar os dados para recebimento posteriormente nas Configurações do aplicativo.',
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Checkbox(
-                  value: valueCheckbox,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      valueCheckbox = value!;
-                    });
-                  },
-                ),
-                const Expanded(
-                  child: Text(
-                    'Concordo com os Termos de Uso, Política de Privacidade e Política do Uso de Dados de localização utilizados pelo aplicativo Delivery Express disponíveis aqui.',
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.dataForReceipt,
+                    style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  ListTile(
+                    title: Text(
+                      AppLocalizations.of(context)!.confirmPreviouslyUsedData,
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                    leading: Switch(
+                        //activeColor: AppColors.primaryRed,
+                        value: valueSwitch,
+                        onChanged: (value) {
+                          setState(() {
+                            valueSwitch = value;
+                          });
+                        }),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.bankName,
+                      label: Text(AppLocalizations.of(context)!.bankName),
+                    ),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.accontType,
+                      label: Text(AppLocalizations.of(context)!.accontType),
+                    ),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.bankBranch,
+                      label: Text(AppLocalizations.of(context)!.bankBranch),
+                    ),
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.accountNumber,
+                      label: Text(AppLocalizations.of(context)!.accountNumber),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    AppLocalizations.of(context)!.changeReceiptData,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                    value: valueCheckbox,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        valueCheckbox = value!;
+                      });
+                    },
+                  ),
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context)!.termsOfUseReceiptData,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,7 +109,7 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> {
                   );
                 });
               },
-              child: const Text('VOLTAR'),
+              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -113,7 +120,7 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> {
                   );
                 });
               },
-              child: const Text('CONTINUAR'),
+              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
             ),
           ],
         ),
