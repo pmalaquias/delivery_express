@@ -102,6 +102,18 @@ abstract class AppLocalizations {
   /// **'Access Data'**
   String get accessData;
 
+  /// No description provided for @accontType.
+  ///
+  /// In en, this message translates to:
+  /// **'Accont Type'**
+  String get accontType;
+
+  /// No description provided for @accountNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Number'**
+  String get accountNumber;
+
   /// No description provided for @addressData.
   ///
   /// In en, this message translates to:
@@ -113,6 +125,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back'**
   String get backButton;
+
+  /// No description provided for @bankBranch.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank Branch'**
+  String get bankBranch;
+
+  /// No description provided for @bankName.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank Name'**
+  String get bankName;
 
   /// No description provided for @birthDate.
   ///
@@ -137,6 +161,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Card Number'**
   String get cardNumber;
+
+  /// No description provided for @changeReceiptData.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change the data to receive later in the app\'s Settings.'**
+  String get changeReceiptData;
 
   /// No description provided for @clientLabel.
   ///
@@ -330,6 +360,12 @@ abstract class AppLocalizations {
   /// **'Invalid Field'**
   String get invalidFieldError;
 
+  /// No description provided for @licensePlate.
+  ///
+  /// In en, this message translates to:
+  /// **'License Plate'**
+  String get licensePlate;
+
   /// No description provided for @loginButton.
   ///
   /// In en, this message translates to:
@@ -384,11 +420,29 @@ abstract class AppLocalizations {
   /// **'Register Client '**
   String get registerClient;
 
+  /// No description provided for @registerDeliveryPerson.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Delivery Person'**
+  String get registerDeliveryPerson;
+
   /// No description provided for @requiredFieldError.
   ///
   /// In en, this message translates to:
   /// **'Required field'**
   String get requiredFieldError;
+
+  /// No description provided for @saveButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get saveButton;
+
+  /// No description provided for @selectButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Select'**
+  String get selectButton;
 
   /// No description provided for @signUpButton.
   ///
@@ -431,6 +485,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something wrong happened. Please try again soon'**
   String get unexpectedError;
+
+  /// No description provided for @vehicleBicycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bicycle'**
+  String get vehicleBicycle;
+
+  /// No description provided for @vehicleCar.
+  ///
+  /// In en, this message translates to:
+  /// **'Car'**
+  String get vehicleCar;
+
+  /// No description provided for @vehicleColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Color'**
+  String get vehicleColor;
+
+  /// No description provided for @vehicleData.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Data'**
+  String get vehicleData;
+
+  /// No description provided for @vehicleModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Model '**
+  String get vehicleModel;
+
+  /// No description provided for @vehicleMotorcycle.
+  ///
+  /// In en, this message translates to:
+  /// **'Motorcycle'**
+  String get vehicleMotorcycle;
+
+  /// No description provided for @vehicleOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get vehicleOther;
+
+  /// No description provided for @vehiclePickupTruck.
+  ///
+  /// In en, this message translates to:
+  /// **'Pickup Truck'**
+  String get vehiclePickupTruck;
+
+  /// No description provided for @vehicleTruck.
+  ///
+  /// In en, this message translates to:
+  /// **'Truck'**
+  String get vehicleTruck;
+
+  /// No description provided for @vehicleType.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle Type'**
+  String get vehicleType;
 
   /// No description provided for @welcomeCardMenssage.
   ///

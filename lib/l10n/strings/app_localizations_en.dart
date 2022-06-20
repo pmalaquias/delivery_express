@@ -11,10 +11,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get accessData => 'Access Data';
 
   @override
+  String get accontType => 'Accont Type';
+
+  @override
+  String get accountNumber => 'Account Number';
+
+  @override
   String get addressData => 'Address Data';
 
   @override
   String get backButton => 'Back';
+
+  @override
+  String get bankBranch => 'Bank Branch';
+
+  @override
+  String get bankName => 'Bank Name';
 
   @override
   String get birthDate => 'Birth Date ';
@@ -27,6 +39,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cardNumber => 'Card Number';
+
+  @override
+  String get changeReceiptData => 'You can change the data to receive later in the app\'s Settings.';
 
   @override
   String get clientLabel => 'Client';
@@ -125,6 +140,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invalidFieldError => 'Invalid Field';
 
   @override
+  String get licensePlate => 'License Plate';
+
+  @override
   String get loginButton => 'Login';
 
   @override
@@ -152,7 +170,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get registerClient => 'Register Client ';
 
   @override
+  String get registerDeliveryPerson => 'Register Delivery Person';
+
+  @override
   String get requiredFieldError => 'Required field';
+
+  @override
+  String get saveButton => 'Save';
+
+  @override
+  String get selectButton => 'Select';
 
   @override
   String get signUpButton => 'Sign Up';
@@ -174,6 +201,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unexpectedError => 'Something wrong happened. Please try again soon';
+
+  @override
+  String get vehicleBicycle => 'Bicycle';
+
+  @override
+  String get vehicleCar => 'Car';
+
+  @override
+  String get vehicleColor => 'Vehicle Color';
+
+  @override
+  String get vehicleData => 'Vehicle Data';
+
+  @override
+  String get vehicleModel => 'Vehicle Model ';
+
+  @override
+  String get vehicleMotorcycle => 'Motorcycle';
+
+  @override
+  String get vehicleOther => 'Other';
+
+  @override
+  String get vehiclePickupTruck => 'Pickup Truck';
+
+  @override
+  String get vehicleTruck => 'Truck';
+
+  @override
+  String get vehicleType => 'Vehicle Type';
 
   @override
   String get welcomeCardMenssage => 'Use our Location Map and find couriers according to your demand';
