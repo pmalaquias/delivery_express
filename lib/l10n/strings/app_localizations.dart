@@ -96,6 +96,48 @@ abstract class AppLocalizations {
     Locale('pt')
   ];
 
+  /// No description provided for @accessData.
+  ///
+  /// In en, this message translates to:
+  /// **'Access Data'**
+  String get accessData;
+
+  /// No description provided for @addressData.
+  ///
+  /// In en, this message translates to:
+  /// **'Address Data'**
+  String get addressData;
+
+  /// No description provided for @backButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get backButton;
+
+  /// No description provided for @birthDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth Date '**
+  String get birthDate;
+
+  /// No description provided for @cancelButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelButton;
+
+  /// No description provided for @cardDataInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change the data to receive later in the app\'s Settings.'**
+  String get cardDataInformation;
+
+  /// No description provided for @cardNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Card Number'**
+  String get cardNumber;
+
   /// No description provided for @clientLabel.
   ///
   /// In en, this message translates to:
@@ -108,17 +150,113 @@ abstract class AppLocalizations {
   /// **'I have a business and I\'m looking for delivery guys'**
   String get clientText;
 
+  /// No description provided for @commercialName.
+  ///
+  /// In en, this message translates to:
+  /// **'Commercial Name'**
+  String get commercialName;
+
+  /// No description provided for @complement.
+  ///
+  /// In en, this message translates to:
+  /// **'Complement'**
+  String get complement;
+
+  /// No description provided for @confirmEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm E-mail'**
+  String get confirmEmail;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @confirmPreviouslyUsedData.
+  ///
+  /// In en, this message translates to:
+  /// **'The beneficiary\'s personal and address data are the same as previously informed.'**
+  String get confirmPreviouslyUsedData;
+
   /// No description provided for @continueButton.
   ///
   /// In en, this message translates to:
   /// **'Continue'**
   String get continueButton;
 
+  /// No description provided for @cpf.
+  ///
+  /// In en, this message translates to:
+  /// **'CPF'**
+  String get cpf;
+
+  /// No description provided for @dataForReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Data for Receipt'**
+  String get dataForReceipt;
+
   /// No description provided for @deleverymanLabel.
   ///
   /// In en, this message translates to:
   /// **'Deliveryman'**
   String get deleverymanLabel;
+
+  /// No description provided for @deliveryClothing.
+  ///
+  /// In en, this message translates to:
+  /// **'Clothing'**
+  String get deliveryClothing;
+
+  /// No description provided for @deliveryData.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery Data'**
+  String get deliveryData;
+
+  /// No description provided for @deliveryDataMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the main types of delivery you need to carry out. You can change them later in the app\'s Settings'**
+  String get deliveryDataMessage;
+
+  /// No description provided for @deliveryDocuments.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get deliveryDocuments;
+
+  /// No description provided for @deliveryFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Food'**
+  String get deliveryFood;
+
+  /// No description provided for @deliveryFragileOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Fragile Order'**
+  String get deliveryFragileOrder;
+
+  /// No description provided for @deliveryHeavyOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Heavy Order'**
+  String get deliveryHeavyOrder;
+
+  /// No description provided for @deliveryOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get deliveryOther;
+
+  /// No description provided for @deliveryType.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery Type'**
+  String get deliveryType;
 
   /// No description provided for @deliverymanText.
   ///
@@ -138,6 +276,18 @@ abstract class AppLocalizations {
   /// **'E-mail in use'**
   String get emailInUseError;
 
+  /// No description provided for @expiryMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'expiry month'**
+  String get expiryMonth;
+
+  /// No description provided for @expiryYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry year'**
+  String get expiryYear;
+
   /// No description provided for @forgotPasswordButton.
   ///
   /// In en, this message translates to:
@@ -150,11 +300,23 @@ abstract class AppLocalizations {
   /// **'Forgot your password?'**
   String get forgotPasswordMenssage;
 
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
   /// The conventional newborn programmer greeting
   ///
   /// In en, this message translates to:
   /// **'Hello World!'**
   String get helloWorld;
+
+  /// No description provided for @homeAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Address'**
+  String get homeAddress;
 
   /// No description provided for @invalidCredentialsError.
   ///
@@ -180,11 +342,47 @@ abstract class AppLocalizations {
   /// **'Please login to continue'**
   String get loginMenssage;
 
+  /// No description provided for @maximumDisplayDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum display distance on the map'**
+  String get maximumDisplayDistance;
+
+  /// No description provided for @neighborhood.
+  ///
+  /// In en, this message translates to:
+  /// **'Neighborhood'**
+  String get neighborhood;
+
+  /// No description provided for @number.
+  ///
+  /// In en, this message translates to:
+  /// **'Number'**
+  String get number;
+
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
   /// **'Password'**
   String get password;
+
+  /// No description provided for @personalData.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Data'**
+  String get personalData;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @registerClient.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Client '**
+  String get registerClient;
 
   /// No description provided for @requiredFieldError.
   ///
@@ -216,6 +414,18 @@ abstract class AppLocalizations {
   /// **'Wait ...'**
   String get spinnerMessage;
 
+  /// No description provided for @state.
+  ///
+  /// In en, this message translates to:
+  /// **'State'**
+  String get state;
+
+  /// No description provided for @termsOfUseReceiptData.
+  ///
+  /// In en, this message translates to:
+  /// **'I agree with the Terms of Use, Privacy Policy and Location Data Use Policy used by the Delivery Express application available here.'**
+  String get termsOfUseReceiptData;
+
   /// No description provided for @unexpectedError.
   ///
   /// In en, this message translates to:
@@ -233,6 +443,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Find delivery people in your area!'**
   String get welcomeCardTitle;
+
+  /// No description provided for @wrongDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong Date'**
+  String get wrongDate;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
