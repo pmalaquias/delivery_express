@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../../l10n/strings/app_localizations.dart';
+import '../../../mixins/mixins.dart' show InputMask;
 
 class BankDataDeliverymanView extends StatefulWidget {
   final PageController controller;
@@ -13,7 +13,7 @@ class BankDataDeliverymanView extends StatefulWidget {
   State<BankDataDeliverymanView> createState() => _BankDataDeliverymanViewState();
 }
 
-class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> {
+class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with InputMask {
   bool valueSwitch = false;
   bool valueCheckbox = false;
   @override
@@ -62,12 +62,14 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> {
                       hintText: AppLocalizations.of(context)!.bankBranch,
                       label: Text(AppLocalizations.of(context)!.bankBranch),
                     ),
+                    inputFormatters: [bankBranchMaskFormatter],
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                       hintText: AppLocalizations.of(context)!.accountNumber,
                       label: Text(AppLocalizations.of(context)!.accountNumber),
                     ),
+                    inputFormatters: [accountNumberMaskFormatter],
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -141,17 +143,11 @@ class BankDataClientView extends StatefulWidget {
   State<BankDataClientView> createState() => _BankDataClientViewState();
 }
 
-class _BankDataClientViewState extends State<BankDataClientView> {
+class _BankDataClientViewState extends State<BankDataClientView> with InputMask {
   bool valueSwitch = false;
   bool valueCheckbox = false;
   String? dropdownValueAno;
   String? dropdownValueMes;
-
-  MaskTextInputFormatter cardNumberMaskFormatter = MaskTextInputFormatter(
-    mask: '#### #### #### ####',
-    filter: {"#": RegExp(r'[0-9]')},
-    type: MaskAutoCompletionType.lazy,
-  );
 
   @override
   Widget build(BuildContext context) {
