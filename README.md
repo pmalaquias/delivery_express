@@ -1,28 +1,29 @@
 ![banner](/lib/ui/assets/images/png/BannerDeliveryExpress.png)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- # Delivery Express -->
 ---
+
 ## Table of Contents
 
 * [Description](#description)
 * [Project Status](#project-status)
 * [How to use](#how-to-used)
-  + [Prerequisites](#prerequisites)
-  +  How to clone code from GitHub
-  + [Project Installation](#project-installation)
-  + Running the project
+  * [Prerequisites](#prerequisites)
+  * How to clone code from GitHub
+  * [Project Installation](#project-installation)
+  * Running the project
 * Features
 * [Technologies](#technologies)
 * [Contributors](#contributors)
 * [Licenses](#licenses)
 
 ---
+
 ## Description
+
 Delivery Express is a mobile application that connects couriers (who own the vehicle and want to make deliveries) to customers (who have delivery demands and are looking for couriers to make them).
 
 ![flutter](https://img.shields.io/badge/Flutter-2.10.1-005598)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 
 ## Project Status
 
@@ -37,12 +38,10 @@ Delivery Express is a mobile application that connects couriers (who own the veh
 ### Running the project
 
 ### Internationalization
+
 ## Technologies
 
-
 ## Contributors
-
-## Licenses
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -56,3 +55,5 @@ Delivery Express is a mobile application that connects couriers (who own the veh
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## Licenses
