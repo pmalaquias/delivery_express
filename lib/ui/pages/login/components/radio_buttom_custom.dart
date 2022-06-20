@@ -16,7 +16,7 @@ class RadioButtonCustom extends StatefulWidget {
 class _RadioButtonCustomState extends State<RadioButtonCustom> {
   int value = 1;
 
-  Widget CustomRadioButton(String title, String text, int index) {
+  Widget customRadioButton(String title, String text, int index) {
     return StreamBuilder<Object>(
         stream: widget.presenter.signUpTypeStream,
         builder: (context, snapshot) {
@@ -30,7 +30,7 @@ class _RadioButtonCustomState extends State<RadioButtonCustom> {
             child: Card(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               elevation: (value == index) ? 4 : 0,
-              color: (value == index) ? AppColors.primaryRed : Colors.white,
+              color: (value == index) ? AppColors.primaryRed : Colors.white.withAlpha(200),
               child: SizedBox(
                 width: double.infinity,
                 height: 70,
@@ -64,12 +64,12 @@ class _RadioButtonCustomState extends State<RadioButtonCustom> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        CustomRadioButton(
+        customRadioButton(
           AppLocalizations.of(context)!.deleverymanLabel,
           AppLocalizations.of(context)!.deliverymanText,
           1,
         ),
-        CustomRadioButton(
+        customRadioButton(
           AppLocalizations.of(context)!.clientLabel,
           AppLocalizations.of(context)!.clientText,
           2,
