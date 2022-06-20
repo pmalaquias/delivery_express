@@ -23,9 +23,9 @@ class SignUpButton extends StatelessWidget {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  content: Container(
+                  content: SizedBox(
                     height: 250,
-                    color: Colors.white,
+                    //color: Colors.white,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -33,7 +33,7 @@ class SignUpButton extends StatelessWidget {
                           onPressed: () => Navigator.pop(context),
                           icon: const Icon(
                             Icons.close,
-                            color: Colors.black,
+                            //color: Colors.black,
                           ),
                         ),
                         Column(
@@ -57,7 +57,7 @@ class SignUpButton extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SignUpClientPage(),
+                            builder: (context) => const SignUpDeliveryMan(),
                           ),
                         );
                       },
