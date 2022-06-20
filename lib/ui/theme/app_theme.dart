@@ -48,7 +48,7 @@ mixin AppTheme {
   );
 
   static const ColorScheme darkColorScheme = ColorScheme(
-    background: AppColors.black,
+    background: AppColors.black2,
     brightness: Brightness.dark,
     error: AppColors.danger,
     onBackground: AppColors.background,
