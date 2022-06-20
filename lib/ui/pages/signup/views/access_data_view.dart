@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/strings/app_localizations.dart';
+
 class AccessDataView extends StatefulWidget {
   final PageController controller;
 
@@ -18,42 +20,42 @@ class _AccessDataViewState extends State<AccessDataView> {
         Column(
           children: [
             Text(
-              'Dados de Acesso',
+              AppLocalizations.of(context)!.accessData,
               style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
-                hintText: 'E-mail',
-                label: Text('E-mail'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.email,
+                label: Text(AppLocalizations.of(context)!.email),
               ),
               keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 8),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
-                hintText: 'Confirmar e-mail',
-                label: Text('Confirmar e-mail'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.confirmEmail,
+                label: Text(AppLocalizations.of(context)!.confirmEmail),
               ),
               keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 8),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
-                hintText: 'Senha',
-                label: Text('Senha'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.password,
+                label: Text(AppLocalizations.of(context)!.password),
               ),
               obscureText: true,
             ),
             const SizedBox(height: 8),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
-                hintText: 'Confirmar senha',
-                label: Text('Confirmar senha'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.confirmPassword,
+                label: Text(AppLocalizations.of(context)!.confirmPassword),
               ),
               obscureText: true,
             ),
@@ -71,7 +73,7 @@ class _AccessDataViewState extends State<AccessDataView> {
                   );
                 });
               },
-              child: const Text('VOLTAR'),
+              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -82,7 +84,7 @@ class _AccessDataViewState extends State<AccessDataView> {
                   );
                 });
               },
-              child: const Text('CONTINUAR'),
+              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
             ),
           ],
         ),

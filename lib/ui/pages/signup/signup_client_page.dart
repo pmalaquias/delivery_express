@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/strings/app_localizations.dart';
 import 'views/views.dart';
 
 class SignUpClientPage extends StatefulWidget {
@@ -18,7 +19,7 @@ class _SignUpClientPageState extends State<SignUpClientPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Cadastrar Cliente'),
+        title: Text(AppLocalizations.of(context)!.registerClient),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -34,7 +35,7 @@ class _SignUpClientPageState extends State<SignUpClientPage> {
                   AccessDataView(controller: controller),
                   AddressDataView(controller: controller),
                   DeliveyDataView(controller: controller),
-                  BackDataClientView(controller: controller),
+                  BankDataClientView(controller: controller),
                 ],
               ),
             ),

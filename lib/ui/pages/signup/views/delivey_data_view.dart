@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../l10n/strings/app_localizations.dart';
+
 class DeliveyDataView extends StatefulWidget {
   final PageController controller;
   const DeliveyDataView({Key? key, required this.controller}) : super(key: key);
@@ -77,10 +79,10 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
         Column(
           children: [
             Text(
-              'Dados do Delivery',
+              AppLocalizations.of(context)!.deliveryData,
               style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
             ),
-            const Text('Tipo do Entrga'),
+            Text(AppLocalizations.of(context)!.deliveryType),
             Column(
               children: [
                 Row(
@@ -94,7 +96,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/food.svg'),
-                            const Text('Alimentação'),
+                            Text(AppLocalizations.of(context)!.deliveryFood),
                           ],
                         ),
                       ),
@@ -107,7 +109,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/clothing.svg'),
-                            const Text('Vestuário'),
+                            Text(AppLocalizations.of(context)!.deliveryClothing),
                           ],
                         ),
                       ),
@@ -120,7 +122,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/documents.svg'),
-                            const Text('Documentos'),
+                            Text(AppLocalizations.of(context)!.deliveryDocuments),
                           ],
                         ),
                       ),
@@ -141,9 +143,9 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                               'lib/ui/assets/images/svg/fragile_order.svg',
                               width: 45,
                             ),
-                            const Flexible(
+                            Flexible(
                               child: Text(
-                                'Encomenda frágio',
+                                AppLocalizations.of(context)!.deliveryFragileOrder,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -162,8 +164,8 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                               'lib/ui/assets/images/svg/heavy_order.svg',
                               width: 45,
                             ),
-                            const Text(
-                              'Encomenda pessada',
+                            Text(
+                              AppLocalizations.of(context)!.deliveryHeavyOrder,
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -178,7 +180,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/other_delivery.svg'),
-                            const Text('Outro'),
+                            Text(AppLocalizations.of(context)!.deliveryOther),
                           ],
                         ),
                       ),
@@ -186,8 +188,8 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                const Text(
-                  'Selecione os principais tipo de entrega que você precisa realizar. Você poderá alterá-las posteriormente nas Configurações do aplicativo.',
+                Text(
+                  AppLocalizations.of(context)!.deliveryDataMessage,
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -206,7 +208,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                   );
                 });
               },
-              child: const Text('VOLTAR'),
+              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -217,7 +219,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                   );
                 });
               },
-              child: const Text('CONTINUAR'),
+              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
+import '../../../../l10n/strings/app_localizations.dart';
 import '../../../theme/theme.dart';
 
 class PersonalDataDeliverymanView extends StatefulWidget {
@@ -171,7 +172,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> {
         Column(
           children: [
             Text(
-              'Dados Pessoais',
+              AppLocalizations.of(context)!.personalData,
               style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 32),
@@ -194,26 +195,26 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> {
             const SizedBox(height: 16),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
-                hintText: 'Nome Completo',
-                label: Text('Nome Completo'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.fullName,
+                label: Text(AppLocalizations.of(context)!.fullName),
               ),
               keyboardType: TextInputType.name,
             ),
             const SizedBox(height: 8),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
-                hintText: 'Nome Comercial',
-                label: Text('Nome Comercial'),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.commercialName,
+                label: Text(AppLocalizations.of(context)!.commercialName),
               ),
               keyboardType: TextInputType.name,
             ),
             const SizedBox(height: 8),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '15/01/200',
-                label: Text('Data de Nascimento'),
+                label: Text(AppLocalizations.of(context)!.birthDate),
               ),
               keyboardType: TextInputType.datetime,
               inputFormatters: [MaskTextInputFormatter(mask: "##/##/####")],
@@ -239,17 +240,17 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> {
             const SizedBox(height: 8),
             TextFormField(
               //controller: _emailTextController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '999.999.999-99',
-                label: Text('CPF'),
+                label: Text(AppLocalizations.of(context)!.cpf),
               ),
               keyboardType: TextInputType.name,
               inputFormatters: [cpfMaskFormatter],
             ),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: '(00) 0 0000-0000',
-                label: Text('Celular'),
+                label: Text(AppLocalizations.of(context)!.phoneNumber),
               ),
               keyboardType: TextInputType.phone,
               inputFormatters: [cellPhoneMaskFormatter],
@@ -265,7 +266,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> {
                   Navigator.canPop(context);
                 }
               },
-              child: const Text('CANCELAR'),
+              child: Text(AppLocalizations.of(context)!.cancelButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -276,7 +277,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> {
                   );
                 });
               },
-              child: const Text('CONTINUAR'),
+              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
             ),
           ],
         ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
+import '../../../../l10n/strings/app_localizations.dart';
+
 class BankDataDeliverymanView extends StatefulWidget {
   final PageController controller;
 
@@ -120,19 +122,19 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> {
   }
 }
 
-class BackDataClientView extends StatefulWidget {
+class BankDataClientView extends StatefulWidget {
   final PageController controller;
 
-  const BackDataClientView({
+  const BankDataClientView({
     Key? key,
     required this.controller,
   }) : super(key: key);
 
   @override
-  State<BackDataClientView> createState() => _BackDataClientViewState();
+  State<BankDataClientView> createState() => _BankDataClientViewState();
 }
 
-class _BackDataClientViewState extends State<BackDataClientView> {
+class _BankDataClientViewState extends State<BankDataClientView> {
   bool valueSwitch = false;
   bool valueCheckbox = false;
   String? dropdownValueAno;
@@ -156,13 +158,13 @@ class _BackDataClientViewState extends State<BackDataClientView> {
               Column(
                 children: [
                   Text(
-                    'Dados para recebimento',
+                    AppLocalizations.of(context)!.dataForReceipt,
                     style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                   ),
                   ListTile(
-                    title: const Text(
-                      'Os dados pessoais e de endereço do beneficiário são os mesmos informados anteriormente.',
-                      style: TextStyle(fontSize: 12),
+                    title: Text(
+                      AppLocalizations.of(context)!.confirmPreviouslyUsedData,
+                      style: const TextStyle(fontSize: 12),
                     ),
                     leading: Switch(
                         //activeColor: AppColors.primaryRed,
@@ -199,9 +201,9 @@ class _BackDataClientViewState extends State<BackDataClientView> {
                     ],
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: '0000 0000 0000 0000',
-                      label: Text('Número do Cartão'),
+                      label: Text(AppLocalizations.of(context)!.cardNumber),
                     ),
                     inputFormatters: [cardNumberMaskFormatter],
                   ),
@@ -210,7 +212,7 @@ class _BackDataClientViewState extends State<BackDataClientView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       DropdownButton<String>(
-                        hint: const Text('Mês de expiração'),
+                        hint: Text(AppLocalizations.of(context)!.expiryMonth),
                         value: dropdownValueMes,
                         elevation: 16,
                         onChanged: (String? newValue) {
@@ -227,7 +229,7 @@ class _BackDataClientViewState extends State<BackDataClientView> {
                       ),
                       const SizedBox(height: 8),
                       DropdownButton<String>(
-                        hint: const Text('Ano de expiração'),
+                        hint: Text(AppLocalizations.of(context)!.expiryYear),
                         value: dropdownValueAno,
                         elevation: 16,
                         onChanged: (String? newValue) {
@@ -245,9 +247,10 @@ class _BackDataClientViewState extends State<BackDataClientView> {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  const Text(
-                    'Você poderá alterar os dados para recebimento posteriormente nas Configurações do aplicativo.',
+                  Text(
+                    AppLocalizations.of(context)!.cardDataInformation,
                     textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 12),
                   ),
                   const SizedBox(height: 16),
                 ],
@@ -264,9 +267,9 @@ class _BackDataClientViewState extends State<BackDataClientView> {
                           });
                         },
                       ),
-                      const Expanded(
+                      Expanded(
                         child: Text(
-                          'Concordo com os Termos de Uso, Política de Privacidade e Política do Uso de Dados de localização utilizados pelo aplicativo Delivery Express disponíveis aqui.',
+                          AppLocalizations.of(context)!.termsOfUseReceiptData,
                         ),
                       ),
                     ],
@@ -289,7 +292,7 @@ class _BackDataClientViewState extends State<BackDataClientView> {
                   );
                 });
               },
-              child: const Text('VOLTAR'),
+              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -300,7 +303,7 @@ class _BackDataClientViewState extends State<BackDataClientView> {
                   );
                 });
               },
-              child: const Text('CONTINUAR'),
+              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
             ),
           ],
         ),
