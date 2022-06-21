@@ -48,6 +48,7 @@ Delivery Express is a mobile application that connects couriers (who own the veh
 <table>
   <tr>
     <td align="center"><a href="https://github.com/pmalaquias"><img src="https://avatars.githubusercontent.com/u/40576393?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pedro Igor</b></sub></a><br /><a href="https://github.com/pmalaquias/delivery_express/commits?author=pmalaquias" title="Code">💻</a> <a href="#translation-pmalaquias" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/viniciusrnt"><img src="https://avatars.githubusercontent.com/u/28420813?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vinicius Arantes</b></sub></a><br /><a href="#design-viniciusrnt" title="Design">🎨</a> <a href="#ideas-viniciusrnt" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
