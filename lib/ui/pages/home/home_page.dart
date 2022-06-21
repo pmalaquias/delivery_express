@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../theme/theme.dart';
 
@@ -10,23 +11,65 @@ class HomePege extends StatefulWidget {
 }
 
 class _HomePegeState extends State<HomePege> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        //automaticallyImplyLeading: false,
-        title: const Text(
-          'Início',
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notifications_rounded),
+    return DefaultTabController(
+      initialIndex: 1,
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          //automaticallyImplyLeading: false,
+          title: const Text(
+            'Início',
           ),
-        ],
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.notifications_rounded),
+            ),
+          ],
+          bottom: TabBar(
+            isScrollable: false,
+            labelColor: AppColors.primaryRed,
+            indicatorColor: AppColors.primaryRed,
+            unselectedLabelColor: AppColors.black,
+            tabs: [
+              Tab(
+                text: 'Meu painel'.toUpperCase(),
+              ),
+              Tab(
+                text: 'Mapa'.toUpperCase(),
+              ),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            const Center(
+              child: Text("Meu painel"),
+            ),
+            Center(
+              child: GoogleMap(
+                buildingsEnabled: true,
+                onMapCreated: _onMapCreated,
+                initialCameraPosition: CameraPosition(
+                  target: _center,
+                  zoom: 11.0,
+                ),
+              ),
+            ),
+          ],
+        ),
+        drawer: drawer(),
       ),
-      body: Container(),
-      drawer: drawer(),
     );
   }
 
