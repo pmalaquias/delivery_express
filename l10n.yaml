@@ -6,3 +6,5 @@ synthetic-package: false
 
 output-localization-file: app_localizations.dart
 output-class: AppLocalizations
+
+untranslated-messages-file: untranslated.arb

@@ -38,6 +38,7 @@
   "expiryYear": "Año de vencimiento",
   "forgotPasswordButton": "Haga clic aquí",
   "forgotPasswordMenssage": "Olvidaste tu contraseña?",
+  "fullName": "Nombre Completo",
   "helloWorld": "¡Hola Mundo!",
   "homeAddress": "Direccion de casa",
   "invalidCredentialsError": "Credenciales no válidas",

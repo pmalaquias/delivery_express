@@ -125,7 +125,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get forgotPasswordMenssage => 'Olvidaste tu contraseña?';
 
   @override
-  String get fullName => 'Full Name';
+  String get fullName => 'Nombre Completo';
 
   @override
   String get helloWorld => '¡Hola Mundo!';
