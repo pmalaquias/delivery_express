@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
 import '../../theme/theme.dart';
 
@@ -13,16 +14,24 @@ class HomePege extends StatefulWidget {
 class _HomePegeState extends State<HomePege> {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(45.521563, -122.677433);
+  final LatLng _center = const LatLng(-20.390480088539626, -43.4946733355632);
+  final Location _location = Location();
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
+    _location.onLocationChanged.listen((l) {
+      mapController.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(target: LatLng(l.latitude!, l.longitude!), zoom: 15),
+        ),
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: 2,
       child: Scaffold(
         appBar: AppBar(
@@ -52,18 +61,28 @@ class _HomePegeState extends State<HomePege> {
           ),
         ),
         body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             const Center(
               child: Text("Meu painel"),
             ),
             Center(
               child: GoogleMap(
-                buildingsEnabled: true,
+                liteModeEnabled: false,
+                scrollGesturesEnabled: true,
+                zoomControlsEnabled: false,
+                indoorViewEnabled: true,
+                mapToolbarEnabled: true,
+                compassEnabled: false,
+                mapType: MapType.normal,
+                buildingsEnabled: false,
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: CameraPosition(
                   target: _center,
-                  zoom: 11.0,
+                  zoom: 15.0,
                 ),
+                myLocationButtonEnabled: true,
+                myLocationEnabled: true,
               ),
             ),
           ],
