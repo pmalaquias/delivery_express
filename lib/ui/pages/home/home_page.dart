@@ -16,6 +16,7 @@ class _HomePegeState extends State<HomePege> {
 
   final LatLng _center = const LatLng(-20.390480088539626, -43.4946733355632);
   final Location _location = Location();
+  final MapType _currentMapType = MapType.normal;
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -26,6 +27,22 @@ class _HomePegeState extends State<HomePege> {
         ),
       );
     });
+  }
+
+  void _currentLocation() async {
+    final GoogleMapController controller = mapController;
+    LocationData currentLocation;
+    Location location = Location();
+
+    currentLocation = await location.getLocation();
+
+    controller.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(
+        bearing: 0,
+        target: LatLng(currentLocation.latitude!, currentLocation.longitude!),
+        zoom: 17.0,
+      ),
+    ));
   }
 
   @override
@@ -66,24 +83,22 @@ class _HomePegeState extends State<HomePege> {
             const Center(
               child: Text("Meu painel"),
             ),
-            Center(
-              child: GoogleMap(
-                liteModeEnabled: false,
-                scrollGesturesEnabled: true,
-                zoomControlsEnabled: false,
-                indoorViewEnabled: true,
-                mapToolbarEnabled: true,
-                compassEnabled: false,
-                mapType: MapType.normal,
-                buildingsEnabled: false,
-                onMapCreated: _onMapCreated,
-                initialCameraPosition: CameraPosition(
-                  target: _center,
-                  zoom: 15.0,
+            Stack(
+              children: [
+                GoogleMap(
+                  mapType: _currentMapType,
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(
+                    target: _center,
+                    zoom: 15.0,
+                  ),
+                  scrollGesturesEnabled: true,
+                  zoomControlsEnabled: false,
+                  myLocationButtonEnabled: false,
+                  myLocationEnabled: true,
                 ),
-                myLocationButtonEnabled: true,
-                myLocationEnabled: true,
-              ),
+                MyLocationButtonCusttom(currentLocation: _currentLocation),
+              ],
             ),
           ],
         ),
@@ -152,6 +167,30 @@ class _HomePegeState extends State<HomePege> {
             onTap: () {},
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MyLocationButtonCusttom extends StatelessWidget {
+  final Function() currentLocation;
+
+  const MyLocationButtonCusttom({
+    Key? key,
+    required this.currentLocation,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Align(
+        alignment: Alignment.bottomRight,
+        child: FloatingActionButton(
+          onPressed: currentLocation,
+          child: const Icon(Icons.my_location_rounded),
+          tooltip: 'My Location',
+        ),
       ),
     );
   }
