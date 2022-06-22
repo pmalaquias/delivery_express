@@ -14,6 +14,16 @@
         "code",
         "translation"
       ]
+    },
+    {
+      "login": "viniciusrnt",
+      "name": "Vinicius Arantes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28420813?v=4",
+      "profile": "https://github.com/viniciusrnt",
+      "contributions": [
+        "design",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
