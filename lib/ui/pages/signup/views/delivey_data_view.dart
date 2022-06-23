@@ -85,8 +85,8 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
             Text(AppLocalizations.of(context)!.deliveryType),
             Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Wrap(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
                       width: 112,
@@ -127,9 +127,62 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      width: 112,
+                      height: 95,
+                      child: Card(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/fragile_order.svg',
+                              width: 45,
+                            ),
+                            Flexible(
+                              child: Text(
+                                AppLocalizations.of(context)!.deliveryFragileOrder,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 112,
+                      height: 95,
+                      child: Card(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'lib/ui/assets/images/svg/heavy_order.svg',
+                              width: 45,
+                            ),
+                            Text(
+                              AppLocalizations.of(context)!.deliveryHeavyOrder,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 112,
+                      height: 95,
+                      child: Card(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset('lib/ui/assets/images/svg/other_delivery.svg'),
+                            Text(AppLocalizations.of(context)!.deliveryOther),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                Row(
+                /* Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
@@ -186,7 +239,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                       ),
                     ),
                   ],
-                ),
+                ), */
                 const SizedBox(height: 16),
                 Text(
                   AppLocalizations.of(context)!.deliveryDataMessage,

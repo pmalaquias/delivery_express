@@ -83,6 +83,7 @@ class InfoCard extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -14,81 +14,89 @@ class AccessDataView extends StatefulWidget {
 class _AccessDataViewState extends State<AccessDataView> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          children: [
-            Text(
-              AppLocalizations.of(context)!.accessData,
-              style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              //controller: _emailTextController,
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.email,
-                label: Text(AppLocalizations.of(context)!.email),
-              ),
-              keyboardType: TextInputType.emailAddress,
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              //controller: _emailTextController,
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.confirmEmail,
-                label: Text(AppLocalizations.of(context)!.confirmEmail),
-              ),
-              keyboardType: TextInputType.emailAddress,
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              //controller: _emailTextController,
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.password,
-                label: Text(AppLocalizations.of(context)!.password),
-              ),
-              obscureText: true,
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              //controller: _emailTextController,
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.confirmPassword,
-                label: Text(AppLocalizations.of(context)!.confirmPassword),
-              ),
-              obscureText: true,
-            ),
-          ],
-        ),
-        Row(
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.previousPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.8,
+              child: Column(
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.accessData,
+                    style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    //controller: _emailTextController,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.email,
+                      label: Text(AppLocalizations.of(context)!.email),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    //controller: _emailTextController,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.confirmEmail,
+                      label: Text(AppLocalizations.of(context)!.confirmEmail),
+                    ),
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    //controller: _emailTextController,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.password,
+                      label: Text(AppLocalizations.of(context)!.password),
+                    ),
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    //controller: _emailTextController,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.confirmPassword,
+                      label: Text(AppLocalizations.of(context)!.confirmPassword),
+                    ),
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 32),
+                ],
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.nextPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      widget.controller.previousPage(
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeIn,
+                      );
+                    });
+                  },
+                  child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      widget.controller.nextPage(
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeIn,
+                      );
+                    });
+                  },
+                  child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                ),
+              ],
             ),
           ],
         ),
-      ],
+      ),
     );
   }
 }

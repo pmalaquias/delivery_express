@@ -73,171 +73,225 @@ class _VehicleDataViewState extends State<VehicleDataView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          children: [
-            Text(
-              AppLocalizations.of(context)!.vehicleData,
-              style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
-            ),
-            Text(AppLocalizations.of(context)!.vehicleType),
-            Column(
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.8,
+            child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Text(
+                  AppLocalizations.of(context)!.vehicleData,
+                  style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
+                ),
+                Text(AppLocalizations.of(context)!.vehicleType),
+                Column(
                   children: [
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/car.svg',
-                              width: 50,
+                    Wrap(
+                      spacing: 8,
+                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/car.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleCar),
+                              ],
                             ),
-                            Text(AppLocalizations.of(context)!.vehicleCar),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/pickup_truck.svg',
-                              width: 50,
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/pickup_truck.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehiclePickupTruck),
+                              ],
                             ),
-                            Text(AppLocalizations.of(context)!.vehiclePickupTruck),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/truck.svg',
-                              width: 50,
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/truck.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleTruck),
+                              ],
                             ),
-                            Text(AppLocalizations.of(context)!.vehicleTruck),
-                          ],
+                          ),
                         ),
-                      ),
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/motorcycle.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleMotorcycle),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/bicycle.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleBicycle),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/other_vehicle.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleOther),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
+                    /* Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/motorcycle.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleMotorcycle),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/bicycle.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleBicycle),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 112,
+                          height: 95,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  'lib/ui/assets/images/svg/other_vehicle.svg',
+                                  width: 50,
+                                ),
+                                Text(AppLocalizations.of(context)!.vehicleOther),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ), */
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/motorcycle.svg',
-                              width: 50,
-                            ),
-                            Text(AppLocalizations.of(context)!.vehicleMotorcycle),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/bicycle.svg',
-                              width: 50,
-                            ),
-                            Text(AppLocalizations.of(context)!.vehicleBicycle),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/other_vehicle.svg',
-                              width: 50,
-                            ),
-                            Text(AppLocalizations.of(context)!.vehicleOther),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.vehicleModel,
+                    label: Text(AppLocalizations.of(context)!.vehicleModel),
+                  ),
+                ),
+                //TODO: Colocar a cor do veiculo
+                const SizedBox(height: 8),
+                buildColorPicker(context),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.licensePlate,
+                    label: Text(AppLocalizations.of(context)!.licensePlate),
+                  ),
                 ),
               ],
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.vehicleModel,
-                label: Text(AppLocalizations.of(context)!.vehicleModel),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    widget.controller.previousPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeIn,
+                    );
+                  });
+                },
+                child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
               ),
-            ),
-            //TODO: Colocar a cor do veiculo
-            const SizedBox(height: 8),
-            buildColorPicker(context),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.licensePlate,
-                label: Text(AppLocalizations.of(context)!.licensePlate),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    widget.controller.nextPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeIn,
+                    );
+                  });
+                },
+                child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
               ),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.previousPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.nextPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

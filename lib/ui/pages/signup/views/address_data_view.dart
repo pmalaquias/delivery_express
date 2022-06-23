@@ -88,15 +88,14 @@ class _AddressDataViewState extends State<AddressDataView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               AppLocalizations.of(context)!.maximumDisplayDistance,
             ),
             const SizedBox(width: 16),
-            Text(
-              '${_currentSliderValue.toInt().toString()} km',
-            ),
+            Text('${_currentSliderValue.toInt().toString()} km'),
           ],
         ),
         Slider(
@@ -117,83 +116,88 @@ class _AddressDataViewState extends State<AddressDataView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              AppLocalizations.of(context)!.addressData,
-              style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.8,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.addressData,
+                  style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.homeAddress,
+                    label: Text(AppLocalizations.of(context)!.homeAddress),
+                  ),
+                  keyboardType: TextInputType.streetAddress,
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.number,
+                    label: Text(AppLocalizations.of(context)!.number),
+                  ),
+                  keyboardType: TextInputType.number,
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.neighborhood,
+                    label: Text(AppLocalizations.of(context)!.neighborhood),
+                  ),
+                  keyboardType: TextInputType.none,
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.complement,
+                    label: Text(AppLocalizations.of(context)!.complement),
+                  ),
+                  keyboardType: TextInputType.none,
+                ),
+                buildStateOption(),
+                const SizedBox(height: 8),
+                //TODO: Biuld City
+                const SizedBox(height: 8),
+                buildDistanceOnTheMap(),
+              ],
             ),
-            const SizedBox(height: 16),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.homeAddress,
-                label: Text(AppLocalizations.of(context)!.homeAddress),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    widget.controller.previousPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeIn,
+                    );
+                  });
+                },
+                child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
               ),
-              keyboardType: TextInputType.streetAddress,
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.number,
-                label: Text(AppLocalizations.of(context)!.number),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    widget.controller.nextPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeIn,
+                    );
+                  });
+                },
+                child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
               ),
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.neighborhood,
-                label: Text(AppLocalizations.of(context)!.neighborhood),
-              ),
-              keyboardType: TextInputType.none,
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.complement,
-                label: Text(AppLocalizations.of(context)!.complement),
-              ),
-              keyboardType: TextInputType.none,
-            ),
-            buildStateOption(),
-            const SizedBox(height: 8),
-            //TODO: Biuld City
-            const SizedBox(height: 8),
-            buildDistanceOnTheMap(),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.previousPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.nextPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

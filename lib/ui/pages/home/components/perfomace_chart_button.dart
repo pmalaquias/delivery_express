@@ -13,7 +13,10 @@ class _PerfomaceChartButtonState extends State<PerfomaceChartButton> {
     return ElevatedButton.icon(
       onPressed: () {},
       icon: const Icon(Icons.bar_chart_rounded),
-      label: Text('Gráficos de Desempenho'.toUpperCase()),
+      label: Text(
+        'Gráficos de Desempenho'.toUpperCase(),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
