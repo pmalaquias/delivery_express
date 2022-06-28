@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../../theme/theme.dart' show AppColors;
 import 'components/components.dart';
 
-class HomePege extends StatefulWidget {
-  const HomePege({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePege> createState() => _HomePegeState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePegeState extends State<HomePege> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -44,7 +44,7 @@ class _HomePegeState extends State<HomePege> {
           physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
               child: SingleChildScrollView(
                 child: Column(
                   children: const [
