@@ -22,7 +22,7 @@ class _SignUpClientPageState extends State<SignUpClientPage> {
         title: Text(AppLocalizations.of(context)!.registerClient),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
