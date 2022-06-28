@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../mocks/mocks.dart' show seriesMock;
+import '../../../mocks/mocks.dart' show seriesAreaMock;
 
 class AreaChart extends StatelessWidget {
   const AreaChart({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class AreaChart extends StatelessWidget {
         enable: true,
         header: '',
       ),
-      series: seriesMock,
+      series: seriesAreaMock,
     );
   }
 }
