@@ -124,7 +124,7 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HomePege(),
+                      builder: (context) => const HomePage(),
                     ),
                   );
                 },
@@ -319,7 +319,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HomePege(),
+                      builder: (context) => const HomePage(),
                     ),
                   );
                 },
