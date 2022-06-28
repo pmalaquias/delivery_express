@@ -21,9 +21,9 @@ List<TypeSale> dataTypeSalesMock = [
   TypeSale(name: 'Documentos', qunt: 1),
 ];
 
-List<AreaSeries<SalesData, String>> seriesAreaMock = <AreaSeries<SalesData, String>>[
+List<SplineAreaSeries<SalesData, String>> seriesAreaMock = <SplineAreaSeries<SalesData, String>>[
   // Initialize line series.
-  AreaSeries<SalesData, String>(
+  SplineAreaSeries<SalesData, String>(
       color: AppColors.primaryRed.withOpacity(0.6),
       dataSource: dataWeekMock,
       xValueMapper: (SalesData sales, _) => sales.month,
