@@ -49,7 +49,7 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
               )
             ],
           ),
-          dropdownValue == AppLocalizations.of(context)!.lineChart
+          dropdownValue == AppLocalizations.of(context)!.lineChart.toUpperCase()
               ? SfCartesianChart(
                   title: ChartTitle(
                     text: AppLocalizations.of(context)!.weekSummary,
