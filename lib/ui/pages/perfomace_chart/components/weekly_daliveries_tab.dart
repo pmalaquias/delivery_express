@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../mocks/mocks.dart' show seriesAreaMock, seriesColumnMock;
 import 'components.dart' show PurchaseInfoTile, TotalBalanceTile;
 
@@ -12,9 +13,9 @@ class WeeklyDeliveriesTab extends StatefulWidget {
 }
 
 class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
-  String dropdownValue = 'GRÁFICO DE LINHAS';
   @override
   Widget build(BuildContext context) {
+    String dropdownValue = AppLocalizations.of(context)!.lineChart.toUpperCase();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -25,7 +26,7 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  const Text('Visualização'),
+                  Text(AppLocalizations.of(context)!.visualization),
                   DropdownButton<String>(
                     value: dropdownValue,
                     elevation: 16,
@@ -34,8 +35,10 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
                         dropdownValue = newValue!;
                       });
                     },
-                    items: <String>['GRÁFICO DE LINHAS', 'GRÁFICO DE COLUNAS']
-                        .map<DropdownMenuItem<String>>((String value) {
+                    items: <String>[
+                      AppLocalizations.of(context)!.lineChart.toUpperCase(),
+                      AppLocalizations.of(context)!.columnChart.toUpperCase()
+                    ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
@@ -46,10 +49,10 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
               )
             ],
           ),
-          dropdownValue == 'GRÁFICO DE LINHAS'
+          dropdownValue == AppLocalizations.of(context)!.lineChart
               ? SfCartesianChart(
                   title: ChartTitle(
-                    text: 'Resumo da Semana',
+                    text: AppLocalizations.of(context)!.weekSummary,
                     alignment: ChartAlignment.near,
                   ),
 
@@ -65,7 +68,7 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
                 )
               : SfCartesianChart(
                   title: ChartTitle(
-                    text: 'Resumo da Semana',
+                    text: AppLocalizations.of(context)!.weekSummary,
                     alignment: ChartAlignment.near,
                   ),
                   primaryXAxis: CategoryAxis(

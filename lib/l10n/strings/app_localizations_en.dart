@@ -23,6 +23,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backButton => 'Back';
 
   @override
+  String get balanceAvailable => 'Balance Available';
+
+  @override
   String get bankBranch => 'Bank Branch';
 
   @override
@@ -50,6 +53,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clientText => 'I have a business and I\'m looking for delivery guys';
 
   @override
+  String get columnChart => 'Column Chart';
+
+  @override
   String get commercialName => 'Commercial Name';
 
   @override
@@ -75,6 +81,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleverymanLabel => 'Deliveryman';
+
+  @override
+  String get deliveriesByTypeTitle => 'Deliveries by Type';
 
   @override
   String get deliveryClothing => 'Clothing';
@@ -107,6 +116,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deliverymanText => 'I have my own vehicle and I want to deliver';
 
   @override
+  String get drawerAbout => 'About';
+
+  @override
+  String get drawerAccountConfigurations => 'Account Configurations';
+
+  @override
+  String get drawerCompleteExtract => 'Complete Extract';
+
+  @override
+  String get drawerCompletedTransactions => 'Completed Transactions';
+
+  @override
+  String get drawerExit => 'Exit';
+
+  @override
+  String get drawerHelpAndSuport => 'Help and Suport';
+
+  @override
+  String get drawerProfile => 'Profile';
+
+  @override
   String get email => 'E-mail';
 
   @override
@@ -128,7 +158,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fullName => 'Full Name';
 
   @override
+  String get goodAfternoon => 'Good Afternoon,';
+
+  @override
   String get helloWorld => 'Hello World!';
+
+  @override
+  String get home => 'Home';
 
   @override
   String get homeAddress => 'Home Address';
@@ -143,13 +179,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get licensePlate => 'License Plate';
 
   @override
+  String get lineChart => 'Line Chart';
+
+  @override
   String get loginButton => 'Login';
 
   @override
   String get loginMenssage => 'Please login to continue';
 
   @override
+  String get map => 'Map';
+
+  @override
   String get maximumDisplayDistance => 'Maximum display distance on the map';
+
+  @override
+  String get myDeliveries => 'My Deliveries';
+
+  @override
+  String get myDeliveriesMessage => 'this week';
+
+  @override
+  String get myPanel => 'My Panel';
+
+  @override
+  String get myRatings => 'My Ratings';
 
   @override
   String get neighborhood => 'Neighborhood';
@@ -159,6 +213,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get password => 'Password';
+
+  @override
+  String get perfomaceChartButton => 'Perfomace Chart';
+
+  @override
+  String get perfomaceChartTitle => 'Perfomace Chart';
 
   @override
   String get personalData => 'Personal Data';
@@ -197,7 +257,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get state => 'State';
 
   @override
+  String get status => 'Status';
+
+  @override
+  String get status_available => 'Available';
+
+  @override
+  String get status_busy => 'Busy';
+
+  @override
+  String get status_unavailable => 'Unavaiable';
+
+  @override
   String get termsOfUseReceiptData => 'I agree with the Terms of Use, Privacy Policy and Location Data Use Policy used by the Delivery Express application available here.';
+
+  @override
+  String get tooltipMyLocation => 'My Location';
+
+  @override
+  String get totalBalance => 'Total Balance';
 
   @override
   String get unexpectedError => 'Something wrong happened. Please try again soon';
@@ -231,6 +309,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get vehicleType => 'Vehicle Type';
+
+  @override
+  String get visualization => 'Visualization';
+
+  @override
+  String get weekSummary => 'Week Summary';
+
+  @override
+  String get weeklyDeliveriesTitle => 'Weekly Deliveries';
 
   @override
   String get welcomeCardMenssage => 'Use our Location Map and find couriers according to your demand';

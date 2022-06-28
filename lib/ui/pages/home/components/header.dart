@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../theme/theme.dart' show AppColors;
 
 class Header extends StatefulWidget {
@@ -10,18 +11,17 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  String dropdownValue = 'DISPONÍVEL';
-
   @override
   Widget build(BuildContext context) {
+    String dropdownValue = AppLocalizations.of(context)!.status_available;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text('Boa tarde,'),
-            Text(
+          children: [
+            Text(AppLocalizations.of(context)!.goodAfternoon),
+            const Text(
               'Maria Aparecida',
               style: TextStyle(
                 fontWeight: FontWeight.w500,
@@ -33,7 +33,7 @@ class _HeaderState extends State<Header> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const Text('Status'),
+            Text(AppLocalizations.of(context)!.status),
             DropdownButton<String>(
               value: dropdownValue,
               elevation: 16,
@@ -42,10 +42,14 @@ class _HeaderState extends State<Header> {
                   dropdownValue = newValue!;
                 });
               },
-              items: <String>['DISPONÍVEL', 'INDISPONÍVEL', 'OCUPADO'].map<DropdownMenuItem<String>>((String value) {
+              items: <String>[
+                AppLocalizations.of(context)!.status_available,
+                AppLocalizations.of(context)!.status_unavailable,
+                AppLocalizations.of(context)!.status_busy
+              ].map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: value == 'DISPONÍVEL'
+                  child: value == AppLocalizations.of(context)!.status_available
                       ? Text(
                           value,
                           style: const TextStyle(

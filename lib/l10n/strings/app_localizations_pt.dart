@@ -23,6 +23,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get backButton => 'Voltar';
 
   @override
+  String get balanceAvailable => 'Saldo Disponível';
+
+  @override
   String get bankBranch => 'Agência';
 
   @override
@@ -50,6 +53,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get clientText => 'Possuo um comércio e estou em busca de entregadores';
 
   @override
+  String get columnChart => 'Gráfico de Colunas';
+
+  @override
   String get commercialName => 'Nome Comercial';
 
   @override
@@ -75,6 +81,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get deleverymanLabel => 'Entregador';
+
+  @override
+  String get deliveriesByTypeTitle => 'Entregas por Tipo';
 
   @override
   String get deliveryClothing => 'Vestuário';
@@ -107,6 +116,27 @@ class AppLocalizationsPt extends AppLocalizations {
   String get deliverymanText => 'Possuo um veiculo próprio e desejo realizar entregas';
 
   @override
+  String get drawerAbout => 'Sobre';
+
+  @override
+  String get drawerAccountConfigurations => 'Configurações da Conta';
+
+  @override
+  String get drawerCompleteExtract => 'Extrato Completo';
+
+  @override
+  String get drawerCompletedTransactions => 'Transações Concluídas';
+
+  @override
+  String get drawerExit => 'Sair';
+
+  @override
+  String get drawerHelpAndSuport => 'Ajuda e Suporte';
+
+  @override
+  String get drawerProfile => 'Perfil';
+
+  @override
   String get email => 'E-mail';
 
   @override
@@ -128,7 +158,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fullName => 'Nome Completo';
 
   @override
+  String get goodAfternoon => 'Boa Tarde,';
+
+  @override
   String get helloWorld => 'Olá mundo!!';
+
+  @override
+  String get home => 'Início';
 
   @override
   String get homeAddress => 'Endereço Residencial';
@@ -143,13 +179,31 @@ class AppLocalizationsPt extends AppLocalizations {
   String get licensePlate => 'Placa ';
 
   @override
+  String get lineChart => 'Gráfico de Linhas';
+
+  @override
   String get loginButton => 'Entrar';
 
   @override
   String get loginMenssage => 'Efetue login para continuar';
 
   @override
+  String get map => 'Mapa';
+
+  @override
   String get maximumDisplayDistance => 'Distancia Maxima de exibição no mapa';
+
+  @override
+  String get myDeliveries => 'Minhas Entregas';
+
+  @override
+  String get myDeliveriesMessage => 'nesta semana';
+
+  @override
+  String get myPanel => 'Meu Painel';
+
+  @override
+  String get myRatings => 'Minhas Avaliações';
 
   @override
   String get neighborhood => 'Beirro';
@@ -159,6 +213,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get password => 'Senha';
+
+  @override
+  String get perfomaceChartButton => 'Gráfico de Desempenho';
+
+  @override
+  String get perfomaceChartTitle => 'Gráficos de Desempenho';
 
   @override
   String get personalData => 'Dados Pessoais';
@@ -197,7 +257,25 @@ class AppLocalizationsPt extends AppLocalizations {
   String get state => 'UF';
 
   @override
+  String get status => 'Status';
+
+  @override
+  String get status_available => 'Disponível';
+
+  @override
+  String get status_busy => 'Ocupado';
+
+  @override
+  String get status_unavailable => 'Indisponível';
+
+  @override
   String get termsOfUseReceiptData => 'Concordo com os Termos de  Uso, Política de Privacidade e Política de Uso de Dados de localização utilizados pelo aplicativo Delivery Express disponiveis aqui.';
+
+  @override
+  String get tooltipMyLocation => 'Minha Localização';
+
+  @override
+  String get totalBalance => 'Saldo Total';
 
   @override
   String get unexpectedError => 'Algo de errado aconteceu. Por favor tente novamente em breve';
@@ -231,6 +309,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get vehicleType => 'Tipo do Veículo';
+
+  @override
+  String get visualization => 'Visualização';
+
+  @override
+  String get weekSummary => 'Resumo da Semana';
+
+  @override
+  String get weeklyDeliveriesTitle => 'Entregas Semanais';
 
   @override
   String get welcomeCardMenssage => 'Utiliza o nosso Mapa de Localização e encontre encontre entregadores de acordo com a sua demanda';

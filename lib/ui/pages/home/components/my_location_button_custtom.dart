@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+
 class MyLocationButtonCusttom extends StatelessWidget {
   final Function() currentLocation;
 
@@ -17,7 +19,7 @@ class MyLocationButtonCusttom extends StatelessWidget {
         child: FloatingActionButton(
           onPressed: currentLocation,
           child: const Icon(Icons.my_location_rounded),
-          tooltip: 'My Location',
+          tooltip: AppLocalizations.of(context)!.tooltipMyLocation,
         ),
       ),
     );

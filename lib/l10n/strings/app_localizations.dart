@@ -126,6 +126,12 @@ abstract class AppLocalizations {
   /// **'Back'**
   String get backButton;
 
+  /// No description provided for @balanceAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance Available'**
+  String get balanceAvailable;
+
   /// No description provided for @bankBranch.
   ///
   /// In en, this message translates to:
@@ -180,6 +186,12 @@ abstract class AppLocalizations {
   /// **'I have a business and I\'m looking for delivery guys'**
   String get clientText;
 
+  /// No description provided for @columnChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Column Chart'**
+  String get columnChart;
+
   /// No description provided for @commercialName.
   ///
   /// In en, this message translates to:
@@ -233,6 +245,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Deliveryman'**
   String get deleverymanLabel;
+
+  /// No description provided for @deliveriesByTypeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliveries by Type'**
+  String get deliveriesByTypeTitle;
 
   /// No description provided for @deliveryClothing.
   ///
@@ -294,6 +312,48 @@ abstract class AppLocalizations {
   /// **'I have my own vehicle and I want to deliver'**
   String get deliverymanText;
 
+  /// No description provided for @drawerAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get drawerAbout;
+
+  /// No description provided for @drawerAccountConfigurations.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Configurations'**
+  String get drawerAccountConfigurations;
+
+  /// No description provided for @drawerCompleteExtract.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Extract'**
+  String get drawerCompleteExtract;
+
+  /// No description provided for @drawerCompletedTransactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed Transactions'**
+  String get drawerCompletedTransactions;
+
+  /// No description provided for @drawerExit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get drawerExit;
+
+  /// No description provided for @drawerHelpAndSuport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help and Suport'**
+  String get drawerHelpAndSuport;
+
+  /// No description provided for @drawerProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get drawerProfile;
+
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
@@ -336,11 +396,23 @@ abstract class AppLocalizations {
   /// **'Full Name'**
   String get fullName;
 
+  /// No description provided for @goodAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Afternoon,'**
+  String get goodAfternoon;
+
   /// The conventional newborn programmer greeting
   ///
   /// In en, this message translates to:
   /// **'Hello World!'**
   String get helloWorld;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
 
   /// No description provided for @homeAddress.
   ///
@@ -366,6 +438,12 @@ abstract class AppLocalizations {
   /// **'License Plate'**
   String get licensePlate;
 
+  /// No description provided for @lineChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Line Chart'**
+  String get lineChart;
+
   /// No description provided for @loginButton.
   ///
   /// In en, this message translates to:
@@ -378,11 +456,41 @@ abstract class AppLocalizations {
   /// **'Please login to continue'**
   String get loginMenssage;
 
+  /// No description provided for @map.
+  ///
+  /// In en, this message translates to:
+  /// **'Map'**
+  String get map;
+
   /// No description provided for @maximumDisplayDistance.
   ///
   /// In en, this message translates to:
   /// **'Maximum display distance on the map'**
   String get maximumDisplayDistance;
+
+  /// No description provided for @myDeliveries.
+  ///
+  /// In en, this message translates to:
+  /// **'My Deliveries'**
+  String get myDeliveries;
+
+  /// No description provided for @myDeliveriesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'this week'**
+  String get myDeliveriesMessage;
+
+  /// No description provided for @myPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'My Panel'**
+  String get myPanel;
+
+  /// No description provided for @myRatings.
+  ///
+  /// In en, this message translates to:
+  /// **'My Ratings'**
+  String get myRatings;
 
   /// No description provided for @neighborhood.
   ///
@@ -401,6 +509,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password'**
   String get password;
+
+  /// No description provided for @perfomaceChartButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfomace Chart'**
+  String get perfomaceChartButton;
+
+  /// No description provided for @perfomaceChartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfomace Chart'**
+  String get perfomaceChartTitle;
 
   /// No description provided for @personalData.
   ///
@@ -474,11 +594,47 @@ abstract class AppLocalizations {
   /// **'State'**
   String get state;
 
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @status_available.
+  ///
+  /// In en, this message translates to:
+  /// **'Available'**
+  String get status_available;
+
+  /// No description provided for @status_busy.
+  ///
+  /// In en, this message translates to:
+  /// **'Busy'**
+  String get status_busy;
+
+  /// No description provided for @status_unavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Unavaiable'**
+  String get status_unavailable;
+
   /// No description provided for @termsOfUseReceiptData.
   ///
   /// In en, this message translates to:
   /// **'I agree with the Terms of Use, Privacy Policy and Location Data Use Policy used by the Delivery Express application available here.'**
   String get termsOfUseReceiptData;
+
+  /// No description provided for @tooltipMyLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'My Location'**
+  String get tooltipMyLocation;
+
+  /// No description provided for @totalBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Balance'**
+  String get totalBalance;
 
   /// No description provided for @unexpectedError.
   ///
@@ -545,6 +701,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Vehicle Type'**
   String get vehicleType;
+
+  /// No description provided for @visualization.
+  ///
+  /// In en, this message translates to:
+  /// **'Visualization'**
+  String get visualization;
+
+  /// No description provided for @weekSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Week Summary'**
+  String get weekSummary;
+
+  /// No description provided for @weeklyDeliveriesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Deliveries'**
+  String get weeklyDeliveriesTitle;
 
   /// No description provided for @welcomeCardMenssage.
   ///

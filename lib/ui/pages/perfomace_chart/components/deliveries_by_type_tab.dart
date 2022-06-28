@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../mocks/mocks.dart' show seriesPieMock;
 import 'components.dart' show PurchaseInfoTile, TotalBalanceTile;
 
@@ -27,7 +28,7 @@ class DeliveriesByTypeTab extends StatelessWidget {
             tooltipBehavior: TooltipBehavior(enable: true),
             palette: paletteColor,
             title: ChartTitle(
-              text: 'Resumo da Semana',
+              text: AppLocalizations.of(context)!.weekSummary,
               alignment: ChartAlignment.near,
             ),
             series: seriesPieMock,

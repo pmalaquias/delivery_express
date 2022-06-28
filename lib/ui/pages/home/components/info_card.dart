@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+
 class InfoCard extends StatelessWidget {
   const InfoCard({Key? key}) : super(key: key);
 
@@ -14,14 +16,14 @@ class InfoCard extends StatelessWidget {
             color: const Color(0xFF775652),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
-                  'SALDO DISPINÍVEL',
-                  style: TextStyle(
+                  AppLocalizations.of(context)!.balanceAvailable.toUpperCase(),
+                  style: const TextStyle(
                     color: Colors.white,
                   ),
                 ),
-                Text(
+                const Text(
                   'R\$ 99,00',
                   style: TextStyle(
                     color: Colors.white,
@@ -42,14 +44,14 @@ class InfoCard extends StatelessWidget {
                   color: const Color(0xFF775652),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
-                        'MINHAS ENTREGAS',
-                        style: TextStyle(
+                        AppLocalizations.of(context)!.myDeliveries.toUpperCase(),
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
-                      Text(
+                      const Text(
                         '357',
                         style: TextStyle(
                           color: Colors.white,
@@ -58,8 +60,8 @@ class InfoCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '(16 nesta semana)',
-                        style: TextStyle(
+                        '(16 ${AppLocalizations.of(context)!.myDeliveriesMessage})',
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 12,
@@ -78,9 +80,9 @@ class InfoCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'MINHAS AVALIAÇÕES',
-                        style: TextStyle(
+                      Text(
+                        AppLocalizations.of(context)!.myRatings.toUpperCase(),
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                         textAlign: TextAlign.center,

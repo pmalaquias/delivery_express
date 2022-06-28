@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+
 class TotalBalanceTile extends StatelessWidget {
   const TotalBalanceTile({
     Key? key,
@@ -12,14 +14,14 @@ class TotalBalanceTile extends StatelessWidget {
         const Divider(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             Text(
-              'Saldo Total',
-              style: TextStyle(
+              AppLocalizations.of(context)!.totalBalance,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text('R\$ 99,00'),
+            const Text('R\$ 99,00'),
           ],
         ),
       ],

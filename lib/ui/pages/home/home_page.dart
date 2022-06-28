@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../theme/theme.dart' show AppColors;
 import 'components/components.dart';
 
@@ -19,9 +20,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           //automaticallyImplyLeading: false,
-          title: const Text(
-            'Início',
-          ),
+          title: Text(AppLocalizations.of(context)!.home),
           actions: [
             IconButton(
               onPressed: () {},
@@ -34,8 +33,8 @@ class _HomePageState extends State<HomePage> {
             indicatorColor: AppColors.primaryRed,
             unselectedLabelColor: AppColors.black,
             tabs: [
-              Tab(text: 'Meu painel'.toUpperCase()),
-              Tab(text: 'Mapa'.toUpperCase()),
+              Tab(text: AppLocalizations.of(context)!.myPanel.toUpperCase()),
+              Tab(text: AppLocalizations.of(context)!.map.toUpperCase()),
             ],
           ),
         ),

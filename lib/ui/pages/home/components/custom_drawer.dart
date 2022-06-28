@@ -1,6 +1,7 @@
 import 'package:delivery_express/ui/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../theme/theme.dart' show AppColors;
 import '../../pages.dart';
 
@@ -34,7 +35,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.home_rounded),
-            title: const Text('Início'),
+            title: Text(AppLocalizations.of(context)!.home),
             onTap: () {
               Navigator.push(
                 context,
@@ -46,7 +47,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person_rounded),
-            title: const Text('Perfil'),
+            title: Text(AppLocalizations.of(context)!.drawerProfile),
             onTap: () {
               Navigator.push(
                 context,
@@ -58,32 +59,32 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.list_alt_rounded),
-            title: const Text('Transações Concluídas'),
+            title: Text(AppLocalizations.of(context)!.drawerCompletedTransactions),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.payments_rounded),
-            title: const Text('Extrato completo'),
+            title: Text(AppLocalizations.of(context)!.drawerCompleteExtract),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.settings_rounded),
-            title: const Text('Configurações da conta'),
+            title: Text(AppLocalizations.of(context)!.drawerAccountConfigurations),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.help_rounded),
-            title: const Text('Ajuda e Suporte'),
+            title: Text(AppLocalizations.of(context)!.drawerHelpAndSuport),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.info_rounded),
-            title: const Text('Sobre'),
+            title: Text(AppLocalizations.of(context)!.drawerAbout),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_rounded),
-            title: const Text('Sair'),
+            title: Text(AppLocalizations.of(context)!.drawerExit),
             onTap: () {},
           ),
         ],
