@@ -319,7 +319,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HomePage(),
+                      builder: (context) => const HomeClientPage(),
                     ),
                   );
                 },
