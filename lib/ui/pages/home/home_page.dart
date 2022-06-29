@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          //automaticallyImplyLeading: false,
           title: Text(AppLocalizations.of(context)!.home),
           actions: [
             IconButton(
@@ -38,7 +37,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        drawer: const CustomDrawer(),
+        drawer: const CustomDrawerDeliveryMan(),
         body: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
@@ -60,6 +59,32 @@ class _HomePageState extends State<HomePage> {
             Map(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class HomeClientPage extends StatelessWidget {
+  const HomeClientPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Inicio'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications_rounded),
+          ),
+        ],
+      ),
+      drawer: const CustomDrawerClient(),
+      body: Column(
+        children: [
+          Expanded(child: Map()),
+          const BottomSheetCustom(),
+        ],
       ),
     );
   }
