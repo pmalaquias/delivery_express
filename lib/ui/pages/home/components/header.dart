@@ -11,9 +11,9 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  String dropdownValue = '1';
   @override
   Widget build(BuildContext context) {
-    String dropdownValue = AppLocalizations.of(context)!.status_available;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -42,22 +42,20 @@ class _HeaderState extends State<Header> {
                   dropdownValue = newValue!;
                 });
               },
-              items: <String>[
-                AppLocalizations.of(context)!.status_available,
-                AppLocalizations.of(context)!.status_unavailable,
-                AppLocalizations.of(context)!.status_busy
-              ].map<DropdownMenuItem<String>>((String value) {
+              items: <String>['1', '2', '3'].map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: value == AppLocalizations.of(context)!.status_available
+                  child: value == '1'
                       ? Text(
-                          value,
+                          AppLocalizations.of(context)!.status_available,
                           style: const TextStyle(
                             color: AppColors.success,
                             fontWeight: FontWeight.w500,
                           ),
                         )
-                      : Text(value),
+                      : value == '2'
+                          ? Text(AppLocalizations.of(context)!.status_unavailable)
+                          : Text(AppLocalizations.of(context)!.status_busy),
                 );
               }).toList(),
             ),

@@ -13,9 +13,9 @@ class WeeklyDeliveriesTab extends StatefulWidget {
 }
 
 class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
+  String dropdownValue = '1';
   @override
   Widget build(BuildContext context) {
-    String dropdownValue = AppLocalizations.of(context)!.lineChart.toUpperCase();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -31,17 +31,18 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
                     value: dropdownValue,
                     elevation: 16,
                     onChanged: (String? newValue) {
+                      print("valor: $newValue");
                       setState(() {
                         dropdownValue = newValue!;
+                        print(dropdownValue);
                       });
                     },
-                    items: <String>[
-                      AppLocalizations.of(context)!.lineChart.toUpperCase(),
-                      AppLocalizations.of(context)!.columnChart.toUpperCase()
-                    ].map<DropdownMenuItem<String>>((String value) {
+                    items: <String>['1', '2'].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
-                        child: Text(value),
+                        child: value == '1'
+                            ? Text(AppLocalizations.of(context)!.lineChart.toUpperCase())
+                            : Text(AppLocalizations.of(context)!.columnChart.toUpperCase()),
                       );
                     }).toList(),
                   ),
@@ -49,7 +50,7 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
               )
             ],
           ),
-          dropdownValue == AppLocalizations.of(context)!.lineChart.toUpperCase()
+          dropdownValue == '1'
               ? SfCartesianChart(
                   title: ChartTitle(
                     text: AppLocalizations.of(context)!.weekSummary,
