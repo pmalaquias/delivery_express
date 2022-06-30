@@ -17,6 +17,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get accountNumber => 'Número da Conta';
 
   @override
+  String get addAPhoto => 'Adicionar uma foto';
+
+  @override
   String get addressData => 'Dados de Endereço';
 
   @override
@@ -153,6 +156,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get forgotPasswordMenssage => 'Esqueceu sua senha?';
+
+  @override
+  String get fromCamera => 'Da câmera';
+
+  @override
+  String get fromGallery => 'Da galeria';
 
   @override
   String get fullName => 'Nome Completo';

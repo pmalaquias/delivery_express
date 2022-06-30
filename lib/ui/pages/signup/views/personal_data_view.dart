@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart';
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../mixins/mixins.dart' show InputMask;
-import '../../../theme/theme.dart';
+import '../../../theme/theme.dart' show AppColors;
+import '../components/components.dart' show AddNewImageDialog;
 
 class PersonalDataDeliverymanView extends StatefulWidget {
   final PageController controller;
@@ -29,7 +30,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                 ),
                 const SizedBox(height: 32),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => dialogAddNewImage(context),
                   borderRadius: BorderRadius.circular(50),
                   hoverColor: AppColors.seccondRed,
                   radius: 150,
@@ -130,6 +131,15 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
       ),
     );
   }
+
+  Future<dynamic> dialogAddNewImage(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return const AddNewImageDialog();
+      },
+    );
+  }
 }
 
 class PersonalDataClientView extends StatefulWidget {
@@ -161,7 +171,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                 ),
                 const SizedBox(height: 32),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => dialogAddNewImage(context),
                   borderRadius: BorderRadius.circular(50),
                   hoverColor: AppColors.seccondRed,
                   radius: 150,
@@ -218,7 +228,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                         }
                       }
                     }
-                    return "wrong date";
+                    return AppLocalizations.of(context)!.wrongDate;
                   },
                 ),
                 const SizedBox(height: 8),
@@ -268,6 +278,15 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
           ),
         ],
       ),
+    );
+  }
+
+  Future<dynamic> dialogAddNewImage(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return const AddNewImageDialog();
+      },
     );
   }
 }

@@ -114,6 +114,12 @@ abstract class AppLocalizations {
   /// **'Account Number'**
   String get accountNumber;
 
+  /// No description provided for @addAPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a photo'**
+  String get addAPhoto;
+
   /// No description provided for @addressData.
   ///
   /// In en, this message translates to:
@@ -389,6 +395,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Forgot your password?'**
   String get forgotPasswordMenssage;
+
+  /// No description provided for @fromCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'From Camera'**
+  String get fromCamera;
+
+  /// No description provided for @fromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'From Gallery'**
+  String get fromGallery;
 
   /// No description provided for @fullName.
   ///
