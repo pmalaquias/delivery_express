@@ -149,7 +149,7 @@ class CustomDrawerClient extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.swap_calls_rounded),
-            title: const Text('Entregas em andamento'),
+            title: Text(AppLocalizations.of(context)!.drawerDeliveriesInProgress),
             onTap: () {},
           ),
           ListTile(

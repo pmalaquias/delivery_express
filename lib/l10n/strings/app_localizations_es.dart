@@ -131,6 +131,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get drawerCompletedTransactions => 'Transacciones Completadas';
 
   @override
+  String get drawerDeliveriesInProgress => 'Entregas en Curso';
+
+  @override
   String get drawerExit => 'Salir';
 
   @override
@@ -185,6 +188,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get invalidFieldError => 'Campo inválido';
 
   @override
+  String get latestTransactions => 'Últimas Transacciones';
+
+  @override
   String get licensePlate => 'Placa';
 
   @override
@@ -216,6 +222,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get neighborhood => 'Barrio';
+
+  @override
+  String get newDelivery => 'Nueva Entrega';
 
   @override
   String get number => 'Número';

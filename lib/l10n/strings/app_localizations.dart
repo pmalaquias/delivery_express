@@ -342,6 +342,12 @@ abstract class AppLocalizations {
   /// **'Completed Transactions'**
   String get drawerCompletedTransactions;
 
+  /// No description provided for @drawerDeliveriesInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliveries in Progress'**
+  String get drawerDeliveriesInProgress;
+
   /// No description provided for @drawerExit.
   ///
   /// In en, this message translates to:
@@ -450,6 +456,12 @@ abstract class AppLocalizations {
   /// **'Invalid Field'**
   String get invalidFieldError;
 
+  /// No description provided for @latestTransactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest Transaction'**
+  String get latestTransactions;
+
   /// No description provided for @licensePlate.
   ///
   /// In en, this message translates to:
@@ -515,6 +527,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Neighborhood'**
   String get neighborhood;
+
+  /// No description provided for @newDelivery.
+  ///
+  /// In en, this message translates to:
+  /// **'New Delivery'**
+  String get newDelivery;
 
   /// No description provided for @number.
   ///

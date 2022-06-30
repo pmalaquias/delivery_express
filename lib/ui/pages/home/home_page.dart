@@ -71,7 +71,7 @@ class HomeClientPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Inicio'),
+        title: Text(AppLocalizations.of(context)!.home),
         actions: [
           IconButton(
             onPressed: () {},

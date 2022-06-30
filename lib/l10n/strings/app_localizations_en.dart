@@ -131,6 +131,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get drawerCompletedTransactions => 'Completed Transactions';
 
   @override
+  String get drawerDeliveriesInProgress => 'Deliveries in Progress';
+
+  @override
   String get drawerExit => 'Exit';
 
   @override
@@ -185,6 +188,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invalidFieldError => 'Invalid Field';
 
   @override
+  String get latestTransactions => 'Latest Transaction';
+
+  @override
   String get licensePlate => 'License Plate';
 
   @override
@@ -216,6 +222,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get neighborhood => 'Neighborhood';
+
+  @override
+  String get newDelivery => 'New Delivery';
 
   @override
   String get number => 'Number';

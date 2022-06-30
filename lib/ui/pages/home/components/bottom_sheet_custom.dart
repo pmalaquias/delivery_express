@@ -1,3 +1,4 @@
+import 'package:delivery_express/l10n/strings/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheetCustom extends StatelessWidget {
@@ -26,9 +27,9 @@ class BottomSheetCustom extends StatelessWidget {
                         ListTile(
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text('Boa Tarde'),
-                              Text('Supermecado Nova Europa'),
+                            children: [
+                              Text(AppLocalizations.of(context)!.goodAfternoon),
+                              const Text('Supermecado Nova Europa'),
                             ],
                           ),
                         ),
@@ -38,7 +39,7 @@ class BottomSheetCustom extends StatelessWidget {
                           child: ElevatedButton.icon(
                             onPressed: () {},
                             icon: const Icon(Icons.unarchive_rounded),
-                            label: const Text(' Nova Entrega'),
+                            label: Text(AppLocalizations.of(context)!.newDelivery.toUpperCase()),
                           ),
                         ),
                         const Divider(),
@@ -47,7 +48,7 @@ class BottomSheetCustom extends StatelessWidget {
                           child: ElevatedButton.icon(
                             icon: const Icon(Icons.description_rounded),
                             onPressed: () {},
-                            label: const Text('Últimas Transações'),
+                            label: Text(AppLocalizations.of(context)!.latestTransactions.toUpperCase()),
                           ),
                         ),
                       ],
