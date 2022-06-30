@@ -54,6 +54,8 @@
   "fromGallery": "De la galeria",
   "fullName": "Nombre Completo",
   "goodAfternoon": "Buenas Tardes,",
+  "goodMornig": "Buenos Días",
+  "goodNigth": "Buenas Noches",
   "helloWorld": "¡Hola Mundo!",
   "home": "Inicio",
   "homeAddress": "Direccion de casa",

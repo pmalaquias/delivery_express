@@ -173,6 +173,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get goodAfternoon => 'Buenas Tardes,';
 
   @override
+  String get goodMornig => 'Buenos Días';
+
+  @override
+  String get goodNigth => 'Buenas Noches';
+
+  @override
   String get helloWorld => '¡Hola Mundo!';
 
   @override

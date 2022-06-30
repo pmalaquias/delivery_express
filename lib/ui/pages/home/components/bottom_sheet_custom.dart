@@ -1,5 +1,7 @@
-import 'package:delivery_express/l10n/strings/app_localizations.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import 'components.dart' show HourOfDay;
 
 class BottomSheetCustom extends StatelessWidget {
   const BottomSheetCustom({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class BottomSheetCustom extends StatelessWidget {
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(AppLocalizations.of(context)!.goodAfternoon),
+                              HourOfDay(),
                               const Text('Supermecado Nova Europa'),
                             ],
                           ),

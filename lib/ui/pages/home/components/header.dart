@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../theme/theme.dart' show AppColors;
+import 'components.dart' show HourOfDay;
 
 class Header extends StatefulWidget {
   const Header({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _HeaderState extends State<Header> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(AppLocalizations.of(context)!.goodAfternoon),
+            HourOfDay(),
             const Text(
               'Maria Aparecida',
               style: TextStyle(
@@ -59,7 +60,6 @@ class _HeaderState extends State<Header> {
                 );
               }).toList(),
             ),
-            //const Text('DISPONÍVEL'),
           ],
         ),
       ],

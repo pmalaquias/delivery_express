@@ -426,6 +426,18 @@ abstract class AppLocalizations {
   /// **'Good Afternoon,'**
   String get goodAfternoon;
 
+  /// No description provided for @goodMornig.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Mornig'**
+  String get goodMornig;
+
+  /// No description provided for @goodNigth.
+  ///
+  /// In en, this message translates to:
+  /// **'Good Night'**
+  String get goodNigth;
+
   /// The conventional newborn programmer greeting
   ///
   /// In en, this message translates to:

@@ -175,7 +175,9 @@ class CustomDrawerClient extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.exit_to_app_rounded),
             title: Text(AppLocalizations.of(context)!.drawerExit),
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
         ],
       ),
