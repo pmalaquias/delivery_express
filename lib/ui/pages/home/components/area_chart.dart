@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import '../../../mocks/mocks.dart' show seriesAreaMock;
 
 class AreaChart extends StatelessWidget {
@@ -11,7 +11,7 @@ class AreaChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SfCartesianChart(
       title: ChartTitle(
-        text: AppLocalizations.of(context)!.weekSummary,
+        text: context.loc.weekSummary,
         alignment: ChartAlignment.near,
       ),
 

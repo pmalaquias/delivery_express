@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 
 class ForgotPasswordButton extends StatelessWidget {
   const ForgotPasswordButton({
@@ -12,10 +12,10 @@ class ForgotPasswordButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text(AppLocalizations.of(context)!.forgotPasswordMenssage),
+        Text(context.loc.forgotPasswordMenssage),
         TextButton(
           onPressed: () {},
-          child: Text(AppLocalizations.of(context)!.forgotPasswordButton),
+          child: Text(context.loc.forgotPasswordButton),
         ),
       ],
     );

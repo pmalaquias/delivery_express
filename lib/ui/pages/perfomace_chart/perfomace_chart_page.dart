@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../extension/extension.dart';
 import '../../theme/theme.dart' show AppColors;
 import 'components/components.dart' show DeliveriesByTypeTab, WeeklyDeliveriesTab;
 
@@ -14,7 +14,7 @@ class PerfomaceChartPage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Expanded(child: Text(AppLocalizations.of(context)!.perfomaceChartTitle)),
+          title: Expanded(child: Text(context.loc.perfomaceChartTitle)),
           actions: [
             IconButton(
               onPressed: () {},
@@ -27,8 +27,8 @@ class PerfomaceChartPage extends StatelessWidget {
             indicatorColor: AppColors.primaryRed,
             unselectedLabelColor: AppColors.black,
             tabs: [
-              Tab(text: AppLocalizations.of(context)!.weeklyDeliveriesTitle.toUpperCase()),
-              Tab(text: AppLocalizations.of(context)!.deliveriesByTypeTitle.toUpperCase()),
+              Tab(text: context.loc.weeklyDeliveriesTitle.toUpperCase()),
+              Tab(text: context.loc.deliveriesByTypeTitle.toUpperCase()),
             ],
           ),
         ),

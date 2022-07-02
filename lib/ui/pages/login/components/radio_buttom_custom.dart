@@ -1,8 +1,8 @@
-import 'package:delivery_express/ui/pages/login/login.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart';
+import '../../../extension/extension.dart';
 import '../../../theme/theme.dart';
+import '../login.dart' show LoginPresenter;
 
 class RadioButtonCustom extends StatefulWidget {
   final LoginPresenter presenter;
@@ -65,13 +65,13 @@ class _RadioButtonCustomState extends State<RadioButtonCustom> {
     return Column(
       children: <Widget>[
         customRadioButton(
-          AppLocalizations.of(context)!.deleverymanLabel,
-          AppLocalizations.of(context)!.deliverymanText,
+          context.loc.deleverymanLabel,
+          context.loc.deliverymanText,
           1,
         ),
         customRadioButton(
-          AppLocalizations.of(context)!.clientLabel,
-          AppLocalizations.of(context)!.clientText,
+          context.loc.clientLabel,
+          context.loc.clientText,
           2,
         ),
       ],

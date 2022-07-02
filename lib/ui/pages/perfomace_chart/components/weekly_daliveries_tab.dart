@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import '../../../mocks/mocks.dart' show seriesAreaMock, seriesColumnMock;
 import 'components.dart' show PurchaseInfoTile, TotalBalanceTile;
 
@@ -26,23 +26,21 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(AppLocalizations.of(context)!.visualization),
+                  Text(context.loc.visualization),
                   DropdownButton<String>(
                     value: dropdownValue,
                     elevation: 16,
                     onChanged: (String? newValue) {
-                      print("valor: $newValue");
                       setState(() {
                         dropdownValue = newValue!;
-                        print(dropdownValue);
                       });
                     },
                     items: <String>['1', '2'].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: value == '1'
-                            ? Text(AppLocalizations.of(context)!.lineChart.toUpperCase())
-                            : Text(AppLocalizations.of(context)!.columnChart.toUpperCase()),
+                            ? Text(context.loc.lineChart.toUpperCase())
+                            : Text(context.loc.columnChart.toUpperCase()),
                       );
                     }).toList(),
                   ),
@@ -53,7 +51,7 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
           dropdownValue == '1'
               ? SfCartesianChart(
                   title: ChartTitle(
-                    text: AppLocalizations.of(context)!.weekSummary,
+                    text: context.loc.weekSummary,
                     alignment: ChartAlignment.near,
                   ),
 
@@ -69,7 +67,7 @@ class _WeeklyDeliveriesTabState extends State<WeeklyDeliveriesTab> {
                 )
               : SfCartesianChart(
                   title: ChartTitle(
-                    text: AppLocalizations.of(context)!.weekSummary,
+                    text: context.loc.weekSummary,
                     alignment: ChartAlignment.near,
                   ),
                   primaryXAxis: CategoryAxis(

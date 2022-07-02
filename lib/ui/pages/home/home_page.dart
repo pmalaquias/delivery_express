@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../extension/extension.dart';
 import '../../theme/theme.dart' show AppColors;
 import 'components/components.dart';
 
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.home),
+          title: Text(context.loc.home),
           actions: [
             IconButton(
               onPressed: () {},
@@ -32,8 +32,8 @@ class _HomePageState extends State<HomePage> {
             indicatorColor: AppColors.primaryRed,
             unselectedLabelColor: AppColors.black,
             tabs: [
-              Tab(text: AppLocalizations.of(context)!.myPanel.toUpperCase()),
-              Tab(text: AppLocalizations.of(context)!.map.toUpperCase()),
+              Tab(text: context.loc.myPanel.toUpperCase()),
+              Tab(text: context.loc.map.toUpperCase()),
             ],
           ),
         ),
@@ -71,7 +71,7 @@ class HomeClientPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.home),
+        title: Text(context.loc.home),
         actions: [
           IconButton(
             onPressed: () {},

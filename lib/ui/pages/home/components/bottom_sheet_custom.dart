@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import 'components.dart' show HourOfDay;
 
 class BottomSheetCustom extends StatelessWidget {
@@ -41,7 +41,7 @@ class BottomSheetCustom extends StatelessWidget {
                           child: ElevatedButton.icon(
                             onPressed: () {},
                             icon: const Icon(Icons.unarchive_rounded),
-                            label: Text(AppLocalizations.of(context)!.newDelivery.toUpperCase()),
+                            label: Text(context.loc.newDelivery.toUpperCase()),
                           ),
                         ),
                         const Divider(),
@@ -50,7 +50,7 @@ class BottomSheetCustom extends StatelessWidget {
                           child: ElevatedButton.icon(
                             icon: const Icon(Icons.description_rounded),
                             onPressed: () {},
-                            label: Text(AppLocalizations.of(context)!.latestTransactions.toUpperCase()),
+                            label: Text(context.loc.latestTransactions.toUpperCase()),
                           ),
                         ),
                       ],

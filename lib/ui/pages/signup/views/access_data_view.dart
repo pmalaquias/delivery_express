@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart';
+import '../../../extension/extension.dart';
 
 class AccessDataView extends StatefulWidget {
   final PageController controller;
@@ -24,15 +24,15 @@ class _AccessDataViewState extends State<AccessDataView> {
               child: Column(
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.accessData,
+                    context.loc.accessData,
                     style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
                   TextFormField(
                     //controller: _emailTextController,
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.email,
-                      label: Text(AppLocalizations.of(context)!.email),
+                      hintText: context.loc.email,
+                      label: Text(context.loc.email),
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -40,8 +40,8 @@ class _AccessDataViewState extends State<AccessDataView> {
                   TextFormField(
                     //controller: _emailTextController,
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.confirmEmail,
-                      label: Text(AppLocalizations.of(context)!.confirmEmail),
+                      hintText: context.loc.confirmEmail,
+                      label: Text(context.loc.confirmEmail),
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -49,8 +49,8 @@ class _AccessDataViewState extends State<AccessDataView> {
                   TextFormField(
                     //controller: _emailTextController,
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.password,
-                      label: Text(AppLocalizations.of(context)!.password),
+                      hintText: context.loc.password,
+                      label: Text(context.loc.password),
                     ),
                     obscureText: true,
                   ),
@@ -58,8 +58,8 @@ class _AccessDataViewState extends State<AccessDataView> {
                   TextFormField(
                     //controller: _emailTextController,
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.confirmPassword,
-                      label: Text(AppLocalizations.of(context)!.confirmPassword),
+                      hintText: context.loc.confirmPassword,
+                      label: Text(context.loc.confirmPassword),
                     ),
                     obscureText: true,
                   ),
@@ -79,7 +79,7 @@ class _AccessDataViewState extends State<AccessDataView> {
                       );
                     });
                   },
-                  child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
+                  child: Text(context.loc.backButton.toUpperCase()),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -90,7 +90,7 @@ class _AccessDataViewState extends State<AccessDataView> {
                       );
                     });
                   },
-                  child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                  child: Text(context.loc.continueButton.toUpperCase()),
                 ),
               ],
             ),

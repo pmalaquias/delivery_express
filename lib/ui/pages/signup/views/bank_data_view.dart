@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../l10n/strings/app_localizations.dart';
+import '../../../extension/extension.dart';
 import '../../../mixins/mixins.dart' show InputMask;
 import '../../pages.dart';
 
@@ -29,12 +29,12 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
               Column(
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.dataForReceipt,
+                    context.loc.dataForReceipt,
                     style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                   ),
                   ListTile(
                     title: Text(
-                      AppLocalizations.of(context)!.confirmPreviouslyUsedData,
+                      context.loc.confirmPreviouslyUsedData,
                       style: const TextStyle(fontSize: 12),
                     ),
                     leading: Switch(
@@ -48,33 +48,33 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.bankName,
-                      label: Text(AppLocalizations.of(context)!.bankName),
+                      hintText: context.loc.bankName,
+                      label: Text(context.loc.bankName),
                     ),
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.accontType,
-                      label: Text(AppLocalizations.of(context)!.accontType),
+                      hintText: context.loc.accontType,
+                      label: Text(context.loc.accontType),
                     ),
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.bankBranch,
-                      label: Text(AppLocalizations.of(context)!.bankBranch),
+                      hintText: context.loc.bankBranch,
+                      label: Text(context.loc.bankBranch),
                     ),
                     inputFormatters: [bankBranchMaskFormatter],
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.accountNumber,
-                      label: Text(AppLocalizations.of(context)!.accountNumber),
+                      hintText: context.loc.accountNumber,
+                      label: Text(context.loc.accountNumber),
                     ),
                     inputFormatters: [accountNumberMaskFormatter],
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    AppLocalizations.of(context)!.changeReceiptData,
+                    context.loc.changeReceiptData,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 16),
@@ -92,7 +92,7 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                   ),
                   Expanded(
                     child: Text(
-                      AppLocalizations.of(context)!.termsOfUseReceiptData,
+                      context.loc.termsOfUseReceiptData,
                     ),
                   ),
                 ],
@@ -111,7 +111,7 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                     );
                   });
                 },
-                child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
+                child: Text(context.loc.backButton.toUpperCase()),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -128,7 +128,7 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                     ),
                   );
                 },
-                child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                child: Text(context.loc.continueButton.toUpperCase()),
               ),
             ],
           ),
@@ -170,12 +170,12 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                 Column(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.dataForReceipt,
+                      context.loc.dataForReceipt,
                       style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                     ),
                     ListTile(
                       title: Text(
-                        AppLocalizations.of(context)!.confirmPreviouslyUsedData,
+                        context.loc.confirmPreviouslyUsedData,
                         style: const TextStyle(fontSize: 12),
                       ),
                       leading: Switch(
@@ -215,7 +215,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                     TextFormField(
                       decoration: InputDecoration(
                         hintText: '0000 0000 0000 0000',
-                        label: Text(AppLocalizations.of(context)!.cardNumber),
+                        label: Text(context.loc.cardNumber),
                       ),
                       inputFormatters: [cardNumberMaskFormatter],
                     ),
@@ -226,7 +226,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         DropdownButton<String>(
-                          hint: Text(AppLocalizations.of(context)!.expiryMonth),
+                          hint: Text(context.loc.expiryMonth),
                           value: dropdownValueMes,
                           elevation: 16,
                           onChanged: (String? newValue) {
@@ -243,7 +243,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                         ),
                         const SizedBox(height: 8),
                         DropdownButton<String>(
-                          hint: Text(AppLocalizations.of(context)!.expiryYear),
+                          hint: Text(context.loc.expiryYear),
                           value: dropdownValueAno,
                           elevation: 16,
                           onChanged: (String? newValue) {
@@ -262,7 +262,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      AppLocalizations.of(context)!.cardDataInformation,
+                      context.loc.cardDataInformation,
                       textAlign: TextAlign.center,
                       style: const TextStyle(fontSize: 12),
                     ),
@@ -283,7 +283,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                         ),
                         Expanded(
                           child: Text(
-                            AppLocalizations.of(context)!.termsOfUseReceiptData,
+                            context.loc.termsOfUseReceiptData,
                           ),
                         ),
                       ],
@@ -306,7 +306,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                     );
                   });
                 },
-                child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
+                child: Text(context.loc.backButton.toUpperCase()),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -323,7 +323,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                     ),
                   );
                 },
-                child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                child: Text(context.loc.continueButton.toUpperCase()),
               ),
             ],
           ),

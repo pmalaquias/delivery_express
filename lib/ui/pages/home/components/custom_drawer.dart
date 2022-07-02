@@ -1,9 +1,9 @@
-import 'package:delivery_express/ui/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import '../../../theme/theme.dart' show AppColors;
 import '../../pages.dart';
+import '../../profile/profile.dart' show ProfilePage;
 
 class CustomDrawerDeliveryMan extends StatelessWidget {
   const CustomDrawerDeliveryMan({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class CustomDrawerDeliveryMan extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.home_rounded),
-            title: Text(AppLocalizations.of(context)!.home),
+            title: Text(context.loc.home),
             onTap: () {
               Navigator.push(
                 context,
@@ -47,7 +47,7 @@ class CustomDrawerDeliveryMan extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerProfile),
+            title: Text(context.loc.drawerProfile),
             onTap: () {
               Navigator.push(
                 context,
@@ -59,32 +59,32 @@ class CustomDrawerDeliveryMan extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.list_alt_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerCompletedTransactions),
+            title: Text(context.loc.drawerCompletedTransactions),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.payments_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerCompleteExtract),
+            title: Text(context.loc.drawerCompleteExtract),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.settings_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerAccountConfigurations),
+            title: Text(context.loc.drawerAccountConfigurations),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.help_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerHelpAndSuport),
+            title: Text(context.loc.drawerHelpAndSuport),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.info_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerAbout),
+            title: Text(context.loc.drawerAbout),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerExit),
+            title: Text(context.loc.drawerExit),
             onTap: () {},
           ),
         ],
@@ -125,7 +125,7 @@ class CustomDrawerClient extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.home_rounded),
-            title: Text(AppLocalizations.of(context)!.home),
+            title: Text(context.loc.home),
             onTap: () {
               Navigator.push(
                 context,
@@ -137,7 +137,7 @@ class CustomDrawerClient extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerProfile),
+            title: Text(context.loc.drawerProfile),
             onTap: () {
               Navigator.push(
                 context,
@@ -149,32 +149,32 @@ class CustomDrawerClient extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.swap_calls_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerDeliveriesInProgress),
+            title: Text(context.loc.drawerDeliveriesInProgress),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.list_alt_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerCompletedTransactions),
+            title: Text(context.loc.drawerCompletedTransactions),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.settings_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerAccountConfigurations),
+            title: Text(context.loc.drawerAccountConfigurations),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.help_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerHelpAndSuport),
+            title: Text(context.loc.drawerHelpAndSuport),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.info_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerAbout),
+            title: Text(context.loc.drawerAbout),
             onTap: () {},
           ),
           ListTile(
             leading: const Icon(Icons.exit_to_app_rounded),
-            title: Text(AppLocalizations.of(context)!.drawerExit),
+            title: Text(context.loc.drawerExit),
             onTap: () {
               Navigator.pop(context);
             },

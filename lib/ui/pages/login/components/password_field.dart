@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../../validation/validators/validator.dart' show Validator;
+import '../../../extension/extension.dart';
 import '../../../helpers/helpes.dart';
 import '../../../theme/theme.dart' show AppColors;
 import '../login.dart' show LoginPresenter;
@@ -33,8 +33,8 @@ class _PasswordFieldState extends State<PasswordField> {
           return TextFormField(
             controller: widget._passwordTextController,
             decoration: InputDecoration(
-              hintText: AppLocalizations.of(context)!.password,
-              label: Text(AppLocalizations.of(context)!.password),
+              hintText: context.loc.password,
+              label: Text(context.loc.password),
               errorText: snapshot.hasData && snapshot.data != UIError.NO_ERROR ? snapshot.data?.desscription : null,
               suffixIcon: IconButton(
                 focusColor: AppColors.primaryRed,

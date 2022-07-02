@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 
 class HourOfDay extends StatelessWidget {
   final int hourOfDay = DateTime.now().hour;
@@ -10,11 +10,11 @@ class HourOfDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isNigth) {
-      return Text(AppLocalizations.of(context)!.goodNigth);
+      return Text(context.loc.goodNigth);
     } else if (isAfternoon) {
-      return Text(AppLocalizations.of(context)!.goodAfternoon);
+      return Text(context.loc.goodAfternoon);
     } else {
-      return Text(AppLocalizations.of(context)!.goodMornig);
+      return Text(context.loc.goodMornig);
     }
   }
 

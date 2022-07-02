@@ -2,7 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../api/estados.dart';
-import '../../../../l10n/strings/app_localizations.dart';
+import '../../../extension/extension.dart';
 
 class AddressDataView extends StatefulWidget {
   final PageController controller;
@@ -21,7 +21,7 @@ class _AddressDataViewState extends State<AddressDataView> {
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
         hint: Text(
-          AppLocalizations.of(context)!.state,
+          context.loc.state,
           style: TextStyle(
             fontSize: 14,
             color: Theme.of(context).hintColor,
@@ -92,7 +92,7 @@ class _AddressDataViewState extends State<AddressDataView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.maximumDisplayDistance,
+              context.loc.maximumDisplayDistance,
             ),
             const SizedBox(width: 16),
             Text('${_currentSliderValue.toInt().toString()} km'),
@@ -126,38 +126,38 @@ class _AddressDataViewState extends State<AddressDataView> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.addressData,
+                  context.loc.addressData,
                   style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.homeAddress,
-                    label: Text(AppLocalizations.of(context)!.homeAddress),
+                    hintText: context.loc.homeAddress,
+                    label: Text(context.loc.homeAddress),
                   ),
                   keyboardType: TextInputType.streetAddress,
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.number,
-                    label: Text(AppLocalizations.of(context)!.number),
+                    hintText: context.loc.number,
+                    label: Text(context.loc.number),
                   ),
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.neighborhood,
-                    label: Text(AppLocalizations.of(context)!.neighborhood),
+                    hintText: context.loc.neighborhood,
+                    label: Text(context.loc.neighborhood),
                   ),
                   keyboardType: TextInputType.none,
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.complement,
-                    label: Text(AppLocalizations.of(context)!.complement),
+                    hintText: context.loc.complement,
+                    label: Text(context.loc.complement),
                   ),
                   keyboardType: TextInputType.none,
                 ),
@@ -181,7 +181,7 @@ class _AddressDataViewState extends State<AddressDataView> {
                     );
                   });
                 },
-                child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
+                child: Text(context.loc.backButton.toUpperCase()),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -192,7 +192,7 @@ class _AddressDataViewState extends State<AddressDataView> {
                     );
                   });
                 },
-                child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                child: Text(context.loc.continueButton.toUpperCase()),
               ),
             ],
           ),

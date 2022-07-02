@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 
 class InfoCard extends StatelessWidget {
   const InfoCard({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class InfoCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.balanceAvailable.toUpperCase(),
+                  context.loc.balanceAvailable.toUpperCase(),
                   style: const TextStyle(
                     color: Colors.white,
                   ),
@@ -46,7 +46,7 @@ class InfoCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.myDeliveries.toUpperCase(),
+                        context.loc.myDeliveries.toUpperCase(),
                         style: const TextStyle(
                           color: Colors.white,
                         ),
@@ -60,7 +60,7 @@ class InfoCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '(16 ${AppLocalizations.of(context)!.myDeliveriesMessage})',
+                        '(16 ${context.loc.myDeliveriesMessage})',
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -81,7 +81,7 @@ class InfoCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.myRatings.toUpperCase(),
+                        context.loc.myRatings.toUpperCase(),
                         style: const TextStyle(
                           color: Colors.white,
                         ),

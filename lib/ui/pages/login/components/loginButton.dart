@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import '../login.dart';
 
 class LoginButton extends StatelessWidget {
@@ -18,7 +18,7 @@ class LoginButton extends StatelessWidget {
       builder: (context, snapshot) {
         return ElevatedButton(
           onPressed: snapshot.data == true ? presenter.auth : null,
-          child: Text(AppLocalizations.of(context)!.loginButton.toUpperCase()),
+          child: Text(context.loc.loginButton.toUpperCase()),
           //color: Colors.red,
         );
       },

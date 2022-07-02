@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import '../../../mixins/mixins.dart' show InputMask;
 import '../../../theme/theme.dart' show AppColors;
 import '../components/components.dart' show AddNewImageDialog;
@@ -25,7 +25,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
             Column(
               children: [
                 Text(
-                  AppLocalizations.of(context)!.personalData,
+                  context.loc.personalData,
                   style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 32),
@@ -49,8 +49,8 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                 TextFormField(
                   //controller: _emailTextController,
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.fullName,
-                    label: Text(AppLocalizations.of(context)!.fullName),
+                    hintText: context.loc.fullName,
+                    label: Text(context.loc.fullName),
                   ),
                   keyboardType: TextInputType.name,
                 ),
@@ -58,7 +58,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                 TextFormField(
                   decoration: InputDecoration(
                     hintText: '15/01/2000',
-                    label: Text(AppLocalizations.of(context)!.birthDate),
+                    label: Text(context.loc.birthDate),
                   ),
                   keyboardType: TextInputType.datetime,
                   inputFormatters: [birthDataMaskFormatter],
@@ -78,7 +78,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                         }
                       }
                     }
-                    return AppLocalizations.of(context)!.wrongDate;
+                    return context.loc.wrongDate;
                   },
                 ),
                 const SizedBox(height: 8),
@@ -86,7 +86,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                   //controller: _emailTextController,
                   decoration: InputDecoration(
                     hintText: '999.999.999-99',
-                    label: Text(AppLocalizations.of(context)!.cpf),
+                    label: Text(context.loc.cpf),
                   ),
                   keyboardType: TextInputType.name,
                   inputFormatters: [cpfMaskFormatter],
@@ -94,7 +94,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                 TextFormField(
                   decoration: InputDecoration(
                     hintText: '(00) 0 0000-0000',
-                    label: Text(AppLocalizations.of(context)!.phoneNumber),
+                    label: Text(context.loc.phoneNumber),
                   ),
                   keyboardType: TextInputType.phone,
                   inputFormatters: [cellPhoneMaskFormatter],
@@ -111,7 +111,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                       Navigator.canPop(context);
                     }
                   },
-                  child: Text(AppLocalizations.of(context)!.cancelButton.toUpperCase()),
+                  child: Text(context.loc.cancelButton.toUpperCase()),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -122,7 +122,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                       );
                     });
                   },
-                  child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                  child: Text(context.loc.continueButton.toUpperCase()),
                 ),
               ],
             ),
@@ -166,7 +166,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
             child: Column(
               children: [
                 Text(
-                  AppLocalizations.of(context)!.personalData,
+                  context.loc.personalData,
                   style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 32),
@@ -190,8 +190,8 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                 TextFormField(
                   //controller: _emailTextController,
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.fullName,
-                    label: Text(AppLocalizations.of(context)!.fullName),
+                    hintText: context.loc.fullName,
+                    label: Text(context.loc.fullName),
                   ),
                   keyboardType: TextInputType.name,
                 ),
@@ -199,8 +199,8 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                 TextFormField(
                   //controller: _emailTextController,
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.commercialName,
-                    label: Text(AppLocalizations.of(context)!.commercialName),
+                    hintText: context.loc.commercialName,
+                    label: Text(context.loc.commercialName),
                   ),
                   keyboardType: TextInputType.name,
                 ),
@@ -208,7 +208,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                 TextFormField(
                   decoration: InputDecoration(
                     hintText: '15/01/200',
-                    label: Text(AppLocalizations.of(context)!.birthDate),
+                    label: Text(context.loc.birthDate),
                   ),
                   keyboardType: TextInputType.datetime,
                   inputFormatters: [birthDataMaskFormatter],
@@ -228,7 +228,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                         }
                       }
                     }
-                    return AppLocalizations.of(context)!.wrongDate;
+                    return context.loc.wrongDate;
                   },
                 ),
                 const SizedBox(height: 8),
@@ -236,7 +236,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                   //controller: _emailTextController,
                   decoration: InputDecoration(
                     hintText: '999.999.999-99',
-                    label: Text(AppLocalizations.of(context)!.cpf),
+                    label: Text(context.loc.cpf),
                   ),
                   keyboardType: TextInputType.name,
                   inputFormatters: [cpfMaskFormatter],
@@ -244,7 +244,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                 TextFormField(
                   decoration: InputDecoration(
                     hintText: '(00) 0 0000-0000',
-                    label: Text(AppLocalizations.of(context)!.phoneNumber),
+                    label: Text(context.loc.phoneNumber),
                   ),
                   keyboardType: TextInputType.phone,
                   inputFormatters: [cellPhoneMaskFormatter],
@@ -261,7 +261,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                     Navigator.canPop(context);
                   }
                 },
-                child: Text(AppLocalizations.of(context)!.cancelButton.toUpperCase()),
+                child: Text(context.loc.cancelButton.toUpperCase()),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -272,7 +272,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                     );
                   });
                 },
-                child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                child: Text(context.loc.continueButton.toUpperCase()),
               ),
             ],
           ),

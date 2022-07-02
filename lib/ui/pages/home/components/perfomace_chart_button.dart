@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import '../../pages.dart';
 
 class PerfomaceChartButton extends StatefulWidget {
@@ -26,7 +26,7 @@ class _PerfomaceChartButtonState extends State<PerfomaceChartButton> {
         },
         icon: const Icon(Icons.bar_chart_rounded),
         label: Text(
-          AppLocalizations.of(context)!.perfomaceChartButton.toUpperCase(),
+          context.loc.perfomaceChartButton.toUpperCase(),
           textAlign: TextAlign.center,
         ),
       ),

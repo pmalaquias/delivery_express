@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../../validation/validators/validator.dart' show Validator;
+import '../../../extension/extension.dart';
 import '../../../helpers/helpes.dart';
 import '../login.dart' show LoginPresenter;
 
@@ -24,8 +24,8 @@ class EmailField extends StatelessWidget {
         return TextFormField(
           controller: _emailTextController,
           decoration: InputDecoration(
-            hintText: AppLocalizations.of(context)!.email,
-            label: Text(AppLocalizations.of(context)!.email),
+            hintText: context.loc.email,
+            label: Text(context.loc.email),
             errorText: snapshot.hasData && snapshot.data != UIError.NO_ERROR ? snapshot.data?.desscription : null,
           ),
           keyboardType: TextInputType.emailAddress,

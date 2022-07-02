@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../l10n/strings/app_localizations.dart';
+import '../../../extension/extension.dart';
 
 class DeliveyDataView extends StatefulWidget {
   final PageController controller;
@@ -79,10 +79,10 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
         Column(
           children: [
             Text(
-              AppLocalizations.of(context)!.deliveryData,
+              context.loc.deliveryData,
               style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
             ),
-            Text(AppLocalizations.of(context)!.deliveryType),
+            Text(context.loc.deliveryType),
             Column(
               children: [
                 Wrap(
@@ -96,7 +96,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/food.svg'),
-                            Text(AppLocalizations.of(context)!.deliveryFood),
+                            Text(context.loc.deliveryFood),
                           ],
                         ),
                       ),
@@ -109,7 +109,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/clothing.svg'),
-                            Text(AppLocalizations.of(context)!.deliveryClothing),
+                            Text(context.loc.deliveryClothing),
                           ],
                         ),
                       ),
@@ -122,7 +122,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/documents.svg'),
-                            Text(AppLocalizations.of(context)!.deliveryDocuments),
+                            Text(context.loc.deliveryDocuments),
                           ],
                         ),
                       ),
@@ -140,7 +140,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                             ),
                             Flexible(
                               child: Text(
-                                AppLocalizations.of(context)!.deliveryFragileOrder,
+                                context.loc.deliveryFragileOrder,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -160,7 +160,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                               width: 45,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.deliveryHeavyOrder,
+                              context.loc.deliveryHeavyOrder,
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -175,7 +175,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/other_delivery.svg'),
-                            Text(AppLocalizations.of(context)!.deliveryOther),
+                            Text(context.loc.deliveryOther),
                           ],
                         ),
                       ),
@@ -198,7 +198,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                             ),
                             Flexible(
                               child: Text(
-                                AppLocalizations.of(context)!.deliveryFragileOrder,
+                                context.loc.deliveryFragileOrder,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -218,7 +218,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                               width: 45,
                             ),
                             Text(
-                              AppLocalizations.of(context)!.deliveryHeavyOrder,
+                              context.loc.deliveryHeavyOrder,
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -233,7 +233,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset('lib/ui/assets/images/svg/other_delivery.svg'),
-                            Text(AppLocalizations.of(context)!.deliveryOther),
+                            Text(context.loc.deliveryOther),
                           ],
                         ),
                       ),
@@ -242,7 +242,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                 ), */
                 const SizedBox(height: 16),
                 Text(
-                  AppLocalizations.of(context)!.deliveryDataMessage,
+                  context.loc.deliveryDataMessage,
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -261,7 +261,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                   );
                 });
               },
-              child: Text(AppLocalizations.of(context)!.backButton.toUpperCase()),
+              child: Text(context.loc.backButton.toUpperCase()),
             ),
             ElevatedButton(
               onPressed: () {
@@ -272,7 +272,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                   );
                 });
               },
-              child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+              child: Text(context.loc.continueButton.toUpperCase()),
             ),
           ],
         ),

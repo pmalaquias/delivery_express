@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-import '../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../components/components.dart';
+import '../../extension/extension.dart';
 import '../../mixins/mixins.dart';
 import '../../utils/images.dart' show Images;
 import 'login.dart';
@@ -76,13 +76,13 @@ class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingMana
                                 SvgPicture.asset(Images.mapEg),
                                 const SizedBox(height: 8),
                                 Text(
-                                  AppLocalizations.of(context)!.welcomeCardTitle,
+                                  context.loc.welcomeCardTitle,
                                   style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 24),
                                   textAlign: TextAlign.center,
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
-                                  AppLocalizations.of(context)!.welcomeCardMenssage,
+                                  context.loc.welcomeCardMenssage,
                                   textAlign: TextAlign.center,
                                 ),
                               ],
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingMana
                           height: 16,
                         ),
                         Text(
-                          AppLocalizations.of(context)!.loginMenssage,
+                          context.loc.loginMenssage,
                           textAlign: TextAlign.center,
                         ),
                         Provider(

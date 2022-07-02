@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/strings/app_localizations.dart';
+import '../../extension/extension.dart';
 import 'views/views.dart';
 
 class SignUpDeliveryMan extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SignUpDeliveryManState extends State<SignUpDeliveryMan> {
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.registerDeliveryPerson),
+        title: Text(context.loc.registerDeliveryPerson),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

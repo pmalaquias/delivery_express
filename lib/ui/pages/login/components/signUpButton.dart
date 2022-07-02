@@ -1,6 +1,6 @@
+import 'package:delivery_express/ui/extension/extension.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
 import '../../../theme/theme.dart';
 import '../../pages.dart';
 
@@ -68,25 +68,25 @@ class _SignUpButtonState extends State<SignUpButton> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppLocalizations.of(context)!.signUpMessage),
+        Text(context.loc.signUpMessage),
         TextButton(
           onPressed: () {
             showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  title: Text(AppLocalizations.of(context)!.signupPopUpLabel),
+                  title: Text(context.loc.signupPopUpLabel),
                   //content: RadioButtonCustom(presenter: presenter),
                   content: Column(
                     children: <Widget>[
                       customRadioButton(
-                        AppLocalizations.of(context)!.deleverymanLabel,
-                        AppLocalizations.of(context)!.deliverymanText,
+                        context.loc.deleverymanLabel,
+                        context.loc.deliverymanText,
                         1,
                       ),
                       customRadioButton(
-                        AppLocalizations.of(context)!.clientLabel,
-                        AppLocalizations.of(context)!.clientText,
+                        context.loc.clientLabel,
+                        context.loc.clientText,
                         2,
                       ),
                     ],
@@ -95,7 +95,7 @@ class _SignUpButtonState extends State<SignUpButton> {
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.canPop(context),
-                      child: Text(AppLocalizations.of(context)!.cancelButton.toUpperCase()),
+                      child: Text(context.loc.cancelButton.toUpperCase()),
                     ),
                     TextButton(
                       onPressed: () {
@@ -115,14 +115,14 @@ class _SignUpButtonState extends State<SignUpButton> {
                           );
                         }
                       },
-                      child: Text(AppLocalizations.of(context)!.continueButton.toUpperCase()),
+                      child: Text(context.loc.continueButton.toUpperCase()),
                     ),
                   ],
                 );
               },
             );
           },
-          child: Text(AppLocalizations.of(context)!.signUpButton),
+          child: Text(context.loc.signUpButton),
         )
       ],
     );

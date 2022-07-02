@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 
 class AddNewImageDialog extends StatelessWidget {
   const AddNewImageDialog({
@@ -10,7 +10,7 @@ class AddNewImageDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(AppLocalizations.of(context)!.addAPhoto),
+      title: Text(context.loc.addAPhoto),
       scrollable: true,
       content: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -19,13 +19,13 @@ class AddNewImageDialog extends StatelessWidget {
           ElevatedButton.icon(
             icon: const Icon(Icons.insert_photo_rounded),
             onPressed: () {},
-            label: Text(AppLocalizations.of(context)!.fromGallery),
+            label: Text(context.loc.fromGallery),
           ),
           const SizedBox(height: 16),
           ElevatedButton.icon(
             icon: const Icon(Icons.photo_camera_rounded),
             onPressed: () {},
-            label: Text(AppLocalizations.of(context)!.fromCamera),
+            label: Text(context.loc.fromCamera),
           ),
         ],
       ),

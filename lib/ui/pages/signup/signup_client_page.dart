@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../l10n/strings/app_localizations.dart';
+import '../../extension/extension.dart';
 import 'views/views.dart';
 
 class SignUpClientPage extends StatefulWidget {
@@ -19,7 +19,7 @@ class _SignUpClientPageState extends State<SignUpClientPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.registerClient),
+        title: Text(context.loc.registerClient),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 16, left: 16, right: 16),

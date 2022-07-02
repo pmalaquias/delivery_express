@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../l10n/strings/app_localizations.dart' show AppLocalizations;
+import '../../../extension/extension.dart';
 import '../../../theme/theme.dart' show AppColors;
 import 'components.dart' show HourOfDay;
 
@@ -34,7 +34,7 @@ class _HeaderState extends State<Header> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(AppLocalizations.of(context)!.status),
+            Text(context.loc.status),
             DropdownButton<String>(
               value: dropdownValue,
               elevation: 16,
@@ -48,15 +48,15 @@ class _HeaderState extends State<Header> {
                   value: value,
                   child: value == '1'
                       ? Text(
-                          AppLocalizations.of(context)!.status_available,
+                          context.loc.status_available,
                           style: const TextStyle(
                             color: AppColors.success,
                             fontWeight: FontWeight.w500,
                           ),
                         )
                       : value == '2'
-                          ? Text(AppLocalizations.of(context)!.status_unavailable)
-                          : Text(AppLocalizations.of(context)!.status_busy),
+                          ? Text(context.loc.status_unavailable)
+                          : Text(context.loc.status_busy),
                 );
               }).toList(),
             ),
