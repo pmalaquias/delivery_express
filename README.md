@@ -35,9 +35,9 @@ In progress……
 
 ### Prerequisites
 
-* [Flutter 3](https://docs.flutter.dev/get-started/install) or higher
+* [Flutter 3](https://docs.flutter.dev/get-started/install) or higher installed on machne
 * [Android Studio](https://developer.android.com/studio) or [VSCode](https://code.visualstudio.com/)
-* [Git](https://git-scm.com/)
+* [Git](https://git-scm.com/) for version control
 
 ### How to clone code from GitHub
 
