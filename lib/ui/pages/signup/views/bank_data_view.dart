@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 import '../../../extension/extension.dart';
 import '../../../mixins/mixins.dart' show InputMask;
@@ -37,19 +38,34 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                       style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
-                    ListTile(
-                      title: Text(
-                        context.loc.confirmPreviouslyUsedData,
-                        style: const TextStyle(fontSize: 12),
-                      ),
-                      leading: Switch(
-                          //activeColor: AppColors.primaryRed,
+                    Row(
+                      children: [
+                        FlutterSwitch(
+                          activeColor: Theme.of(context).primaryColor,
+                          activeToggleColor: const Color(0xFFFFFFFF),
+                          inactiveToggleColor: const Color(0xFF857371),
+                          toggleSize: 24,
+                          inactiveColor: const Color(0xFFF5DDDA),
+                          inactiveSwitchBorder: Border.all(color: const Color(0xFF857371), width: 2.0),
+                          activeIcon: const Icon(Icons.check_rounded, color: Color(0xFF410002)),
+                          height: 32,
+                          width: 52,
+                          borderRadius: 30.0,
                           value: valueSwitch,
-                          onChanged: (value) {
+                          onToggle: (val) {
                             setState(() {
-                              valueSwitch = value;
+                              valueSwitch = val;
                             });
-                          }),
+                          },
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Text(
+                            context.loc.confirmPreviouslyUsedData,
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                        ),
+                      ],
                     ),
                     TextFormField(
                       decoration: InputDecoration(
@@ -179,20 +195,37 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                       context.loc.dataForReceipt,
                       style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    ListTile(
-                      title: Text(
-                        context.loc.confirmPreviouslyUsedData,
-                        style: const TextStyle(fontSize: 12),
-                      ),
-                      leading: Switch(
-                          //activeColor: AppColors.primaryRed,
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        FlutterSwitch(
+                          activeColor: Theme.of(context).primaryColor,
+                          activeToggleColor: const Color(0xFFFFFFFF),
+                          inactiveToggleColor: const Color(0xFF857371),
+                          toggleSize: 24,
+                          inactiveColor: const Color(0xFFF5DDDA),
+                          inactiveSwitchBorder: Border.all(color: const Color(0xFF857371), width: 2.0),
+                          activeIcon: const Icon(Icons.check_rounded, color: Color(0xFF410002)),
+                          height: 32,
+                          width: 52,
+                          borderRadius: 30.0,
                           value: valueSwitch,
-                          onChanged: (value) {
+                          onToggle: (val) {
                             setState(() {
-                              valueSwitch = value;
+                              valueSwitch = val;
                             });
-                          }),
+                          },
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Text(
+                            context.loc.confirmPreviouslyUsedData,
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                        ),
+                      ],
                     ),
+                    const SizedBox(height: 16),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -227,8 +260,8 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                     ),
                     const SizedBox(height: 8),
                     Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.start,
-                      alignment: WrapAlignment.start,
+                      //crossAxisAlignment: WrapCrossAlignment.start,
+                      //alignment: WrapAlignment.end,
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         DropdownButton<String>(
