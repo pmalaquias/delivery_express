@@ -30,6 +30,8 @@ dependencies:
   google_maps_flutter: ^2.1.8
   location: ^4.4.0
   syncfusion_flutter_charts: ^20.1.61
+  flutter_dotenv: ^5.0.2
+  flutter_config: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +46,7 @@ flutter:
   generate: true
 
   assets:
+    - .env
     - assets/
     - assets/logo/
     - lib/ui/assets/images/svg/
