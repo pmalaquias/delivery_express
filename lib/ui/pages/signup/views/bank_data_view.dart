@@ -25,81 +25,85 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Text(
-                    context.loc.dataForReceipt,
-                    style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  ListTile(
-                    title: Text(
-                      context.loc.confirmPreviouslyUsedData,
-                      style: const TextStyle(fontSize: 12),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.8,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      context.loc.dataForReceipt,
+                      style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    leading: Switch(
-                        //activeColor: AppColors.primaryRed,
-                        value: valueSwitch,
-                        onChanged: (value) {
-                          setState(() {
-                            valueSwitch = value;
-                          });
-                        }),
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: context.loc.bankName,
-                      label: Text(context.loc.bankName),
+                    const SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        context.loc.confirmPreviouslyUsedData,
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                      leading: Switch(
+                          //activeColor: AppColors.primaryRed,
+                          value: valueSwitch,
+                          onChanged: (value) {
+                            setState(() {
+                              valueSwitch = value;
+                            });
+                          }),
                     ),
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: context.loc.accountType,
-                      label: Text(context.loc.accountType),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: context.loc.bankName,
+                        label: Text(context.loc.bankName),
+                      ),
                     ),
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: context.loc.bankBranch,
-                      label: Text(context.loc.bankBranch),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: context.loc.accountType,
+                        label: Text(context.loc.accountType),
+                      ),
                     ),
-                    inputFormatters: [bankBranchMaskFormatter],
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: context.loc.accountNumber,
-                      label: Text(context.loc.accountNumber),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: context.loc.bankBranch,
+                        label: Text(context.loc.bankBranch),
+                      ),
+                      inputFormatters: [bankBranchMaskFormatter],
                     ),
-                    inputFormatters: [accountNumberMaskFormatter],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    context.loc.changeReceiptData,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                ],
-              ),
-              Row(
-                children: [
-                  Checkbox(
-                    value: valueCheckbox,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        valueCheckbox = value!;
-                      });
-                    },
-                  ),
-                  Expanded(
-                    child: Text(
-                      context.loc.termsOfUseReceiptData,
+                    TextFormField(
+                      decoration: InputDecoration(
+                        hintText: context.loc.accountNumber,
+                        label: Text(context.loc.accountNumber),
+                      ),
+                      inputFormatters: [accountNumberMaskFormatter],
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    const SizedBox(height: 8),
+                    Text(
+                      context.loc.changeReceiptData,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: valueCheckbox,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          valueCheckbox = value!;
+                        });
+                      },
+                    ),
+                    Expanded(
+                      child: Text(
+                        context.loc.termsOfUseReceiptData,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

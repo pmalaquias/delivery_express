@@ -22,85 +22,88 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              children: [
-                Text(
-                  context.loc.personalData,
-                  style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 32),
-                InkWell(
-                  onTap: () => dialogAddNewImage(context),
-                  borderRadius: BorderRadius.circular(50),
-                  hoverColor: AppColors.seccondRed,
-                  radius: 150,
-                  child: const CircleAvatar(
-                    maxRadius: 60,
-                    child: Icon(
-                      Icons.person_add,
-                      color: Colors.white,
-                      size: 72,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.8,
+              child: Column(
+                children: [
+                  Text(
+                    context.loc.personalData,
+                    style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 32),
+                  InkWell(
+                    onTap: () => dialogAddNewImage(context),
+                    borderRadius: BorderRadius.circular(50),
+                    hoverColor: AppColors.seccondRed,
+                    radius: 150,
+                    child: const CircleAvatar(
+                      maxRadius: 60,
+                      child: Icon(
+                        Icons.person_add,
+                        color: Colors.white,
+                        size: 72,
+                      ),
+                      backgroundColor: AppColors.primaryRed,
                     ),
-                    backgroundColor: AppColors.primaryRed,
+                    splashColor: AppColors.seccondRed.withOpacity(0.2),
                   ),
-                  splashColor: AppColors.seccondRed.withOpacity(0.2),
-                ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  //controller: _emailTextController,
-                  decoration: InputDecoration(
-                    hintText: context.loc.fullName,
-                    label: Text(context.loc.fullName),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    //controller: _emailTextController,
+                    decoration: InputDecoration(
+                      hintText: context.loc.fullName,
+                      label: Text(context.loc.fullName),
+                    ),
+                    keyboardType: TextInputType.name,
                   ),
-                  keyboardType: TextInputType.name,
-                ),
-                const SizedBox(height: 8),
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: '15/01/2000',
-                    label: Text(context.loc.birthDate),
-                  ),
-                  keyboardType: TextInputType.datetime,
-                  inputFormatters: [birthDataMaskFormatter],
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return null;
-                    }
-                    final components = value.split("/");
-                    if (components.length == 3) {
-                      final day = int.tryParse(components[0]);
-                      final month = int.tryParse(components[1]);
-                      final year = int.tryParse(components[2]);
-                      if (day != null && month != null && year != null) {
-                        final date = DateTime(year, month, day);
-                        if (date.year == year && date.month == month && date.day == day) {
-                          return null;
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: '15/01/2000',
+                      label: Text(context.loc.birthDate),
+                    ),
+                    keyboardType: TextInputType.datetime,
+                    inputFormatters: [birthDataMaskFormatter],
+                    validator: (String? value) {
+                      if (value!.isEmpty) {
+                        return null;
+                      }
+                      final components = value.split("/");
+                      if (components.length == 3) {
+                        final day = int.tryParse(components[0]);
+                        final month = int.tryParse(components[1]);
+                        final year = int.tryParse(components[2]);
+                        if (day != null && month != null && year != null) {
+                          final date = DateTime(year, month, day);
+                          if (date.year == year && date.month == month && date.day == day) {
+                            return null;
+                          }
                         }
                       }
-                    }
-                    return context.loc.wrongDate;
-                  },
-                ),
-                const SizedBox(height: 8),
-                TextFormField(
-                  //controller: _emailTextController,
-                  decoration: InputDecoration(
-                    hintText: '999.999.999-99',
-                    label: Text(context.loc.cpf),
+                      return context.loc.wrongDate;
+                    },
                   ),
-                  keyboardType: TextInputType.name,
-                  inputFormatters: [cpfMaskFormatter],
-                ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: '(00) 0 0000-0000',
-                    label: Text(context.loc.phoneNumber),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    //controller: _emailTextController,
+                    decoration: InputDecoration(
+                      hintText: '999.999.999-99',
+                      label: Text(context.loc.cpf),
+                    ),
+                    keyboardType: TextInputType.name,
+                    inputFormatters: [cpfMaskFormatter],
                   ),
-                  keyboardType: TextInputType.phone,
-                  inputFormatters: [cellPhoneMaskFormatter],
-                ),
-                const SizedBox(height: 32),
-              ],
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: '(00) 0 0000-0000',
+                      label: Text(context.loc.phoneNumber),
+                    ),
+                    keyboardType: TextInputType.phone,
+                    inputFormatters: [cellPhoneMaskFormatter],
+                  ),
+                  const SizedBox(height: 32),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
