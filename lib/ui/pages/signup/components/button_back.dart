@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class ButtonBack extends StatelessWidget {
-  final PageController controller;
+import '../../../extension/extension.dart';
 
-  const ButtonBack({Key? key, required this.controller}) : super(key: key);
+class ButtonBack extends StatelessWidget {
+  final Function function;
+
+  const ButtonBack({
+    Key? key,
+    required this.function,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        controller.previousPage(
-          duration: const Duration(milliseconds: 400),
-          curve: Curves.easeIn,
-        );
-      },
-      child: const Text('VOLTAR'),
+      onPressed: () => function(),
+      child: Text(context.loc.backButton.toUpperCase()),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../api/estados.dart';
 import '../../../extension/extension.dart';
+import '../components/components.dart';
 
 class AddressDataView extends StatefulWidget {
   final PageController controller;
@@ -172,32 +173,26 @@ class _AddressDataViewState extends State<AddressDataView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.previousPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.backButton.toUpperCase()),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.continueButton.toUpperCase()),
-              ),
+              ButtonBack(function: pageControllerBack),
+              ButtonContinue(function: pageControllerContinue),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  void pageControllerBack() {
+    widget.controller.previousPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
+    );
+  }
+
+  void pageControllerContinue() {
+    widget.controller.nextPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
     );
   }
 }

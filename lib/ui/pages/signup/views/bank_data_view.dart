@@ -7,6 +7,7 @@ import '../../../mixins/mixins.dart' show InputMask;
 import '../../../mocks/mocks.dart';
 import '../../../utils/utils.dart' show Images;
 import '../../pages.dart';
+import '../components/components.dart';
 
 class BankDataDeliverymanView extends StatefulWidget {
   final PageController controller;
@@ -124,24 +125,11 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.previousPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.backButton.toUpperCase()),
-              ),
+              ButtonBack(function: pageControllerBack),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    widget.controller.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
+                    pageControllerContinue();
                   });
                   Navigator.pushReplacement(
                     context,
@@ -156,6 +144,20 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
           ),
         ],
       ),
+    );
+  }
+
+  void pageControllerContinue() {
+    widget.controller.nextPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
+    );
+  }
+
+  void pageControllerBack() {
+    widget.controller.previousPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
     );
   }
 }
@@ -336,38 +338,34 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.previousPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.backButton.toUpperCase()),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomeClientPage(),
-                    ),
-                  );
-                },
-                child: Text(context.loc.continueButton.toUpperCase()),
-              ),
+              ButtonBack(function: pageControllerBack),
+              ButtonContinuePushReplacement(function: pageControllerContinue),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  void pageControllerContinue(BuildContext context) {
+    setState(() {
+      widget.controller.nextPage(
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeIn,
+      );
+    });
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomeClientPage(),
+      ),
+    );
+  }
+
+  void pageControllerBack() {
+    widget.controller.previousPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
     );
   }
 }

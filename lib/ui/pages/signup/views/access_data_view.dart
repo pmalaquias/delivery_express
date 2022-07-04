@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../extension/extension.dart';
+import '../components/components.dart';
 
 class AccessDataView extends StatefulWidget {
   final PageController controller;
@@ -69,32 +70,26 @@ class _AccessDataViewState extends State<AccessDataView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.previousPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.backButton.toUpperCase()),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.continueButton.toUpperCase()),
-              ),
+              ButtonBack(function: pageControllerBack),
+              ButtonContinue(function: pageControllerContinue),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  void pageControllerContinue() {
+    widget.controller.nextPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
+    );
+  }
+
+  void pageControllerBack() {
+    widget.controller.previousPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
     );
   }
 }

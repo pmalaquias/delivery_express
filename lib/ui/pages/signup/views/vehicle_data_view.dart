@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../extension/extension.dart';
 import '../../../utils/utils.dart';
+import '../components/components.dart';
 
 class VehicleDataView extends StatefulWidget {
   final PageController controller;
@@ -93,101 +93,29 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                       spacing: 8,
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  Images.carImgSvg,
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleCar),
-                              ],
-                            ),
-                          ),
+                        DeliveryManVehicleTypeCard(
+                          image: Images.carImgSvg,
+                          label: context.loc.vehicleCar,
                         ),
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  Images.pickupTruckImgSvg,
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehiclePickupTruck),
-                              ],
-                            ),
-                          ),
+                        DeliveryManVehicleTypeCard(
+                          image: Images.pickupTruckImgSvg,
+                          label: context.loc.vehiclePickupTruck,
                         ),
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  Images.truckImgSvg,
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleTruck),
-                              ],
-                            ),
-                          ),
+                        DeliveryManVehicleTypeCard(
+                          image: Images.truckImgSvg,
+                          label: context.loc.vehicleTruck,
                         ),
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  Images.motorcycleImgSvg,
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleMotorcycle),
-                              ],
-                            ),
-                          ),
+                        DeliveryManVehicleTypeCard(
+                          image: Images.motorcycleImgSvg,
+                          label: context.loc.vehicleMotorcycle,
                         ),
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  Images.bicycleImgSvg,
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleBicycle),
-                              ],
-                            ),
-                          ),
+                        DeliveryManVehicleTypeCard(
+                          image: Images.bicycleImgSvg,
+                          label: context.loc.vehicleBicycle,
                         ),
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  Images.otherVehicleImgSvg,
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleOther),
-                              ],
-                            ),
-                          ),
+                        DeliveryManVehicleTypeCard(
+                          image: Images.otherVehicleImgSvg,
+                          label: context.loc.vehicleOther,
                         ),
                       ],
                     ),
@@ -214,32 +142,26 @@ class _VehicleDataViewState extends State<VehicleDataView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.previousPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.backButton.toUpperCase()),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.continueButton.toUpperCase()),
-              ),
+              ButtonBack(function: pageControllerBack),
+              ButtonContinue(function: pageControllerContinue),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  void pageControllerBack() {
+    widget.controller.previousPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
+    );
+  }
+
+  void pageControllerContinue() {
+    widget.controller.nextPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
     );
   }
 }

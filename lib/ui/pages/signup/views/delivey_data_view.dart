@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../extension/extension.dart';
 import '../../../utils/utils.dart' show Images;
+import '../components/components.dart';
 
 class DeliveyDataView extends StatefulWidget {
   final PageController controller;
@@ -87,99 +87,30 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
             Column(
               children: [
                 Wrap(
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(Images.foodImgSvg),
-                            Text(context.loc.deliveryFood),
-                          ],
-                        ),
-                      ),
+                    DeliveryTypeCard(
+                      image: Images.foodImgSvg,
+                      label: context.loc.deliveryFood,
                     ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(Images.clothingImgSvg),
-                            Text(context.loc.deliveryClothing),
-                          ],
-                        ),
-                      ),
+                    DeliveryTypeCard(
+                      image: Images.clothingImgSvg,
+                      label: context.loc.deliveryClothing,
                     ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(Images.documentsImgSvg),
-                            Text(context.loc.deliveryDocuments),
-                          ],
-                        ),
-                      ),
+                    DeliveryTypeCard(
+                      image: Images.documentsImgSvg,
+                      label: context.loc.deliveryDocuments,
                     ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              Images.fragileOrderImgSvg,
-                              width: 45,
-                            ),
-                            Flexible(
-                              child: Text(
-                                context.loc.deliveryFragileOrder,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                    DeliveryTypeCard(
+                      image: Images.fragileOrderImgSvg,
+                      label: context.loc.deliveryFragileOrder,
                     ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              Images.heavyOrderImgSvg,
-                              width: 45,
-                            ),
-                            Text(
-                              context.loc.deliveryHeavyOrder,
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
+                    DeliveryTypeCard(
+                      image: Images.heavyOrderImgSvg,
+                      label: context.loc.deliveryHeavyOrder,
                     ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(Images.otherOrderImgSvg),
-                            Text(context.loc.deliveryOther),
-                          ],
-                        ),
-                      ),
+                    DeliveryTypeCard(
+                      image: Images.otherOrderImgSvg,
+                      label: context.loc.deliveryOther,
                     ),
                   ],
                 ),
@@ -195,31 +126,25 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.previousPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(context.loc.backButton.toUpperCase()),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  widget.controller.nextPage(
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeIn,
-                  );
-                });
-              },
-              child: Text(context.loc.continueButton.toUpperCase()),
-            ),
+            ButtonBack(function: pageControllerBack),
+            ButtonContinue(function: pageControllerContinue),
           ],
         ),
       ],
+    );
+  }
+
+  void pageControllerBack() {
+    widget.controller.previousPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
+    );
+  }
+
+  void pageControllerContinue() {
+    widget.controller.nextPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
     );
   }
 }

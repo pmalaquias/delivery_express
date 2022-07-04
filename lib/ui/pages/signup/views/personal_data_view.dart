@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../extension/extension.dart';
 import '../../../mixins/mixins.dart' show InputMask;
 import '../../../theme/theme.dart' show AppColors;
-import '../components/components.dart' show AddNewImageDialog;
+import '../components/components.dart' show AddNewImageDialog, ButtonCancel, ButtonContinue;
 
 class PersonalDataDeliverymanView extends StatefulWidget {
   final PageController controller;
@@ -64,24 +64,7 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
                     ),
                     keyboardType: TextInputType.datetime,
                     inputFormatters: [birthDataMaskFormatter],
-                    validator: (String? value) {
-                      if (value!.isEmpty) {
-                        return null;
-                      }
-                      final components = value.split("/");
-                      if (components.length == 3) {
-                        final day = int.tryParse(components[0]);
-                        final month = int.tryParse(components[1]);
-                        final year = int.tryParse(components[2]);
-                        if (day != null && month != null && year != null) {
-                          final date = DateTime(year, month, day);
-                          if (date.year == year && date.month == month && date.day == day) {
-                            return null;
-                          }
-                        }
-                      }
-                      return context.loc.wrongDate;
-                    },
+                    validator: (String? value) => dateValidator(value, context),
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
@@ -108,31 +91,44 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton(
-                  onPressed: () {
-                    if (widget.controller.page == 0) {
-                      Navigator.canPop(context);
-                    }
-                  },
-                  child: Text(context.loc.cancelButton.toUpperCase()),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      widget.controller.nextPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeIn,
-                      );
-                    });
-                  },
-                  child: Text(context.loc.continueButton.toUpperCase()),
-                ),
+                ButtonCancel(function: pageControllerCancel),
+                ButtonContinue(function: pageControllerContinue),
               ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  void pageControllerCancel(BuildContext context) {
+    Navigator.canPop(context);
+  }
+
+  void pageControllerContinue() {
+    widget.controller.nextPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
+    );
+  }
+
+  String? dateValidator(String? value, BuildContext context) {
+    if (value!.isEmpty) {
+      return null;
+    }
+    final components = value.split("/");
+    if (components.length == 3) {
+      final day = int.tryParse(components[0]);
+      final month = int.tryParse(components[1]);
+      final year = int.tryParse(components[2]);
+      if (day != null && month != null && year != null) {
+        final date = DateTime(year, month, day);
+        if (date.year == year && date.month == month && date.day == day) {
+          return null;
+        }
+      }
+    }
+    return context.loc.wrongDate;
   }
 
   Future<dynamic> dialogAddNewImage(BuildContext context) {
@@ -215,24 +211,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
                   ),
                   keyboardType: TextInputType.datetime,
                   inputFormatters: [birthDataMaskFormatter],
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return null;
-                    }
-                    final components = value.split("/");
-                    if (components.length == 3) {
-                      final day = int.tryParse(components[0]);
-                      final month = int.tryParse(components[1]);
-                      final year = int.tryParse(components[2]);
-                      if (day != null && month != null && year != null) {
-                        final date = DateTime(year, month, day);
-                        if (date.year == year && date.month == month && date.day == day) {
-                          return null;
-                        }
-                      }
-                    }
-                    return context.loc.wrongDate;
-                  },
+                  validator: (String? value) => dateValidator(value, context),
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
@@ -258,30 +237,43 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: () {
-                  if (widget.controller.page == 0) {
-                    Navigator.canPop(context);
-                  }
-                },
-                child: Text(context.loc.cancelButton.toUpperCase()),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    widget.controller.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeIn,
-                    );
-                  });
-                },
-                child: Text(context.loc.continueButton.toUpperCase()),
-              ),
+              ButtonCancel(function: pageControllerCancel),
+              ButtonContinue(function: pageControllerContinue),
             ],
           ),
         ],
       ),
     );
+  }
+
+  void pageControllerContinue() {
+    widget.controller.nextPage(
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.easeIn,
+    );
+  }
+
+  void pageControllerCancel(BuildContext context) {
+    Navigator.canPop(context);
+  }
+
+  String? dateValidator(String? value, BuildContext context) {
+    if (value!.isEmpty) {
+      return null;
+    }
+    final components = value.split("/");
+    if (components.length == 3) {
+      final day = int.tryParse(components[0]);
+      final month = int.tryParse(components[1]);
+      final year = int.tryParse(components[2]);
+      if (day != null && month != null && year != null) {
+        final date = DateTime(year, month, day);
+        if (date.year == year && date.month == month && date.day == day) {
+          return null;
+        }
+      }
+    }
+    return context.loc.wrongDate;
   }
 
   Future<dynamic> dialogAddNewImage(BuildContext context) {
