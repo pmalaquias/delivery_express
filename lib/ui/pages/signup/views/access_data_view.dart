@@ -15,87 +15,85 @@ class _AccessDataViewState extends State<AccessDataView> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.8,
-              child: Column(
-                children: [
-                  Text(
-                    context.loc.accessData,
-                    style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  TextFormField(
-                    //controller: _emailTextController,
-                    decoration: InputDecoration(
-                      hintText: context.loc.email,
-                      label: Text(context.loc.email),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    //controller: _emailTextController,
-                    decoration: InputDecoration(
-                      hintText: context.loc.confirmEmail,
-                      label: Text(context.loc.confirmEmail),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    //controller: _emailTextController,
-                    decoration: InputDecoration(
-                      hintText: context.loc.password,
-                      label: Text(context.loc.password),
-                    ),
-                    obscureText: true,
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    //controller: _emailTextController,
-                    decoration: InputDecoration(
-                      hintText: context.loc.confirmPassword,
-                      label: Text(context.loc.confirmPassword),
-                    ),
-                    obscureText: true,
-                  ),
-                  const SizedBox(height: 32),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.8,
+            child: Column(
               children: [
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      widget.controller.previousPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeIn,
-                      );
-                    });
-                  },
-                  child: Text(context.loc.backButton.toUpperCase()),
+                Text(
+                  context.loc.accessData,
+                  style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      widget.controller.nextPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeIn,
-                      );
-                    });
-                  },
-                  child: Text(context.loc.continueButton.toUpperCase()),
+                const SizedBox(height: 16),
+                TextFormField(
+                  //controller: _emailTextController,
+                  decoration: InputDecoration(
+                    hintText: context.loc.email,
+                    label: Text(context.loc.email),
+                  ),
+                  keyboardType: TextInputType.emailAddress,
                 ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  //controller: _emailTextController,
+                  decoration: InputDecoration(
+                    hintText: context.loc.confirmEmail,
+                    label: Text(context.loc.confirmEmail),
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  //controller: _emailTextController,
+                  decoration: InputDecoration(
+                    hintText: context.loc.password,
+                    label: Text(context.loc.password),
+                  ),
+                  obscureText: true,
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  //controller: _emailTextController,
+                  decoration: InputDecoration(
+                    hintText: context.loc.confirmPassword,
+                    label: Text(context.loc.confirmPassword),
+                  ),
+                  obscureText: true,
+                ),
+                const SizedBox(height: 32),
               ],
             ),
-          ],
-        ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    widget.controller.previousPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeIn,
+                    );
+                  });
+                },
+                child: Text(context.loc.backButton.toUpperCase()),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    widget.controller.nextPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeIn,
+                    );
+                  });
+                },
+                child: Text(context.loc.continueButton.toUpperCase()),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

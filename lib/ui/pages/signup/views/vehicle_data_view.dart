@@ -3,6 +3,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../extension/extension.dart';
+import '../../../utils/utils.dart';
 
 class VehicleDataView extends StatefulWidget {
   final PageController controller;
@@ -100,7 +101,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/car.svg',
+                                  Images.carImgSvg,
                                   width: 50,
                                 ),
                                 Text(context.loc.vehicleCar),
@@ -116,7 +117,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/pickup_truck.svg',
+                                  Images.pickupTruckImgSvg,
                                   width: 50,
                                 ),
                                 Text(context.loc.vehiclePickupTruck),
@@ -132,7 +133,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/truck.svg',
+                                  Images.truckImgSvg,
                                   width: 50,
                                 ),
                                 Text(context.loc.vehicleTruck),
@@ -148,7 +149,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/motorcycle.svg',
+                                  Images.motorcycleImgSvg,
                                   width: 50,
                                 ),
                                 Text(context.loc.vehicleMotorcycle),
@@ -164,7 +165,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/bicycle.svg',
+                                  Images.bicycleImgSvg,
                                   width: 50,
                                 ),
                                 Text(context.loc.vehicleBicycle),
@@ -180,7 +181,7 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/other_vehicle.svg',
+                                  Images.otherVehicleImgSvg,
                                   width: 50,
                                 ),
                                 Text(context.loc.vehicleOther),
@@ -190,59 +191,6 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                         ),
                       ],
                     ),
-                    /* Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/motorcycle.svg',
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleMotorcycle),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/bicycle.svg',
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleBicycle),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 112,
-                          height: 95,
-                          child: Card(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(
-                                  'lib/ui/assets/images/svg/other_vehicle.svg',
-                                  width: 50,
-                                ),
-                                Text(context.loc.vehicleOther),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ), */
                   ],
                 ),
                 TextFormField(

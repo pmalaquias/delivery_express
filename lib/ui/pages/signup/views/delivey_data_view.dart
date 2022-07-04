@@ -3,6 +3,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../extension/extension.dart';
+import '../../../utils/utils.dart' show Images;
 
 class DeliveyDataView extends StatefulWidget {
   final PageController controller;
@@ -95,7 +96,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset('lib/ui/assets/images/svg/food.svg'),
+                            SvgPicture.asset(Images.foodImgSvg),
                             Text(context.loc.deliveryFood),
                           ],
                         ),
@@ -108,7 +109,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset('lib/ui/assets/images/svg/clothing.svg'),
+                            SvgPicture.asset(Images.clothingImgSvg),
                             Text(context.loc.deliveryClothing),
                           ],
                         ),
@@ -121,7 +122,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset('lib/ui/assets/images/svg/documents.svg'),
+                            SvgPicture.asset(Images.documentsImgSvg),
                             Text(context.loc.deliveryDocuments),
                           ],
                         ),
@@ -135,7 +136,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset(
-                              'lib/ui/assets/images/svg/fragile_order.svg',
+                              Images.fragileOrderImgSvg,
                               width: 45,
                             ),
                             Flexible(
@@ -156,7 +157,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset(
-                              'lib/ui/assets/images/svg/heavy_order.svg',
+                              Images.heavyOrderImgSvg,
                               width: 45,
                             ),
                             Text(
@@ -174,7 +175,7 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset('lib/ui/assets/images/svg/other_delivery.svg'),
+                            SvgPicture.asset(Images.otherOrderImgSvg),
                             Text(context.loc.deliveryOther),
                           ],
                         ),
@@ -182,64 +183,6 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
                     ),
                   ],
                 ),
-                /* Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/fragile_order.svg',
-                              width: 45,
-                            ),
-                            Flexible(
-                              child: Text(
-                                context.loc.deliveryFragileOrder,
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              'lib/ui/assets/images/svg/heavy_order.svg',
-                              width: 45,
-                            ),
-                            Text(
-                              context.loc.deliveryHeavyOrder,
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 112,
-                      height: 95,
-                      child: Card(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset('lib/ui/assets/images/svg/other_delivery.svg'),
-                            Text(context.loc.deliveryOther),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ), */
                 const SizedBox(height: 16),
                 Text(
                   context.loc.deliveryDataMessage,

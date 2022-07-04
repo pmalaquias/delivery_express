@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../extension/extension.dart';
 import '../../../mixins/mixins.dart' show InputMask;
+import '../../../mocks/mocks.dart';
+import '../../../utils/utils.dart' show Images;
 import '../../pages.dart';
 
 class BankDataDeliverymanView extends StatefulWidget {
@@ -191,23 +193,23 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SvgPicture.asset(
-                          'lib/ui/assets/images/svg/mastercard-logo.svg',
+                          Images.mastercardLogoImgSvg,
                           width: 50,
                         ),
                         SvgPicture.asset(
-                          'lib/ui/assets/images/svg/american_express.svg',
+                          Images.americanExpressLogoImgSvg,
                           width: 40,
                         ),
                         SvgPicture.asset(
-                          'lib/ui/assets/images/svg/visa.svg',
+                          Images.visaLogoImgSvg,
                           width: 50,
                         ),
                         SvgPicture.asset(
-                          'lib/ui/assets/images/svg/hipercard.svg',
+                          Images.hipercadLogoSvg,
                           width: 70,
                         ),
                         SvgPicture.asset(
-                          'lib/ui/assets/images/svg/elo.svg',
+                          Images.eloLogoImgSvg,
                           width: 40,
                         ),
                       ],
@@ -332,52 +334,3 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
     );
   }
 }
-
-const List<String> mes = [
-  '01',
-  '02',
-  '03',
-  '04',
-  '05',
-  '06',
-  '07',
-  '08',
-  '09',
-  '10',
-  '11',
-  '12',
-];
-
-const List<String> ano = [
-  '2010',
-  '2011',
-  '2012',
-  '2013',
-  '2014',
-  '2015',
-  '2016',
-  '2017',
-  '2018',
-  '2019',
-  '2020',
-  '2021',
-  '2022',
-  '2023',
-  '2024',
-  '2025',
-  '2026',
-  '2027',
-  '2028',
-  '2029',
-  '2030',
-  '2031',
-  '2032',
-  '2033',
-  '2034',
-  '2035',
-  '2036',
-  '2037',
-  '2038',
-  '2039',
-  '2040',
-];
