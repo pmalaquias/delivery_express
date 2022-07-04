@@ -24,6 +24,10 @@ Delivery Express is a mobile application that connects couriers (who own the veh
 Developed by Pedro Igor, and designed by Vinicius Arantes.
 
 ![flutter](https://img.shields.io/badge/Flutter-3.0.3-005598?style=for-the-badge&logo=flutter)
+![issues](https://img.shields.io/github/issues/pmalaquias/delivery_express?style=for-the-badge)
+![forks](https://img.shields.io/github/forks/pmalaquias/delivery_express?style=for-the-badge)
+![stars](https://img.shields.io/github/stars/pmalaquias/delivery_express?style=for-the-badge)
+![license](https://img.shields.io/github/license/pmalaquias/delivery_express?style=for-the-badge)
 
 ## Project Status
 
