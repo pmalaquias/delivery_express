@@ -1,16 +1,46 @@
 {
+  "@cpf": {
+    "description": "The CPF number (Cadastro de Pessoas Físicas,  Portuguese for \"Natural Persons Register\") is the Brazilian individual taxpayer registry identification. This number is attributed by the Brazilian Federal Revenue to Brazilians and resident aliens who, directly or indirectly, pay taxes in Brazil. It's an 11-digit number in the format 000.000.000-00."
+  },
   "@helloWorld": {
     "description": "The conventional newborn programmer greeting"
   },
+  "@home": {
+    "description": "Title that appears on the Home Screen of the Client and Delivery Person"
+  },
+  "@accesData": {
+    "description": "Subtitle for access data input view in user application"
+  },
   "accessData": "Access Data",
-  "accontType": "Accont Type",
+  "@accountNumber": {
+    "description": "User's bank account number, used for debiting the account"
+  },
   "accountNumber": "Account Number",
+  "@accountType": {
+    "description": "User's bank account type. Example: Current Account, Savings Account"
+  },
+  "accountType": "Account Type",
+  "@addAPhoto": {
+    "description": "Title that appears for the user to add a new photo"
+  },
   "addAPhoto": "Add a photo",
+  "@addressData": {
+    "description": "Subtitle that is shown when the user enters the address data, either of the Client or the Delivery person"
+  },
   "addressData": "Address Data",
   "backButton": "Back",
   "balanceAvailable": "Balance Available",
+  "@bankBranch": {
+    "description": "To make bank transfers such as DOCs, TEDs or check cashing, it is common to ask for a bank code or number. This bank code is called COMPE (Code for the Monetary Operations and Clearing System of Other Securities), and it is a 3-digit number that identifies the financial institution of destination."
+  },
   "bankBranch": "Bank Branch",
+  "@bankName": {
+    "description": "Name of the bank of the user's account, which will be used to debit the charge. example: Santander, Banco do Brasil, Itau, Caixa"
+  },
   "bankName": "Bank Name",
+  "@birthDate": {
+    "description": "User's birthday in DD/MM/YYYY format, so that they are at least 18 years old to use the Application"
+  },
   "birthDate": "Birth Date ",
   "cancelButton": "Cancel",
   "cardDataInformation": "You can change the data to receive later in the app's Settings.",
@@ -27,7 +57,6 @@
   "continueButton": "Continue",
   "cpf": "CPF",
   "dataForReceipt": "Data for Receipt",
-  "deleverymanLabel": "Deliveryman",
   "deliveriesByTypeTitle": "Deliveries by Type",
   "deliveryClothing": "Clothing",
   "deliveryData": "Delivery Data",
@@ -36,29 +65,37 @@
   "deliveryFood": "Food",
   "deliveryFragileOrder": "Fragile Order",
   "deliveryHeavyOrder": "Heavy Order",
+  "deliveryManLabel": "Deliveryman",
+  "deliveryManText": "I have my own vehicle and I want to make deliveries.",
   "deliveryOther": "Other",
   "deliveryType": "Delivery Type",
-  "deliverymanText": "I have my own vehicle and I want to deliver",
+  "deliviryManText": "I have my own vehicle and I want to deliver",
   "drawerAbout": "About",
   "drawerAccountConfigurations": "Account Configurations",
   "drawerCompleteExtract": "Complete Extract",
   "drawerCompletedTransactions": "Completed Transactions",
   "drawerDeliveriesInProgress": "Deliveries in Progress",
   "drawerExit": "Exit",
-  "drawerHelpAndSuport": "Help and Suport",
+  "drawerHelpAndSupport": "Help and Suport",
   "drawerProfile": "Profile",
   "email": "E-mail",
   "emailInUseError": "E-mail in use",
   "expiryMonth": "expiry month",
   "expiryYear": "Expiry year",
   "forgotPasswordButton": "Click here",
-  "forgotPasswordMenssage": "Forgot your password?",
+  "forgotPasswordMessage": "Forgot your password?",
+  "@fromCamera": {
+    "description": "When user upload a new photo, select from Camera"
+  },
   "fromCamera": "From Camera",
+  "@fromGallery": {
+    "description": "When user upload a new photo, select from gallery"
+  },
   "fromGallery": "From Gallery",
   "fullName": "Full Name",
   "goodAfternoon": "Good Afternoon,",
-  "goodMornig": "Good Mornig",
-  "goodNigth": "Good Night",
+  "goodMorning": "Good Mornig",
+  "goodNight": "Good Night",
   "helloWorld": "Hello World!",
   "home": "Home",
   "homeAddress": "Home Address",
@@ -68,7 +105,7 @@
   "licensePlate": "License Plate",
   "lineChart": "Line Chart",
   "loginButton": "Login",
-  "loginMenssage": "Please login to continue",
+  "loginMessage": "Please login to continue",
   "map": "Map",
   "maximumDisplayDistance": "Maximum display distance on the map",
   "myDeliveries": "My Deliveries",
@@ -79,8 +116,8 @@
   "newDelivery": "New Delivery",
   "number": "Number",
   "password": "Password",
-  "perfomaceChartButton": "Perfomace Chart",
-  "perfomaceChartTitle": "Perfomace Chart",
+  "performanceChartButton": "Performace Chart",
+  "performanceChartTitle": "Performace Chart",
   "personalData": "Personal Data",
   "phoneNumber": "Phone Number",
   "registerClient": "Register Client ",
@@ -114,7 +151,10 @@
   "visualization": "Visualization",
   "weekSummary": "Week Summary",
   "weeklyDeliveriesTitle": "Weekly Deliveries",
-  "welcomeCardMenssage": "Use our Location Map and find couriers according to your demand",
+  "welcomeCardMessage": "Use our Location Map and find couriers according to your demand",
   "welcomeCardTitle": "Find delivery people in your area!",
+  "@wrongDate": {
+    "description": "Message that appears when the date entered by the user is wrong"
+  },
   "wrongDate": "Wrong Date"
 }

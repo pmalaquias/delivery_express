@@ -10,11 +10,11 @@ class HourOfDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isNigth) {
-      return Text(context.loc.goodNigth);
+      return Text(context.loc.goodNight);
     } else if (isAfternoon) {
       return Text(context.loc.goodAfternoon);
     } else {
-      return Text(context.loc.goodMornig);
+      return Text(context.loc.goodMorning);
     }
   }
 

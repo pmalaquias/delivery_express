@@ -102,25 +102,25 @@ abstract class AppLocalizations {
   /// **'Access Data'**
   String get accessData;
 
-  /// No description provided for @accontType.
-  ///
-  /// In en, this message translates to:
-  /// **'Accont Type'**
-  String get accontType;
-
-  /// No description provided for @accountNumber.
+  /// User's bank account number, used for debiting the account
   ///
   /// In en, this message translates to:
   /// **'Account Number'**
   String get accountNumber;
 
-  /// No description provided for @addAPhoto.
+  /// User's bank account type. Example: Current Account, Savings Account
+  ///
+  /// In en, this message translates to:
+  /// **'Account Type'**
+  String get accountType;
+
+  /// Title that appears for the user to add a new photo
   ///
   /// In en, this message translates to:
   /// **'Add a photo'**
   String get addAPhoto;
 
-  /// No description provided for @addressData.
+  /// Subtitle that is shown when the user enters the address data, either of the Client or the Delivery person
   ///
   /// In en, this message translates to:
   /// **'Address Data'**
@@ -138,19 +138,19 @@ abstract class AppLocalizations {
   /// **'Balance Available'**
   String get balanceAvailable;
 
-  /// No description provided for @bankBranch.
+  /// To make bank transfers such as DOCs, TEDs or check cashing, it is common to ask for a bank code or number. This bank code is called COMPE (Code for the Monetary Operations and Clearing System of Other Securities), and it is a 3-digit number that identifies the financial institution of destination.
   ///
   /// In en, this message translates to:
   /// **'Bank Branch'**
   String get bankBranch;
 
-  /// No description provided for @bankName.
+  /// Name of the bank of the user's account, which will be used to debit the charge. example: Santander, Banco do Brasil, Itau, Caixa
   ///
   /// In en, this message translates to:
   /// **'Bank Name'**
   String get bankName;
 
-  /// No description provided for @birthDate.
+  /// User's birthday in DD/MM/YYYY format, so that they are at least 18 years old to use the Application
   ///
   /// In en, this message translates to:
   /// **'Birth Date '**
@@ -234,7 +234,7 @@ abstract class AppLocalizations {
   /// **'Continue'**
   String get continueButton;
 
-  /// No description provided for @cpf.
+  /// The CPF number (Cadastro de Pessoas Físicas,  Portuguese for "Natural Persons Register") is the Brazilian individual taxpayer registry identification. This number is attributed by the Brazilian Federal Revenue to Brazilians and resident aliens who, directly or indirectly, pay taxes in Brazil. It's an 11-digit number in the format 000.000.000-00.
   ///
   /// In en, this message translates to:
   /// **'CPF'**
@@ -245,12 +245,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Data for Receipt'**
   String get dataForReceipt;
-
-  /// No description provided for @deleverymanLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Deliveryman'**
-  String get deleverymanLabel;
 
   /// No description provided for @deliveriesByTypeTitle.
   ///
@@ -300,6 +294,18 @@ abstract class AppLocalizations {
   /// **'Heavy Order'**
   String get deliveryHeavyOrder;
 
+  /// No description provided for @deliveryManLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Deliveryman'**
+  String get deliveryManLabel;
+
+  /// No description provided for @deliveryManText.
+  ///
+  /// In en, this message translates to:
+  /// **'I have my own vehicle and I want to make deliveries.'**
+  String get deliveryManText;
+
   /// No description provided for @deliveryOther.
   ///
   /// In en, this message translates to:
@@ -312,11 +318,11 @@ abstract class AppLocalizations {
   /// **'Delivery Type'**
   String get deliveryType;
 
-  /// No description provided for @deliverymanText.
+  /// No description provided for @deliviryManText.
   ///
   /// In en, this message translates to:
   /// **'I have my own vehicle and I want to deliver'**
-  String get deliverymanText;
+  String get deliviryManText;
 
   /// No description provided for @drawerAbout.
   ///
@@ -354,11 +360,11 @@ abstract class AppLocalizations {
   /// **'Exit'**
   String get drawerExit;
 
-  /// No description provided for @drawerHelpAndSuport.
+  /// No description provided for @drawerHelpAndSupport.
   ///
   /// In en, this message translates to:
   /// **'Help and Suport'**
-  String get drawerHelpAndSuport;
+  String get drawerHelpAndSupport;
 
   /// No description provided for @drawerProfile.
   ///
@@ -396,19 +402,19 @@ abstract class AppLocalizations {
   /// **'Click here'**
   String get forgotPasswordButton;
 
-  /// No description provided for @forgotPasswordMenssage.
+  /// No description provided for @forgotPasswordMessage.
   ///
   /// In en, this message translates to:
   /// **'Forgot your password?'**
-  String get forgotPasswordMenssage;
+  String get forgotPasswordMessage;
 
-  /// No description provided for @fromCamera.
+  /// When user upload a new photo, select from Camera
   ///
   /// In en, this message translates to:
   /// **'From Camera'**
   String get fromCamera;
 
-  /// No description provided for @fromGallery.
+  /// When user upload a new photo, select from gallery
   ///
   /// In en, this message translates to:
   /// **'From Gallery'**
@@ -426,17 +432,17 @@ abstract class AppLocalizations {
   /// **'Good Afternoon,'**
   String get goodAfternoon;
 
-  /// No description provided for @goodMornig.
+  /// No description provided for @goodMorning.
   ///
   /// In en, this message translates to:
   /// **'Good Mornig'**
-  String get goodMornig;
+  String get goodMorning;
 
-  /// No description provided for @goodNigth.
+  /// No description provided for @goodNight.
   ///
   /// In en, this message translates to:
   /// **'Good Night'**
-  String get goodNigth;
+  String get goodNight;
 
   /// The conventional newborn programmer greeting
   ///
@@ -444,7 +450,7 @@ abstract class AppLocalizations {
   /// **'Hello World!'**
   String get helloWorld;
 
-  /// No description provided for @home.
+  /// Title that appears on the Home Screen of the Client and Delivery Person
   ///
   /// In en, this message translates to:
   /// **'Home'**
@@ -492,11 +498,11 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get loginButton;
 
-  /// No description provided for @loginMenssage.
+  /// No description provided for @loginMessage.
   ///
   /// In en, this message translates to:
   /// **'Please login to continue'**
-  String get loginMenssage;
+  String get loginMessage;
 
   /// No description provided for @map.
   ///
@@ -558,17 +564,17 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get password;
 
-  /// No description provided for @perfomaceChartButton.
+  /// No description provided for @performanceChartButton.
   ///
   /// In en, this message translates to:
-  /// **'Perfomace Chart'**
-  String get perfomaceChartButton;
+  /// **'Performace Chart'**
+  String get performanceChartButton;
 
-  /// No description provided for @perfomaceChartTitle.
+  /// No description provided for @performanceChartTitle.
   ///
   /// In en, this message translates to:
-  /// **'Perfomace Chart'**
-  String get perfomaceChartTitle;
+  /// **'Performace Chart'**
+  String get performanceChartTitle;
 
   /// No description provided for @personalData.
   ///
@@ -768,11 +774,11 @@ abstract class AppLocalizations {
   /// **'Weekly Deliveries'**
   String get weeklyDeliveriesTitle;
 
-  /// No description provided for @welcomeCardMenssage.
+  /// No description provided for @welcomeCardMessage.
   ///
   /// In en, this message translates to:
   /// **'Use our Location Map and find couriers according to your demand'**
-  String get welcomeCardMenssage;
+  String get welcomeCardMessage;
 
   /// No description provided for @welcomeCardTitle.
   ///
@@ -780,7 +786,7 @@ abstract class AppLocalizations {
   /// **'Find delivery people in your area!'**
   String get welcomeCardTitle;
 
-  /// No description provided for @wrongDate.
+  /// Message that appears when the date entered by the user is wrong
   ///
   /// In en, this message translates to:
   /// **'Wrong Date'**

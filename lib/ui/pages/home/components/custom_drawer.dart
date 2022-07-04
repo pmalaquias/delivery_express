@@ -74,7 +74,7 @@ class CustomDrawerDeliveryMan extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.help_rounded),
-            title: Text(context.loc.drawerHelpAndSuport),
+            title: Text(context.loc.drawerHelpAndSupport),
             onTap: () {},
           ),
           ListTile(
@@ -164,7 +164,7 @@ class CustomDrawerClient extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.help_rounded),
-            title: Text(context.loc.drawerHelpAndSuport),
+            title: Text(context.loc.drawerHelpAndSupport),
             onTap: () {},
           ),
           ListTile(

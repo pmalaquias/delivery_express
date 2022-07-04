@@ -14,7 +14,7 @@ class PerfomaceChartPage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Expanded(child: Text(context.loc.perfomaceChartTitle)),
+          title: Expanded(child: Text(context.loc.performanceChartTitle)),
           actions: [
             IconButton(
               onPressed: () {},

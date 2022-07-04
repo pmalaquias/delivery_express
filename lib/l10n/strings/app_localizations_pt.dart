@@ -11,10 +11,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get accessData => 'Dados de Acesso';
 
   @override
-  String get accontType => 'Tipo de Conta';
+  String get accountNumber => 'Número da Conta';
 
   @override
-  String get accountNumber => 'Número da Conta';
+  String get accountType => 'Tipo de Conta';
 
   @override
   String get addAPhoto => 'Adicionar uma foto';
@@ -83,9 +83,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get dataForReceipt => 'Dados para Recebimento';
 
   @override
-  String get deleverymanLabel => 'Entregador';
-
-  @override
   String get deliveriesByTypeTitle => 'Entregas por Tipo';
 
   @override
@@ -110,13 +107,19 @@ class AppLocalizationsPt extends AppLocalizations {
   String get deliveryHeavyOrder => 'Encomenda Pesada';
 
   @override
+  String get deliveryManLabel => 'Entregador';
+
+  @override
+  String get deliveryManText => 'Possuo um veículo próprio e desejo realizar entragas.';
+
+  @override
   String get deliveryOther => 'Outro';
 
   @override
   String get deliveryType => 'Tipo de Entrega';
 
   @override
-  String get deliverymanText => 'Possuo um veiculo próprio e desejo realizar entregas';
+  String get deliviryManText => 'Possuo um veiculo próprio e desejo realizar entregas';
 
   @override
   String get drawerAbout => 'Sobre';
@@ -137,7 +140,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get drawerExit => 'Sair';
 
   @override
-  String get drawerHelpAndSuport => 'Ajuda e Suporte';
+  String get drawerHelpAndSupport => 'Ajuda e Suporte';
 
   @override
   String get drawerProfile => 'Perfil';
@@ -158,7 +161,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get forgotPasswordButton => 'Clique aqui';
 
   @override
-  String get forgotPasswordMenssage => 'Esqueceu sua senha?';
+  String get forgotPasswordMessage => 'Esqueceu sua senha?';
 
   @override
   String get fromCamera => 'Da câmera';
@@ -173,10 +176,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get goodAfternoon => 'Boa Tarde,';
 
   @override
-  String get goodMornig => 'Bom Dia';
+  String get goodMorning => 'Bom Dia';
 
   @override
-  String get goodNigth => 'Boa Noite';
+  String get goodNight => 'Boa Noite';
 
   @override
   String get helloWorld => 'Olá mundo!!';
@@ -206,7 +209,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get loginButton => 'Entrar';
 
   @override
-  String get loginMenssage => 'Efetue login para continuar';
+  String get loginMessage => 'Efetue login para continuar';
 
   @override
   String get map => 'Mapa';
@@ -239,10 +242,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get password => 'Senha';
 
   @override
-  String get perfomaceChartButton => 'Gráfico de Desempenho';
+  String get performanceChartButton => 'Gráfico de Desempenho';
 
   @override
-  String get perfomaceChartTitle => 'Gráficos de Desempenho';
+  String get performanceChartTitle => 'Gráficos de Desempenho';
 
   @override
   String get personalData => 'Dados Pessoais';
@@ -344,7 +347,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get weeklyDeliveriesTitle => 'Entregas Semanais';
 
   @override
-  String get welcomeCardMenssage => 'Utiliza o nosso Mapa de Localização e encontre encontre entregadores de acordo com a sua demanda';
+  String get welcomeCardMessage => 'Utiliza o nosso Mapa de Localização e encontre encontre entregadores de acordo com a sua demanda';
 
   @override
   String get welcomeCardTitle => 'Encontre entregadores na sua região!';

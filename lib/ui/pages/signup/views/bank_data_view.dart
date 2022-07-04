@@ -54,8 +54,8 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: context.loc.accontType,
-                      label: Text(context.loc.accontType),
+                      hintText: context.loc.accountType,
+                      label: Text(context.loc.accountType),
                     ),
                   ),
                   TextFormField(

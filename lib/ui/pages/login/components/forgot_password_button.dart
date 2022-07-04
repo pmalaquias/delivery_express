@@ -12,7 +12,7 @@ class ForgotPasswordButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text(context.loc.forgotPasswordMenssage),
+        Text(context.loc.forgotPasswordMessage),
         TextButton(
           onPressed: () {},
           child: Text(context.loc.forgotPasswordButton),

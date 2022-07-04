@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingMana
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
-                                  context.loc.welcomeCardMenssage,
+                                  context.loc.welcomeCardMessage,
                                   textAlign: TextAlign.center,
                                 ),
                               ],
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> with KeyboardManager, LoadingMana
                           height: 16,
                         ),
                         Text(
-                          context.loc.loginMenssage,
+                          context.loc.loginMessage,
                           textAlign: TextAlign.center,
                         ),
                         Provider(

@@ -80,8 +80,8 @@ class _SignUpButtonState extends State<SignUpButton> {
                   content: Column(
                     children: <Widget>[
                       customRadioButton(
-                        context.loc.deleverymanLabel,
-                        context.loc.deliverymanText,
+                        context.loc.deliveryManLabel,
+                        context.loc.deliveryManText,
                         1,
                       ),
                       customRadioButton(

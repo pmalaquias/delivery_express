@@ -65,8 +65,8 @@ class _RadioButtonCustomState extends State<RadioButtonCustom> {
     return Column(
       children: <Widget>[
         customRadioButton(
-          context.loc.deleverymanLabel,
-          context.loc.deliverymanText,
+          context.loc.deliveryManLabel,
+          context.loc.deliveryManText,
           1,
         ),
         customRadioButton(

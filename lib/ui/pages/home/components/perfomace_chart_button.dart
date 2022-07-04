@@ -26,7 +26,7 @@ class _PerfomaceChartButtonState extends State<PerfomaceChartButton> {
         },
         icon: const Icon(Icons.bar_chart_rounded),
         label: Text(
-          context.loc.perfomaceChartButton.toUpperCase(),
+          context.loc.performanceChartButton.toUpperCase(),
           textAlign: TextAlign.center,
         ),
       ),
