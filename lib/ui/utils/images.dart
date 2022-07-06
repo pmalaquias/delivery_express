@@ -5,7 +5,7 @@ class Images {
   static const String americanExpressLogoImgSvg = 'lib/ui/assets/images/svg/american_express.svg';
   static const String visaLogoImgSvg = 'lib/ui/assets/images/svg/visa.svg';
   static const String hipercadLogoSvg = 'lib/ui/assets/images/svg/hipercard.svg';
-  static const String eloLogoImgSvg = 'lib/ui/assets/images/svg/elo.svg';
+  static const String eloLogoImgSvg = 'lib/ui/assets/images/svg/elo-logo.svg';
   static const String clothingImgSvg = 'lib/ui/assets/images/svg/clothing.svg';
   static const String foodImgSvg = 'lib/ui/assets/images/svg/food.svg';
   static const String documentsImgSvg = 'lib/ui/assets/images/svg/documents.svg';
