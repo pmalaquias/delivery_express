@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
 import '../../../extension/extension.dart';
 import '../../../mixins/mixins.dart' show InputMask;
 import '../../../mocks/mocks.dart';
-import '../../../utils/utils.dart' show Images;
 import '../../pages.dart';
 import '../components/components.dart';
 
@@ -228,31 +226,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                       ],
                     ),
                     const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SvgPicture.asset(
-                          Images.mastercardLogoImgSvg,
-                          width: 50,
-                        ),
-                        SvgPicture.asset(
-                          Images.americanExpressLogoImgSvg,
-                          width: 40,
-                        ),
-                        SvgPicture.asset(
-                          Images.visaLogoImgSvg,
-                          width: 50,
-                        ),
-                        SvgPicture.asset(
-                          Images.hipercadLogoSvg,
-                          width: 70,
-                        ),
-                        SvgPicture.asset(
-                          Images.eloLogoImgSvg,
-                          width: 40,
-                        ),
-                      ],
-                    ),
+                    const CustomRadioButton(),
                     TextFormField(
                       decoration: InputDecoration(
                         hintText: '0000 0000 0000 0000',
@@ -262,9 +236,6 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                     ),
                     const SizedBox(height: 8),
                     Wrap(
-                      //crossAxisAlignment: WrapCrossAlignment.start,
-                      //alignment: WrapAlignment.end,
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         DropdownButton<String>(
                           hint: Text(context.loc.expiryMonth),
