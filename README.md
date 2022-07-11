@@ -106,16 +106,27 @@ As Delivery Express was initially developed with Flutter version 2.10.1 it was u
 
 ### App Logo
 
+It's pretty simple, it's the Deliverator with the app's main color with an elevation to give a drop shadow effect.
+
 ### Colors Used
+
+For the colors, the main color was used from the original design. But with the release of Material 3, a tool for harmonizing colors and dynamic colors was launched, the [Material Theme Builder](https://material-foundation.github.io/material-theme-builder/#/custom).
+
+Primary color is: **#b91d1d**
+
+So we have as a result:
 
 ### Fonts Used
 
 The following fonts are currently used in this project:
 
-* Montserrat.
-* Quick Express
+* Montserrat[^1]
+* Quick Express[^2]
 
 Where the first is used in every app and in the logo, and the second mentioned is only used in the app logo on the login page, to get dynamics for different screen sizes.
+
+[^1]: Montserrat has an [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL), obtained from [Google Fonts](https://fonts.google.com/specimen/Montserrat).
+[^2]: Quick Express has an unknown license, and was obtained from [Font Meme](https://fontmeme.com/fonts/quick-express-font/).
 
 ## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
