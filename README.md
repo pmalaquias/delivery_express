@@ -77,8 +77,7 @@ Translation files are in the l10n folder with `.arb` file extension, similar in 
 ```` bash
 flutter gen-l10n
 ````
-
-Obtendo como resultado arquivo `.dart` para utilização dentro do aplicativo e chamando nas partes que deseja traduzir:
+Retrieving a `.dart` file for use within the application and calling the parts you want to translate:
 
 ```` dart
  AppLocalizations.of(context)!.<keyword>
