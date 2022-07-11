@@ -12,6 +12,7 @@
   * [Project Installation](#project-installation)
   * [Running the project](#running-the-project)
 * [Technologies](#technologies)
+* [Specifications](#specifications)
 * [Contributors](#contributors)
 * [Licenses](#licenses)
 
@@ -100,6 +101,21 @@ As Delivery Express was initially developed with Flutter version 2.10.1 it was u
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" width=50 /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" width=50 /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width=50 /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg" width=50 />
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Material_Design_Logo.svg" width=50 /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" width=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width=50 /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain-wordmark.svg" width=50/>
+
+## Specifications
+
+### App Logo
+
+### Colors Used
+
+### Fonts Used
+
+The following fonts are currently used in this project:
+
+* Montserrat.
+* Quick Express
+
+Where the first is used in every app and in the logo, and the second mentioned is only used in the app logo on the login page, to get dynamics for different screen sizes.
 
 ## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
