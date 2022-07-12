@@ -77,6 +77,7 @@ Translation files are in the l10n folder with `.arb` file extension, similar in 
 ```` bash
 flutter gen-l10n
 ````
+
 Retrieving a `.dart` file for use within the application and calling the parts you want to translate:
 
 ```` dart
@@ -105,13 +106,15 @@ As Delivery Express was initially developed with Flutter version 2.10.1 it was u
 
 ### App Logo
 
+<img src="./assets/iicon.png" width=100/>
+
 It's pretty simple, it's the Deliverator with the app's main color with an elevation to give a drop shadow effect.
 
 ### Colors Used
 
 For the colors, the main color was used from the original design. But with the release of Material 3, a tool for harmonizing colors and dynamic colors was launched, the [Material Theme Builder](https://material-foundation.github.io/material-theme-builder/#/custom).
 
-Primary color is: **#b91d1d**
+Primary color is: <span style="color:#B91D1D">__#B91D1D__ </span>
 
 So we have as a result:
 
