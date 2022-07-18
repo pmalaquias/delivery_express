@@ -34,7 +34,7 @@ class _SignUpClientPageState extends State<SignUpClientPage> {
                   PersonalDataClientView(controller: controller),
                   AccessDataView(controller: controller),
                   AddressDataView(controller: controller),
-                  DeliveyDataView(controller: controller),
+                  DeliveryDataView(controller: controller),
                   BankDataClientView(controller: controller),
                 ],
               ),
