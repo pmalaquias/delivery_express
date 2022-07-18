@@ -5,6 +5,15 @@ import '../../../extension/extension.dart';
 import '../../../utils/utils.dart';
 import '../components/components.dart';
 
+enum VehicleType {
+  car,
+  pickupTruck,
+  truck,
+  motorcycle,
+  bicycle,
+  other,
+}
+
 class VehicleDataView extends StatefulWidget {
   final PageController controller;
   const VehicleDataView({Key? key, required this.controller}) : super(key: key);
@@ -22,6 +31,12 @@ class _VehicleDataViewState extends State<VehicleDataView> {
 // ValueChanged<Color> callback
   void changeColor(Color color) {
     setState(() => pickerColor = color);
+  }
+
+  VehicleType? _groupValue;
+
+  ValueChanged<VehicleType?> _valueChangedHandler() {
+    return (value) => setState(() => _groupValue = value!);
   }
 
   Widget buildColorPicker(BuildContext context) {
@@ -89,33 +104,61 @@ class _VehicleDataViewState extends State<VehicleDataView> {
                 Text(context.loc.vehicleType),
                 Column(
                   children: [
-                    Wrap(
-                      spacing: 8,
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    Row(
                       children: [
-                        DeliveryManVehicleTypeCard(
-                          image: Images.carImgSvg,
-                          label: context.loc.vehicleCar,
+                        Wrap(
+                          children: [
+                            RadioOptionTypeCustom<VehicleType>(
+                              value: VehicleType.car,
+                              groupValue: _groupValue,
+                              onChanged: _valueChangedHandler(),
+                              label: context.loc.vehicleCar,
+                              text: Images.carImgSvg,
+                            ),
+                            RadioOptionTypeCustom<VehicleType>(
+                              value: VehicleType.pickupTruck,
+                              groupValue: _groupValue,
+                              onChanged: _valueChangedHandler(),
+                              label: context.loc.vehiclePickupTruck,
+                              text: Images.pickupTruckImgSvg,
+                            ),
+                            RadioOptionTypeCustom<VehicleType>(
+                              value: VehicleType.truck,
+                              groupValue: _groupValue,
+                              onChanged: _valueChangedHandler(),
+                              label: context.loc.vehicleTruck,
+                              text: Images.truckImgSvg,
+                            ),
+                          ],
                         ),
-                        DeliveryManVehicleTypeCard(
-                          image: Images.pickupTruckImgSvg,
-                          label: context.loc.vehiclePickupTruck,
-                        ),
-                        DeliveryManVehicleTypeCard(
-                          image: Images.truckImgSvg,
-                          label: context.loc.vehicleTruck,
-                        ),
-                        DeliveryManVehicleTypeCard(
-                          image: Images.motorcycleImgSvg,
-                          label: context.loc.vehicleMotorcycle,
-                        ),
-                        DeliveryManVehicleTypeCard(
-                          image: Images.bicycleImgSvg,
-                          label: context.loc.vehicleBicycle,
-                        ),
-                        DeliveryManVehicleTypeCard(
-                          image: Images.otherVehicleImgSvg,
-                          label: context.loc.vehicleOther,
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Wrap(
+                          children: [
+                            RadioOptionTypeCustom<VehicleType>(
+                              value: VehicleType.motorcycle,
+                              groupValue: _groupValue,
+                              onChanged: _valueChangedHandler(),
+                              label: context.loc.vehicleMotorcycle,
+                              text: Images.motorcycleImgSvg,
+                            ),
+                            RadioOptionTypeCustom<VehicleType>(
+                              value: VehicleType.bicycle,
+                              groupValue: _groupValue,
+                              onChanged: _valueChangedHandler(),
+                              label: context.loc.vehicleBicycle,
+                              text: Images.bicycleImgSvg,
+                            ),
+                            RadioOptionTypeCustom<VehicleType>(
+                              value: VehicleType.other,
+                              groupValue: _groupValue,
+                              onChanged: _valueChangedHandler(),
+                              label: context.loc.vehicleOther,
+                              text: Images.otherVehicleImgSvg,
+                            ),
+                          ],
                         ),
                       ],
                     ),

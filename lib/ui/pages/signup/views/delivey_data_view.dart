@@ -5,15 +5,24 @@ import '../../../extension/extension.dart';
 import '../../../utils/utils.dart' show Images;
 import '../components/components.dart';
 
-class DeliveyDataView extends StatefulWidget {
-  final PageController controller;
-  const DeliveyDataView({Key? key, required this.controller}) : super(key: key);
-
-  @override
-  State<DeliveyDataView> createState() => _DeliveyDataViewState();
+enum DeliveryType {
+  food,
+  clothing,
+  documents,
+  fragileOrder,
+  heavyOrder,
+  other,
 }
 
-class _DeliveyDataViewState extends State<DeliveyDataView> {
+class DeliveryDataView extends StatefulWidget {
+  final PageController controller;
+  const DeliveryDataView({Key? key, required this.controller}) : super(key: key);
+
+  @override
+  State<DeliveryDataView> createState() => _DeliveryDataViewState();
+}
+
+class _DeliveryDataViewState extends State<DeliveryDataView> {
   // create some values
   Color pickerColor = const Color(0xff443a49);
 
@@ -22,6 +31,12 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
 // ValueChanged<Color> callback
   void changeColor(Color color) {
     setState(() => pickerColor = color);
+  }
+
+  DeliveryType? _groupValue;
+
+  ValueChanged<DeliveryType?> _valueChangedHandler() {
+    return (value) => setState(() => _groupValue = value!);
   }
 
   Widget buildColorPicker(BuildContext context) {
@@ -86,34 +101,65 @@ class _DeliveyDataViewState extends State<DeliveyDataView> {
             Text(context.loc.deliveryType),
             Column(
               children: [
-                Wrap(
+                Row(
                   children: [
-                    DeliveryTypeCard(
-                      image: Images.foodImgSvg,
-                      label: context.loc.deliveryFood,
-                    ),
-                    DeliveryTypeCard(
-                      image: Images.clothingImgSvg,
-                      label: context.loc.deliveryClothing,
-                    ),
-                    DeliveryTypeCard(
-                      image: Images.documentsImgSvg,
-                      label: context.loc.deliveryDocuments,
-                    ),
-                    DeliveryTypeCard(
-                      image: Images.fragileOrderImgSvg,
-                      label: context.loc.deliveryFragileOrder,
-                    ),
-                    DeliveryTypeCard(
-                      image: Images.heavyOrderImgSvg,
-                      label: context.loc.deliveryHeavyOrder,
-                    ),
-                    DeliveryTypeCard(
-                      image: Images.otherOrderImgSvg,
-                      label: context.loc.deliveryOther,
+                    Wrap(
+                      children: [
+                        RadioOptionTypeCustom<DeliveryType>(
+                          value: DeliveryType.food,
+                          groupValue: _groupValue,
+                          onChanged: _valueChangedHandler(),
+                          label: context.loc.deliveryFood,
+                          text: Images.foodImgSvg,
+                        ),
+                        RadioOptionTypeCustom<DeliveryType>(
+                          value: DeliveryType.clothing,
+                          groupValue: _groupValue,
+                          onChanged: _valueChangedHandler(),
+                          label: context.loc.deliveryClothing,
+                          text: Images.clothingImgSvg,
+                        ),
+                        RadioOptionTypeCustom<DeliveryType>(
+                          value: DeliveryType.documents,
+                          groupValue: _groupValue,
+                          onChanged: _valueChangedHandler(),
+                          label: context.loc.deliveryDocuments,
+                          text: Images.documentsImgSvg,
+                        ),
+                      ],
                     ),
                   ],
                 ),
+                Row(
+                  children: [
+                    Wrap(
+                      children: [
+                        RadioOptionTypeCustom<DeliveryType>(
+                          value: DeliveryType.fragileOrder,
+                          groupValue: _groupValue,
+                          onChanged: _valueChangedHandler(),
+                          label: context.loc.deliveryFragileOrder,
+                          text: Images.fragileOrderImgSvg,
+                        ),
+                        RadioOptionTypeCustom<DeliveryType>(
+                          value: DeliveryType.heavyOrder,
+                          groupValue: _groupValue,
+                          onChanged: _valueChangedHandler(),
+                          label: context.loc.deliveryHeavyOrder,
+                          text: Images.heavyOrderImgSvg,
+                        ),
+                        RadioOptionTypeCustom<DeliveryType>(
+                          value: DeliveryType.other,
+                          groupValue: _groupValue,
+                          onChanged: _valueChangedHandler(),
+                          label: context.loc.deliveryOther,
+                          text: Images.otherOrderImgSvg,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+
                 const SizedBox(height: 16),
                 Text(
                   context.loc.deliveryDataMessage,
