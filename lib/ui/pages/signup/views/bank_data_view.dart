@@ -235,42 +235,55 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
                       inputFormatters: [cardNumberMaskFormatter],
                     ),
                     const SizedBox(height: 8),
-                    Wrap(
-                      children: [
-                        DropdownButton<String>(
-                          hint: Text(context.loc.expiryMonth),
-                          value: dropdownValueMes,
-                          elevation: 16,
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              dropdownValueMes = newValue as String;
-                            });
-                          },
-                          items: mes.map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        ),
-                        const SizedBox(height: 8),
-                        DropdownButton<String>(
-                          hint: Text(context.loc.expiryYear),
-                          value: dropdownValueAno,
-                          elevation: 16,
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              dropdownValueAno = newValue as String;
-                            });
-                          },
-                          items: ano.map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        ),
-                      ],
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 2.0,
+                            child: DropdownButton<String>(
+                              alignment: AlignmentDirectional.centerEnd,
+                              hint: Text(context.loc.expiryMonth),
+                              isExpanded: true,
+                              value: dropdownValueMes,
+                              elevation: 16,
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValueMes = newValue as String;
+                                });
+                              },
+                              items: mes.map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 2.0,
+                            child: DropdownButton<String>(
+                              hint: Text(context.loc.expiryYear),
+                              isExpanded: true,
+                              value: dropdownValueAno,
+                              elevation: 16,
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValueAno = newValue as String;
+                                });
+                              },
+                              items: ano.map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
