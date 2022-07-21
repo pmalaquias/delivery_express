@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../extension/extension.dart';
 
@@ -13,7 +14,7 @@ class ButtonCancel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => function(context),
+      onPressed: () => Get.offAndToNamed('/auth'),
       child: Text(context.loc.cancelButton.toUpperCase()),
     );
   }
