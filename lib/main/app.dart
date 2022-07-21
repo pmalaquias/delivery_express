@@ -28,6 +28,14 @@ class DeliveryExpressApp extends StatelessWidget {
           name: '/auth',
           page: makeLoginPageFactory,
         ),
+        GetPage(
+          name: '/singup/client',
+          page: makeSignUpClientPageFactory,
+        ),
+        GetPage(
+          name: '/singup/deliveryMan',
+          page: makeSignUpDeliveryManPageFactory,
+        ),
       ],
     );
   }
