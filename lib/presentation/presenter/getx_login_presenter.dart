@@ -81,9 +81,9 @@ class GetxLoginPresenter extends GetxController implements LoginPresenter {
   @override
   void goToSignUp() {
     if (_loginType.value == 1) {
-      navigateTo = '/signup/deleveryman';
+      navigateTo = '/singup/deliveryMan';
     } else if (_loginType.value == 2) {
-      navigateTo = '/signup/client';
+      navigateTo = '/singup/client';
     }
   }
 
