@@ -94,7 +94,7 @@ class _SignUpButtonState extends State<SignUpButton> {
                   scrollable: true,
                   actions: [
                     TextButton(
-                      onPressed: () => Navigator.canPop(context),
+                      onPressed: () => Navigator.pop(context),
                       child: Text(context.loc.cancelButton.toUpperCase()),
                     ),
                     TextButton(

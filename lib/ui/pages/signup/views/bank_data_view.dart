@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:get/get.dart';
 
 import '../../../extension/extension.dart';
 import '../../../mixins/mixins.dart' show InputMask;
 import '../../../mocks/mocks.dart';
-import '../../pages.dart';
 import '../components/components.dart';
 
 class BankDataDeliverymanView extends StatefulWidget {
@@ -129,12 +129,7 @@ class _BankDataDeliverymanViewState extends State<BankDataDeliverymanView> with 
                   setState(() {
                     pageControllerContinue();
                   });
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
-                  );
+                  Get.offAllNamed('/home/deliveryMan');
                 },
                 child: Text(context.loc.continueButton.toUpperCase()),
               ),
@@ -338,12 +333,7 @@ class _BankDataClientViewState extends State<BankDataClientView> with InputMask 
         curve: Curves.easeIn,
       );
     });
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomeClientPage(),
-      ),
-    );
+    Get.offAllNamed('/home/client');
   }
 
   void pageControllerBack() {
