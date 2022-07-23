@@ -4,8 +4,8 @@ import '../../extension/extension.dart';
 import '../../theme/theme.dart' show AppColors;
 import 'components/components.dart' show DeliveriesByTypeTab, WeeklyDeliveriesTab;
 
-class PerfomaceChartPage extends StatelessWidget {
-  const PerfomaceChartPage({Key? key}) : super(key: key);
+class PerformanceChartPage extends StatelessWidget {
+  const PerformanceChartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
