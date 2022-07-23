@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../extension/extension.dart';
 import '../../../theme/theme.dart' show AppColors;
 import '../../pages.dart';
-import '../../profile/profile.dart' show ProfilePage;
 
 class CustomDrawerDeliveryMan extends StatelessWidget {
   const CustomDrawerDeliveryMan({Key? key}) : super(key: key);
@@ -49,12 +49,7 @@ class CustomDrawerDeliveryMan extends StatelessWidget {
             leading: const Icon(Icons.person_rounded),
             title: Text(context.loc.drawerProfile),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ProfilePage(),
-                ),
-              );
+              Get.toNamed('/profile');
             },
           ),
           ListTile(
@@ -85,7 +80,9 @@ class CustomDrawerDeliveryMan extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.exit_to_app_rounded),
             title: Text(context.loc.drawerExit),
-            onTap: () {},
+            onTap: () {
+              Get.offAllNamed('/auth');
+            },
           ),
         ],
       ),
@@ -139,12 +136,7 @@ class CustomDrawerClient extends StatelessWidget {
             leading: const Icon(Icons.person_rounded),
             title: Text(context.loc.drawerProfile),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ProfilePage(),
-                ),
-              );
+              Get.toNamed('/profile');
             },
           ),
           ListTile(
@@ -176,7 +168,7 @@ class CustomDrawerClient extends StatelessWidget {
             leading: const Icon(Icons.exit_to_app_rounded),
             title: Text(context.loc.drawerExit),
             onTap: () {
-              Navigator.pop(context);
+              Get.offAllNamed('/auth');
             },
           ),
         ],

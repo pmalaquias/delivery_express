@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../extension/extension.dart';
-import '../../pages.dart';
 
-class PerfomaceChartButton extends StatefulWidget {
-  const PerfomaceChartButton({Key? key}) : super(key: key);
+class PerformanceChartButton extends StatefulWidget {
+  const PerformanceChartButton({Key? key}) : super(key: key);
 
   @override
-  State<PerfomaceChartButton> createState() => _PerfomaceChartButtonState();
+  State<PerformanceChartButton> createState() => _PerformanceChartButtonState();
 }
 
-class _PerfomaceChartButtonState extends State<PerfomaceChartButton> {
+class _PerformanceChartButtonState extends State<PerformanceChartButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton.icon(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const PerfomaceChartPage(),
-            ),
-          );
+          Get.toNamed('/performance_chart');
         },
         icon: const Icon(Icons.bar_chart_rounded),
         label: Text(

@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                     InfoCard(),
                     SizedBox(height: 16),
                     AreaChart(),
-                    PerfomaceChartButton(),
+                    PerformanceChartButton(),
                   ],
                 ),
               ),
