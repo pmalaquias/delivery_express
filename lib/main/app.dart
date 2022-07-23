@@ -18,6 +18,7 @@ class DeliveryExpressApp extends StatelessWidget {
       ],
       supportedLocales: const [
         Locale('en', ''), // English, no country code
+        Locale('es', ''), // Spanish, no country code
         Locale('pt', ''), // Portuguese, no country code
       ],
       theme: AppTheme.lightThemeData,
@@ -35,6 +36,22 @@ class DeliveryExpressApp extends StatelessWidget {
         GetPage(
           name: '/singup/deliveryMan',
           page: makeSignUpDeliveryManPageFactory,
+        ),
+        GetPage(
+          name: '/home/client',
+          page: makeHomeClientPageFactory,
+        ),
+        GetPage(
+          name: '/home/deliveryMan',
+          page: makeHomeDeliveryManPageFactory,
+        ),
+        GetPage(
+          name: '/performance_chart',
+          page: makePerformanceChartPageFactory,
+        ),
+        GetPage(
+          name: '/profile',
+          page: makeProfilePageFactory,
         ),
       ],
     );
