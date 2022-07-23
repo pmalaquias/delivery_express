@@ -1,4 +1,5 @@
 export 'home/home.dart';
 export 'login/login.dart';
-export 'perfomace_chart/perfomace_chart.dart';
+export 'performance_chart/performance_chart.dart';
+export 'profile/profile.dart';
 export 'signup/signup.dart';
