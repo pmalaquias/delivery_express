@@ -4,17 +4,22 @@
 
 ## Table of Contents
 
-* [Description](#description)
-* [Project Status](#project-status)
-* [How to use](#how-to-used)
-  * [Prerequisites](#prerequisites)
-  * [How to clone code from GitHub](#how-to-clone-code-from-github)
-  * [Project Installation](#project-installation)
-  * [Running the project](#running-the-project)
-* [Technologies](#technologies)
-* [Specifications](#specifications)
-* [Contributors](#contributors)
-* [Licenses](#licenses)
+- [Table of Contents](#table-of-contents)
+- [Description](#description)
+- [Project Status](#project-status)
+- [How to used](#how-to-used)
+  - [Prerequisites](#prerequisites)
+  - [How to clone code from GitHub](#how-to-clone-code-from-github)
+  - [Project Installation](#project-installation)
+  - [Running the project](#running-the-project)
+  - [Internationalization](#internationalization)
+- [Technologies](#technologies)
+- [Specifications](#specifications)
+  - [App Logo](#app-logo)
+  - [Colors Used](#colors-used)
+  - [Fonts Used](#fonts-used)
+- [Contributors](#contributors)
+- [Licenses](#licenses)
 
 ---
 
@@ -40,7 +45,7 @@ In progress……
 
 ### Prerequisites
 
-* [Flutter 3](https://docs.flutter.dev/get-started/install) or higher installed on machne
+* [Flutter 3](https://docs.flutter.dev/get-started/install) or higher installed on machine
 * [Android Studio](https://developer.android.com/studio) or [VSCode](https://code.visualstudio.com/)
 * [Git](https://git-scm.com/) for version control
 
@@ -94,7 +99,7 @@ Flutter is used in this project, a Cross-platform framework written in Dart, cre
 
 For the layout of the App, Figma was used.
 
-Google Maps API (Application Programming Interface) is also used to obtain the user's location and map display in the application and Firebase for data storage and user login/Signup.
+Google Maps API (Application Programming Interface) is also used to obtain the user's location and map display in the application and Firebase for data storage and user login/SignUp.
 
 With the announcement that [Flutter now supports Material You (Material 3)](https://medium.com/flutter/whats-new-in-flutter-3-8c74a5bc32d0) made by Google at [Google I/O 2022](https://io.google/2022/intl/pt/), it was chosen to use the feature that left the design more modern and minimalist.
 As Delivery Express was initially developed with Flutter version 2.10.1 it was upgraded to Flutter 3 without much trouble.
@@ -108,7 +113,7 @@ As Delivery Express was initially developed with Flutter version 2.10.1 it was u
 
 <img src="./assets/iicon.png" width=100/>
 
-It's pretty simple, it's the Deliverator with the app's main color with an elevation to give a drop shadow effect.
+It's pretty simple, it's the delivery guy with the app's main color with an elevation to give a drop shadow effect.
 
 ### Colors Used
 
