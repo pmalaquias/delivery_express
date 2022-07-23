@@ -5,5 +5,5 @@ export 'header.dart';
 export 'hour_of_day.dart';
 export 'info_card.dart';
 export 'map.dart';
-export 'my_location_button_custtom.dart';
-export 'perfomace_chart_button.dart';
+export 'my_location_button_custom.dart';
+export 'performance_chart_button.dart';

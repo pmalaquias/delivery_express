@@ -56,7 +56,7 @@ class Map extends StatelessWidget {
           myLocationButtonEnabled: false,
           myLocationEnabled: true,
         ),
-        MyLocationButtonCusttom(currentLocation: _currentLocation),
+        MyLocationButtonCustom(currentLocation: _currentLocation),
       ],
     );
   }

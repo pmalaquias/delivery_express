@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../extension/extension.dart';
 
-class MyLocationButtonCusttom extends StatelessWidget {
+class MyLocationButtonCustom extends StatelessWidget {
   final Function() currentLocation;
 
-  const MyLocationButtonCusttom({
+  const MyLocationButtonCustom({
     Key? key,
     required this.currentLocation,
   }) : super(key: key);
