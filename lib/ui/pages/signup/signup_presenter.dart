@@ -1,14 +1,8 @@
 abstract class SignUpPresenter {
+  Stream<String> get navigateToStream;
+
   void cancelSignUp();
 
-  void goToAccessData();
-  void goToAddressData();
-  void goToVehicleData();
-  void goToReceiveData();
-  void goToFinish();
-
-  void backToPersonalData();
-  void backToAccessData();
-  void backToAddressData();
-  void backToVehicleData();
+  void goToHomeClient();
+  void goToHomeDeliveryMan();
 }
