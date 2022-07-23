@@ -9,9 +9,9 @@ enum UIError {
   NO_ERROR,
 }
 
-// TODO: translate errors mensages
+// TODO: translate errors messages
 extension UIErrorExtension on UIError {
-  String get desscription {
+  String get description {
     switch (this) {
       case UIError.INVALID_CREDENTIALS:
         return 'InvalidCredentials';
