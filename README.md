@@ -18,6 +18,7 @@
   - [App Logo](#app-logo)
   - [Colors Used](#colors-used)
   - [Fonts Used](#fonts-used)
+- [Design](#design)
 - [Contributors](#contributors)
 - [Licenses](#licenses)
 
@@ -134,6 +135,29 @@ Where the first is used in every app and in the logo, and the second mentioned i
 
 [^1]: Montserrat has an [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL), obtained from [Google Fonts](https://fonts.google.com/specimen/Montserrat).
 [^2]: Quick Express has an unknown license, and was obtained from [Font Meme](https://fontmeme.com/fonts/quick-express-font/).
+
+## Design
+
+Below, in this section, there are some mockups of how some screens of the app were working, for example the login screen.
+
+<details></summary>
+  <figure align="center">
+    <img src="assets/mockup/Pixel%204%20XL_LOGIN.svg" width=200 />
+    <figcaption>Login</figcaption>
+  </figure>
+  <figure align="center">
+    <img src="assets/mockup/Pixel%204%20XL_vehicleData.svg" width=200 />
+    <figcaption>Vehicle Data</figcaption>
+  </figure>
+  <figure align="center">
+    <img src="assets/mockup/Pixel%204%20XL_deliveryData.svg" width=200 />
+    <figcaption>Vehicle Data</figcaption>
+  </figure>
+  <figure align="center">
+    <img src="assets/mockup/bankDataClient.gif" width=200 />
+    <figcaption>Data for Receipt - Client</figcaption>
+  </figure> 
+</details>
 
 ## Contributors
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
