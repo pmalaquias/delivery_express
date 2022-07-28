@@ -1,3 +1,4 @@
+import 'package:delivery_express/ui/pages/signup/signup.dart';
 import 'package:flutter/material.dart';
 
 import '../../../extension/extension.dart';
@@ -141,11 +142,13 @@ class _PersonalDataDeliverymanViewState extends State<PersonalDataDeliverymanVie
 }
 
 class PersonalDataClientView extends StatefulWidget {
+  final SignUpPresenter presenter;
   final PageController controller;
 
   const PersonalDataClientView({
     Key? key,
     required this.controller,
+    required this.presenter,
   }) : super(key: key);
 
   @override
@@ -253,7 +256,7 @@ class _PersonalDataClientViewState extends State<PersonalDataClientView> with In
   }
 
   void pageControllerCancel(BuildContext context) {
-    Navigator.canPop(context);
+    widget.presenter.cancelSignUp();
   }
 
   String? dateValidator(String? value, BuildContext context) {

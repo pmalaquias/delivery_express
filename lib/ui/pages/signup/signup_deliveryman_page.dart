@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../../extension/extension.dart';
+import 'signup.dart';
 import 'views/views.dart';
 
 class SignUpDeliveryMan extends StatefulWidget {
-  const SignUpDeliveryMan({Key? key}) : super(key: key);
+  final SignUpPresenter presenter;
+
+  const SignUpDeliveryMan({
+    Key? key,
+    required this.presenter,
+  }) : super(key: key);
 
   @override
   State<SignUpDeliveryMan> createState() => _SignUpDeliveryManState();

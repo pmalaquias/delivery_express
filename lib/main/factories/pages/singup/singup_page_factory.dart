@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../../ui/pages/pages.dart' show SignUpClientPage, SignUpDeliveryMan;
+import 'singup.dart';
 
-Widget makeSignUpClientPageFactory() {
-  return const SignUpClientPage();
-}
+Widget makeSignUpClientPageFactory() => SignUpClientPage(
+      presenter: makeGetxSingUpPresenterFactory(),
+    );
 
-Widget makeSignUpDeliveryManPageFactory() {
-  return const SignUpDeliveryMan();
-}
+Widget makeSignUpDeliveryManPageFactory() => SignUpDeliveryMan(
+      presenter: makeGetxSingUpPresenterFactory(),
+    );
