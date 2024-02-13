@@ -1,4 +1,4 @@
-![banner](/lib/ui/assets/images/png/BannerDeliveryExpress.png)
+![banner](/images/png/BannerDeliveryExpress.png)
 <!-- # Delivery Express -->
 ---
 
@@ -112,7 +112,7 @@ As Delivery Express was initially developed with Flutter version 2.10.1 it was u
 
 ### App Logo
 
-<img src="./assets/iicon.png" width=100/>
+<img src="./images/png/iicon.png" width=100/>
 
 It's pretty simple, it's the delivery guy with the app's main color with an elevation to give a drop shadow effect.
 
@@ -142,19 +142,19 @@ Below, in this section, there are some mockups of how some screens of the app we
 
 <details></summary>
   <figure align="center">
-    <img src="assets/mockup/Pixel%204%20XL_LOGIN.svg" width=200 />
+    <img src="images/mockup/Pixel%204%20XL_LOGIN.svg" width=200 />
     <figcaption>Login</figcaption>
   </figure>
   <figure align="center">
-    <img src="assets/mockup/Pixel%204%20XL_vehicleData.svg" width=200 />
+    <img src="images/mockup/Pixel%204%20XL_vehicleData.svg" width=200 />
     <figcaption>Vehicle Data</figcaption>
   </figure>
   <figure align="center">
-    <img src="assets/mockup/Pixel%204%20XL_deliveryData.svg" width=200 />
+    <img src="images/mockup/Pixel%204%20XL_deliveryData.svg" width=200 />
     <figcaption>Vehicle Data</figcaption>
   </figure>
   <figure align="center">
-    <img src="assets/mockup/bankDataClient.gif" width=200 />
+    <img src="images/mockup/bankDataClient.gif" width=200 />
     <figcaption>Data for Receipt - Client</figcaption>
   </figure> 
 </details>
