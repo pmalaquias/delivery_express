@@ -12,13 +12,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.ui.theme.DeliveryExpressTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            DeliveryExpressTheme {
+            AppTheme {
                 // A surface container using the 'background' color from the theme
                 Greeting("Android")
 
@@ -43,7 +44,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    DeliveryExpressTheme {
+    AppTheme {
         Greeting("Android")
     }
 }

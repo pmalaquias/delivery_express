@@ -3,7 +3,9 @@ package com.pmalaquias.deliveryexpress.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -256,6 +258,7 @@ data class ColorFamily(
 val unspecified_scheme = ColorFamily(
     Color.Unspecified, Color.Unspecified, Color.Unspecified, Color.Unspecified
 )
+/*
 @Composable
 fun DeliveryExpressTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -283,6 +286,34 @@ fun DeliveryExpressTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
+        typography = Typography,
+        content = content
+    )
+}
+*/
+
+@Composable
+fun AppTheme(
+    useDarkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable() () -> Unit
+) {
+    val colors = if (!useDarkTheme) {
+        lightScheme
+    } else {
+        darkScheme
+    }
+
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            window.statusBarColor = colors.primary.toArgb()
+            //WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+        }
+    }
+
+    MaterialTheme(
+        colorScheme = colors,
         typography = Typography,
         content = content
     )
