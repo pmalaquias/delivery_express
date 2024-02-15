@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name" translatable="false">Delivery Express</string>
+    <string name="forgot_your_password_message">Forgot your password?</string>
+    <string name="forgot_password_button">Click here</string>
+    <string name="password_label">Password</string>
+    <string name="email_label" translatable="false">E-mail</string>
+    <string name="login_button">Login</string>
+    <string name="login_message">Please login to continue</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="signup_message">Don\'t have an account?</string>
 </resources>

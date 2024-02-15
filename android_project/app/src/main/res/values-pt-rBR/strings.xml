@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Delivery Express</string>
+    <string name="forgot_your_password_message">Esqueceu a sua senha?</string>
+    <string name="forgot_password_button">Clique aqui</string>
+    <string name="password_label">Senha</string>
+    <string name="login_button">Entrar</string>
+    <string name="login_message">Efetue login para continuar</string>
+    <string name="signup_button">Registrar</string>
+    <string name="signup_message">Não tem uma conta?</string>
+</resources>
