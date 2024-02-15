@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val lightScheme = lightColorScheme(
     primary = primaryLight,
@@ -303,14 +304,25 @@ fun AppTheme(
         darkScheme
     }
 
-    val view = LocalView.current
+
+    val systemUiController = rememberSystemUiController()
+    if(useDarkTheme){
+        systemUiController.setSystemBarsColor(
+            color = Color.Transparent
+        )
+    }else{
+        systemUiController.setSystemBarsColor(
+            color = Color.White
+        )
+    }
+   /* val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colors.primary.toArgb()
             //WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
-    }
+    }*/
 
     MaterialTheme(
         colorScheme = colors,
