@@ -7,6 +7,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.pmalaquias.deliveryexpress.ui.pages.DeliveryApp
 import com.pmalaquias.deliveryexpress.ui.pages.LoginPage
 import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
 
@@ -16,16 +17,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppTheme {
                 // A surface container using the 'background' color from the theme
-                App()
+                DeliveryApp()
 
             }
         }
     }
-}
-
-@Composable
-fun App( modifier: Modifier = Modifier) {
-    LoginPage()
 }
 
 @Preview(showBackground = true )
@@ -33,7 +29,7 @@ fun App( modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     AppTheme {
         Surface {
-            App()
+            DeliveryApp()
         }
     }
 }
