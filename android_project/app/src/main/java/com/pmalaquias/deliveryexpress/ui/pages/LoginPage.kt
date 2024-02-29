@@ -29,11 +29,59 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.pmalaquias.deliveryexpress.R
 import java.util.Locale
 
+enum class DeliveryScreen {
+    Login,
+    SignUp,
+    Home
+}
+
 @Composable
-fun LoginPage(modifier: Modifier = Modifier) {
+fun DeliveryApp(){
+    val navController = rememberNavController()
+
+    val backStackEntry by navController.currentBackStackEntryAsState()
+
+    // Get the name of the current screen
+    val currentScreen = DeliveryScreen.valueOf(
+        backStackEntry?.destination?.route ?: DeliveryScreen.Login.name
+    )
+
+    NavHost(navController = navController, startDestination = DeliveryScreen.Login.name){
+        composable(DeliveryScreen.Login.name){
+            LoginPage(
+                onSignUpButtonClicked = {
+                    navController.navigate(DeliveryScreen.SignUp.name)
+                }
+            )
+        }
+        composable(DeliveryScreen.SignUp.name){
+            SignUpPage(
+                onCancelButtonClicked = {
+                    navController.popBackStack()
+                },
+                onNextButtonClicked = {
+                    navController.navigate(DeliveryScreen.Home.name)
+                }
+            )
+        }
+
+
+    }
+}
+
+@Composable
+fun LoginPage(
+    modifier: Modifier = Modifier,
+    onSignUpButtonClicked: () -> Unit = {}
+) {
     var text by rememberSaveable { mutableStateOf("") }
 
     Column(
@@ -68,7 +116,7 @@ fun LoginPage(modifier: Modifier = Modifier) {
             }
         }
 
-        Column(horizontalAlignment = Alignment.CenterHorizontally)    {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(text = stringResource(R.string.login_message))
             Spacer(modifier = Modifier.size(16.dp))
             TextField(
@@ -101,7 +149,7 @@ fun LoginPage(modifier: Modifier = Modifier) {
                     Text(text = stringResource(R.string.forgot_password_button))
                 }
             }
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = { /*TODO*/ },modifier = modifier.fillMaxWidth()) {
                 Text(text = stringResource(R.string.login_button).uppercase(Locale.ROOT))
             }
             Spacer(modifier = Modifier.size(16.dp))
@@ -111,7 +159,7 @@ fun LoginPage(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(text = stringResource(R.string.signup_message))
-                TextButton(onClick = { /*TODO*/ }) {
+                TextButton(onClick = onSignUpButtonClicked) {
                     Text(text = stringResource(R.string.signup_button))
 
                 }
