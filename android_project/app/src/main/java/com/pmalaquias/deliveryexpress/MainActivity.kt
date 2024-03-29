@@ -3,12 +3,7 @@ package com.pmalaquias.deliveryexpress
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.pmalaquias.deliveryexpress.ui.pages.DeliveryApp
-import com.pmalaquias.deliveryexpress.ui.pages.LoginPage
+import com.pmalaquias.deliveryexpress.ui.pages.login.DeliveryApp
 import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,16 +15,6 @@ class MainActivity : ComponentActivity() {
                 DeliveryApp()
 
             }
-        }
-    }
-}
-
-@Preview(showBackground = true )
-@Composable
-fun GreetingPreview() {
-    AppTheme {
-        Surface {
-            DeliveryApp()
         }
     }
 }
