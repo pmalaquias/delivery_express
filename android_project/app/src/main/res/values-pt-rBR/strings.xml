@@ -70,4 +70,15 @@
     <string name="address_country">País</string>
     <string name="maximum_display_distance">Distancia Maxima de exibição no mapa</string>
     <string name="address_state">Estado</string>
+    <string name="menu_item_start">Inicio</string>
+    <string name="menu_item_deliveries_progress">Entregas em Andamentos</string>
+    <string name="menu_item_transactions_completed">Transações Completas</string>
+    <string name="menu_item_account_settings">Configurações da Conta</string>
+    <string name="menu_item_help_support">Ajuda e Suporte</string>
+    <string name="menu_item_about">Sobre</string>
+    <string name="menu_item_exit">Sair</string>
+    <string name="button_new_delivery">Nova Entrega</string>
+    <string name="button_latest_transactions">Últimas Transações</string>
+    <string name="fab_new_delivery">Nova Entrega</string>
+    <string name="title_home">Início</string>
 </resources>

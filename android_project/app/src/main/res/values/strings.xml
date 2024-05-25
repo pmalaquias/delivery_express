@@ -70,5 +70,16 @@
     <string name="address_country">Country</string>
     <string name="maximum_display_distance">Maximum display distance on the map</string>
     <string name="address_state">State</string>
+    <string name="menu_item_start">Start</string>
+    <string name="menu_item_deliveries_progress">Deliveries in Progress</string>
+    <string name="menu_item_transactions_completed">Transaction Completed</string>
+    <string name="menu_item_account_settings">Account Settings</string>
+    <string name="menu_item_help_support">Help and Support</string>
+    <string name="menu_item_about">About</string>
+    <string name="menu_item_exit">Exit</string>
+    <string name="button_new_delivery">New Delivery</string>
+    <string name="button_latest_transactions">Latest Transactions</string>
+    <string name="fab_new_delivery">New Delivery</string>
+    <string name="title_home">Home</string>
 
 </resources>
