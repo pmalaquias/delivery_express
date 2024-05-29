@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.componets
+package com.pmalaquias.deliveryexpress.presentation.ui.componets
 
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size

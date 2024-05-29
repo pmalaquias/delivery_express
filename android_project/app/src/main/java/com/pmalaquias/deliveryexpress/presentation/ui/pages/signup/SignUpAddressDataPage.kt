@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.pages.signup
+package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

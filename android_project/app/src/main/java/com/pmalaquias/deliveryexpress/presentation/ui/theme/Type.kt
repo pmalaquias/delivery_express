@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.theme
+package com.pmalaquias.deliveryexpress.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

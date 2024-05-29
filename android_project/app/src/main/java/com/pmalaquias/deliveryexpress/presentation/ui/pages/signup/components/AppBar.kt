@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.pages.signup.components
+package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme

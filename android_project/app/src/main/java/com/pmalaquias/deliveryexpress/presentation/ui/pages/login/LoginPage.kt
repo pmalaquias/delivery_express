@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.pages.login
+package com.pmalaquias.deliveryexpress.presentation.ui.pages.login
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

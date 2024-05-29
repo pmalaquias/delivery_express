@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.pages.home
+package com.pmalaquias.deliveryexpress.presentation.ui.pages.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

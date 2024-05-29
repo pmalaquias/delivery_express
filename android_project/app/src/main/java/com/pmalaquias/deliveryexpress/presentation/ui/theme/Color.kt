@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.theme
+package com.pmalaquias.deliveryexpress.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

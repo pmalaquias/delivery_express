@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.componets
+package com.pmalaquias.deliveryexpress.presentation.ui.componets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

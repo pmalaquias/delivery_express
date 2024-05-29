@@ -1,4 +1,4 @@
-package com.pmalaquias.deliveryexpress.ui.pages.login.components
+package com.pmalaquias.deliveryexpress.presentation.ui.pages.login.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
