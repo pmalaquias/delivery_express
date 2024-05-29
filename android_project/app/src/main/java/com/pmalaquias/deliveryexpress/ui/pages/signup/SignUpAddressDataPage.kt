@@ -399,38 +399,38 @@ fun SignUpAddressClientDataPage(
 
                 }
             }
-        }
 
-
-        //Spacer(modifier = Modifier.size(16.dp))
-        Text(
-            text = stringResource(id = R.string.maximum_display_distance),
-            //fontSize = 24.sp
-        )
-        //Spacer(modifier = Modifier.size(8.dp))
-        Column(
-            modifier = modifier, horizontalAlignment = Alignment.End
-        ) {
-            Text(text = ("%.2f").format(sliderPosition) + " km")
-            Slider(
-                value = sliderPosition,
-                onValueChange = { sliderPosition = it },
-                valueRange = 0f..100f,
+            //Spacer(modifier = Modifier.size(16.dp))
+            Text(
+                text = stringResource(id = R.string.maximum_display_distance),
+                //fontSize = 24.sp
             )
-        }
-        Row(
-            modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            TextButton(
-                onClick = onCancelButtonClicked
+            //Spacer(modifier = Modifier.size(8.dp))
+            Column(
+                modifier = modifier, horizontalAlignment = Alignment.End
             ) {
-                Text(text = stringResource(id = R.string.back_button))
+                Text(text = ("%.2f").format(sliderPosition) + " km")
+                Slider(
+                    value = sliderPosition,
+                    onValueChange = { sliderPosition = it },
+                    valueRange = 0f..100f,
+                )
             }
-            Button(onClick = onNextButtonClicked) {
-                Text(text = stringResource(id = R.string.continue_button))
+            Row(
+                modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                TextButton(
+                    onClick = onCancelButtonClicked
+                ) {
+                    Text(text = stringResource(id = R.string.back_button))
+                }
+                Button(onClick = onNextButtonClicked) {
+                    Text(text = stringResource(id = R.string.continue_button))
 
+                }
             }
         }
+
     }
 
 }
