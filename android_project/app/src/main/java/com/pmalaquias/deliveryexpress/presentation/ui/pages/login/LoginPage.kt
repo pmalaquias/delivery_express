@@ -34,21 +34,21 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.pmalaquias.deliveryexpress.R
-import com.pmalaquias.deliveryexpress.ui.componets.AppLogo
-import com.pmalaquias.deliveryexpress.ui.pages.home.HomePage
-import com.pmalaquias.deliveryexpress.ui.pages.login.components.CardSignUp
-import com.pmalaquias.deliveryexpress.ui.pages.login.components.InfiniteCarousel
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpAccessClientDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpAccessDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpAddressClientDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpAddressDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpDeliveryDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpPaymentClientDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpPaymentDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpPersonalClientDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpPersonalDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.ui.pages.signup.SignUpVehicleDataPage
-import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.ui.componets.AppLogo
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.home.HomePage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.components.CardSignUp
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.components.InfiniteCarousel
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAccessClientDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAccessDeliveryPersonDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAddressClientDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAddressDeliveryPersonDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpDeliveryDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPaymentClientDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPaymentDeliveryPersonDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPersonalClientDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPersonalDeliveryPersonDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpVehicleDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import java.util.Locale
 
 enum class DeliveryScreen {
@@ -257,10 +257,12 @@ fun LoginPage(
             if (isClicked) {
                 Dialog(
                     onDismissRequest = { isClicked = false },
-                    content = { CardSignUp(
-                        onSignUpDeliveryPersonButtonClicked = onSignUpDeliveryPersonButtonClicked,
-                        onSignUpClientButtonClicked = onSingUpClientButtonClicked
-                    ) },
+                    content = {
+                        CardSignUp(
+                            onSignUpDeliveryPersonButtonClicked = onSignUpDeliveryPersonButtonClicked,
+                            onSignUpClientButtonClicked = onSingUpClientButtonClicked
+                        )
+                    },
                     properties = DialogProperties(
                         dismissOnBackPress = true, dismissOnClickOutside = true
                     ),

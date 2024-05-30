@@ -42,9 +42,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import com.pmalaquias.deliveryexpress.R
-import com.pmalaquias.deliveryexpress.ui.pages.signup.components.AppBarClient
-import com.pmalaquias.deliveryexpress.ui.pages.signup.components.AppBarDeliveryPerson
-import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
+import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
 //const val FILE_NAME = "com/pmalaquias/deliveryexpress/data/state_city.json"
 

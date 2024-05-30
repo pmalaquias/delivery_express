@@ -40,18 +40,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pmalaquias.deliveryexpress.R
-import com.pmalaquias.deliveryexpress.ui.pages.signup.components.AppBarDeliveryPerson
-import com.pmalaquias.deliveryexpress.ui.pages.signup.components.RadioOptionTypeColorCustom
-import com.pmalaquias.deliveryexpress.ui.pages.signup.components.RadioOptionTypeCustom
-import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
-
-enum class VehicleType {
-    Car, PickupTruck, Truck, Motorcycle, Bicycle, Other
-}
-
-enum class VehicleColor {
-    White, Gray, Red, Blue, Green, Black, Yellow, Other
-}
+import com.pmalaquias.deliveryexpress.data.models.enums.VehicleColor
+import com.pmalaquias.deliveryexpress.data.models.enums.VehicleType
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionTypeColorCustom
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionTypeCustom
+import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
 
 @OptIn(ExperimentalMaterial3Api::class)

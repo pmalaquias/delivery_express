@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.graphics.shapes.CornerRounding
 import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.star
-import com.pmalaquias.deliveryexpress.ui.componets.RoundedPolygonShape
+import com.pmalaquias.deliveryexpress.presentation.ui.componets.RoundedPolygonShape
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -68,7 +68,7 @@ import com.google.maps.android.compose.MapType
 import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.pmalaquias.deliveryexpress.R
-import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

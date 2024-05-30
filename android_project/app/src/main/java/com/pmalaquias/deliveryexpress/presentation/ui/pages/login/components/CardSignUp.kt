@@ -28,7 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pmalaquias.deliveryexpress.R
-import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import java.util.Locale
 
 @Composable

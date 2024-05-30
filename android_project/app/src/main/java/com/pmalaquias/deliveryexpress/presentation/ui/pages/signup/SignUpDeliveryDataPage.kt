@@ -27,18 +27,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pmalaquias.deliveryexpress.R
-import com.pmalaquias.deliveryexpress.ui.pages.signup.components.AppBarClient
-import com.pmalaquias.deliveryexpress.ui.pages.signup.components.RadioOptionTypeCustom
-import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.data.models.enums.DeliveryType
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionTypeCustom
+import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
-enum class DeliveryType {
-    Food,
-    Clothing,
-    Documents,
-    FragileOrder,
-    HeavyOrder,
-    Other,
-}
 
 @Composable
 fun SignUpDeliveryDataPage(
