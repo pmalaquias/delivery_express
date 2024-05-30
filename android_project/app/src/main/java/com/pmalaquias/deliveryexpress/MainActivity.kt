@@ -6,7 +6,20 @@ import androidx.activity.compose.setContent
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.DeliveryApp
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
+
+/**
+ *   The main activity of the Delivery Express app.
+ *  This activity is responsible for launching the initial screen and handling
+ *  user interactions.
+ *
+ *  @project DeliveryExpress
+ *  @author Pedro Igor
+ *  @version 1.0
+* */
 class MainActivity : ComponentActivity() {
+    /**
+     * Initializes the activity and sets up the UI elements.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
