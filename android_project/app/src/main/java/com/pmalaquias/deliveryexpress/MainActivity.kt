@@ -3,8 +3,8 @@ package com.pmalaquias.deliveryexpress
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.pmalaquias.deliveryexpress.ui.pages.login.DeliveryApp
-import com.pmalaquias.deliveryexpress.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.DeliveryApp
+import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
