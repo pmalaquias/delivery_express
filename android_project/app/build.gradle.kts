@@ -54,6 +54,9 @@ dependencies {
     implementation("androidx.wear.compose:compose-material:1.3.1")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.1")
+
     val navVersion = "2.7.7"
 
 
