@@ -25,10 +25,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -36,19 +39,10 @@ import androidx.navigation.compose.rememberNavController
 import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.componets.AppLogo
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.home.HomePage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.components.CardSignUp
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.components.InfiniteCarousel
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAccessClientDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAccessDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAddressClientDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAddressDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpDeliveryDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPaymentClientDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPaymentDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPersonalClientDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpPersonalDeliveryPersonDataPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpVehicleDataPage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.components.*
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.*
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.viewModel.login.LoginViewModel
 import java.util.Locale
 
 enum class DeliveryScreen {
@@ -182,10 +176,14 @@ fun LoginPage(
     onSingUpClientButtonClicked: () -> Unit = {},
     onLoginButtonClicked: () -> Unit = {}
 ) {
+
+    val viewModel: LoginViewModel = viewModel()
+
     val email by rememberSaveable { mutableStateOf("") }
     val password by rememberSaveable { mutableStateOf("") }
 
     var isClicked by remember { mutableStateOf(false) }
+    var visiblePassword by remember { mutableStateOf(false) }
 
     val messages = mapOf(
         "Encontre entregadores na sua regiao" to "Utilize o nosso mapa de localização e encontre entregadores de acordo com a sua demanda",
@@ -210,19 +208,22 @@ fun LoginPage(
             Text(text = stringResource(R.string.login_message))
             Spacer(modifier = Modifier.size(16.dp))
             TextField(
-                value = email,
-                onValueChange = { /*TODO*/ },
+                value = viewModel.email,
+                onValueChange = { email ->viewModel.email = email},
                 label = { Text(stringResource(R.string.email_label)) },
                 modifier = modifier.fillMaxWidth(),
             )
             Spacer(modifier = Modifier.size(16.dp))
             TextField(
-                value = password,
-                onValueChange = { /*TODO*/ },
+                value = viewModel.password,
+                onValueChange = { password -> viewModel.password = password},
                 label = { Text(stringResource(R.string.password_label)) },
+                visualTransformation =  if (visiblePassword) VisualTransformation.None else PasswordVisualTransformation(),
                 modifier = modifier.fillMaxWidth(),
                 trailingIcon = {
-                    TextButton(onClick = { /*TODO*/ }) {
+                    TextButton(onClick = {
+                        visiblePassword = !visiblePassword
+                    }) {
                         Icon(Icons.Outlined.Visibility, "Visibility")
                     }
                 })
