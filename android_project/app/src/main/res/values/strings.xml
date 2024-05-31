@@ -82,4 +82,11 @@
     <string name="fab_new_delivery">New Delivery</string>
     <string name="title_home">Home</string>
 
+    <string name="login_carousel_message_1">Find delivery drivers in your area</string>
+    <string name="login_carousel_message_1.1">Use our location map to find delivery drivers according to your demand</string>
+    <string name="login_carousel_message_2">Deliver safely and securely</string>
+    <string name="login_carousel_message_2.1">Our delivery drivers undergo a rigorous selection and training process</string>
+    <string name="login_carousel_message_3">Deliver quickly and efficiently</string>
+    <string name="login_carousel_message_3.1">Our delivery drivers are always ready to meet your demands</string>
+
 </resources>

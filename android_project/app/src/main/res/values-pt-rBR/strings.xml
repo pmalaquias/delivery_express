@@ -81,4 +81,11 @@
     <string name="button_latest_transactions">Últimas Transações</string>
     <string name="fab_new_delivery">Nova Entrega</string>
     <string name="title_home">Início</string>
+
+    <string name="login_carousel_message_1">Encontre entregadores na sua região</string>
+    <string name="login_carousel_message_1.1">Utilize o nosso mapa de localização e encontre entregadores de acordo com a sua demanda</string>
+    <string name="login_carousel_message_2">Entregue com segurança</string>
+    <string name="login_carousel_message_2.1">Nossos entregadores passam por um rigoroso processo de seleção e treinamento</string>
+    <string name="login_carousel_message_3">Entregue com rapidez</string>
+    <string name="login_carousel_message_3.1">Nossos entregadores estão sempre prontos para atender a sua demanda</string>
 </resources>
