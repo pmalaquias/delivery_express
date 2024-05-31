@@ -26,6 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -40,10 +41,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupPersonalDataViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,6 +55,9 @@ fun SignUpPersonalDeliveryPersonDataPage(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    val viewModel: SignupPersonalDataViewModel = viewModel()
+    val uiState by viewModel.uiState.collectAsState()
+
     var text by rememberSaveable { mutableStateOf("") }
 
     Scaffold(
@@ -114,19 +120,19 @@ fun SignUpPersonalDeliveryPersonDataPage(
 
 
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.name,
+                    onValueChange = { viewModel.onNameChange(it)},
                     label = { Text(stringResource(id = R.string.full_name)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
-                    value = text,
+                    value = viewModel.birthDate,
                     onValueChange = {
-                        val newText = it.replace("[^0-9]".toRegex(), "")
-                        text = newText
+                        val newDate = it.replace("[^0-9]".toRegex(), "")
+                        viewModel.onBirthDateChange(newDate)
 
-                        if (newText.length == 8) {
+                        if (newDate.length == 8) {
                             //formattedDate.value = sdf.format(Date(newText.toLong()))
                         }
 
@@ -139,15 +145,15 @@ fun SignUpPersonalDeliveryPersonDataPage(
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.id.toString(),
+                    onValueChange = { viewModel.onIdChange(it.toInt()) },
                     label = { Text(stringResource(id = R.string.cpf)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.phone.toString(),
+                    onValueChange = { viewModel.onPhoneChange(it.toInt())  },
                     label = { Text(stringResource(id = R.string.phone_number)) },
                     modifier = modifier.fillMaxWidth(),
                 )
