@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
  *
  * @function clearError Function to clear any login error. It sets loginError to null.
  */
-class LoginViewModel : ViewModel(){
+class LoginViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
@@ -34,8 +34,8 @@ class LoginViewModel : ViewModel(){
     // UI state
     var email by mutableStateOf("")
     var password by mutableStateOf("")
-    private var isLoggingIn by mutableStateOf(false)
-    private var loginError by mutableStateOf<String?>(null)
+    var isLoggingIn by mutableStateOf(false)
+    var loginError by mutableStateOf<String?>(null)
 
     // Function to perform login
     fun login() {
@@ -48,6 +48,22 @@ class LoginViewModel : ViewModel(){
 
             isLoggingIn = false
         }
+    }
+
+    // Function to handle email input
+    fun onEmailChange(email: String) {
+        try {
+            this.email = email
+            println(email)
+        } catch (e: Exception) {
+            println(e)
+        }
+    }
+
+    // Function to handle password input
+    fun onPasswordChange(password: String) {
+        this.password = password
+        println(password)
     }
 
     // Function to clear error state

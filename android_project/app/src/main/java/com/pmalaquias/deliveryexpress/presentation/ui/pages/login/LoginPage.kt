@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -178,6 +179,7 @@ fun LoginPage(
 ) {
 
     val viewModel: LoginViewModel = viewModel()
+    val uiState by viewModel.uiState.collectAsState()
 
     val email by rememberSaveable { mutableStateOf("") }
     val password by rememberSaveable { mutableStateOf("") }
@@ -186,10 +188,10 @@ fun LoginPage(
     var visiblePassword by remember { mutableStateOf(false) }
 
     val messages = mapOf(
-        "Encontre entregadores na sua regiao" to "Utilize o nosso mapa de localização e encontre entregadores de acordo com a sua demanda",
-        "Entregue com segurança" to "Nossos entregadores passam por um rigoroso processo de seleção e treinamento",
-        "Entregue com rapidez" to "Nossos entregadores estão sempre prontos para atender a sua demanda"
-    )
+        stringResource(R.string.login_carousel_message_1) to stringResource(R.string.login_carousel_message_1_1),
+        stringResource(R.string.login_carousel_message_2) to stringResource(R.string.login_carousel_message_2_1),
+        stringResource(R.string.login_carousel_message_3) to stringResource(R.string.login_carousel_message_3_1),
+        )
 
     Column(
         modifier = modifier
@@ -209,16 +211,16 @@ fun LoginPage(
             Spacer(modifier = Modifier.size(16.dp))
             TextField(
                 value = viewModel.email,
-                onValueChange = { email ->viewModel.email = email},
+                onValueChange = { viewModel.onEmailChange(it) },
                 label = { Text(stringResource(R.string.email_label)) },
                 modifier = modifier.fillMaxWidth(),
             )
             Spacer(modifier = Modifier.size(16.dp))
             TextField(
                 value = viewModel.password,
-                onValueChange = { password -> viewModel.password = password},
+                onValueChange = { viewModel.onPasswordChange(it) },
                 label = { Text(stringResource(R.string.password_label)) },
-                visualTransformation =  if (visiblePassword) VisualTransformation.None else PasswordVisualTransformation(),
+                visualTransformation = if (visiblePassword) VisualTransformation.None else PasswordVisualTransformation(),
                 modifier = modifier.fillMaxWidth(),
                 trailingIcon = {
                     TextButton(onClick = {
