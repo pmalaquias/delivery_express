@@ -89,4 +89,7 @@
     <string name="login_carousel_message_3">Deliver quickly and efficiently</string>
     <string name="login_carousel_message_3.1">Our delivery drivers are always ready to meet your demands</string>
 
+    <string name="fileprovider" translatable="false">com.pmalaquias.deliveryexpress.fileprovider</string>
+    <string name="google_maps_key" translatable="false">${API_KEY}</string>
+
 </resources>
