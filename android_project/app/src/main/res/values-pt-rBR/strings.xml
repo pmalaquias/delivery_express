@@ -88,4 +88,6 @@
     <string name="login_carousel_message_2.1">Nossos entregadores passam por um rigoroso processo de seleção e treinamento</string>
     <string name="login_carousel_message_3">Entregue com rapidez</string>
     <string name="login_carousel_message_3.1">Nossos entregadores estão sempre prontos para atender a sua demanda</string>
+    <string name="header_choice_option">Escolha uma opção</string>
+    <string name="title_take_photo">Tirar uma Foto</string>
 </resources>
