@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignupPersonalDataUiState
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.uiState.SignupPersonalDataUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
