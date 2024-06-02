@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pmalaquias.deliveryexpress.R
+import com.pmalaquias.deliveryexpress.data.models.enums.CardBrand
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionCardBrandCustom
@@ -52,7 +53,7 @@ fun SignUpPaymentDeliveryPersonDataPage(
 
 
     Scaffold(
-        Modifier.padding(16.dp),
+        Modifier,
         topBar = { AppBarDeliveryPerson() }
     ) { innerPadding ->
 
@@ -60,7 +61,8 @@ fun SignUpPaymentDeliveryPersonDataPage(
             modifier = modifier
                 .padding(innerPadding)
                 .fillMaxWidth()
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .padding(16.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -176,18 +178,6 @@ fun PreviewSignUpPaymentDataPage() {
     }
 }
 
-enum class CardBrand {
-    VISA,
-    MASTERCARD,
-    ELO,
-    HIPERCARD,
-    AMEX,
-    DISCOVER,
-    JCB,
-    DINERS_CLUB,
-    UNKNOWN
-}
-
 @Composable
 fun SignUpPaymentClientDataPage(
     onCancelButtonClicked: () -> Unit = {},
@@ -208,7 +198,7 @@ fun SignUpPaymentClientDataPage(
 
 
     Scaffold(
-        Modifier.padding(16.dp),
+        Modifier,
         topBar = { AppBarClient() }
     ) { innerPadding ->
 
@@ -216,7 +206,8 @@ fun SignUpPaymentClientDataPage(
             modifier = modifier
                 .padding(innerPadding)
                 .fillMaxWidth()
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .padding(16.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
