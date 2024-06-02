@@ -27,9 +27,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.pmalaquias.deliveryexpress.R
+import com.pmalaquias.deliveryexpress.data.models.enums.CardBrand
 import com.pmalaquias.deliveryexpress.data.models.enums.VehicleColor
 import com.pmalaquias.deliveryexpress.data.models.enums.VehicleType
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.CardBrand
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
 
