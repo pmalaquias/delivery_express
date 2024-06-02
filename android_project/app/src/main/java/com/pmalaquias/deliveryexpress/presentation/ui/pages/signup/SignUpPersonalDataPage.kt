@@ -6,9 +6,12 @@ import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -41,6 +44,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -64,6 +68,7 @@ import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.Ch
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupClientPersonalDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupDeliveryPersonPersonalDataViewModel
+import kotlinx.coroutines.delay
 import java.io.File
 
 /**
@@ -113,28 +118,29 @@ fun SignUpPersonalDeliveryPersonDataPage(
     fun getTempUri(): Uri? {
         directory?.let {
             it.mkdirs()
-            val file = File.createTempFile("image_" + System.currentTimeMillis().toString(), ".jpg", it)
+            val file =
+                File.createTempFile("image_" + System.currentTimeMillis().toString(), ".jpg", it)
 
-            return FileProvider.getUriForFile( context, authority, file)
+            return FileProvider.getUriForFile(context, authority, file)
         }
         return null
     }
 
     // Launcher for picking a photo from the gallery.
-    val imagePicker =
-        rememberLauncherForActivityResult(contract = ActivityResultContracts.PickVisualMedia(),
-            onResult = {
-                it?.let {
-                    onSetUri.invoke(it)
-                }
-            })
+    val imagePicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.PickVisualMedia(),
+        onResult = {
+            it?.let {
+                onSetUri.invoke(it)
+            }
+        })
 
     // Launcher for taking a photo with the camera.
-    val takePhotoLauncher =
-        rememberLauncherForActivityResult(contract = ActivityResultContracts.TakePicture(),
-            onResult = { _ ->
-                tempUri.value?.let {onSetUri.invoke(it)}
-            })
+    val takePhotoLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicture(),
+        onResult = { _ ->
+            tempUri.value?.let { onSetUri.invoke(it) }
+        })
 
     // Launcher for requesting the camera permission.
     val cameraPermissionLauncher = rememberLauncherForActivityResult(
@@ -157,14 +163,16 @@ fun SignUpPersonalDeliveryPersonDataPage(
     var showBottomSheet by remember { mutableStateOf(false) }
 
     // Show the bottom sheet if `showBottomSheet` is true.
-    if (showBottomSheet){
+    if (showBottomSheet) {
         ChoicePhotoBottomSheet(
-            onDismiss = {showBottomSheet = false},
+            onDismiss = { showBottomSheet = false },
             onTakePhotoClick = {
                 showBottomSheet = false
 
                 val permission = Manifest.permission.CAMERA
-                if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
+                if (ContextCompat.checkSelfPermission(
+                        context, permission
+                    ) == PackageManager.PERMISSION_GRANTED
                 ) {
                     // Permission is already granted, proceed to step 2
                     val tmpUri = getTempUri()
@@ -192,8 +200,7 @@ fun SignUpPersonalDeliveryPersonDataPage(
     // Shape for the photo.
     val hexagon = remember {
         RoundedPolygon.star(
-            8,
-            rounding = CornerRounding(0.2f)
+            8, rounding = CornerRounding(0.2f)
         )
     }
 
@@ -206,15 +213,22 @@ fun SignUpPersonalDeliveryPersonDataPage(
 
     // Update the phone number in the ViewModel when the URI changes.
     LaunchedEffect(uri.value) {
-        viewModel.onPhoneChange(uri.value.toString())
+        viewModel.onPhotoChange(uri.value.toString())
         uriObserver.value = uri.value
+
+        // Add a delay of 3 seconds before starting the rotation animation
+        delay(1000L)
     }
 
+    // Create an animated state that toggles between 0f and 360f
+    val rotation by animateFloatAsState(
+        targetValue = if (uriObserver.value != null) 360f else 0f,
+        animationSpec = tween(durationMillis = 1000),
+        label = ""
+    )
+
     // Scaffold for the layout.
-    Scaffold(
-        Modifier.padding(16.dp),
-        topBar = { AppBarDeliveryPerson() }
-    ) { innerPadding ->
+    Scaffold(Modifier, topBar = { AppBarDeliveryPerson() }) { innerPadding ->
 
         // Column for the layout.
         Column(
@@ -241,18 +255,24 @@ fun SignUpPersonalDeliveryPersonDataPage(
 
                 // Photo.
                 if (uriObserver.value != null) {
-                    AsyncImage(
-                        model = uriObserver.value,
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
+                    Box(
+                        contentAlignment = Alignment.Center,
                         modifier = Modifier
-                            .size(250.dp)
-                            .clip(clip)
-                            .border(1.dp, Color.Transparent, CircleShape)
-                            .background(MaterialTheme.colorScheme.primary)
-                    )
-                }
-                else{
+                            .graphicsLayer(rotationZ = rotation) // Apply the rotation to the photo frame
+                            .clickable { showBottomSheet = true }
+                    ) {
+                        AsyncImage(
+                            model = uriObserver.value,
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier
+                                .size(250.dp)
+                                .clip(clip)
+                                .border(1.dp, Color.Transparent, CircleShape)
+                                .background(MaterialTheme.colorScheme.primary)
+                        )
+                    }
+                } else {
                     Box(modifier = modifier.size(200.dp)) {
                         Image(
                             painter = painterResource(id = R.drawable.unknown_person),
@@ -286,7 +306,9 @@ fun SignUpPersonalDeliveryPersonDataPage(
 
             // Column for the form.
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth().padding(16.dp)
+
             ) {
                 // Name field.
                 TextField(
@@ -338,7 +360,8 @@ fun SignUpPersonalDeliveryPersonDataPage(
 
             // Row for the "Back" and "Continue" buttons.
             Row(
-                modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+                modifier = modifier.fillMaxWidth().padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 // "Back" button.
                 TextButton(
@@ -427,22 +450,22 @@ fun SignUpPersonalClientDataPage(
     }
 
     // Launcher for picking a photo from the gallery.
-    val imagePicker =
-        rememberLauncherForActivityResult(contract = ActivityResultContracts.PickVisualMedia(),
-            onResult = {
-                it?.let {
-                    onSetUri.invoke(it)
-                }
-            })
+    val imagePicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.PickVisualMedia(),
+        onResult = {
+            it?.let {
+                onSetUri.invoke(it)
+            }
+        })
 
     // Launcher for taking a photo with the camera.
-    val takePhotoLauncher =
-        rememberLauncherForActivityResult(contract = ActivityResultContracts.TakePicture(),
-            onResult = { _ ->
-                tempUri.value?.let {
-                    onSetUri.invoke(it)
-                }
-            })
+    val takePhotoLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicture(),
+        onResult = { _ ->
+            tempUri.value?.let {
+                onSetUri.invoke(it)
+            }
+        })
 
     // Launcher for requesting the camera permission.
     val cameraPermissionLauncher = rememberLauncherForActivityResult(
@@ -465,7 +488,7 @@ fun SignUpPersonalClientDataPage(
     var showBottomSheet by remember { mutableStateOf(false) }
 
     // Show the bottom sheet if `showBottomSheet` is true.
-    if (showBottomSheet){
+    if (showBottomSheet) {
         ChoicePhotoBottomSheet(
             onDismiss = {
                 showBottomSheet = false
@@ -474,7 +497,9 @@ fun SignUpPersonalClientDataPage(
                 showBottomSheet = false
 
                 val permission = Manifest.permission.CAMERA
-                if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
+                if (ContextCompat.checkSelfPermission(
+                        context, permission
+                    ) == PackageManager.PERMISSION_GRANTED
                 ) {
                     // Permission is already granted, proceed to step 2
                     val tmpUri = getTempUri()
@@ -502,8 +527,7 @@ fun SignUpPersonalClientDataPage(
     // Shape for the photo.
     val hexagon = remember {
         RoundedPolygon.star(
-            8,
-            rounding = CornerRounding(0.2f)
+            8, rounding = CornerRounding(0.2f)
         )
     }
 
@@ -517,13 +541,23 @@ fun SignUpPersonalClientDataPage(
 
     // Update the phone number in the ViewModel when the URI changes.
     LaunchedEffect(uri.value) {
-        viewModel.onPhoneChange(uri.value.toString())
+        viewModel.onPhotoChange(uri.value.toString())
         uriObserver.value = uri.value
+
+        // Add a delay of 3 seconds before starting the rotation animation
+        delay(1000L)
     }
+
+    // Create an animated state that toggles between 0f and 360f
+    val rotation by animateFloatAsState(
+        targetValue = if (uriObserver.value != null) 360f else 0f,
+        animationSpec = tween(durationMillis = 1000),
+        label = ""
+    )
 
 
     // Scaffold for the layout.
-    Scaffold(Modifier.padding(16.dp), topBar = { AppBarClient() }) { innerPadding ->
+    Scaffold(Modifier, topBar = { AppBarClient() }) { innerPadding ->
 
         // Column for the layout.
         Column(
@@ -549,18 +583,22 @@ fun SignUpPersonalClientDataPage(
 
                 // Display the photo if it exists, otherwise display a placeholder.
                 if (uriObserver.value != null) {
-                    AsyncImage(
-                        model = uriObserver.value,
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
+                    Box(contentAlignment = Alignment.Center,
                         modifier = Modifier
-                            .size(250.dp)
-                            .clip(clip)
-                            .border(1.dp, Color.Transparent, CircleShape)
-                            .background(MaterialTheme.colorScheme.primary)
-                    )
-                }
-                else{
+                            .graphicsLayer(rotationZ = rotation) // Apply the rotation to the photo frame
+                            .clickable { showBottomSheet = true }) {
+                        AsyncImage(
+                            model = uriObserver.value,
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier
+                                .size(250.dp)
+                                .clip(clip)
+                                .border(1.dp, Color.Transparent, CircleShape)
+                                .background(MaterialTheme.colorScheme.primary)
+                        )
+                    }
+                } else {
                     Box(modifier = modifier.size(200.dp)) {
                         Image(
                             painter = painterResource(id = R.drawable.unknown_person),
@@ -595,7 +633,8 @@ fun SignUpPersonalClientDataPage(
 
             // Column for the form.
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.fillMaxWidth().padding(16.dp)
             ) {
                 TextField(
                     value = viewModel.name,
@@ -638,7 +677,7 @@ fun SignUpPersonalClientDataPage(
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
                     value = viewModel.phone,
-                    onValueChange = { viewModel.onPhoneChange(it)},
+                    onValueChange = { viewModel.onPhoneChange(it) },
                     label = { Text(stringResource(id = R.string.phone_number)) },
                     modifier = modifier.fillMaxWidth(),
                 )
@@ -648,7 +687,8 @@ fun SignUpPersonalClientDataPage(
             }
             // Row for the "Back" and "Continue" buttons.
             Row(
-                modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
+                modifier = modifier.fillMaxWidth().padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 TextButton(
                     onClick = onCancelButtonClicked
