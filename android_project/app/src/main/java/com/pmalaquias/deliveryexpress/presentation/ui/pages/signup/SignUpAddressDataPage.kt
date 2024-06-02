@@ -83,13 +83,14 @@ fun SignUpAddressDeliveryPersonDataPage(
     else Icons.Filled.KeyboardArrowDown
 
 
-    Scaffold(Modifier.padding(16.dp), topBar = { AppBarDeliveryPerson() }) { innerPadding ->
+    Scaffold(Modifier, topBar = { AppBarDeliveryPerson() }) { innerPadding ->
 
         Column(
             modifier = modifier
                 .padding(innerPadding)
                 .fillMaxWidth()
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .padding(16.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -280,13 +281,14 @@ fun SignUpAddressClientDataPage(
     else Icons.Filled.KeyboardArrowDown
 
 
-    Scaffold(Modifier.padding(16.dp), topBar = { AppBarClient() }) { innerPadding ->
+    Scaffold(Modifier, topBar = { AppBarClient() }) { innerPadding ->
 
         Column(
             modifier = modifier
                 .padding(innerPadding)
                 .fillMaxWidth()
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .padding(16.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
