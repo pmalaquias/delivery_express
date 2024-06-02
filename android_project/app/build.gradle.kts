@@ -80,6 +80,7 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
     //moshi
     implementation ("com.squareup.moshi:moshi-kotlin:1.15.1")
+    implementation("androidx.compose.animation:animation:1.6.7")
 
     val navVersion = "2.7.7"
     val composeVersion = "1.6.7"
