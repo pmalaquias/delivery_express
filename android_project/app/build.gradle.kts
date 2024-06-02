@@ -81,6 +81,7 @@ dependencies {
     //moshi
     implementation ("com.squareup.moshi:moshi-kotlin:1.15.1")
     implementation("androidx.compose.animation:animation:1.6.7")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0-RC")
 
     val navVersion = "2.7.7"
     val composeVersion = "1.6.7"
