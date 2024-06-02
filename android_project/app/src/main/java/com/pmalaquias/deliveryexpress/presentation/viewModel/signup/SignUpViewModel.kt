@@ -28,7 +28,7 @@ class SignupDeliveryPersonPersonalDataViewModel : ViewModel() {
     var birthDate by mutableStateOf("")
     var id by mutableStateOf("")
     var phone by mutableStateOf("")
-    var photo by mutableStateOf("")
+    var photoPath by mutableStateOf("")
 
     /**
      * Saves the personal data entered by the user.
@@ -83,10 +83,10 @@ class SignupDeliveryPersonPersonalDataViewModel : ViewModel() {
     /**
      * Updates the value of the "photo" field.
      *
-     * @param photo The new value of the "photo" field.
+     * @param photoPath The new value of the "photo" field.
      */
-    fun onPhotoChange(photo: String) {
-        this.photo = photo
+    fun onPhotoChange(photoPath: String) {
+        this.photoPath = photoPath
     }
 
     /**
@@ -106,7 +106,7 @@ class SignupDeliveryPersonPersonalDataViewModel : ViewModel() {
      * @return true if all the input fields have been filled out, false otherwise.
      */
     fun validatePersonalData(): Boolean {
-        return name.isNotEmpty() && birthDate.isNotEmpty() && id.isNotEmpty() && phone.isNotEmpty() && photo.isNotEmpty()
+        return name.isNotEmpty() && birthDate.isNotEmpty() && id.isNotEmpty() && phone.isNotEmpty() && photoPath.isNotEmpty()
     }
 
     /**
@@ -138,7 +138,7 @@ class SignupClientPersonalDataViewModel : ViewModel() {
     var birthDate by mutableStateOf("")
     var id by mutableStateOf("")
     var phone by mutableStateOf("")
-    var photo by mutableStateOf("")
+    var photoPath by mutableStateOf("")
     //var isLoading by mutableStateOf(false)
 
     /**
@@ -207,10 +207,10 @@ class SignupClientPersonalDataViewModel : ViewModel() {
     /**
      * Updates the value of the "photo" field.
      *
-     * @param photo The new value of the "photo" field.
+     * @param photoPath The new value of the "photo" field.
      */
-    fun onPhotoChange(photo: String) {
-        this.photo = photo
+    fun onPhotoChange(photoPath: String) {
+        this.photoPath = photoPath
     }
 
     /**
@@ -231,7 +231,7 @@ class SignupClientPersonalDataViewModel : ViewModel() {
      * @return true if all the input fields have been filled out, false otherwise.
      */
     fun validatePersonalData(): Boolean {
-        return name.isNotEmpty() && birthDate.isNotEmpty() && id.isNotEmpty() && phone.isNotEmpty() && photo.isNotEmpty()
+        return name.isNotEmpty() && birthDate.isNotEmpty() && id.isNotEmpty() && phone.isNotEmpty() && photoPath.isNotEmpty()
     }
 
     /**

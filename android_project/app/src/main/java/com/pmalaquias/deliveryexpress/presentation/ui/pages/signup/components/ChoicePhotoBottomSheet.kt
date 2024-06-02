@@ -102,7 +102,7 @@ fun ChoicePhotoBottomSheetContent(
         windowInsets = windowInsets
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
