@@ -40,7 +40,7 @@ fun SignUpAccessDeliveryPersonDataPage(
 
 
     Scaffold(
-        Modifier.padding(16.dp),
+        Modifier,
         topBar = { AppBarDeliveryPerson() }
     ) { innerPadding ->
 
@@ -48,7 +48,8 @@ fun SignUpAccessDeliveryPersonDataPage(
             modifier = modifier
                 .padding(innerPadding)
                 .fillMaxWidth()
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .padding(16.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -132,7 +133,7 @@ fun SignUpAccessClientDataPage(
 
 
     Scaffold(
-        Modifier.padding(16.dp),
+        Modifier,
         topBar = { AppBarClient() }
     ) { innerPadding ->
 
@@ -140,7 +141,8 @@ fun SignUpAccessClientDataPage(
             modifier = modifier
                 .padding(innerPadding)
                 .fillMaxWidth()
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .padding(16.dp),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
