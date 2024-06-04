@@ -315,14 +315,15 @@ fun AppTheme(
             color = Color.White
         )
     }
-   /* val view = LocalView.current
+    val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colors.primary.toArgb()
+            window.statusBarColor = colors.background.toArgb()
             //WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            window.navigationBarColor = colors.onBackground.toArgb()
         }
-    }*/
+    }
 
     MaterialTheme(
         colorScheme = colors,
