@@ -19,7 +19,7 @@ import com.pmalaquias.deliveryexpress.data.models.enums.PaymentMethod
  */
 data class Order(
     val idOrder: Int,
-    val idUser: Users,
+    val idUser: User,
     val idCommerce: Commerce,
     val idDelivery: DeliveryPerson,
     val idTracker: Tracker,

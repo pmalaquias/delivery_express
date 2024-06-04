@@ -15,7 +15,7 @@ import java.util.Date
  * @property photo URL or path to the photo of the user.
  * @property registerDate Date when the user registered.
  */
-data class Users(
+data class User(
     val id: Int,
     val firstName: String,
     val lastName: String,
