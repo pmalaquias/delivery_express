@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
@@ -32,12 +34,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.data.models.enums.CardBrand
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.CardView
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionCardBrandCustom
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.ui.utils.MaskVisualTransformation
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpPaymentDataViewModel
+import java.util.Date
 
 @Composable
 fun SignUpPaymentDeliveryPersonDataPage(
@@ -74,7 +81,7 @@ fun SignUpPaymentDeliveryPersonDataPage(
             ) {
                 Spacer(modifier = Modifier.size(16.dp))
                 Text(
-                    text = stringResource(id = R.string.payment_data_title ),
+                    text = stringResource(id = R.string.payment_data_title),
                     style = MaterialTheme.typography.titleSmall,
                     fontSize = 24.sp
                 )
@@ -184,18 +191,20 @@ fun SignUpPaymentClientDataPage(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    var text by rememberSaveable { mutableStateOf("") }
 
-    var checked by remember { mutableStateOf(false) }
+    val viewModel: SignUpPaymentDataViewModel = viewModel()
 
-    val checkedState = remember { mutableStateOf(false) }
+    var monthExpiration by rememberSaveable { mutableStateOf("") }
+    var yearExpiration by rememberSaveable { mutableStateOf("") }
 
-    var cadBrandGroup: CardBrand? by rememberSaveable { mutableStateOf(CardBrand.UNKNOWN) }
+    var cardBrandGroup: CardBrand? by rememberSaveable { mutableStateOf(CardBrand.UNKNOWN) }
 
     val valueVehicleTypeChangedHandler: (CardBrand?) -> Unit = { value: CardBrand? ->
-        cadBrandGroup = value
+        viewModel.onCardBrandChange(value.toString())
+        cardBrandGroup = value
     }
 
+    val CREDIT_CARD_MASK = "#### #### #### ####"
 
     Scaffold(
         Modifier,
@@ -207,7 +216,8 @@ fun SignUpPaymentClientDataPage(
                 .padding(innerPadding)
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .padding(16.dp),
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -219,7 +229,7 @@ fun SignUpPaymentClientDataPage(
             ) {
                 Spacer(modifier = Modifier.size(16.dp))
                 Text(
-                    text = stringResource(id = R.string.payment_data_title ),
+                    text = stringResource(id = R.string.payment_data_title),
                     style = MaterialTheme.typography.titleSmall,
                     fontSize = 24.sp
                 )
@@ -231,9 +241,9 @@ fun SignUpPaymentClientDataPage(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Switch(
-                        checked = checked,
+                        checked = viewModel.cardHolderIsSameAsDeliveryPerson,
                         onCheckedChange = {
-                            checked = it
+                            viewModel.onCardHolderIsSameAsDeliveryPersonChange(it)
                         }
                     )
                     Spacer(modifier = Modifier.width(8.dp))
@@ -247,18 +257,18 @@ fun SignUpPaymentClientDataPage(
                 Row(
                     modifier = modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
-                ){
+                ) {
                     RadioOptionCardBrandCustom(
                         value = CardBrand.MASTERCARD,
                         onValueChange = valueVehicleTypeChangedHandler,
-                        valueGroup = cadBrandGroup,
+                        valueGroup = cardBrandGroup,
                         img = painterResource(id = R.drawable.mastercard_logo),
                         color = Color.Black
                     )
                     RadioOptionCardBrandCustom(
                         value = CardBrand.VISA,
                         onValueChange = valueVehicleTypeChangedHandler,
-                        valueGroup = cadBrandGroup,
+                        valueGroup = cardBrandGroup,
                         img = painterResource(id = R.drawable.visa),
                         color = Color(0xFF2566AF)
                     )
@@ -266,14 +276,14 @@ fun SignUpPaymentClientDataPage(
                     RadioOptionCardBrandCustom(
                         value = CardBrand.HIPERCARD,
                         onValueChange = valueVehicleTypeChangedHandler,
-                        valueGroup = cadBrandGroup,
+                        valueGroup = cardBrandGroup,
                         img = painterResource(id = R.drawable.hipercard),
                         color = Color(0xFFB3131B)
                     )
                     RadioOptionCardBrandCustom(
                         value = CardBrand.ELO,
                         onValueChange = valueVehicleTypeChangedHandler,
-                        valueGroup = cadBrandGroup,
+                        valueGroup = cardBrandGroup,
                         img = painterResource(id = R.drawable.elo),
                         color = Color.Black
                     )
@@ -281,30 +291,46 @@ fun SignUpPaymentClientDataPage(
 
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
-                    label = { Text(stringResource(id = R.string.card_number )) },
+                    value = viewModel.cardNumber,
+                    onValueChange = {
+                        viewModel.onCardNumberChange(it)
+
+                    },
+                    label = { Text(stringResource(id = R.string.card_number)) },
                     modifier = modifier.fillMaxWidth(),
+                    visualTransformation = MaskVisualTransformation(CREDIT_CARD_MASK)
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
-                Row (
+                Row(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     TextField(
-                        value = text,
-                        onValueChange = { /*TODO*/ },
-                        label = { Text(stringResource(id = R.string.expiry_month ) ) },
+                        value = monthExpiration,
+                        onValueChange = { monthExpiration = it },
+                        label = { Text(stringResource(id = R.string.expiry_month)) },
                         modifier = modifier.weight(1f)
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
                     TextField(
-                        value = text,
-                        onValueChange = { /*TODO*/ },
-                        label = { Text(stringResource(id = R.string.expiry_year) ) },
+                        value = yearExpiration,
+                        onValueChange = { yearExpiration = it },
+                        label = { Text(stringResource(id = R.string.expiry_year)) },
                         modifier = modifier.weight(1f)
                     )
                 }
                 Spacer(modifier = Modifier.padding(8.dp))
+                if (cardBrandGroup == CardBrand.UNKNOWN) {
+                    Spacer(modifier = Modifier.padding(8.dp))
+
+                } else {
+                    CardView(
+                        cardNumber = viewModel.cardNumber,
+                        cardBrand = cardBrandGroup!!,
+                        expDateMonth = monthExpiration,
+                        expDateYear = yearExpiration
+                    )
+                    Spacer(modifier = Modifier.padding(8.dp))
+                }
                 Text(
                     text = stringResource(id = R.string.change_receipt_data),
                     style = MaterialTheme.typography.bodyMedium,
@@ -317,8 +343,8 @@ fun SignUpPaymentClientDataPage(
 
                 Row() {
                     Checkbox(
-                        checked = checkedState.value,
-                        onCheckedChange = { checkedState.value = it }
+                        checked = viewModel.acceptTermsAndConditions,
+                        onCheckedChange = { viewModel.onAcceptTermsAndConditionsChange(it) }
                     )
                     Text(
                         text = stringResource(id = R.string.i_accept_terms_of_use),
@@ -339,7 +365,16 @@ fun SignUpPaymentClientDataPage(
                 ) {
                     Text(text = stringResource(id = R.string.back_button))
                 }
-                Button(onClick = onNextButtonClicked) {
+                Button(onClick = {
+                    val year = yearExpiration.toInt() + 2000
+                    val date = Date(
+                        year - 1900,
+                        monthExpiration.toInt() - 1,
+                        1
+                    )
+                    viewModel.onCardExpirationChange(date)
+                    onNextButtonClicked()
+                }) {
                     Text(text = stringResource(id = R.string.continue_button))
 
                 }
