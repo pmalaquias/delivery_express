@@ -25,4 +25,8 @@ data class User(
     val address: String,
     val photo: String,
     val registerDate: Date,
-)
+) {
+    fun body(): User? {
+        return null
+    }
+}
