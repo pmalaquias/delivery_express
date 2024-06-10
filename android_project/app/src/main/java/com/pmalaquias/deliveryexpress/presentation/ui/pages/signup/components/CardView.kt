@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.CompositingStrategy
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -64,11 +65,12 @@ fun CardView(
     }
 
     // Function to mask the card number
+    @Composable
     fun maskCardNumber(cardNumber: String): String {
         return if (cardNumber.length >= 4) {
             "**** **** **** ${cardNumber.substring(cardNumber.length - 4)}"
         } else {
-            "Número do cartão inválido"
+            stringResource(id = R.string.msg_invalid_card_number)
         }
     }
 
@@ -100,7 +102,7 @@ fun CardView(
                 verticalArrangement = Arrangement.SpaceBetween,
             ) {
                 Column {
-                    Text(text = "Card Number")
+                    Text(text = stringResource(id = R.string.card_number))
                     Text(
                         text = maskCardNumber(cardNumber),
                         //fontSize = 32.sp,
@@ -130,7 +132,7 @@ fun CardView(
                 ) {
                     Column {
                         Text(
-                            text = "Name owner",
+                            text = stringResource(id = R.string.label_card_holder_name),
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Light,
                             color = MaterialTheme.colorScheme.onSurface
@@ -145,7 +147,7 @@ fun CardView(
                     }
                     Column {
                         Text(
-                            text = "Exp Date",
+                            text = stringResource(id = R.string.label_card_expiration),
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Light,
                             color = MaterialTheme.colorScheme.onSurface
@@ -183,6 +185,7 @@ fun CardView(
 fun CardViewPreview() {
     AppTheme {
         CardView(
+            nameOwner = "William",
             cardBrand = CardBrand.AMEX,
         )
     }
