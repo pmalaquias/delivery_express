@@ -46,167 +46,375 @@ import java.util.Date
  * @property isLoading Mutable state of the loading state. Default value is false.
  * @property isError Mutable state of the error state. Default value is false.
  */
-class SignUpPaymentDataViewModel: ViewModel(){
+class SignUpPaymentDataViewModel : ViewModel() {
 
+    // MutableStateFlow for the UI state of the SignUpPaymentData screen.
     private val _uiState = MutableStateFlow(SignupPaymentDataUiState())
+
+    // Public StateFlow for the UI state of the SignUpPaymentData screen.
     val uiState: StateFlow<SignupPaymentDataUiState> = _uiState.asStateFlow()
 
+    // Mutable state for the name input field.
     var name by mutableStateOf("")
+
+    // Mutable state for the email input field.
     var email by mutableStateOf("")
+
+    // Mutable state for the phone input field.
     var phone by mutableStateOf("")
+
+    // Mutable state for the address input field.
     var address by mutableStateOf("")
+
+    // Mutable state for the city input field.
     var city by mutableStateOf("")
+
+    // Mutable state for the state input field.
     var state by mutableStateOf("")
+
+    // Mutable state for the zip code input field.
     var zipCode by mutableIntStateOf(0)
+
+    // Mutable state for the country input field.
     var country by mutableStateOf("")
-    var cardNumber by mutableIntStateOf(0)
+
+    // Mutable state for the card number input field.
+    var cardNumber by mutableStateOf("")
+
+    // Mutable state for the card expiration input field.
     var cardExpiration by mutableStateOf(Date())
+
+    // Mutable state for the card CVV input field.
     var cardCvv by mutableIntStateOf(0)
+
+    // Mutable state for the card brand input field.
     var cardBrand by mutableStateOf("")
+
+    // Mutable state for the card holder's name input field.
     var cardHolderName by mutableStateOf("")
+
+    // Mutable state for the card holder's phone input field.
     var cardHolderPhone by mutableIntStateOf(0)
+
+    // Mutable state for the card holder's email input field.
     var cardHolderEmail by mutableStateOf("")
+
+    // Mutable state for the card holder's address input field.
     var cardHolderAddress by mutableStateOf("")
+
+    // Mutable state for the card holder's city input field.
     var cardHolderCity by mutableStateOf("")
+
+    // Mutable state for the card holder's state input field.
     var cardHolderState by mutableStateOf("")
+
+    // Mutable state for the card holder's zip code input field.
     var cardHolderZipCode by mutableIntStateOf(0)
+
+    // Mutable state for the card holder's country input field.
     var cardHolderCountry by mutableStateOf("")
+
+    // Mutable state for the accept terms and conditions checkbox.
     var acceptTermsAndConditions by mutableStateOf(false)
+
+    // Mutable state for the card holder is same as delivery person checkbox.
     var cardHolderIsSameAsDeliveryPerson by mutableStateOf(false)
+
+    // Mutable state for the account number input field.
     var accountNumber by mutableIntStateOf(0)
+
+    // Mutable state for the account type input field.
     var accountType by mutableStateOf("")
+
+    // Mutable state for the bank name input field.
     var bankName by mutableStateOf("")
+
+    // Mutable state for the bank branch input field.
     var bankBranch by mutableStateOf("")
+
+    // Mutable state for the data validation state.
     var isDataValid by mutableStateOf(false)
+
+    // Mutable state for the loading state.
     var isLoading by mutableStateOf(false)
+
+    // Mutable state for the error state.
     var isError by mutableStateOf(false)
 
     // The following functions are used to update the mutable states.
     // Each function takes a parameter and assigns it to the corresponding mutable state.
     // For example, onNameChange(name: String) updates the 'name' mutable state.
 
-    fun onNameChange(name: String){
+    /**
+     * Updates the name state.
+     *
+     * @param name The new name.
+     */
+    fun onNameChange(name: String) {
         this.name = name
     }
 
-    fun onEmailChange(email: String){
+    /**
+     * Updates the email state.
+     *
+     * @param email The new email.
+     */
+    fun onEmailChange(email: String) {
         this.email = email
     }
 
-    fun onPhoneChange(phone: String){
+    /**
+     * Updates the phone state.
+     *
+     * @param phone The new phone.
+     */
+    fun onPhoneChange(phone: String) {
         this.phone = phone
     }
 
-    fun onAddressChange(address: String){
+    /**
+     * Updates the address state.
+     *
+     * @param address The new address.
+     */
+    fun onAddressChange(address: String) {
         this.address = address
     }
 
-    fun onCityChange(city: String){
+    /**
+     * Updates the city state.
+     *
+     * @param city The new city.
+     */
+    fun onCityChange(city: String) {
         this.city = city
     }
 
-    fun onStateChange(state: String){
+    /**
+     * Updates the state state.
+     *
+     * @param state The new state.
+     */
+    fun onStateChange(state: String) {
         this.state = state
     }
 
-    fun onZipCodeChange(zipCode: Int){
+    /**
+     * Updates the zipCode state.
+     *
+     * @param zipCode The new zipCode.
+     */
+    fun onZipCodeChange(zipCode: Int) {
         this.zipCode = zipCode
     }
 
-    fun onCountryChange(country: String){
+    /**
+     * Updates the country state.
+     *
+     * @param country The new country.
+     */
+    fun onCountryChange(country: String) {
         this.country = country
     }
 
-    fun onCardNumberChange(cardNumber: Int){
+    /**
+     * Updates the cardNumber state.
+     *
+     * @param cardNumber The new cardNumber.
+     */
+    fun onCardNumberChange(cardNumber: String) {
+        println("cardNumber: $cardNumber")
         this.cardNumber = cardNumber
     }
 
-    fun onCardExpirationChange(cardExpiration: Date){
+    /**
+     * Updates the cardExpiration state.
+     *
+     * @param cardExpiration The new cardExpiration.
+     */
+    fun onCardExpirationChange(cardExpiration: Date) {
+        println("cardExpiration: $cardExpiration")
         this.cardExpiration = cardExpiration
     }
 
-    fun onCardCvvChange(cardCvv: Int){
+    /**
+     * Updates the cardCvv state.
+     *
+     * @param cardCvv The new cardCvv.
+     */
+    fun onCardCvvChange(cardCvv: Int) {
         this.cardCvv = cardCvv
     }
 
-
-    fun onCardBrandChange(cardBrand: String){
+    /**
+     * Updates the cardBrand state.
+     *
+     * @param cardBrand The new cardBrand.
+     */
+    fun onCardBrandChange(cardBrand: String) {
+        println("cardBrand: $cardBrand")
         this.cardBrand = cardBrand
     }
 
-    fun onCardHolderNameChange(cardHolderName: String){
+    /**
+     * Updates the cardHolderName state.
+     *
+     * @param cardHolderName The new cardHolderName.
+     */
+    fun onCardHolderNameChange(cardHolderName: String) {
         this.cardHolderName = cardHolderName
     }
 
-    fun onCardHolderPhoneChange(cardHolderPhone: Int){
+    /**
+     * Updates the cardHolderPhone state.
+     *
+     * @param cardHolderPhone The new cardHolderPhone.
+     */
+    fun onCardHolderPhoneChange(cardHolderPhone: Int) {
         this.cardHolderPhone = cardHolderPhone
     }
 
-    fun onCardHolderEmailChange(cardHolderEmail: String){
+    /**
+     * Updates the cardHolderEmail state.
+     *
+     * @param cardHolderEmail The new cardHolderEmail.
+     */
+    fun onCardHolderEmailChange(cardHolderEmail: String) {
         this.cardHolderEmail = cardHolderEmail
     }
 
-    fun onCardHolderAddressChange(cardHolderAddress: String){
+    /**
+     * Updates the cardHolderAddress state.
+     *
+     * @param cardHolderAddress The new cardHolderAddress.
+     */
+    fun onCardHolderAddressChange(cardHolderAddress: String) {
         this.cardHolderAddress = cardHolderAddress
     }
 
-    fun onCardHolderCityChange(cardHolderCity: String){
+    /**
+     * Updates the cardHolderCity state.
+     *
+     * @param cardHolderCity The new cardHolderCity.
+     */
+    fun onCardHolderCityChange(cardHolderCity: String) {
         this.cardHolderCity = cardHolderCity
     }
 
-    fun onCardHolderStateChange(cardHolderState: String){
+    /**
+     * Updates the cardHolderState state.
+     *
+     * @param cardHolderState The new cardHolderState.
+     */
+    fun onCardHolderStateChange(cardHolderState: String) {
         this.cardHolderState = cardHolderState
     }
 
-    fun onCardHolderZipCodeChange(cardHolderZipCode: Int){
+    /**
+     * Updates the cardHolderZipCode state.
+     *
+     * @param cardHolderZipCode The new cardHolderZipCode.
+     */
+    fun onCardHolderZipCodeChange(cardHolderZipCode: Int) {
         this.cardHolderZipCode = cardHolderZipCode
     }
 
-    fun onCardHolderCountryChange(cardHolderCountry: String){
+    /**
+     * Updates the cardHolderCountry state.
+     *
+     * @param cardHolderCountry The new cardHolderCountry.
+     */
+    fun onCardHolderCountryChange(cardHolderCountry: String) {
         this.cardHolderCountry = cardHolderCountry
-
     }
 
-    fun onAcceptTermsAndConditionsChange(acceptTermsAndConditions: Boolean){
+    /**
+     * Updates the acceptTermsAndConditions state.
+     *
+     * @param acceptTermsAndConditions The new acceptTermsAndConditions.
+     */
+    fun onAcceptTermsAndConditionsChange(acceptTermsAndConditions: Boolean) {
+        println("acceptTermsAndConditions: $acceptTermsAndConditions")
         this.acceptTermsAndConditions = acceptTermsAndConditions
     }
 
-    fun onCardHolderIsSameAsDeliveryPersonChange(cardHolderIsSameAsDeliveryPerson: Boolean){
+    /**
+     * Updates the cardHolderIsSameAsDeliveryPerson state.
+     *
+     * @param cardHolderIsSameAsDeliveryPerson The new cardHolderIsSameAsDeliveryPerson.
+     */
+    fun onCardHolderIsSameAsDeliveryPersonChange(cardHolderIsSameAsDeliveryPerson: Boolean) {
+        println("cardHolderIsSameAsDeliveryPerson: $cardHolderIsSameAsDeliveryPerson")
         this.cardHolderIsSameAsDeliveryPerson = cardHolderIsSameAsDeliveryPerson
     }
 
-    fun onAccountNumberChange(accountNumber: Int){
+    /**
+     * Updates the accountNumber state.
+     *
+     * @param accountNumber The new accountNumber.
+     */
+    fun onAccountNumberChange(accountNumber: Int) {
         this.accountNumber = accountNumber
     }
 
-    fun onAccountTypeChange(accountType: String){
+    /**
+     * Updates the accountType state.
+     *
+     * @param accountType The new accountType.
+     */
+    fun onAccountTypeChange(accountType: String) {
         this.accountType = accountType
     }
 
-    fun onBankNameChange(bankName: String){
+    /**
+     * Updates the bankName state.
+     *
+     * @param bankName The new bankName.
+     */
+    fun onBankNameChange(bankName: String) {
         this.bankName = bankName
     }
 
-    fun onBankBranchChange(bankBranch: String){
+    /**
+     * Updates the bankBranch state.
+     *
+     * @param bankBranch The new bankBranch.
+     */
+    fun onBankBranchChange(bankBranch: String) {
         this.bankBranch = bankBranch
     }
 
-    fun onIsDataValidChange(isDataValid: Boolean){
+    /**
+     * Updates the isDataValid state.
+     *
+     * @param isDataValid The new isDataValid.
+     */
+    fun onIsDataValidChange(isDataValid: Boolean) {
         this.isDataValid = isDataValid
     }
 
-    fun onLoadingChange(isLoading: Boolean){
+    /**
+     * Updates the isLoading state.
+     *
+     * @param isLoading The new isLoading.
+     */
+    fun onLoadingChange(isLoading: Boolean) {
         this.isLoading = isLoading
     }
 
-    fun onErrorChange(isError: Boolean){
+    /**
+     * Updates the isError state.
+     *
+     * @param isError The new isError.
+     */
+    fun onErrorChange(isError: Boolean) {
         this.isError = isError
     }
 
     /**
      * Resets all the states to their default values.
      */
-    fun reset(){
+    fun reset() {
         name = ""
         email = ""
         phone = ""
@@ -215,7 +423,7 @@ class SignUpPaymentDataViewModel: ViewModel(){
         state = ""
         zipCode = 0
         country = ""
-        cardNumber = 0
+        cardNumber = ""
         cardExpiration = Date()
         cardCvv = 0
         cardBrand = "null"
