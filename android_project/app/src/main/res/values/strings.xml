@@ -94,5 +94,9 @@
     <string name="header_choice_option">Choise Option</string>
     <string name="title_take_photo">Take a Photo</string>
     <string name="title_select_gallery">Select from Gallery</string>
+    <string name="label_card_holder_name">Holder Name</string>
+    <string name="label_card_expiration">Card Expiration</string>
+    <string name="label_card_number">Card Number</string>
+    <string name="msg_invalid_card_number">Invalid Card Number</string>
 
 </resources>

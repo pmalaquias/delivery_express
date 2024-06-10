@@ -90,4 +90,9 @@
     <string name="login_carousel_message_3.1">Nossos entregadores estão sempre prontos para atender a sua demanda</string>
     <string name="header_choice_option">Escolha uma opção</string>
     <string name="title_take_photo">Tirar uma Foto</string>
+    <string name="title_select_gallery">Selecionar da Galeria</string>
+    <string name="label_card_expiration">Validade do Cartão</string>
+    <string name="label_card_holder_name">Nome do Titulaer</string>
+    <string name="label_card_number">Número do Cartão</string>
+    <string name="msg_invalid_card_number">Número do cartão inválido</string>
 </resources>
