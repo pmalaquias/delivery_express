@@ -1,11 +1,14 @@
 package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -18,6 +21,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.CompositingStrategy
@@ -49,6 +54,7 @@ fun CardView(
     nameOwner: String = "",
     expDateMonth: String = "00",
     expDateYear: String = "00",
+    ccv: String = "000",
     cardBrand: CardBrand = CardBrand.VISA,
 ) {
 
@@ -75,9 +81,7 @@ fun CardView(
     }
 
     // Function to format the expiration date
-    fun expDate(expDateMonth: String, expDateYear: String): String {
-        return "$expDateMonth/$expDateYear"
-    }
+    fun expDate(expDateMonth: String, expDateYear: String): String = "$expDateMonth/$expDateYear"
 
     // Composable function to display the card view
     ElevatedCard(
@@ -87,7 +91,6 @@ fun CardView(
             containerColor = MaterialTheme.colorScheme.primary,
 
             ),
-        //elevation = 8.dp
     ) {
         Column(
             Modifier
@@ -95,19 +98,42 @@ fun CardView(
                 .width(350.dp),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            Column(
+            Row(
                 modifier = Modifier
+                    .fillMaxHeight()
+                    .weight(1f)
                     .padding(16.dp),
-                //.height(150.dp),
-                verticalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Column {
-                    Text(text = stringResource(id = R.string.card_number))
-                    Text(
-                        text = maskCardNumber(cardNumber),
-                        //fontSize = 32.sp,
-                        fontWeight = FontWeight.SemiBold
-                    )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(2f),
+                    //.height(150.dp),
+                    verticalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    Column {
+                        Text(text = stringResource(id = R.string.card_number))
+                        Text(
+                            text = maskCardNumber(cardNumber),
+                            //fontSize = 32.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                }
+                Column(
+
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Column {
+                        Text(text = stringResource(R.string.label_ccv))
+                        Text(
+                            text = ccv,
+                            //fontSize = 32.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
                 }
             }
             Box(
