@@ -1,5 +1,6 @@
 package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup
 
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -255,7 +257,9 @@ fun SignUpPaymentClientDataPage(
                 Spacer(modifier = Modifier.padding(8.dp))
 
                 Row(
-                    modifier = modifier.fillMaxWidth(),
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     RadioOptionCardBrandCustom(
@@ -265,6 +269,7 @@ fun SignUpPaymentClientDataPage(
                         img = painterResource(id = R.drawable.mastercard_logo),
                         color = Color.Black
                     )
+                    Spacer(modifier = Modifier.padding(8.dp))
                     RadioOptionCardBrandCustom(
                         value = CardBrand.VISA,
                         onValueChange = valueVehicleTypeChangedHandler,
@@ -272,7 +277,7 @@ fun SignUpPaymentClientDataPage(
                         img = painterResource(id = R.drawable.visa),
                         color = Color(0xFF2566AF)
                     )
-
+                    Spacer(modifier = Modifier.padding(8.dp))
                     RadioOptionCardBrandCustom(
                         value = CardBrand.HIPERCARD,
                         onValueChange = valueVehicleTypeChangedHandler,
@@ -280,6 +285,7 @@ fun SignUpPaymentClientDataPage(
                         img = painterResource(id = R.drawable.hipercard),
                         color = Color(0xFFB3131B)
                     )
+                    Spacer(modifier = Modifier.padding(8.dp))
                     RadioOptionCardBrandCustom(
                         value = CardBrand.ELO,
                         onValueChange = valueVehicleTypeChangedHandler,
@@ -287,6 +293,31 @@ fun SignUpPaymentClientDataPage(
                         img = painterResource(id = R.drawable.elo),
                         color = Color.Black
                     )
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    RadioOptionCardBrandCustom(
+                        value = CardBrand.AMEX,
+                        onValueChange = valueVehicleTypeChangedHandler,
+                        valueGroup = cardBrandGroup,
+                        img = painterResource(id = R.drawable.american_express_logo2),
+                        color = Color(0xFF016FD0)
+                    )
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    RadioOptionCardBrandCustom(
+                        value = CardBrand.JCB,
+                        onValueChange = valueVehicleTypeChangedHandler,
+                        valueGroup = cardBrandGroup,
+                        img = painterResource(id = R.drawable.jcb_logo),
+                        color = Color.White
+                    )
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    RadioOptionCardBrandCustom(
+                        value = CardBrand.DINERS_CLUB,
+                        onValueChange = valueVehicleTypeChangedHandler,
+                        valueGroup = cardBrandGroup,
+                        img = painterResource(id = R.drawable.diners_club),
+                        color = Color.White
+                    )
+                    Spacer(modifier = Modifier.padding(8.dp))
                 }
 
                 Spacer(modifier = Modifier.padding(8.dp))
