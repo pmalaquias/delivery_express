@@ -54,7 +54,7 @@
     <string name="commercialName">Nome Comercial</string>
     <string name="card_number">Número do Cartão</string>
     <string name="card_expiring_date">Validade do Cartão</string>
-    <string name="cvv">CVV</string>
+    <string name="label_cvv">CVV</string>
     <string name="expiry_year">Ano de Expiração</string>
     <string name="expiry_month">Mês de Expiração</string>
     <string name="delivery_clothing">Vestuário</string>
@@ -95,4 +95,5 @@
     <string name="label_card_holder_name">Nome do Titulaer</string>
     <string name="label_card_number">Número do Cartão</string>
     <string name="msg_invalid_card_number">Número do cartão inválido</string>
+    <string name="label_ccv">CCV</string>
 </resources>

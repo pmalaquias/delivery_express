@@ -54,7 +54,7 @@
     <string name="commercialName">Commercial Name</string>
     <string name="card_number">Card Number</string>
     <string name="card_expiring_date">Card expiring date</string>
-    <string name="cvv" translatable="false">CVV</string>
+    <string name="label_cvv" translatable="false">CVV</string>
     <string name="expiry_year">Expiry Year</string>
     <string name="expiry_month">Expiry Month</string>
     <string name="delivery_clothing">Clothing</string>
@@ -98,5 +98,6 @@
     <string name="label_card_expiration">Card Expiration</string>
     <string name="label_card_number">Card Number</string>
     <string name="msg_invalid_card_number">Invalid Card Number</string>
+    <string name="label_ccv">CCV</string>
 
 </resources>
