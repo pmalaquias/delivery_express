@@ -18,11 +18,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -30,9 +25,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpPaymentDataViewModel
 
 @Composable
 fun SignUpPaymentDeliveryPersonDataPage(
@@ -40,12 +37,7 @@ fun SignUpPaymentDeliveryPersonDataPage(
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    var text by rememberSaveable { mutableStateOf("") }
-
-    var checked by remember { mutableStateOf(false) }
-
-    val checkedState = remember { mutableStateOf(false) }
-
+    val viewModel: SignUpPaymentDataViewModel = viewModel()
 
     Scaffold(
         Modifier,
@@ -81,10 +73,8 @@ fun SignUpPaymentDeliveryPersonDataPage(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Switch(
-                        checked = checked,
-                        onCheckedChange = {
-                            checked = it
-                        }
+                        checked = viewModel.cardHolderIsSameAsDeliveryPerson,
+                        onCheckedChange = {viewModel.onCardHolderIsSameAsDeliveryPersonChange(it)}
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
@@ -94,29 +84,29 @@ fun SignUpPaymentDeliveryPersonDataPage(
                 }
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.bankName,
+                    onValueChange = { viewModel.onBankNameChange(it) },
                     label = { Text(stringResource(id = R.string.bank_name)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.accountType,
+                    onValueChange = { viewModel.onAccountTypeChange(it) },
                     label = { Text(stringResource(id = R.string.account_type)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.bankBranch,
+                    onValueChange = { viewModel.onBankBranchChange(it) },
                     label = { Text(stringResource(id = R.string.bank_branch)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.accountNumber.toString(),
+                    onValueChange = { viewModel.onAccountNumberChange(it.toInt())},
                     label = { Text(stringResource(id = R.string.account_number)) },
                     modifier = modifier.fillMaxWidth(),
                 )
@@ -133,15 +123,12 @@ fun SignUpPaymentDeliveryPersonDataPage(
 
                 Row() {
                     Checkbox(
-                        checked = checkedState.value,
-                        onCheckedChange = { checkedState.value = it }
-                    )
+                        checked = viewModel.acceptTermsAndConditions,
+                            onCheckedChange = {viewModel.onAcceptTermsAndConditionsChange(it)}                )
                     Text(
                         text = stringResource(id = R.string.i_accept_terms_of_use),
                         style = MaterialTheme.typography.bodyMedium,
-                        fontSize = 14.sp,
-
-                        )
+                        fontSize = 14.sp, )
                 }
                 Spacer(modifier = Modifier.size(16.dp))
             }
