@@ -95,5 +95,15 @@
     <string name="label_card_holder_name">Nome do Titulaer</string>
     <string name="label_card_number">Número do Cartão</string>
     <string name="msg_invalid_card_number">Número do cartão inválido</string>
-    <string name="label_ccv">CCV</string>
+    <string name="label_my_reviews">Minhas Avaliações</string>
+    <string name="label_deliveries_completed">Entregas Realizadas</string>
+    <string name="label_available_balance">Saldo Disponível</string>
+    <string name="button_performance_charts">Gráficos de Desempenho</string>
+    <string name="title_week_summary">Resumo da Semana</string>
+    <string name="title_my_dashboard">Meu Painel</string>
+    <string name="title_map">Mapa</string>
+    <string name="info_good_afternoon">Boa Tarde</string>
+    <string name="info_good_morning">Bom Dia</string>
+    <string name="info_good_night">Boa Noite</string>
+    <string name="label_hello">Olá</string>
 </resources>

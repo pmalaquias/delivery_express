@@ -70,7 +70,7 @@
     <string name="address_country">Country</string>
     <string name="maximum_display_distance">Maximum display distance on the map</string>
     <string name="address_state">State</string>
-    <string name="menu_item_start">Start</string>
+    <string name="menu_item_start">Home</string>
     <string name="menu_item_deliveries_progress">Deliveries in Progress</string>
     <string name="menu_item_transactions_completed">Transaction Completed</string>
     <string name="menu_item_account_settings">Account Settings</string>
@@ -98,6 +98,17 @@
     <string name="label_card_expiration">Card Expiration</string>
     <string name="label_card_number">Card Number</string>
     <string name="msg_invalid_card_number">Invalid Card Number</string>
-    <string name="label_ccv">CCV</string>
+    <string name="label_ccv" translatable="false">CCV</string>
+    <string name="label_my_reviews">My Reviews</string>
+    <string name="label_deliveries_completed">Deliveries Completed</string>
+    <string name="label_available_balance">Available Balance</string>
+    <string name="button_performance_charts">Performance Charts</string>
+    <string name="title_week_summary">Week Summary</string>
+    <string name="title_my_dashboard">My Dashboard</string>
+    <string name="title_map">Map</string>
+    <string name="info_good_afternoon">Good Afternoon</string>
+    <string name="info_good_morning">Good Morning</string>
+    <string name="info_good_night">Good Night</string>
+    <string name="label_hello">Hello</string>
 
 </resources>
