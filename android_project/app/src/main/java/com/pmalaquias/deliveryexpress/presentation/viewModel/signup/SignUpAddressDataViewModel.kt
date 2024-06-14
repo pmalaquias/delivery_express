@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.uiState.SignupAddressDataUiState
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IAddressDataViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -26,19 +27,19 @@ import kotlinx.coroutines.flow.asStateFlow
  * @property maximumDistanceMap Mutable state of the maximum distance map input field. Default value is 0.0.
  * @property isLoading Mutable state of the loading state. Default value is false.
  */
-class SignUpAddressDataViewModel : ViewModel() {
+class SignUpAddressDataViewModel : ViewModel(), IAddressDataViewModel {
 
     private val _uiState = MutableStateFlow(SignupAddressDataUiState())
     val uiState: StateFlow<SignupAddressDataUiState> = _uiState.asStateFlow()
 
-    var street by mutableStateOf("")
-    var number by mutableIntStateOf(0)
-    var zipCode by mutableIntStateOf(0)
-    var complement by mutableStateOf("")
-    var neighborhood by mutableStateOf("")
-    var city by mutableStateOf("")
-    var state by mutableStateOf("")
-    var maximumDistanceMap by mutableDoubleStateOf(0.0)
+    override var street by mutableStateOf("")
+    override var number by mutableIntStateOf(0)
+    override var zipCode by mutableIntStateOf(0)
+    override var complement by mutableStateOf("")
+    override var neighborhood by mutableStateOf("")
+    override var city by mutableStateOf("")
+    override var state by mutableStateOf("")
+    override var maximumDistanceMap by mutableDoubleStateOf(0.0)
     var isLoading by mutableStateOf(false)
 
     /**
@@ -46,7 +47,7 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param street The new value for the street state.
      */
-    fun onStreetChange(street: String) {
+    override fun onStreetChange(street: String) {
         this.street = street
     }
 
@@ -55,7 +56,7 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param number The new value for the number state.
      */
-    fun onNumberChange(number: Int) {
+    override fun onNumberChange(number: Int) {
         this.number = number
     }
 
@@ -64,7 +65,7 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param zipCode The new value for the zip code state.
      */
-    fun onZipCodeChange(zipCode: Int) {
+    override fun onZipCodeChange(zipCode: Int) {
         this.zipCode = zipCode
     }
 
@@ -73,7 +74,7 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param complement The new value for the complement state.
      */
-    fun onComplementChange(complement: String) {
+    override fun onComplementChange(complement: String) {
         this.complement = complement
     }
 
@@ -82,7 +83,7 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param neighborhood The new value for the neighborhood state.
      */
-    fun onNeighborhoodChange(neighborhood: String) {
+    override fun onNeighborhoodChange(neighborhood: String) {
         this.neighborhood = neighborhood
     }
 
@@ -91,7 +92,7 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param city The new value for the city state.
      */
-    fun onCityChange(city: String) {
+    override fun onCityChange(city: String) {
         this.city = city
     }
 
@@ -100,7 +101,7 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param state The new value for the state state.
      */
-    fun onStateChange(state: String) {
+    override fun onStateChange(state: String) {
         this.state = state
     }
 
@@ -109,8 +110,24 @@ class SignUpAddressDataViewModel : ViewModel() {
      *
      * @param maximumDistanceMap The new value for the maximum distance map state.
      */
-    fun onMaximumDistanceMapChange(maximumDistanceMap: Double) {
+    override fun onMaximumDistanceMapChange(maximumDistanceMap: Double) {
         this.maximumDistanceMap = maximumDistanceMap
+    }
+
+    override fun isLoading(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun validateAddressData(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun clearError() {
+        TODO("Not yet implemented")
+    }
+
+    override fun saveAddressData() {
+        TODO("Not yet implemented")
     }
 
     /**

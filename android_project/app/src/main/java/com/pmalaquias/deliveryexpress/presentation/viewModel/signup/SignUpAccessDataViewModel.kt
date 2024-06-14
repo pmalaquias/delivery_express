@@ -2,6 +2,7 @@ package com.pmalaquias.deliveryexpress.presentation.viewModel.signup
 
 import androidx.lifecycle.ViewModel
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.uiState.SignupAccessDataUiState
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IAccessDataViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,15 +21,15 @@ import kotlinx.coroutines.flow.asStateFlow
  * @property confirmPassword The password confirmation entered by the user.
  * @property isLoading A boolean indicating if the signup process is currently loading.
  */
-class SignUpAccessDataViewModel: ViewModel() {
+class SignUpAccessDataViewModel: ViewModel(), IAccessDataViewModel {
 
     private val _uiState = MutableStateFlow(SignupAccessDataUiState())
     val uiState: StateFlow<SignupAccessDataUiState> = _uiState.asStateFlow()
 
-    var email: String = ""
-    var confirmEmail: String = ""
-    var password: String = ""
-    var confirmPassword: String = ""
+    override var email: String = ""
+    override var confirmEmail: String = ""
+    override var password: String = ""
+    override var confirmPassword: String = ""
     var isLoading: Boolean = false
 
     /**
@@ -36,7 +37,7 @@ class SignUpAccessDataViewModel: ViewModel() {
      *
      * @param email The new email entered by the user.
      */
-    fun onEmailChange(email: String) {
+    override fun onEmailChange(email: String) {
         this.email = email
     }
 
@@ -45,7 +46,7 @@ class SignUpAccessDataViewModel: ViewModel() {
      *
      * @param confirmEmail The new email confirmation entered by the user.
      */
-    fun onConfirmEmailChange(confirmEmail: String) {
+    override fun onConfirmEmailChange(confirmEmail: String) {
         this.confirmEmail = confirmEmail
     }
 
@@ -54,7 +55,7 @@ class SignUpAccessDataViewModel: ViewModel() {
      *
      * @param password The new password entered by the user.
      */
-    fun onPasswordChange(password: String) {
+    override fun onPasswordChange(password: String) {
         this.password = password
     }
 
@@ -63,8 +64,24 @@ class SignUpAccessDataViewModel: ViewModel() {
      *
      * @param confirmPassword The new password confirmation entered by the user.
      */
-    fun onConfirmPasswordChange(confirmPassword: String) {
+    override fun onConfirmPasswordChange(confirmPassword: String) {
         this.confirmPassword = confirmPassword
+    }
+
+    override fun isLoading(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun validateAccessData(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun clearError() {
+        TODO("Not yet implemented")
+    }
+
+    override fun showError(message: String) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -74,7 +91,7 @@ class SignUpAccessDataViewModel: ViewModel() {
      * If the signup process is successful, it should update the UI state.
      * If the signup process fails, it should update the error state.
      */
-    fun saveAccessData() {
+    override fun saveAccessData() {
         // Implement authentication logic here (use repository)
         // If login is successful, update UI state
         // If login fails, update error state

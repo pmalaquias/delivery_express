@@ -6,6 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.uiState.SignupPaymentDataUiState
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPaymentDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPersonalDataViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -46,7 +48,7 @@ import java.util.Date
  * @property isLoading Mutable state of the loading state. Default value is false.
  * @property isError Mutable state of the error state. Default value is false.
  */
-class SignUpPaymentDataViewModel : ViewModel() {
+class SignUpPaymentDataViewModel : ViewModel(), IPaymentDataViewModel {
 
     // MutableStateFlow for the UI state of the SignUpPaymentData screen.
     private val _uiState = MutableStateFlow(SignupPaymentDataUiState())
@@ -55,91 +57,102 @@ class SignUpPaymentDataViewModel : ViewModel() {
     val uiState: StateFlow<SignupPaymentDataUiState> = _uiState.asStateFlow()
 
     // Mutable state for the name input field.
-    var name by mutableStateOf("")
+    override var name by mutableStateOf("")
 
     // Mutable state for the email input field.
-    var email by mutableStateOf("")
+    override var email by mutableStateOf("")
 
     // Mutable state for the phone input field.
-    var phone by mutableStateOf("")
+    override var phone by mutableStateOf("")
 
     // Mutable state for the address input field.
-    var address by mutableStateOf("")
+    override var address by mutableStateOf("")
 
     // Mutable state for the city input field.
-    var city by mutableStateOf("")
+    override var city by mutableStateOf("")
 
     // Mutable state for the state input field.
-    var state by mutableStateOf("")
+    override var state by mutableStateOf("")
 
     // Mutable state for the zip code input field.
-    var zipCode by mutableIntStateOf(0)
+    override var zipCode by mutableIntStateOf(0)
 
     // Mutable state for the country input field.
-    var country by mutableStateOf("")
+    override var country by mutableStateOf("")
+
+    override var agency by mutableStateOf("")
 
     // Mutable state for the card number input field.
-    var cardNumber by mutableStateOf("")
+    override var cardNumber by mutableStateOf("")
 
     // Mutable state for the card expiration input field.
-    var cardExpiration by mutableStateOf(Date())
+    override var cardExpiration by mutableStateOf(Date())
 
     // Mutable state for the card CVV input field.
-    var cardCvv by mutableIntStateOf(0)
+    override var cardCvv by mutableIntStateOf(0)
 
     // Mutable state for the card brand input field.
-    var cardBrand by mutableStateOf("")
+    override var cardBrand by mutableStateOf("")
 
     // Mutable state for the card holder's name input field.
-    var cardHolderName by mutableStateOf("")
+    override var cardHolderName by mutableStateOf("")
 
     // Mutable state for the card holder's phone input field.
-    var cardHolderPhone by mutableIntStateOf(0)
+    override var cardHolderPhone by mutableStateOf("")
 
     // Mutable state for the card holder's email input field.
-    var cardHolderEmail by mutableStateOf("")
+    override var cardHolderEmail by mutableStateOf("")
 
     // Mutable state for the card holder's address input field.
-    var cardHolderAddress by mutableStateOf("")
+    override var cardHolderAddress by mutableStateOf("")
 
     // Mutable state for the card holder's city input field.
-    var cardHolderCity by mutableStateOf("")
+    override var cardHolderCity by mutableStateOf("")
 
     // Mutable state for the card holder's state input field.
-    var cardHolderState by mutableStateOf("")
+    override var cardHolderState by mutableStateOf("")
 
     // Mutable state for the card holder's zip code input field.
-    var cardHolderZipCode by mutableIntStateOf(0)
+    override var cardHolderZipCode by mutableStateOf("")
 
     // Mutable state for the card holder's country input field.
-    var cardHolderCountry by mutableStateOf("")
+    override var cardHolderCountry by mutableStateOf("")
 
     // Mutable state for the accept terms and conditions checkbox.
-    var acceptTermsAndConditions by mutableStateOf(false)
+    override var acceptTermsAndConditions by mutableStateOf(false)
 
     // Mutable state for the card holder is same as delivery person checkbox.
-    var cardHolderIsSameAsDeliveryPerson by mutableStateOf(false)
+    override var cardHolderIsSameAsDeliveryPerson by mutableStateOf(false)
 
     // Mutable state for the account number input field.
-    var accountNumber by mutableIntStateOf(0)
+    override var accountNumber: String by mutableStateOf("")
 
     // Mutable state for the account type input field.
-    var accountType by mutableStateOf("")
+    override var accountType by mutableStateOf("")
 
     // Mutable state for the bank name input field.
-    var bankName by mutableStateOf("")
+    override var bankName by mutableStateOf("")
 
     // Mutable state for the bank branch input field.
-    var bankBranch by mutableStateOf("")
+    override var bankBranch by mutableStateOf("")
 
     // Mutable state for the data validation state.
-    var isDataValid by mutableStateOf(false)
+    override var isDataValid by mutableStateOf(false)
 
     // Mutable state for the loading state.
-    var isLoading by mutableStateOf(false)
+    override var isLoading by mutableStateOf(false)
 
     // Mutable state for the error state.
-    var isError by mutableStateOf(false)
+    override var isError by mutableStateOf(false)
+
+    private fun copyUserDataToBankData(
+        accessDataViewModel: SignUpAccessDataViewModel,
+        addressDataViewModel: SignUpAddressDataViewModel,
+        personalDataViewModel: IPersonalDataViewModel
+    ) {
+        println("name: ${personalDataViewModel.name}")
+        cardHolderName = personalDataViewModel.name
+    }
 
     // The following functions are used to update the mutable states.
     // Each function takes a parameter and assigns it to the corresponding mutable state.
@@ -150,7 +163,8 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param name The new name.
      */
-    fun onNameChange(name: String) {
+    override fun onNameChange(name: String) {
+        println("name: $name")
         this.name = name
     }
 
@@ -159,7 +173,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param email The new email.
      */
-    fun onEmailChange(email: String) {
+    override fun onEmailChange(email: String) {
         this.email = email
     }
 
@@ -168,7 +182,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param phone The new phone.
      */
-    fun onPhoneChange(phone: String) {
+    override fun onPhoneChange(phone: String) {
         this.phone = phone
     }
 
@@ -177,7 +191,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param address The new address.
      */
-    fun onAddressChange(address: String) {
+    override fun onAddressChange(address: String) {
         this.address = address
     }
 
@@ -186,7 +200,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param city The new city.
      */
-    fun onCityChange(city: String) {
+    override fun onCityChange(city: String) {
         this.city = city
     }
 
@@ -195,7 +209,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param state The new state.
      */
-    fun onStateChange(state: String) {
+    override fun onStateChange(state: String) {
         this.state = state
     }
 
@@ -204,7 +218,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param zipCode The new zipCode.
      */
-    fun onZipCodeChange(zipCode: Int) {
+    override fun onZipCodeChange(zipCode: Int) {
         this.zipCode = zipCode
     }
 
@@ -213,7 +227,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param country The new country.
      */
-    fun onCountryChange(country: String) {
+    override fun onCountryChange(country: String) {
         this.country = country
     }
 
@@ -222,7 +236,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardNumber The new cardNumber.
      */
-    fun onCardNumberChange(cardNumber: String) {
+    override fun onCardNumberChange(cardNumber: String) {
         println("cardNumber: $cardNumber")
         this.cardNumber = cardNumber
     }
@@ -232,7 +246,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardExpiration The new cardExpiration.
      */
-    fun onCardExpirationChange(cardExpiration: Date) {
+    override fun onCardExpirationChange(cardExpiration: Date) {
         println("cardExpiration: $cardExpiration")
         this.cardExpiration = cardExpiration
     }
@@ -242,7 +256,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardCvv The new cardCvv.
      */
-    fun onCardCvvChange(cardCvv: Int) {
+    override fun onCardCvvChange(cardCvv: Int) {
         this.cardCvv = cardCvv
     }
 
@@ -251,7 +265,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardBrand The new cardBrand.
      */
-    fun onCardBrandChange(cardBrand: String) {
+    override fun onCardBrandChange(cardBrand: String) {
         println("cardBrand: $cardBrand")
         this.cardBrand = cardBrand
     }
@@ -261,7 +275,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderName The new cardHolderName.
      */
-    fun onCardHolderNameChange(cardHolderName: String) {
+    override fun onCardHolderNameChange(cardHolderName: String) {
         this.cardHolderName = cardHolderName
     }
 
@@ -270,7 +284,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderPhone The new cardHolderPhone.
      */
-    fun onCardHolderPhoneChange(cardHolderPhone: Int) {
+    override fun onCardHolderPhoneChange(cardHolderPhone: String) {
         this.cardHolderPhone = cardHolderPhone
     }
 
@@ -279,7 +293,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderEmail The new cardHolderEmail.
      */
-    fun onCardHolderEmailChange(cardHolderEmail: String) {
+    override fun onCardHolderEmailChange(cardHolderEmail: String) {
         this.cardHolderEmail = cardHolderEmail
     }
 
@@ -288,7 +302,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderAddress The new cardHolderAddress.
      */
-    fun onCardHolderAddressChange(cardHolderAddress: String) {
+    override fun onCardHolderAddressChange(cardHolderAddress: String) {
         this.cardHolderAddress = cardHolderAddress
     }
 
@@ -297,7 +311,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderCity The new cardHolderCity.
      */
-    fun onCardHolderCityChange(cardHolderCity: String) {
+    override fun onCardHolderCityChange(cardHolderCity: String) {
         this.cardHolderCity = cardHolderCity
     }
 
@@ -306,7 +320,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderState The new cardHolderState.
      */
-    fun onCardHolderStateChange(cardHolderState: String) {
+    override fun onCardHolderStateChange(cardHolderState: String) {
         this.cardHolderState = cardHolderState
     }
 
@@ -315,7 +329,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderZipCode The new cardHolderZipCode.
      */
-    fun onCardHolderZipCodeChange(cardHolderZipCode: Int) {
+    override fun onCardHolderZipCodeChange(cardHolderZipCode: String) {
         this.cardHolderZipCode = cardHolderZipCode
     }
 
@@ -324,7 +338,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderCountry The new cardHolderCountry.
      */
-    fun onCardHolderCountryChange(cardHolderCountry: String) {
+    override fun onCardHolderCountryChange(cardHolderCountry: String) {
         this.cardHolderCountry = cardHolderCountry
     }
 
@@ -333,7 +347,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param acceptTermsAndConditions The new acceptTermsAndConditions.
      */
-    fun onAcceptTermsAndConditionsChange(acceptTermsAndConditions: Boolean) {
+    override fun onAcceptTermsAndConditionsChange(acceptTermsAndConditions: Boolean) {
         println("acceptTermsAndConditions: $acceptTermsAndConditions")
         this.acceptTermsAndConditions = acceptTermsAndConditions
     }
@@ -343,7 +357,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param cardHolderIsSameAsDeliveryPerson The new cardHolderIsSameAsDeliveryPerson.
      */
-    fun onCardHolderIsSameAsDeliveryPersonChange(cardHolderIsSameAsDeliveryPerson: Boolean) {
+    override fun onCardHolderIsSameAsDeliveryPersonChange(cardHolderIsSameAsDeliveryPerson: Boolean) {
         println("cardHolderIsSameAsDeliveryPerson: $cardHolderIsSameAsDeliveryPerson")
         this.cardHolderIsSameAsDeliveryPerson = cardHolderIsSameAsDeliveryPerson
     }
@@ -353,8 +367,12 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param accountNumber The new accountNumber.
      */
-    fun onAccountNumberChange(accountNumber: Int) {
+    override fun onAccountNumberChange(accountNumber: String) {
         this.accountNumber = accountNumber
+    }
+
+    override fun onAgencyChange(agency: String) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -362,7 +380,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param accountType The new accountType.
      */
-    fun onAccountTypeChange(accountType: String) {
+    override fun onAccountTypeChange(accountType: String) {
         this.accountType = accountType
     }
 
@@ -371,7 +389,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param bankName The new bankName.
      */
-    fun onBankNameChange(bankName: String) {
+    override fun onBankNameChange(bankName: String) {
         this.bankName = bankName
     }
 
@@ -380,7 +398,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param bankBranch The new bankBranch.
      */
-    fun onBankBranchChange(bankBranch: String) {
+    override fun onBankBranchChange(bankBranch: String) {
         this.bankBranch = bankBranch
     }
 
@@ -389,8 +407,16 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param isDataValid The new isDataValid.
      */
-    fun onIsDataValidChange(isDataValid: Boolean) {
+    override fun onIsDataValidChange(isDataValid: Boolean) {
         this.isDataValid = isDataValid
+    }
+
+    override fun clearError() {
+        TODO("Not yet implemented")
+    }
+
+    override fun savePaymentData() {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -398,8 +424,16 @@ class SignUpPaymentDataViewModel : ViewModel() {
      *
      * @param isLoading The new isLoading.
      */
-    fun onLoadingChange(isLoading: Boolean) {
+    override fun onLoadingChange(isLoading: Boolean) {
         this.isLoading = isLoading
+    }
+
+    override fun onIsErrorChange(isError: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun validatePaymentData(): Boolean {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -414,7 +448,7 @@ class SignUpPaymentDataViewModel : ViewModel() {
     /**
      * Resets all the states to their default values.
      */
-    fun reset() {
+    override fun reset() {
         name = ""
         email = ""
         phone = ""
@@ -428,16 +462,16 @@ class SignUpPaymentDataViewModel : ViewModel() {
         cardCvv = 0
         cardBrand = "null"
         cardHolderName = ""
-        cardHolderPhone = 0
+        cardHolderPhone = ""
         cardHolderEmail = ""
         cardHolderAddress = ""
         cardHolderCity = ""
         cardHolderState = ""
-        cardHolderZipCode = 0
+        cardHolderZipCode = ""
         cardHolderCountry = ""
         acceptTermsAndConditions = false
         cardHolderIsSameAsDeliveryPerson = false
-        accountNumber = 0
+        accountNumber = ""
         accountType = ""
         bankName = ""
         bankBranch = ""
