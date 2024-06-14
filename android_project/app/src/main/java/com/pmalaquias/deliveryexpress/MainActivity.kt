@@ -7,7 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.DeliveryApp
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.DeliveryApp
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
 /**
