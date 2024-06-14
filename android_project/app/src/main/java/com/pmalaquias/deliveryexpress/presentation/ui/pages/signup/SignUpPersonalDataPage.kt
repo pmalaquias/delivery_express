@@ -58,6 +58,7 @@ import androidx.core.content.FileProvider
 import androidx.graphics.shapes.CornerRounding
 import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.star
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.pmalaquias.deliveryexpress.R
@@ -406,10 +407,11 @@ fun SignUpPagePreview() {
 fun SignUpPersonalClientDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: SignupClientPersonalDataViewModel,
 ) {
     // ViewModel for the SignupClientPersonalData screen.
-    val viewModel: SignupClientPersonalDataViewModel = viewModel()
+    //val viewModel: SignupClientPersonalDataViewModel = viewModel()
 
     // Local context.
     val context = LocalContext.current
@@ -709,6 +711,6 @@ fun SignUpPersonalClientDataPage(
 @Composable
 fun SignUpPersonalClientDataPagePreview() {
     AppTheme {
-        SignUpPersonalClientDataPage()
+        SignUpPersonalClientDataPage(viewModel = SignupClientPersonalDataViewModel())
     }
 }

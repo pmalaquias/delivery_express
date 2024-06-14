@@ -45,6 +45,8 @@ import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpAddressDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IAddressDataViewModel
 
 //const val FILE_NAME = "com/pmalaquias/deliveryexpress/data/state_city.json"
 
@@ -245,12 +247,12 @@ fun SignUpAddressDataPagePreview() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpAddressClientDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IAddressDataViewModel
 ) {
     var text by rememberSaveable { mutableStateOf("") }
 
@@ -442,7 +444,7 @@ fun SignUpAddressClientDataPage(
 @Composable
 fun SignUpAddressClientDataPagePreview() {
     AppTheme {
-        SignUpAddressClientDataPage()
+        SignUpAddressClientDataPage(viewModel = SignUpAddressDataViewModel())
     }
 }
 

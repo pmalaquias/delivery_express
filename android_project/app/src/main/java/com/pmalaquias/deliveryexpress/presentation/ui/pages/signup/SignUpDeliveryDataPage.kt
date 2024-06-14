@@ -31,13 +31,16 @@ import com.pmalaquias.deliveryexpress.data.models.enums.DeliveryType
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionTypeCustom
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpDeliveryDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IDeliveryDataViewModel
 
 
 @Composable
 fun SignUpDeliveryDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IDeliveryDataViewModel
 ) {
 
 
@@ -161,6 +164,6 @@ fun SignUpDeliveryDataPage(
 @Composable
 fun SignUpDeliveryDataPagePreview() {
     AppTheme {
-        SignUpDeliveryDataPage()
+        SignUpDeliveryDataPage(viewModel = SignUpDeliveryDataViewModel())
     }
 }

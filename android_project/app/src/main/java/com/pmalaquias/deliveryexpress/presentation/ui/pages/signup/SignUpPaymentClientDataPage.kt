@@ -34,7 +34,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.data.models.enums.CardBrand
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
@@ -42,17 +41,21 @@ import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.Ca
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionCardBrandCustom
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.presentation.ui.utils.MaskVisualTransformation
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPersonalDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpPaymentDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupClientPersonalDataViewModel
 import java.util.Date
 
 @Composable
 fun SignUpPaymentClientDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: SignUpPaymentDataViewModel,
+    personalDataViewModel: SignupClientPersonalDataViewModel
 ) {
 
-    val viewModel: SignUpPaymentDataViewModel = viewModel()
+    //val viewModel: SignUpPaymentDataViewModel = viewModel()
 
     var monthExpiration by rememberSaveable { mutableStateOf("") }
     var yearExpiration by rememberSaveable { mutableStateOf("") }
@@ -65,6 +68,15 @@ fun SignUpPaymentClientDataPage(
     }
 
     val CREDIT_CARD_MASK = "#### #### #### ####"
+
+    fun copyUserDataToBankData(
+        //accessDataViewModel: SignUpAccessDataViewModel,
+        //addressDataViewModel: SignUpAddressDataViewModel,
+        personalDataViewModel: IPersonalDataViewModel
+    ) {
+        println("name: ${personalDataViewModel.name}")
+        viewModel.cardHolderName = personalDataViewModel.name
+    }
 
     Scaffold(
         Modifier,
@@ -104,6 +116,9 @@ fun SignUpPaymentClientDataPage(
                         checked = viewModel.cardHolderIsSameAsDeliveryPerson,
                         onCheckedChange = {
                             viewModel.onCardHolderIsSameAsDeliveryPersonChange(it)
+                            if (it) {
+                                copyUserDataToBankData(personalDataViewModel)
+                            }
                         }
                     )
                     Spacer(modifier = Modifier.width(8.dp))
@@ -214,6 +229,7 @@ fun SignUpPaymentClientDataPage(
                 } else {
                     CardView(
                         cardNumber = viewModel.cardNumber,
+                        nameOwner = viewModel.cardHolderName,
                         cardBrand = cardBrandGroup!!,
                         expDateMonth = monthExpiration,
                         expDateYear = yearExpiration
@@ -277,6 +293,6 @@ fun SignUpPaymentClientDataPage(
 @Composable
 fun PreviewSignUpPaymentClientDataPage() {
     AppTheme {
-        SignUpPaymentClientDataPage()
+        //SignUpPaymentClientDataPage(viewModel = signUpPaymentDataViewModel)
     }
 }

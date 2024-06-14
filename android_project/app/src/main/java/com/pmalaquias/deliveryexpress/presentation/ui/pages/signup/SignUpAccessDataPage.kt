@@ -27,6 +27,7 @@ import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.Ap
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpAccessDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IAccessDataViewModel
 
 /**
  * Composable function that represents the SignUpAccessDeliveryPersonDataPage.
@@ -147,10 +148,11 @@ fun SignUpAccessDataPagePreview() {
 fun SignUpAccessClientDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IAccessDataViewModel
 ) {
     // ViewModel for this page
-    val viewModel: SignUpAccessDataViewModel = viewModel()
+    //val viewModel: SignUpAccessDataViewModel = viewModel()
 
     // Scaffold for the layout of this page
     Scaffold(
@@ -235,6 +237,6 @@ fun SignUpAccessClientDataPage(
 @Composable
 fun SignUpAccessClientDataPagePreview() {
     AppTheme {
-        SignUpAccessClientDataPage()
+        SignUpAccessClientDataPage(viewModel = SignUpAccessDataViewModel())
     }
 }
