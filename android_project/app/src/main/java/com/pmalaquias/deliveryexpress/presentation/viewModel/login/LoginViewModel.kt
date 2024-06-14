@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.LoginUiState
+import com.pmalaquias.deliveryexpress.presentation.viewModel.login.interfaces.ILoginViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -26,19 +27,21 @@ import kotlinx.coroutines.launch
  *
  * @function clearError Function to clear any login error. It sets loginError to null.
  */
-class LoginViewModel : ViewModel() {
+class LoginViewModel() : ViewModel(), ILoginViewModel {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
     // UI state
-    var email by mutableStateOf("")
-    var password by mutableStateOf("")
-    var isLoggingIn by mutableStateOf(false)
-    var loginError by mutableStateOf<String?>(null)
+    override var email by mutableStateOf("")
+    override var password by mutableStateOf("")
+    override var isLoggingIn by mutableStateOf(false)
+    override var loginError by mutableStateOf<String>("")
+    override var isLoading by mutableStateOf(false)
+    override var isError by mutableStateOf(false)
 
     // Function to perform login
-    fun login() {
+    override fun login() {
         isLoggingIn = true
 
         viewModelScope.launch {
@@ -51,7 +54,7 @@ class LoginViewModel : ViewModel() {
     }
 
     // Function to handle email input
-    fun onEmailChange(email: String) {
+    override fun onEmailChange(email: String) {
         try {
             this.email = email
             println(email)
@@ -61,14 +64,30 @@ class LoginViewModel : ViewModel() {
     }
 
     // Function to handle password input
-    fun onPasswordChange(password: String) {
+    override fun onPasswordChange(password: String) {
         this.password = password
         println(password)
     }
 
+    override fun onLoadingChange(isLoading: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorChange(isError: Boolean) {
+        TODO("Not yet implemented")
+    }
+
+    override fun reset() {
+        TODO("Not yet implemented")
+    }
+
+    override fun validateLoginData(): Boolean {
+        TODO("Not yet implemented")
+    }
+
     // Function to clear error state
-    fun clearError() {
-        loginError = null
+    override fun clearError() {
+        loginError = ""
     }
 
 }
