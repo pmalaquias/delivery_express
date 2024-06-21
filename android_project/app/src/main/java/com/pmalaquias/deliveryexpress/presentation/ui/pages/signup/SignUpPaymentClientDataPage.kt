@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -44,6 +45,7 @@ import com.pmalaquias.deliveryexpress.presentation.ui.utils.MaskVisualTransforma
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPersonalDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpPaymentDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupClientPersonalDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPaymentDataViewModel
 import java.util.Date
 
 @Composable
@@ -51,11 +53,9 @@ fun SignUpPaymentClientDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier,
-    viewModel: SignUpPaymentDataViewModel,
+    viewModel: IPaymentDataViewModel,
     personalDataViewModel: SignupClientPersonalDataViewModel
 ) {
-
-    //val viewModel: SignUpPaymentDataViewModel = viewModel()
 
     var monthExpiration by rememberSaveable { mutableStateOf("") }
     var yearExpiration by rememberSaveable { mutableStateOf("") }
@@ -194,16 +194,25 @@ fun SignUpPaymentClientDataPage(
                 }
 
                 Spacer(modifier = Modifier.padding(8.dp))
-                TextField(
-                    value = viewModel.cardNumber,
-                    onValueChange = {
-                        viewModel.onCardNumberChange(it)
 
-                    },
-                    label = { Text(stringResource(id = R.string.card_number)) },
-                    modifier = modifier.fillMaxWidth(),
-                    visualTransformation = MaskVisualTransformation(CREDIT_CARD_MASK)
-                )
+                Row {
+                    TextField(
+                        value = viewModel.cardNumber,
+                        onValueChange = { viewModel.onCardNumberChange(it)},
+                        label = { Text(stringResource(id = R.string.card_number)) },
+                        modifier = modifier.fillMaxWidth().weight(2f),
+                        visualTransformation = MaskVisualTransformation(CREDIT_CARD_MASK)
+                    )
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    TextField(
+                        value = viewModel.cardCvv,
+                        onValueChange = { viewModel.onCardCvvChange(it) },
+                        label = { Text(stringResource(id = R.string.label_cvv)) },
+                        modifier = modifier.fillMaxWidth().weight(1f)
+                    )
+
+                }
+
                 Spacer(modifier = Modifier.padding(8.dp))
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -232,7 +241,8 @@ fun SignUpPaymentClientDataPage(
                         nameOwner = viewModel.cardHolderName,
                         cardBrand = cardBrandGroup!!,
                         expDateMonth = monthExpiration,
-                        expDateYear = yearExpiration
+                        expDateYear = yearExpiration,
+                        cvv = viewModel.cardCvv
                     )
                     Spacer(modifier = Modifier.padding(8.dp))
                 }
@@ -246,7 +256,7 @@ fun SignUpPaymentClientDataPage(
                 )
                 Spacer(modifier = Modifier.padding(32.dp))
 
-                Row() {
+                Row {
                     Checkbox(
                         checked = viewModel.acceptTermsAndConditions,
                         onCheckedChange = { viewModel.onAcceptTermsAndConditionsChange(it) }
@@ -293,6 +303,9 @@ fun SignUpPaymentClientDataPage(
 @Composable
 fun PreviewSignUpPaymentClientDataPage() {
     AppTheme {
-        //SignUpPaymentClientDataPage(viewModel = signUpPaymentDataViewModel)
+        SignUpPaymentClientDataPage(
+            viewModel = SignUpPaymentDataViewModel(),
+            personalDataViewModel = SignupClientPersonalDataViewModel()
+        )
     }
 }

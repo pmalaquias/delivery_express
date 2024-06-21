@@ -106,7 +106,7 @@ fun SignUpPaymentDeliveryPersonDataPage(
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
                     value = viewModel.accountNumber.toString(),
-                    onValueChange = { viewModel.onAccountNumberChange(it.toInt())},
+                    onValueChange = { viewModel.onAccountNumberChange(it)},
                     label = { Text(stringResource(id = R.string.account_number)) },
                     modifier = modifier.fillMaxWidth(),
                 )
