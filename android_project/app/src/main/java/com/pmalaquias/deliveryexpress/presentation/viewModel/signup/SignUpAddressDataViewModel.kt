@@ -40,7 +40,7 @@ class SignUpAddressDataViewModel : ViewModel(), IAddressDataViewModel {
     override var city by mutableStateOf("")
     override var state by mutableStateOf("")
     override var maximumDistanceMap by mutableDoubleStateOf(0.0)
-    var isLoading by mutableStateOf(false)
+    //var isLoading by mutableStateOf(false)
 
     /**
      * Updates the street state.
@@ -136,7 +136,7 @@ class SignUpAddressDataViewModel : ViewModel(), IAddressDataViewModel {
      * @param isLoading The new value for the loading state.
      */
     fun onLoadingChange(isLoading: Boolean) {
-        this.isLoading = isLoading
+        //this.isLoading = isLoading
     }
 
     /**
@@ -151,7 +151,7 @@ class SignUpAddressDataViewModel : ViewModel(), IAddressDataViewModel {
         city = ""
         state = ""
         maximumDistanceMap = 0.0
-        isLoading = false
+        //isLoading = false
     }
 
 }

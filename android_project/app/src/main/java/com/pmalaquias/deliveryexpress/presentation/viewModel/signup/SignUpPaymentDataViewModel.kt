@@ -75,7 +75,7 @@ class SignUpPaymentDataViewModel : ViewModel(), IPaymentDataViewModel {
     override var state by mutableStateOf("")
 
     // Mutable state for the zip code input field.
-    override var zipCode by mutableIntStateOf(0)
+    override var zipCode by mutableStateOf("")
 
     // Mutable state for the country input field.
     override var country by mutableStateOf("")
@@ -89,7 +89,7 @@ class SignUpPaymentDataViewModel : ViewModel(), IPaymentDataViewModel {
     override var cardExpiration by mutableStateOf(Date())
 
     // Mutable state for the card CVV input field.
-    override var cardCvv by mutableIntStateOf(0)
+    override var cardCvv by mutableStateOf("")
 
     // Mutable state for the card brand input field.
     override var cardBrand by mutableStateOf("")
@@ -218,7 +218,7 @@ class SignUpPaymentDataViewModel : ViewModel(), IPaymentDataViewModel {
      *
      * @param zipCode The new zipCode.
      */
-    override fun onZipCodeChange(zipCode: Int) {
+    override fun onZipCodeChange(zipCode: String) {
         this.zipCode = zipCode
     }
 
@@ -256,7 +256,7 @@ class SignUpPaymentDataViewModel : ViewModel(), IPaymentDataViewModel {
      *
      * @param cardCvv The new cardCvv.
      */
-    override fun onCardCvvChange(cardCvv: Int) {
+    override fun onCardCvvChange(cardCvv: String){
         this.cardCvv = cardCvv
     }
 
@@ -455,11 +455,11 @@ class SignUpPaymentDataViewModel : ViewModel(), IPaymentDataViewModel {
         address = ""
         city = ""
         state = ""
-        zipCode = 0
+        zipCode = ""
         country = ""
         cardNumber = ""
         cardExpiration = Date()
-        cardCvv = 0
+        cardCvv = ""
         cardBrand = "null"
         cardHolderName = ""
         cardHolderPhone = ""

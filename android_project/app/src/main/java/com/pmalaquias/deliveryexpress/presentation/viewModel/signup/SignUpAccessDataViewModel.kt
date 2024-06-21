@@ -30,7 +30,7 @@ class SignUpAccessDataViewModel: ViewModel(), IAccessDataViewModel {
     override var confirmEmail: String = ""
     override var password: String = ""
     override var confirmPassword: String = ""
-    var isLoading: Boolean = false
+    //override var isLoading: Boolean = false
 
     /**
      * Updates the email state.

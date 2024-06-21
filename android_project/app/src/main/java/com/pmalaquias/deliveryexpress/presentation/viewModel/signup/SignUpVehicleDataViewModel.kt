@@ -30,7 +30,7 @@ class SignUpVehicleDataViewModel : ViewModel(), IVehicleDataViewModel {
     override var vehicleModel by mutableStateOf("")
     override var vehiclePlate by mutableStateOf("")
     override var vehicleColor by mutableStateOf("")
-    override var isLoading by mutableStateOf(false)
+    //override var isLoading by mutableStateOf(false)
 
     /**
      * Updates the vehicle type state.
@@ -72,7 +72,7 @@ class SignUpVehicleDataViewModel : ViewModel(), IVehicleDataViewModel {
      * Sets the loading state to true when the vehicle data is submitted.
      */
     override fun onVehicleSubmit() {
-        isLoading = true
+        //isLoading = true
     }
 
     override fun validateVehicleData(): Boolean {
