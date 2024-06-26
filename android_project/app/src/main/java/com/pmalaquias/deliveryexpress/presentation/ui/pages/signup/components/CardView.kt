@@ -1,6 +1,7 @@
 package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.CompositingStrategy
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -32,9 +35,6 @@ import com.pmalaquias.deliveryexpress.data.models.enums.CardBrand
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.haze
-import dev.chrisbanes.haze.hazeChild
-import dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi
-import dev.chrisbanes.haze.materials.HazeMaterials
 
 /**
  * A Composable function that displays a card view with the given parameters.
@@ -46,7 +46,6 @@ import dev.chrisbanes.haze.materials.HazeMaterials
  * @param expDateYear The expiration year of the card. Default value is "00".
  * @param cardBrand The brand of the card. Default value is CardBrand.VISA.
  */
-@OptIn(ExperimentalHazeMaterialsApi::class)
 @Composable
 fun CardView(
     modifier: Modifier = Modifier,
@@ -59,12 +58,6 @@ fun CardView(
 ) {
 
     val hazeState: HazeState = remember { HazeState() }
-
-    val colorStops = arrayOf(
-        0.0f to Color.Yellow,
-        0.2f to Color.Red,
-        1f to Color.Blue
-    )
 
     // Determine the logo of the card brand
     val logoCardBrand: Int = when (cardBrand) {
@@ -93,7 +86,7 @@ fun CardView(
 
     // Composable function to display the card view
     ElevatedCard(
-        modifier = modifier ,
+        modifier = modifier,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primary,
@@ -146,13 +139,17 @@ fun CardView(
             }
             Box(
                 modifier = Modifier
-                    .haze(hazeState)
-                    .hazeChild(
-                        hazeState,
+                    .background(
+                        color = Color.White.copy(alpha = 0.8f),
                         shape = RoundedCornerShape(16.dp),
-                        style = HazeMaterials.ultraThin(),
-
-                        )
+                    )
+                    .graphicsLayer {
+                        compositingStrategy = CompositingStrategy.Auto
+                        alpha = 0.75f
+                    }
+                    .haze(
+                        hazeState
+                    )
 
 
             ) {
@@ -168,14 +165,14 @@ fun CardView(
                             text = stringResource(id = R.string.label_card_holder_name),
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Light,
-                            //color = Color.Black
+                            color = Color.Black
 
                         )
                         Text(
                             text = nameOwner,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Black,
-                            //color = MaterialTheme.colorScheme.onSurfaceVariant
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                     Column {
@@ -183,17 +180,17 @@ fun CardView(
                             text = stringResource(id = R.string.label_card_expiration),
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Light,
-                            //color = MaterialTheme.colorScheme.onSurface
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                         Text(
                             text = expDate(expDateMonth, expDateYear),
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Black,
-                            //color = MaterialTheme.colorScheme.onSurface
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                     }
                     Image(
-                        colorFilter = ColorFilter.tint(Color.White ),
+                        colorFilter = ColorFilter.tint(Color.Black),
                         painter = painterResource(
                             id = logoCardBrand
                         ),
