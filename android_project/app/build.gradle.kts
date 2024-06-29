@@ -57,10 +57,10 @@ android {
 
 dependencies {
     implementation("com.google.maps.android:maps-compose:5.0.4")
-    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-maps:19.0.0")
     implementation("androidx.wear.compose:compose-material:1.3.1")
     implementation("com.google.code.gson:gson:2.11.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
     implementation("androidx.compose.material3:material3-android:1.2.1")
@@ -107,15 +107,15 @@ dependencies {
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.ui:ui-graphics:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
-    implementation("androidx.compose.material3:material3:1.2.1")
+    implementation("androidx.compose.material3:material3:1.3.0-beta04")
     implementation("androidx.compose.material:material-icons-extended-android:$composeVersion")
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.0")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.06.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.7.0-beta03")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.7.0-beta04")
 
 
 }
