@@ -99,7 +99,7 @@ fun ChoicePhotoBottomSheetContent(
         ),
         onDismissRequest = { onDismiss.invoke() },
         sheetState = bottomSheetState,
-        windowInsets = windowInsets
+        //windowInsets = windowInsets
     ) {
         Column(
             modifier = Modifier.fillMaxWidth().padding(bottom = 24.dp),
