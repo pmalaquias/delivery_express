@@ -1,3 +1,5 @@
+@file:JvmName("SignUpAddressDeliveryPersonDataPageKt")
+
 package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup
 
 import androidx.compose.foundation.clickable
@@ -16,7 +18,6 @@ import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -43,209 +44,9 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarClient
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpAddressDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IAddressDataViewModel
-
-//const val FILE_NAME = "com/pmalaquias/deliveryexpress/data/state_city.json"
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun SignUpAddressDeliveryPersonDataPage(
-    onCancelButtonClicked: () -> Unit = {},
-    onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
-) {
-    var text by rememberSaveable { mutableStateOf("") }
-
-    var sliderPosition by remember { mutableFloatStateOf(0f) }
-
-    var selectedState by remember { mutableStateOf<String?>(null) }
-    var selectedCity by remember { mutableStateOf<String?>(null) }
-    //val estadosCidades = loadEstadosCidades()
-
-    //val estados = estadosCidades.estados.map { it.nome }
-    //val cidades = estadosCidades.estados.find { it.nome == selectedState }?.cidades ?: emptyList()
-
-    // Declaring a boolean value to store
-    // the expanded state of the Text Field
-    var mExpanded by remember { mutableStateOf(false) }
-
-    // Create a list of cities
-    val mCities = listOf("Delhi", "Mumbai", "Chennai", "Kolkata", "Hyderabad", "Bengaluru", "Pune")
-
-    // Create a string value to store the selected city
-    var mSelectedText by remember { mutableStateOf("") }
-
-    var mTextFieldSize by remember { mutableStateOf(Size.Zero) }
-
-    // Up Icon when expanded and down icon when collapsed
-    val icon = if (mExpanded) Icons.Filled.KeyboardArrowUp
-    else Icons.Filled.KeyboardArrowDown
-
-
-    Scaffold(Modifier, topBar = { AppBarDeliveryPerson() }) { innerPadding ->
-
-        Column(
-            modifier = modifier
-                .padding(innerPadding)
-                .fillMaxWidth()
-                .fillMaxHeight()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.SpaceBetween,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-
-
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Spacer(modifier = Modifier.size(16.dp))
-                Text(
-                    text = stringResource(id = R.string.address_data),
-                    style = MaterialTheme.typography.titleSmall,
-                    fontSize = 24.sp
-                )
-                Spacer(modifier = Modifier.size(16.dp))
-                TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
-                    label = { Text(stringResource(id = R.string.address_home)) },
-                    modifier = modifier.fillMaxWidth(),
-                )
-                Spacer(modifier = Modifier.padding(8.dp))
-                TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
-                    label = { Text(stringResource(id = R.string.address_number)) },
-                    modifier = modifier.fillMaxWidth(),
-                )
-                Spacer(modifier = modifier.padding(8.dp))
-                TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
-                    label = { Text(stringResource(id = R.string.neighborhood)) },
-                    modifier = modifier.fillMaxWidth(),
-                )
-                Spacer(modifier = Modifier.size(16.dp))
-                TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
-                    label = { Text(stringResource(id = R.string.address_complement)) },
-                    modifier = modifier.fillMaxWidth(),
-                )
-                Spacer(modifier = Modifier.size(16.dp))
-
-                // Create an Outlined Text Field
-                // with icon and not expanded
-                TextField(value = mSelectedText,
-                    onValueChange = { mSelectedText = it },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .onGloballyPositioned { coordinates ->
-                            // This value is used to assign to
-                            // the DropDown the same width
-                            mTextFieldSize = coordinates.size.toSize()
-                        },
-                    label = { Text(stringResource(id = R.string.address_state)) },
-                    trailingIcon = {
-                        Icon(icon,
-                            "contentDescription",
-                            Modifier.clickable { mExpanded = !mExpanded })
-                    })
-
-                // Create a drop-down menu with list of cities,
-                // when clicked, set the Text Field text as the city selected
-                DropdownMenu(expanded = mExpanded,
-                    onDismissRequest = { mExpanded = false },
-                    modifier = Modifier.width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
-                ) {
-                    mCities.forEach { label ->
-                        DropdownMenuItem(onClick = {
-                            mSelectedText = label
-                            mExpanded = false
-                        }, text = { Text(text = label) })
-
-                    }
-                }
-            }
-
-            //Spacer(modifier = Modifier.size(8.dp))
-
-            // Create an Outlined Text Field
-            // with icon and not expanded
-            TextField(value = mSelectedText,
-                onValueChange = { mSelectedText = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .onGloballyPositioned { coordinates ->
-                        // This value is used to assign to
-                        // the DropDown the same width
-                        mTextFieldSize = coordinates.size.toSize()
-                    },
-                label = { Text(stringResource(id = R.string.address_city)) },
-                trailingIcon = {
-                    Icon(icon, "contentDescription", Modifier.clickable { mExpanded = !mExpanded })
-                })
-
-            // Create a drop-down menu with list of cities,
-            // when clicked, set the Text Field text as the city selected
-            DropdownMenu(expanded = mExpanded,
-                onDismissRequest = { mExpanded = false },
-                modifier = Modifier.width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
-            ) {
-                mCities.forEach { label ->
-                    DropdownMenuItem(onClick = {
-                        mSelectedText = label
-                        mExpanded = false
-                    }, text = { Text(text = label) })
-
-                }
-            }
-
-            //Spacer(modifier = Modifier.size(16.dp))
-            Text(
-                text = stringResource(id = R.string.maximum_display_distance),
-                //fontSize = 24.sp
-            )
-            //Spacer(modifier = Modifier.size(8.dp))
-            Column(
-                modifier = modifier, horizontalAlignment = Alignment.End
-            ) {
-                Text(text = ("%.2f").format(sliderPosition) + " km")
-                Slider(
-                    value = sliderPosition,
-                    onValueChange = { sliderPosition = it },
-                    valueRange = 0f..100f,
-                )
-
-            }
-            Row(
-                modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                TextButton(
-                    onClick = onCancelButtonClicked
-                ) {
-                    Text(text = stringResource(id = R.string.back_button))
-                }
-                Button(onClick = onNextButtonClicked) {
-                    Text(text = stringResource(id = R.string.continue_button))
-
-                }
-            }
-        }
-
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SignUpAddressDataPagePreview() {
-    AppTheme {
-        SignUpAddressDeliveryPersonDataPage()
-    }
-}
 
 @Composable
 fun SignUpAddressClientDataPage(
