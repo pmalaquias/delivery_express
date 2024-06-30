@@ -1,8 +1,5 @@
-package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup
-
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -36,7 +33,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -47,8 +43,7 @@ import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 
-const val FILE_NAME = "state_city.json"
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpAddressDeliveryPersonDataPage(
     onCancelButtonClicked: () -> Unit = {},
@@ -59,21 +54,19 @@ fun SignUpAddressDeliveryPersonDataPage(
 
     var sliderPosition by remember { mutableFloatStateOf(0f) }
 
-    val context = LocalContext.current
-    val inputStream = context.assets.open(FILE_NAME)
-    val estados = loadStatesFromJson(inputStream)
-    //val estados= intArrayOf()//loadStatesFromJson(FILE_PATH)
-    var selectedState by remember { mutableStateOf<Estado?>(null) }
+    var selectedState by remember { mutableStateOf<String?>(null) }
     var selectedCity by remember { mutableStateOf<String?>(null) }
-    var expandState by remember { mutableStateOf(false) }
-    var expandCity by remember { mutableStateOf(false) }
+    //val estadosCidades = loadEstadosCidades()
+
+    //val estados = estadosCidades.estados.map { it.nome }
+    //val cidades = estadosCidades.estados.find { it.nome == selectedState }?.cidades ?: emptyList()
 
     // Declaring a boolean value to store
     // the expanded state of the Text Field
-    //var mExpanded by remember { mutableStateOf(false) }
+    var mExpanded by remember { mutableStateOf(false) }
 
     // Create a list of cities
-    //val mCities = listOf("Delhi", "Mumbai", "Chennai", "Kolkata", "Hyderabad", "Bengaluru", "Pune")
+    val mCities = listOf("Delhi", "Mumbai", "Chennai", "Kolkata", "Hyderabad", "Bengaluru", "Pune")
 
     // Create a string value to store the selected city
     var mSelectedText by remember { mutableStateOf("") }
@@ -81,7 +74,7 @@ fun SignUpAddressDeliveryPersonDataPage(
     var mTextFieldSize by remember { mutableStateOf(Size.Zero) }
 
     // Up Icon when expanded and down icon when collapsed
-    val icon = if (expandState) Icons.Filled.KeyboardArrowUp
+    val icon = if (mExpanded) Icons.Filled.KeyboardArrowUp
     else Icons.Filled.KeyboardArrowDown
 
 
@@ -152,22 +145,20 @@ fun SignUpAddressDeliveryPersonDataPage(
                     trailingIcon = {
                         Icon(icon,
                             "contentDescription",
-                            Modifier.clickable { expandState = !expandState })
+                            Modifier.clickable { mExpanded = !mExpanded })
                     })
 
                 // Create a drop-down menu with list of cities,
                 // when clicked, set the Text Field text as the city selected
-                DropdownMenu(
-                    expanded = expandState,
-                    onDismissRequest = { expandState = false },
+                DropdownMenu(expanded = mExpanded,
+                    onDismissRequest = { mExpanded = false },
                     modifier = Modifier.width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
                 ) {
-                    estados.forEach { estado ->
+                    mCities.forEach { label ->
                         DropdownMenuItem(onClick = {
-                            selectedState = estado
-                            selectedCity = null
-                            expandState = false
-                        }, text = { Text(text = estado.nome) })
+                            mSelectedText = label
+                            mExpanded = false
+                        }, text = { Text(text = label) })
 
                     }
                 }
@@ -188,24 +179,20 @@ fun SignUpAddressDeliveryPersonDataPage(
                     },
                 label = { Text(stringResource(id = R.string.address_city)) },
                 trailingIcon = {
-                    Icon(
-                        icon,
-                        "contentDescription",
-                        Modifier.clickable { expandCity = !expandCity })
+                    Icon(icon, "contentDescription", Modifier.clickable { mExpanded = !mExpanded })
                 })
 
             // Create a drop-down menu with list of cities,
             // when clicked, set the Text Field text as the city selected
-            DropdownMenu(
-                expanded = expandCity,
-                onDismissRequest = { expandCity = false },
+            DropdownMenu(expanded = mExpanded,
+                onDismissRequest = { mExpanded = false },
                 modifier = Modifier.width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
             ) {
-                selectedState?.cidades?.forEach { cidade ->
+                mCities.forEach { label ->
                     DropdownMenuItem(onClick = {
-                        selectedCity = cidade
-                        expandCity = false
-                    }, text = { Text(text = cidade) })
+                        mSelectedText = label
+                        mExpanded = false
+                    }, text = { Text(text = label) })
 
                 }
             }
