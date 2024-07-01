@@ -77,7 +77,6 @@ fun NavigateDrawerContent(selectedItem: Int, scope: CoroutineScope, drawerState:
         Icons.AutoMirrored.Filled.ListAlt,
         Icons.Filled.Settings,
         Icons.AutoMirrored.Filled.Help,
-        Icons.Filled.Info,
         Icons.AutoMirrored.Filled.ExitToApp
     )
 
