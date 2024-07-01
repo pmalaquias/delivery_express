@@ -1,5 +1,8 @@
 package com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces
 
+import com.pmalaquias.deliveryexpress.data.models.enums.VehicleColor
+import com.pmalaquias.deliveryexpress.data.models.enums.VehicleType
+
 /**
  * An interface that defines the properties and methods for managing vehicle data in a ViewModel.
  *
@@ -10,7 +13,7 @@ interface IVehicleDataViewModel {
     /**
      * The type of the user's vehicle.
      */
-    var vehicleType : String
+    var vehicleType : VehicleType
 
     /**
      * The model of the user's vehicle.
@@ -25,14 +28,14 @@ interface IVehicleDataViewModel {
     /**
      * The color of the user's vehicle.
      */
-    var vehicleColor : String
+    var vehicleColor : VehicleColor
 
     /**
      * Updates the value of the "vehicleType" field.
      *
      * @param vehicleType The new value of the "vehicleType" field.
      */
-    fun onVehicleTypeChange(vehicleType: String)
+    fun onVehicleTypeChange(vehicleType: VehicleType)
 
     /**
      * Updates the value of the "vehicleModel" field.
@@ -53,7 +56,7 @@ interface IVehicleDataViewModel {
      *
      * @param vehicleColor The new value of the "vehicleColor" field.
      */
-    fun onVehicleColorChange(vehicleColor: String)
+    fun onVehicleColorChange(vehicleColor: VehicleColor)
 
     /**
      * Submits the vehicle data entered by the user.
