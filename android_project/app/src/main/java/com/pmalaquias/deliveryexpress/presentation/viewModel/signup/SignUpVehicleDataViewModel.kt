@@ -4,6 +4,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.pmalaquias.deliveryexpress.data.models.enums.VehicleColor
+import com.pmalaquias.deliveryexpress.data.models.enums.VehicleType
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.uiState.SignupVehicleDataUiState
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IVehicleDataViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,10 +28,10 @@ class SignUpVehicleDataViewModel : ViewModel(), IVehicleDataViewModel {
     private val _uiState = MutableStateFlow(SignupVehicleDataUiState())
     val uiState: StateFlow<SignupVehicleDataUiState> = _uiState.asStateFlow()
 
-    override var vehicleType by mutableStateOf("")
+    override var vehicleType by mutableStateOf(VehicleType.Car)
     override var vehicleModel by mutableStateOf("")
     override var vehiclePlate by mutableStateOf("")
-    override var vehicleColor by mutableStateOf("")
+    override var vehicleColor by mutableStateOf(VehicleColor.White)
     //override var isLoading by mutableStateOf(false)
 
     /**
@@ -37,7 +39,7 @@ class SignUpVehicleDataViewModel : ViewModel(), IVehicleDataViewModel {
      *
      * @param vehicleType The new value for the vehicle type state.
      */
-    override fun onVehicleTypeChange(vehicleType: String) {
+    override fun onVehicleTypeChange(vehicleType: VehicleType) {
         this.vehicleType = vehicleType
     }
 
@@ -64,7 +66,7 @@ class SignUpVehicleDataViewModel : ViewModel(), IVehicleDataViewModel {
      *
      * @param vehicleColor The new value for the vehicle color state.
      */
-    override fun onVehicleColorChange(vehicleColor: String) {
+    override fun onVehicleColorChange(vehicleColor: VehicleColor) {
         this.vehicleColor = vehicleColor
     }
 
@@ -95,10 +97,10 @@ class SignUpVehicleDataViewModel : ViewModel(), IVehicleDataViewModel {
      * Resets all the vehicle data states to their default values.
      */
     override fun resetVehicleData() {
-        vehicleType = ""
+        vehicleType = VehicleType.Car
         vehicleModel = ""
         vehiclePlate = ""
-        vehicleColor = ""
+        vehicleColor = VehicleColor.White
     }
 
 }
