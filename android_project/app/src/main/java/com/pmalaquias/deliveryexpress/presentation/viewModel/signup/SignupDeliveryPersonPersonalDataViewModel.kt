@@ -27,6 +27,7 @@ class SignupDeliveryPersonPersonalDataViewModel : ViewModel(), IPersonalDataView
     // The current values of the input fields on the SignupDeliveryPersonPersonalData screen.
     override var name by mutableStateOf("")
     override var birthDate by mutableStateOf("")
+    override var commercialName by mutableStateOf("")
     override var id by mutableStateOf("")
     override var phone by mutableStateOf("")
     override var photoPath by mutableStateOf("")
@@ -53,6 +54,10 @@ class SignupDeliveryPersonPersonalDataViewModel : ViewModel(), IPersonalDataView
     override fun onNameChange(name: String) {
         println("name: $name")
         this.name = name
+    }
+
+    override fun onCommercialNameChange(commercialName: String) {
+        TODO("Not yet implemented")
     }
 
     /**

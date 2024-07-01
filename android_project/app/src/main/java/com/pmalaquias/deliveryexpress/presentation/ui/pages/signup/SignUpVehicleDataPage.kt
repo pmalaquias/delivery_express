@@ -46,6 +46,8 @@ import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.Ap
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionTypeColorCustom
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionTypeCustom
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpVehicleDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IVehicleDataViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,19 +55,20 @@ import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 fun SignUpVehicleDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IVehicleDataViewModel
 ) {
-    var text by rememberSaveable { mutableStateOf("") }
-
     var vehicleGroup: VehicleType? by rememberSaveable { mutableStateOf(VehicleType.Car) }
     var colorGroup: VehicleColor? by rememberSaveable { mutableStateOf(VehicleColor.White) }
 
     val valueVehicleTypeChangedHandler: (VehicleType?) -> Unit = { value: VehicleType? ->
-        vehicleGroup = value
+        if (value != null) viewModel.onVehicleTypeChange(value)
     }
 
     val valueVehicleColorChangedHandler: (VehicleColor?) -> Unit = { value: VehicleColor? ->
-        colorGroup = value
+        if (value != null) {
+            viewModel.onVehicleColorChange(value)
+        }
     }
 
     val alpha = 0.6f
@@ -178,8 +181,8 @@ fun SignUpVehicleDataPage(
                 Spacer(modifier = Modifier.size(16.dp))
 
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.vehicleModel,
+                    onValueChange = { viewModel.onVehicleModelChange(it)},
                     label = { Text(stringResource(id = R.string.vehicle_model)) },
                     modifier = modifier.fillMaxWidth(),
                 )
@@ -256,7 +259,7 @@ fun SignUpVehicleDataPage(
                             ColorPicker(
                                 onCancelButtonClicked = {
                                     isClicked = false
-                                    colorGroup =  VehicleColor.White
+                                    colorGroup = VehicleColor.White
                                 },
                                 onContinueButtonClicked = { isClicked = false }
 
@@ -267,8 +270,8 @@ fun SignUpVehicleDataPage(
 
                 Spacer(modifier = modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.vehiclePlate,
+                    onValueChange = { viewModel.onVehiclePlateChange(it)},
                     label = { Text(stringResource(id = R.string.license_plate)) },
                     modifier = modifier.fillMaxWidth(),
                 )
@@ -296,7 +299,7 @@ fun SignUpVehicleDataPage(
 @Composable
 fun SignUpVehicleDataPagePreview() {
     AppTheme {
-        SignUpVehicleDataPage()
+        SignUpVehicleDataPage(viewModel = SignUpVehicleDataViewModel())
     }
 }
 

@@ -43,6 +43,7 @@ fun SignUpDeliveryDataPage(
     viewModel: IDeliveryDataViewModel
 ) {
 
+    //TODO: Implementar ViewModel
 
     var deliveryGroup: DeliveryType? by rememberSaveable { mutableStateOf(DeliveryType.Food) }
 

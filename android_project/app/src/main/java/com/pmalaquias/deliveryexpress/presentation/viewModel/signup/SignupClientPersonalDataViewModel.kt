@@ -26,7 +26,7 @@ class SignupClientPersonalDataViewModel : ViewModel(), IPersonalDataViewModel {
 
     // UI state
     override var name by mutableStateOf("")
-    var commercialName by mutableStateOf("")
+    override var commercialName by mutableStateOf("")
     override var birthDate by mutableStateOf("")
     override var id by mutableStateOf("")
     override var phone by mutableStateOf("")
@@ -65,7 +65,7 @@ class SignupClientPersonalDataViewModel : ViewModel(), IPersonalDataViewModel {
      *
      * @param commercialName The new value of the "commercialName" field.
      */
-    fun onCommercialNameChange(commercialName: String) {
+    override fun onCommercialNameChange(commercialName: String) {
         this.commercialName = commercialName
     }
 

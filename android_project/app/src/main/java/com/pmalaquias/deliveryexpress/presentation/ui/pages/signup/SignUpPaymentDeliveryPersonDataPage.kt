@@ -30,14 +30,16 @@ import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpPaymentDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPaymentDataViewModel
 
 @Composable
 fun SignUpPaymentDeliveryPersonDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IPaymentDataViewModel
 ) {
-    val viewModel: SignUpPaymentDataViewModel = viewModel()
+
 
     Scaffold(
         Modifier,
@@ -156,7 +158,7 @@ fun SignUpPaymentDeliveryPersonDataPage(
 @Composable
 fun PreviewSignUpPaymentDataPage() {
     AppTheme {
-        SignUpPaymentDeliveryPersonDataPage()
+        SignUpPaymentDeliveryPersonDataPage(viewModel = SignUpPaymentDataViewModel())
     }
 }
 

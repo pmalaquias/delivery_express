@@ -57,6 +57,8 @@ fun SignUpAddressClientDataPage(
     modifier: Modifier = Modifier,
     viewModel: IAddressDataViewModel
 ) {
+    //TODO: Implementar ViewModel
+    
     var text by rememberSaveable { mutableStateOf("") }
 
     var sliderPosition by remember { mutableFloatStateOf(0f) }

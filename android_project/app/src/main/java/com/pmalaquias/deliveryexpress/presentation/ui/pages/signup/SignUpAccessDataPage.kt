@@ -44,11 +44,9 @@ import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.I
 fun SignUpAccessDeliveryPersonDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IAccessDataViewModel
 ) {
-    // ViewModel for this page
-    val viewModel: SignUpAccessDataViewModel = viewModel()
-
     // Scaffold for the layout of this page
     Scaffold(
         Modifier,
@@ -129,7 +127,7 @@ fun SignUpAccessDeliveryPersonDataPage(
 @Composable
 fun SignUpAccessDataPagePreview() {
     AppTheme {
-        SignUpAccessDeliveryPersonDataPage()
+        SignUpAccessDeliveryPersonDataPage(viewModel = SignUpAccessDataViewModel())
     }
 }
 

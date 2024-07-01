@@ -12,7 +12,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -61,7 +60,6 @@ import androidx.core.content.FileProvider
 import androidx.graphics.shapes.CornerRounding
 import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.star
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.pmalaquias.deliveryexpress.R
@@ -72,6 +70,7 @@ import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.Ch
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupClientPersonalDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupDeliveryPersonPersonalDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPersonalDataViewModel
 import kotlinx.coroutines.delay
 import java.io.File
 
@@ -92,10 +91,10 @@ import java.io.File
 fun SignUpPersonalDeliveryPersonDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IPersonalDataViewModel
 ) {
-    // ViewModel for the SignupDeliveryPersonPersonalData screen.
-    val viewModel: SignupDeliveryPersonPersonalDataViewModel = viewModel()
+    //TODO: Implementar ViewModel
 
     // Local context.
     val context = LocalContext.current
@@ -390,7 +389,7 @@ fun SignUpPersonalDeliveryPersonDataPage(
 @Composable
 fun SignUpPagePreview() {
     AppTheme {
-        SignUpPersonalDeliveryPersonDataPage()
+        SignUpPersonalDeliveryPersonDataPage(viewModel = SignupDeliveryPersonPersonalDataViewModel())
     }
 }
 
@@ -412,7 +411,7 @@ fun SignUpPersonalClientDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
     modifier: Modifier = Modifier,
-    viewModel: SignupClientPersonalDataViewModel,
+    viewModel: IPersonalDataViewModel,
 ) {
     // ViewModel for the SignupClientPersonalData screen.
     //val viewModel: SignupClientPersonalDataViewModel = viewModel()

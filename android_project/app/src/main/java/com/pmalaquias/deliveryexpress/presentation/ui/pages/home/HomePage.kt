@@ -52,6 +52,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomePage(modifier: Modifier = Modifier) {
+    //TODO: implement viewModel
 
     // The state of the modal bottom sheet.
     val sheetState = rememberModalBottomSheetState()

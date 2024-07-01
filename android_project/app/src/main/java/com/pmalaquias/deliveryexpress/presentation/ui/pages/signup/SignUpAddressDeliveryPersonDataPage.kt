@@ -42,14 +42,18 @@ import androidx.compose.ui.unit.toSize
 import com.pmalaquias.deliveryexpress.R
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.AppBarDeliveryPerson
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpAddressDataViewModel
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IAddressDataViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpAddressDeliveryPersonDataPage(
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: IAddressDataViewModel
 ) {
+    // TODO: Implement the ViewModel for this page
     var text by rememberSaveable { mutableStateOf("") }
 
     var sliderPosition by remember { mutableFloatStateOf(0f) }
@@ -102,29 +106,29 @@ fun SignUpAddressDeliveryPersonDataPage(
                 )
                 Spacer(modifier = Modifier.size(16.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.street,
+                    onValueChange = { viewModel.onStreetChange(it) },
                     label = { Text(stringResource(id = R.string.address_home)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.number.toString(),
+                    onValueChange = { viewModel.onNumberChange(it.toInt()) },
                     label = { Text(stringResource(id = R.string.address_number)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = modifier.padding(8.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.neighborhood,
+                    onValueChange = { viewModel.onNeighborhoodChange(it) },
                     label = { Text(stringResource(id = R.string.neighborhood)) },
                     modifier = modifier.fillMaxWidth(),
                 )
                 Spacer(modifier = Modifier.size(16.dp))
                 TextField(
-                    value = text,
-                    onValueChange = { /*TODO*/ },
+                    value = viewModel.complement,
+                    onValueChange = { viewModel.onComplementChange(it) },
                     label = { Text(stringResource(id = R.string.address_complement)) },
                     modifier = modifier.fillMaxWidth(),
                 )
@@ -132,8 +136,9 @@ fun SignUpAddressDeliveryPersonDataPage(
 
                 // Create an Outlined Text Field
                 // with icon and not expanded
-                TextField(value = mSelectedText,
-                    onValueChange = { mSelectedText = it },
+                TextField(
+                    value = viewModel.state,
+                    onValueChange = { viewModel.onStateChange(it) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .onGloballyPositioned { coordinates ->
@@ -150,7 +155,8 @@ fun SignUpAddressDeliveryPersonDataPage(
 
                 // Create a drop-down menu with list of cities,
                 // when clicked, set the Text Field text as the city selected
-                DropdownMenu(expanded = mExpanded,
+                DropdownMenu(
+                    expanded = mExpanded,
                     onDismissRequest = { mExpanded = false },
                     modifier = Modifier.width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
                 ) {
@@ -168,8 +174,8 @@ fun SignUpAddressDeliveryPersonDataPage(
 
             // Create an Outlined Text Field
             // with icon and not expanded
-            TextField(value = mSelectedText,
-                onValueChange = { mSelectedText = it },
+            TextField(value = viewModel.city,
+                onValueChange = { viewModel.onCityChange(it) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .onGloballyPositioned { coordinates ->
@@ -184,7 +190,8 @@ fun SignUpAddressDeliveryPersonDataPage(
 
             // Create a drop-down menu with list of cities,
             // when clicked, set the Text Field text as the city selected
-            DropdownMenu(expanded = mExpanded,
+            DropdownMenu(
+                expanded = mExpanded,
                 onDismissRequest = { mExpanded = false },
                 modifier = Modifier.width(with(LocalDensity.current) { mTextFieldSize.width.toDp() })
             ) {
@@ -204,12 +211,16 @@ fun SignUpAddressDeliveryPersonDataPage(
             )
             //Spacer(modifier = Modifier.size(8.dp))
             Column(
-                modifier = modifier, horizontalAlignment = Alignment.End
+                modifier = modifier,
+                horizontalAlignment = Alignment.End,
             ) {
                 Text(text = ("%.2f").format(sliderPosition) + " km")
                 Slider(
-                    value = sliderPosition,
-                    onValueChange = { sliderPosition = it },
+                    value = viewModel.maximumDistanceMap.toFloat(),
+                    onValueChange = {
+                        sliderPosition = it
+                        viewModel.onMaximumDistanceMapChange(it.toDouble())
+                    },
                     valueRange = 0f..100f,
                 )
 
@@ -236,6 +247,6 @@ fun SignUpAddressDeliveryPersonDataPage(
 @Composable
 fun SignUpAddressDataPagePreview() {
     AppTheme {
-        SignUpAddressDeliveryPersonDataPage()
+        SignUpAddressDeliveryPersonDataPage(viewModel = SignUpAddressDataViewModel())
     }
 }
