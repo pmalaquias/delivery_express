@@ -13,6 +13,11 @@ interface IPersonalDataViewModel {
     var name: String
 
     /**
+     * The user's commercial name.
+     */
+    var commercialName: String
+
+    /**
      * The user's birth date.
      */
     var birthDate: String
@@ -45,6 +50,13 @@ interface IPersonalDataViewModel {
      * @param name The new value of the "name" field.
      */
     fun onNameChange(name: String)
+
+    /**
+     * Updates the value of the "commercialName" field.
+     *
+     * @param commercialName The new value of the "commercialName" field.
+     */
+    fun onCommercialNameChange(commercialName: String)
 
     /**
      * Updates the value of the "birthDate" field.
