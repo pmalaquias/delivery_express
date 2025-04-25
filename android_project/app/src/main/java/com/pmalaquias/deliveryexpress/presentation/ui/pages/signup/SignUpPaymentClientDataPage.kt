@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -42,11 +41,10 @@ import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.Ca
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.components.RadioOptionCardBrandCustom
 import com.pmalaquias.deliveryexpress.presentation.ui.theme.AppTheme
 import com.pmalaquias.deliveryexpress.presentation.ui.utils.MaskVisualTransformation
-import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPersonalDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignUpPaymentDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupClientPersonalDataViewModel
 import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPaymentDataViewModel
-import java.util.Date
+import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.interfaces.IPersonalDataViewModel
 
 @Composable
 fun SignUpPaymentClientDataPage(
@@ -280,14 +278,17 @@ fun SignUpPaymentClientDataPage(
                 ) {
                     Text(text = stringResource(id = R.string.back_button))
                 }
-                Button(onClick = {
-                    val year = yearExpiration.toInt() + 2000
-                    val date = Date(
-                        year - 1900,
-                        monthExpiration.toInt() - 1,
-                        1
-                    )
-                    viewModel.onCardExpirationChange(date)
+                Button(
+                    enabled = viewModel.acceptTermsAndConditions,
+                    onClick = {
+                    //TODO: Implementar validação de data de expiração
+//                    val year = yearExpiration.toInt() + 2000
+//                    val date = Date(
+//                        year - 1900,
+//                        monthExpiration.toInt() - 1,
+//                        1
+//                    )
+//                    viewModel.onCardExpirationChange(date)
                     onNextButtonClicked()
                 }) {
                     Text(text = stringResource(id = R.string.continue_button))

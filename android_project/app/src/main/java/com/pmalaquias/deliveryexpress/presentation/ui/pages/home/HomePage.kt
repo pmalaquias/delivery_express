@@ -51,7 +51,10 @@ import kotlinx.coroutines.launch
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomePage(modifier: Modifier = Modifier) {
+fun HomeCustomerPage(
+    modifier: Modifier = Modifier,
+    onExitButtonClick: () -> Unit = {},
+    ) {
     //TODO: implement viewModel
 
     // The state of the modal bottom sheet.
@@ -70,14 +73,15 @@ fun HomePage(modifier: Modifier = Modifier) {
         drawerState = drawerState,
         drawerContent = {
             // The content of the navigation drawer.
-            NavigateDrawerContent(selectedItemIndex, scope, drawerState)
+            NavigateDrawerContent(selectedItemIndex, scope, drawerState, onExitButtonClick)
         },
 
         ) {
         // The main content of the home page.
         Scaffold(topBar = {
             // The top app bar.
-            TopAppBar(title = { Text(text = stringResource(id = R.string.title_home)) },
+            TopAppBar(
+                title = { Text(text = stringResource(id = R.string.title_home)) },
                 navigationIcon = {
                 // The menu button.
                 IconButton(onClick = {
@@ -142,6 +146,6 @@ fun HomePage(modifier: Modifier = Modifier) {
 @Composable
 fun HomePagePreview() {
     AppTheme {
-        HomePage()
+        HomeCustomerPage()
     }
 }

@@ -32,7 +32,12 @@ fun MapScreen() {
 
     // The UI settings for the map, with zoom controls disabled.
     val uiSettings by remember {
-        mutableStateOf(MapUiSettings(zoomControlsEnabled = false))
+        mutableStateOf(MapUiSettings(zoomControlsEnabled = false,
+            myLocationButtonEnabled = true,
+            compassEnabled = true,
+            scrollGesturesEnabled = true,
+            tiltGesturesEnabled = true,
+            zoomGesturesEnabled = true))
     }
 
     // The properties for the map, with the map type set to normal.

@@ -16,11 +16,9 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberDrawerState
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -45,7 +43,10 @@ import kotlinx.coroutines.launch
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeDeliveryPersonPage() {
+fun HomeDeliveryPersonPage(
+    modifier: Modifier = Modifier,
+    onExitButtonClick: () -> Unit = {},
+) {
     //TODO:Implement viewModel
 
     // The CoroutineScope in which to launch the coroutine that handles drawer state changes.
@@ -68,7 +69,7 @@ fun HomeDeliveryPersonPage() {
         drawerState = drawerState,
         drawerContent = {
             // The content of the navigation drawer.
-            NavigateDrawerContent(selectedItemIndex, scope, drawerState)
+            NavigateDrawerContent(selectedItemIndex, scope, drawerState, onExitButtonClick)
         },
     ) {
         // A Scaffold that contains the top app bar and the main content.

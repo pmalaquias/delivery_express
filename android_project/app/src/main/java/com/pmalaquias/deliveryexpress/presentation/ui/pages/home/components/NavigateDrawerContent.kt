@@ -16,7 +16,6 @@ import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.automirrored.filled.Help
 import androidx.compose.material.icons.automirrored.filled.ListAlt
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SwapCalls
 import androidx.compose.material3.DrawerState
@@ -55,7 +54,12 @@ import kotlinx.coroutines.launch
  * @param drawerState The current state of the drawer (open or closed).
  */
 @Composable
-fun NavigateDrawerContent(selectedItem: Int, scope: CoroutineScope, drawerState: DrawerState) {
+fun NavigateDrawerContent(
+    selectedItem: Int,
+    scope: CoroutineScope,
+    drawerState: DrawerState,
+    onExitButtonClick: () -> Unit,
+) {
 
     // The index of the currently selected menu item, saved across configuration changes.
     var selectedItemIndex by rememberSaveable { mutableIntStateOf(0) }
@@ -130,8 +134,14 @@ fun NavigateDrawerContent(selectedItem: Int, scope: CoroutineScope, drawerState:
                 selected = index == selectedItemIndex,
                 onClick = {
                     selectedItemIndex = index
-                    scope.launch {
-                        drawerState.close()
+                    if(index == 5){
+                        // Exit
+                        onExitButtonClick()
+
+                    }else{
+                        scope.launch {
+                            drawerState.close()
+                        }
                     }
                 },
                 modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
@@ -149,6 +159,7 @@ fun NavigateDrawerContentPreview() {
         val selectedItemIndex by rememberSaveable {
             mutableIntStateOf(0)
         }
-        NavigateDrawerContent(selectedItemIndex, scope, drawerState)
+        val onExitButtonClick = {}
+        NavigateDrawerContent(selectedItemIndex, scope, drawerState, onExitButtonClick)
     }
 }

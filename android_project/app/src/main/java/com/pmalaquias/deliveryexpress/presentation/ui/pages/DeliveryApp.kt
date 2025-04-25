@@ -14,7 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.home.HomeDeliveryPersonPage
-import com.pmalaquias.deliveryexpress.presentation.ui.pages.home.HomePage
+import com.pmalaquias.deliveryexpress.presentation.ui.pages.home.HomeCustomerPage
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.login.LoginPage
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAccessClientDataPage
 import com.pmalaquias.deliveryexpress.presentation.ui.pages.signup.SignUpAccessDeliveryPersonDataPage
@@ -37,16 +37,16 @@ import com.pmalaquias.deliveryexpress.presentation.viewModel.signup.SignupDelive
 enum class DeliveryScreen {
     Login,
     SignUpPersonalDeliveryManData,
-    SignUpPersonalClientData,
+    SignUpPersonalCustomerData,
     SignUpAccessDeliveryPersonData,
-    SignUpAccessClientData,
+    SignUpAccessCustomerData,
     SignUpAddressDeliveryPersonData,
-    SignUpAddressClientData,
+    SignUpAddressCustomerData,
     SignUpVehicleDeliveryPersonData,
     SignUpDeliveryData,
     SignUpPaymentDeliveryPersonData,
-    SignUpPaymentClientData,
-    Home,
+    SignUpPaymentCustomerData,
+    HomeCustomerPage,
     HomeDeliveryPersonPage
 }
 
@@ -67,7 +67,8 @@ fun DeliveryApp() {
     val valuePageDeliveryChangeHandler: (DeliveryScreen) -> Unit =
         { value: DeliveryScreen -> pageState = value }
 
-    val signupDeliveryPersonPersonalDataViewModel: SignupDeliveryPersonPersonalDataViewModel = viewModel()
+    val signupDeliveryPersonPersonalDataViewModel: SignupDeliveryPersonPersonalDataViewModel =
+        viewModel()
     val signUpDeliveryPersonAccessDataDataViewModel: SignUpAccessDataViewModel = viewModel()
     val signUpVehicleDataViewModel: SignUpVehicleDataViewModel = viewModel()
 
@@ -83,64 +84,70 @@ fun DeliveryApp() {
         composable(DeliveryScreen.Login.name) {
             LoginPage(
                 onSignUpDeliveryPersonButtonClicked = { navController.navigate(DeliveryScreen.SignUpPersonalDeliveryManData.name) },
-                onSingUpClientButtonClicked = { navController.navigate(DeliveryScreen.SignUpPersonalClientData.name) },
-                onLoginButtonClicked = { navController.navigate(DeliveryScreen.Home.name) }
+                onSingUpClientButtonClicked = { navController.navigate(DeliveryScreen.SignUpPersonalCustomerData.name) },
+                onLoginButtonClicked = { navController.navigate(DeliveryScreen.HomeCustomerPage.name) }
             )
 
         }
         //SingUp Delivery person pages
         composable(DeliveryScreen.SignUpPersonalDeliveryManData.name) {
             SignUpPersonalDeliveryPersonDataPage(
-                onCancelButtonClicked = {navController.popBackStack()},
-                onNextButtonClicked = {navController.navigate(DeliveryScreen.SignUpAccessDeliveryPersonData.name)},
+                onCancelButtonClicked = { navController.popBackStack() },
+                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpAccessDeliveryPersonData.name) },
                 viewModel = signupDeliveryPersonPersonalDataViewModel
 
             )
         }
         composable(DeliveryScreen.SignUpAccessDeliveryPersonData.name) {
             SignUpAccessDeliveryPersonDataPage(
-                onCancelButtonClicked = {navController.popBackStack()},
-                onNextButtonClicked = {navController.navigate(DeliveryScreen.SignUpAddressDeliveryPersonData.name)},
+                onCancelButtonClicked = { navController.popBackStack() },
+                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpAddressDeliveryPersonData.name) },
                 viewModel = signUpDeliveryPersonAccessDataDataViewModel
             )
         }
         composable(DeliveryScreen.SignUpAddressDeliveryPersonData.name) {
             SignUpAddressDeliveryPersonDataPage(
-                onCancelButtonClicked = {navController.popBackStack()},
-                onNextButtonClicked = {navController.navigate(DeliveryScreen.SignUpVehicleDeliveryPersonData.name)},
+                onCancelButtonClicked = { navController.popBackStack() },
+                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpVehicleDeliveryPersonData.name) },
                 viewModel = signUpAddressDataViewModel
             )
         }
         composable(DeliveryScreen.SignUpVehicleDeliveryPersonData.name) {
             SignUpVehicleDataPage(
-                onCancelButtonClicked = {navController.popBackStack()},
-                onNextButtonClicked = {navController.navigate(DeliveryScreen.Home.name)},
+                onCancelButtonClicked = { navController.popBackStack() },
+                onNextButtonClicked = {
+                    navController.navigate(DeliveryScreen.HomeDeliveryPersonPage.name) {
+                        popUpTo(DeliveryScreen.Login.name) {
+                            inclusive = true
+                        }
+                    }
+                },
                 viewModel = signUpVehicleDataViewModel
             )
         }
         composable(DeliveryScreen.SignUpPaymentDeliveryPersonData.name) {
             SignUpPaymentDeliveryPersonDataPage(
-                onCancelButtonClicked = {navController.popBackStack()},
-                onNextButtonClicked = {navController.navigate(DeliveryScreen.HomeDeliveryPersonPage.name)},
+                onCancelButtonClicked = { navController.popBackStack() },
+                onNextButtonClicked = { navController.navigate(DeliveryScreen.HomeDeliveryPersonPage.name) },
                 viewModel = signUpPaymentDataViewModel,
             )
         }
         //SingUp Client pages
-        composable(DeliveryScreen.SignUpPersonalClientData.name) {
+        composable(DeliveryScreen.SignUpPersonalCustomerData.name) {
             SignUpPersonalClientDataPage(
                 onCancelButtonClicked = { navController.popBackStack() },
-                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpAccessClientData.name) },
+                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpAccessCustomerData.name) },
                 viewModel = signupClientPersonalDataViewModel
             )
         }
-        composable(DeliveryScreen.SignUpAccessClientData.name) {
+        composable(DeliveryScreen.SignUpAccessCustomerData.name) {
             SignUpAccessClientDataPage(
                 onCancelButtonClicked = { navController.popBackStack() },
-                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpAddressClientData.name) },
+                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpAddressCustomerData.name) },
                 viewModel = signUpClientAccessDataDataViewModel
             )
         }
-        composable(DeliveryScreen.SignUpAddressClientData.name) {
+        composable(DeliveryScreen.SignUpAddressCustomerData.name) {
             SignUpAddressClientDataPage(
                 onCancelButtonClicked = { navController.popBackStack() },
                 onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpDeliveryData.name) },
@@ -150,24 +157,42 @@ fun DeliveryApp() {
         composable(DeliveryScreen.SignUpDeliveryData.name) {
             SignUpDeliveryDataPage(
                 onCancelButtonClicked = { navController.popBackStack() },
-                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpPaymentClientData.name) },
+                onNextButtonClicked = { navController.navigate(DeliveryScreen.SignUpPaymentCustomerData.name) },
                 viewModel = signUpDeliveryDataViewModel
             )
         }
-        composable(DeliveryScreen.SignUpPaymentClientData.name) {
+        composable(DeliveryScreen.SignUpPaymentCustomerData.name) {
             SignUpPaymentClientDataPage(
                 onCancelButtonClicked = { navController.popBackStack() },
-                onNextButtonClicked = { navController.navigate(DeliveryScreen.Home.name) },
+                onNextButtonClicked = {
+                    navController.navigate(DeliveryScreen.HomeCustomerPage.name)
+                },
                 viewModel = signUpPaymentDataViewModel,
                 personalDataViewModel = signupClientPersonalDataViewModel
             )
         }
         //Home
-        composable(DeliveryScreen.Home.name) {
-            HomePage()
+        composable(DeliveryScreen.HomeCustomerPage.name) {
+            HomeCustomerPage(
+                onExitButtonClick = {
+                    navController.navigate(DeliveryScreen.Login.name) {
+                        popUpTo(DeliveryScreen.Login.name) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
         composable(DeliveryScreen.HomeDeliveryPersonPage.name) {
-            HomeDeliveryPersonPage()
+            HomeDeliveryPersonPage(
+                onExitButtonClick = {
+                    navController.navigate(DeliveryScreen.Login.name) {
+                        popUpTo(DeliveryScreen.Login.name) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
 
     }

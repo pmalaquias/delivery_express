@@ -62,12 +62,16 @@ fun SignUpVehicleDataPage(
     var colorGroup: VehicleColor? by rememberSaveable { mutableStateOf(VehicleColor.White) }
 
     val valueVehicleTypeChangedHandler: (VehicleType?) -> Unit = { value: VehicleType? ->
-        if (value != null) viewModel.onVehicleTypeChange(value)
+        if (value != null) {
+            viewModel.onVehicleTypeChange(value)
+            vehicleGroup = value
+        }
     }
 
     val valueVehicleColorChangedHandler: (VehicleColor?) -> Unit = { value: VehicleColor? ->
         if (value != null) {
             viewModel.onVehicleColorChange(value)
+            colorGroup = value
         }
     }
 
