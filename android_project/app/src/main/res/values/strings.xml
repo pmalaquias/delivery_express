@@ -9,8 +9,8 @@
     <string name="signup_button">Sign Up</string>
     <string name="signup_message">Don\'t have an account?</string>
     <string name="continue_button">Continue</string>
-    <string name="client_label">Client</string>
-    <string name="register_client">Register Client</string>
+    <string name="client_label">Customer</string>
+    <string name="register_client">Register Customer</string>
     <string name="register_delivery_person">Register Delivery Person</string>
     <string name="delivery_person_label">Delivery Person</string>
     <string name="client_text">I have a business and I\'m looking for delivery person</string>
