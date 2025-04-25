@@ -10,8 +10,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Visibility
+import androidx.compose.material.icons.outlined.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -58,7 +60,7 @@ fun LoginPage(
         stringResource(R.string.login_carousel_message_1) to stringResource(R.string.login_carousel_message_1_1),
         stringResource(R.string.login_carousel_message_2) to stringResource(R.string.login_carousel_message_2_1),
         stringResource(R.string.login_carousel_message_3) to stringResource(R.string.login_carousel_message_3_1),
-        )
+    )
 
     Column(
         modifier = modifier
@@ -90,10 +92,14 @@ fun LoginPage(
                 visualTransformation = if (visiblePassword) VisualTransformation.None else PasswordVisualTransformation(),
                 modifier = modifier.fillMaxWidth(),
                 trailingIcon = {
-                    TextButton(onClick = {
-                        visiblePassword = !visiblePassword
-                    }) {
-                        Icon(Icons.Outlined.Visibility, "Visibility")
+                    if (viewModel.password.isNotEmpty()) {
+                        IconButton(onClick = { visiblePassword = !visiblePassword }) {
+                            val icon =
+                                if (visiblePassword) Icons.Outlined.VisibilityOff else Icons.Outlined.Visibility
+                            val description =
+                                if (visiblePassword) "Hide Password" else "Show Password"
+                            Icon(imageVector = icon, contentDescription = description)
+                        }
                     }
                 })
             Spacer(modifier = Modifier.size(16.dp))
