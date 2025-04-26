@@ -96,7 +96,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
 
     val navVersion = "2.8.9"
-    val composeVersion = "1.7.5"
+    val composeVersion = "1.8.0"
 
 
     implementation("androidx.graphics:graphics-core:1.0.3")
@@ -114,7 +114,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
     implementation("androidx.compose.material3:material3:1.3.2")
-    implementation("androidx.compose.material:material-icons-extended-android:$composeVersion")
+    implementation("androidx.compose.material:material-icons-extended-android:1.7.8")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
