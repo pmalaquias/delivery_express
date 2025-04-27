@@ -85,7 +85,7 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
     //moshi
-    implementation ("com.squareup.moshi:moshi-kotlin:1.15.1")
+    implementation ("com.squareup.moshi:moshi-kotlin:1.15.2")
     implementation("androidx.compose.animation:animation:1.8.0")
     implementation("javax.inject:javax.inject:1")
     implementation("com.google.android.datatransport:transport-runtime:4.0.0")
