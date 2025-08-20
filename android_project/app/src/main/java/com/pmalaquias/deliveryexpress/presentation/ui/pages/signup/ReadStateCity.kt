@@ -1,11 +1,10 @@
 package com.pmalaquias.deliveryexpress.presentation.ui.pages.signup
 
-import com.google.gson.Gson
+/*import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.serialization.Serializable
 import okio.FileNotFoundException
 import java.io.InputStream
-import java.io.InputStreamReader
+import java.io.InputStreamReader*/
 
 data class Estado(
     val sigla: String,
@@ -15,7 +14,7 @@ data class Estado(
 
 data class States(val states: List<Estado>)
 
-fun loadStatesFromJson(filePath: InputStream): List<Estado> {
+/*fun loadStatesFromJson(filePath: InputStream): List<Estado> {
 
     return try {
         //val json = File(filePath).readText()
@@ -29,4 +28,4 @@ fun loadStatesFromJson(filePath: InputStream): List<Estado> {
         e.printStackTrace()
         emptyList()
     }
-}
+}*/

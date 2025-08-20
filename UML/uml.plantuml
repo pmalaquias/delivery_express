@@ -1,0 +1,372 @@
+@startuml DeliveryExpress
+
+Package Data{
+
+    Package Enums{
+        ' Define the enum types'
+
+        enum CardBrand {
+            VISA
+            MASTERCARD
+            ELO
+            HIPERCARD
+            AMEX
+            JCB
+            DINERS_CLUB
+            UNKNOWN
+        }
+
+        enum CommerceStatus{
+            OPEN
+            CLOSED
+            MAINTENANCE
+        }
+
+        enum DeliveryPersonStatus{
+            AVAILABLE
+            BUSY
+            OFFLINE
+        }
+
+        enum DeliveryType{
+            Food
+            Clothing
+            Documents
+            FragileOrder
+            HeavyOrder
+            Other
+        }
+
+        enum OrderStatus{
+            PENDING
+            IN_PROGRESS
+            DELIVERED
+            CANCELED
+        }
+
+        enum PaymentMethod{
+            CREDIT_CARD
+            DEBIT_CARD
+            CASH
+            PIX
+            PAYPAL
+            OTHER
+        }
+
+        enum ProductStatus{
+            AVAILABLE
+            UNAVAILABLE
+            DISCONTINUED  
+        }
+
+        enum TrackerStatus{
+            PENDING
+            IN_PROGRESS
+            DELIVERED
+            CANCELED
+        }
+
+        enum VehicleType{
+            Car
+            PickupTruck
+            Truck
+            Motorcycle
+            Bicycle
+            Other   
+        }
+
+        enum VehicleColor{
+            White
+            Gray
+            Red
+            Blue
+            Green
+            Black
+            Yellow
+            Other
+        }
+    }
+
+    Package Models{
+        ' Define model classes'
+        class Commerce {
+            - id: Long
+            - commeceName: String
+            - address: String
+            - phone: String
+            - operationHours: String
+            - deliveryType: DeliveryType
+            - rating: float
+            - deliveryFee: float
+            - photo: String
+            - status: CommerceStatus
+        }
+
+        class DeliveryPerson {
+            - id: Int
+            - firstName: String
+            - lastName: String
+            - email: String
+            - password: String
+            - phone: Int
+            - address: String
+            - photo: String
+            - currentLocation: String
+            - vehicleType: VehicleType
+            - vehiclePlate: String
+            - vehicleColor: VehicleColor
+            - registerDate: Date
+            - status: DeliveryPersonStatus
+        }
+
+        class Order {
+            - idOrder: Int
+            - idUser: User
+            - idCommerce: Commerce
+            - idDelivery: DeliveryPerson
+            - idTracker: Tracker
+            - addressTarget: String
+            - orderItems: OrderItem[]
+            - paymentMethod: PaymentMethod
+            - totalAmount: Double
+            - status: OrderStatus
+        }
+
+        class OrderItem{
+            - idOrderItems: Int
+            - idProducts: Products
+            - idOrders: Order
+            - quantity: Int
+            - totalPrice: Double
+            - unitPrice: Double
+        }
+
+        class Product {
+            - idProducts: Int
+            - idCommerce: Commerce
+            - productName: String
+            - description: String
+            - category: DeliveryType
+            - unityPrice: Double
+            - photo: String
+            - available: ProductStatus
+            - promotion: Boolean
+        }
+
+        class Tracker {
+            - idTracker: Int
+            - idOrder: Order
+            - status: TrackerStatus
+            - date: String
+        }
+
+        class User{
+            - id: Int
+            - firstName: String
+            - lastName: String
+            - email: String
+            - password: String
+            - phone: Int
+            - address: String
+            - photo: String
+            - registerDate: Date
+        }
+
+    }
+}
+
+
+
+Package ViewModel{
+
+    Package Interfaces{
+        'viewmodel interfaces'
+
+        interface IAccessDataViewModel {
+            -  email: String
+            -  confirmEmail: String
+            -  password: String
+            -  confirmPassword: String
+
+            + onEmailChange(email: String)
+            + onConfirmEmailChange(confirmEmail: String)
+            + onPasswordChange(password: String)
+            + onConfirmPasswordChange(confirmPassword: String)
+            + isLoading(): Boolean
+            + validateAccessData(): Boolean
+            + clearError()
+            + showError(message: String)
+            + saveAccessData()
+        }
+
+        interface IAddressDataViewModel {
+            -  street: String
+            -  number: Int
+            -  zipCode: Int
+            -  complement: String
+            -  neighborhood: String
+            -  city: String
+            -  state: String
+            -  maximumDistanceMap: Double
+
+            + onStreetChange(street: String)
+            + onNumberChange(number: Int)
+            + onZipCodeChange(zipCode: Int)
+            + onComplementChange(complement: String)
+            + onNeighborhoodChange(neighborhood: String)
+            + onCityChange(city: String)
+            + onStateChange(state: String)
+            + onMaximumDistanceMapChange(maximumDistanceMap: Double)
+            + isLoading(): Boolean
+            + validateAddressData(): Boolean
+            + clearError()
+            + saveAddressData()
+        }
+
+        interface IDeliveryDataViewModel {
+            -  deliveryType: DeliveryType
+            -  isLoading: Boolean
+
+            + onDeliveryTypeChange(deliveryType: DeliveryType)
+            + onLoadingChange(isLoading: Boolean)
+            + reset()
+        }
+
+        interface IPaymentDataViewModel {
+
+            -  name: String
+            -  email: String
+            -  phone: String
+            -  address: String
+            -  city: String
+            -  state: String
+            -  zipCode: Int
+            -  country: String
+            -  cardNumber: String
+            -  cardExpiration: Date
+            -  cardCvv: Int
+            -  cardBrand: String
+            -  cardHolderName: String
+            -  cardHolderPhone: String
+            -  cardHolderEmail: String
+            -  cardHolderAddress: String
+            -  cardHolderCity: String
+            -  cardHolderState: String
+            -  cardHolderZipCode: String
+            -  cardHolderCountry: String
+            -  cardHolderIsSameAsDeliveryPerson: Boolean
+            -  acceptTermsAndConditions: Boolean
+            -  accountNumber: String
+            -  agency: String
+            -  bankName: String
+            -  accountType: String
+            -  bankBranch: String
+            -  isDataValid: Boolean
+            -  isLoading: Boolean
+            -  isError : Boolean
+
+            + onNameChange(name: String)
+            + onEmailChange(email: String)
+            + onPhoneChange(phone: String)
+            + onAddressChange(address: String)
+            + onCityChange(city: String)
+            + onStateChange(state: String)
+            + onZipCodeChange(zipCode: Int)
+            + onCountryChange(country: String)
+            + onCardNumberChange(cardNumber: String)
+            + onCardExpirationChange(cardExpiration: Date)
+            + onCardCvvChange(cardCvv: Int)
+            + onCardBrandChange(cardBrand: String)
+            + onCardHolderNameChange(cardHolderName: String)
+            + onCardHolderPhoneChange(cardHolderPhone: String)
+            + onCardHolderEmailChange(cardHolderEmail: String)
+            + onCardHolderAddressChange(cardHolderAddress: String)
+            + onCardHolderCityChange(cardHolderCity: String)
+            + onCardHolderStateChange(cardHolderState: String)
+            + onCardHolderZipCodeChange(cardHolderZipCode: String)
+            + onCardHolderCountryChange(cardHolderCountry: String)
+            + onCardHolderIsSameAsDeliveryPersonChange(cardHolderIsSameAsDeliveryPerson: Boolean)
+            + onAcceptTermsAndConditionsChange(acceptTermsAndConditions: Boolean)
+            + onAccountNumberChange(accountNumber: String)
+            + onAgencyChange(agency: String)
+            + onBankNameChange(bankName: String)
+            + onAccountTypeChange(accountType: String)
+            + onBankBranchChange(bankBranch: String)
+            + onLoadingChange(isLoading: Boolean)
+            + onIsErrorChange(isError: Boolean)
+            + validatePaymentData(): Boolean
+            + onIsDataValidChange(isDataValid: Boolean)
+            + clearError()
+            + savePaymentData()
+            + reset()
+        }
+
+        interface IPersonalDataViewModel {
+            -  name: String
+            -  birthDate: String
+            -  id: String
+            -  phone: String
+            -  photoPath: String
+
+            + savePersonalData()
+            + onNameChange(name: String)
+            + onBirthDateChange(birthDate: String)
+            + onIdChange(id: String)
+            + onPhoneChange(phone: String)
+            + onPhotoChange(photoPath: String)
+            + isLoading(): Boolean
+            + validatePersonalData(): Boolean
+            + clearError()
+        }
+
+        interface IVehicleDataViewModel{}
+        
+        }
+
+   
+    class LoginViewModel{}
+    class SignUpAccessDataViewModel{}
+    class SignUpAddressDataViewModel{}
+    class SignUpDeliveryDataViewModel{}
+    class SignUpPaymentDataViewModel{}
+    class SignupDeliveryPersonPersonalDataViewModel{}
+    class SignupClientPersonalDataViewModel {}
+    class SignUpVehicleDataViewModel{}
+}
+
+
+    ViewModel.SignUpAccessDataViewModel -up-|> IAccessDataViewModel
+    ViewModel.SignUpAddressDataViewModel -up-|> IAddressDataViewModel
+    ViewModel.SignUpDeliveryDataViewModel -up-|> IDeliveryDataViewModel
+    ViewModel.SignUpPaymentDataViewModel -up-|> IPaymentDataViewModel
+    ViewModel.SignupDeliveryPersonPersonalDataViewModel -up-|> IPersonalDataViewModel
+    ViewModel.SignupClientPersonalDataViewModel -up-|> IPersonalDataViewModel
+    ViewModel.SignUpVehicleDataViewModel -up-|> IVehicleDataViewModel
+
+    DeliveryType -- IDeliveryDataViewModel
+
+    ' Define relationships'
+
+    DeliveryType -- Commerce
+    CommerceStatus -- Commerce
+
+    VehicleColor -- DeliveryPerson
+    VehicleType -- DeliveryPerson
+    DeliveryPersonStatus -- DeliveryPerson
+
+    Commerce -- Order
+    DeliveryPerson -- Order
+    Tracker -- Order
+    PaymentMethod -- Order
+    OrderStatus -- Order
+
+
+    Product -- OrderItem
+    Order -- OrderItem
+
+    Commerce -- Product
+    DeliveryType -- Product
+    ProductStatus -- Product
+
+
+@enduml

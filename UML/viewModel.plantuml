@@ -1,0 +1,181 @@
+@startuml DeliveryExpress
+
+class SignUpAccessDataViewModel{}
+class SignUpAddressDataViewModel{}
+class SignUpDeliveryDataViewModel{}
+class SignUpPaymentDataViewModel{}
+class SignUpPersonalDataViewModel{}
+class SignUpVehicleDataViewModel{}
+
+'viewmodel interfaces'
+
+interface IAccessDataViewModel {
+    -  email: String
+    -  confirmEmail: String
+    -  password: String
+    -  confirmPassword: String
+
+    + onEmailChange(email: String)
+    + onConfirmEmailChange(confirmEmail: String)
+    + onPasswordChange(password: String)
+    + onConfirmPasswordChange(confirmPassword: String)
+    + isLoading(): Boolean
+    + validateAccessData(): Boolean
+    + clearError()
+    + showError(message: String)
+    + saveAccessData()
+}
+
+interface IAddressDataViewModel {
+    -  street: String
+    -  number: Int
+    -  zipCode: Int
+    -  complement: String
+    -  neighborhood: String
+    -  city: String
+    -  state: String
+    -  maximumDistanceMap: Double
+
+    + onStreetChange(street: String)
+    + onNumberChange(number: Int)
+    + onZipCodeChange(zipCode: Int)
+    + onComplementChange(complement: String)
+    + onNeighborhoodChange(neighborhood: String)
+    + onCityChange(city: String)
+    + onStateChange(state: String)
+    + onMaximumDistanceMapChange(maximumDistanceMap: Double)
+    + isLoading(): Boolean
+    + validateAddressData(): Boolean
+    + clearError()
+    + saveAddressData()
+}
+
+interface IDeliveryDataViewModel {
+    -  deliveryType: DeliveryType
+    -  isLoading: Boolean
+
+    + onDeliveryTypeChange(deliveryType: DeliveryType)
+    + onLoadingChange(isLoading: Boolean)
+    + reset()
+}
+
+interface IPaymentDataViewModel {
+
+    -  name: String
+    -  email: String
+    -  phone: String
+    -  address: String
+    -  city: String
+    -  state: String
+    -  zipCode: Int
+    -  country: String
+    -  cardNumber: String
+    -  cardExpiration: Date
+    -  cardCvv: Int
+    -  cardBrand: String
+    -  cardHolderName: String
+    -  cardHolderPhone: String
+    -  cardHolderEmail: String
+    -  cardHolderAddress: String
+    -  cardHolderCity: String
+    -  cardHolderState: String
+    -  cardHolderZipCode: String
+    -  cardHolderCountry: String
+    -  cardHolderIsSameAsDeliveryPerson: Boolean
+    -  acceptTermsAndConditions: Boolean
+    -  accountNumber: String
+    -  agency: String
+    -  bankName: String
+    -  accountType: String
+    -  bankBranch: String
+    -  isDataValid: Boolean
+    -  isLoading: Boolean
+    -  isError : Boolean
+
+    + onNameChange(name: String)
+    + onEmailChange(email: String)
+    + onPhoneChange(phone: String)
+    + onAddressChange(address: String)
+    + onCityChange(city: String)
+    + onStateChange(state: String)
+    + onZipCodeChange(zipCode: Int)
+    + onCountryChange(country: String)
+    + onCardNumberChange(cardNumber: String)
+    + onCardExpirationChange(cardExpiration: Date)
+    + onCardCvvChange(cardCvv: Int)
+    + onCardBrandChange(cardBrand: String)
+    + onCardHolderNameChange(cardHolderName: String)
+    + onCardHolderPhoneChange(cardHolderPhone: String)
+    + onCardHolderEmailChange(cardHolderEmail: String)
+    + onCardHolderAddressChange(cardHolderAddress: String)
+    + onCardHolderCityChange(cardHolderCity: String)
+    + onCardHolderStateChange(cardHolderState: String)
+    + onCardHolderZipCodeChange(cardHolderZipCode: String)
+    + onCardHolderCountryChange(cardHolderCountry: String)
+    + onCardHolderIsSameAsDeliveryPersonChange(cardHolderIsSameAsDeliveryPerson: Boolean)
+    + onAcceptTermsAndConditionsChange(acceptTermsAndConditions: Boolean)
+    + onAccountNumberChange(accountNumber: String)
+    + onAgencyChange(agency: String)
+    + onBankNameChange(bankName: String)
+    + onAccountTypeChange(accountType: String)
+    + onBankBranchChange(bankBranch: String)
+    + onLoadingChange(isLoading: Boolean)
+    + onIsErrorChange(isError: Boolean)
+    + validatePaymentData(): Boolean
+    + onIsDataValidChange(isDataValid: Boolean)
+    + clearError()
+    + savePaymentData()
+    + reset()
+}
+
+interface IPersonalDataViewModel {
+    -  name: String
+    -  birthDate: String
+    -  id: String
+    -  phone: String
+    -  photoPath: String
+
+    + savePersonalData()
+    + onNameChange(name: String)
+    + onBirthDateChange(birthDate: String)
+    + onIdChange(id: String)
+    + onPhoneChange(phone: String)
+    + onPhotoChange(photoPath: String)
+    + isLoading(): Boolean
+    + validatePersonalData(): Boolean
+    + clearError()
+}
+
+interface IVehicleDataViewModel {
+    -  vehicleType: VehicleType
+    -  plate: String
+    -  brand: String
+    -  model: String
+    -  year: Int
+    -  color: String
+    -  photoPath: String
+
+    + onVehicleTypeChange(vehicleType: VehicleType)
+    + onPlateChange(plate: String)
+    + onBrandChange(brand: String)
+    + onModelChange(model: String)
+    + onYearChange(year: Int)
+    + onColorChange(color: String)
+    + onPhotoChange(photoPath: String)
+    + isLoading(): Boolean
+    + validateVehicleData(): Boolean
+    + clearError()
+    + saveVehicleData()
+}
+
+' Define relationships'
+
+SignUpAccessDataViewModel -up-|> IAccessDataViewModel
+SignUpAddressDataViewModel -up-|> IAddressDataViewModel
+SignUpDeliveryDataViewModel -up-|> IDeliveryDataViewModel
+SignUpPaymentDataViewModel -up-|> IPaymentDataViewModel
+SignUpPersonalDataViewModel -up-|> IPersonalDataViewModel
+SignUpVehicleDataViewModel -up-|> IVehicleDataViewModel
+
+
+@enduml
