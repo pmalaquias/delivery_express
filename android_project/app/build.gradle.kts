@@ -66,7 +66,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:19.2.0")
     implementation("androidx.wear.compose:compose-material:1.4.1")
     implementation("com.google.code.gson:gson:2.11.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.compose.material3:material3-android:1.3.2")
