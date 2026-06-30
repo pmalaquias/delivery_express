@@ -4,20 +4,23 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,13 +33,17 @@ import androidx.graphics.shapes.RoundedPolygon
 import androidx.graphics.shapes.star
 import com.pmalaquias.deliveryexpress.presentation.ui.componets.RoundedPolygonShape
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.yield
 
 @Composable
 fun InfiniteCarousel(items: Map<String, String>, modifier: Modifier = Modifier) {
+    val itemList = remember(items) { items.toList() }
+    if (itemList.isEmpty()) return
 
-    val listState = rememberLazyListState()
-    val coroutineScope = rememberCoroutineScope()
+    // Para um efeito infinito, usamos um número muito grande de páginas
+    val pageCount = Int.MAX_VALUE
+    val startIndex = (pageCount / 2) - ((pageCount / 2) % itemList.size)
+    val pagerState = rememberPagerState(initialPage = startIndex) { pageCount }
 
     val hexagon = remember {
         RoundedPolygon.star(
@@ -49,54 +56,57 @@ fun InfiniteCarousel(items: Map<String, String>, modifier: Modifier = Modifier) 
         RoundedPolygonShape(polygon = hexagon)
     }
 
-    Box {
-        LazyRow(state = listState) {
-            items(items.size) { index ->
-
-                val message = items.keys.toList()[index]
-                val description = items.values.toList()[index]
-
-                ElevatedCard(
-                    elevation = CardDefaults.cardElevation(
-                        defaultElevation = 6.dp
-                    ),
-                    modifier = modifier
-                        .padding(start = 16.dp, end = 16.dp)
-                        .size(320.dp, 250.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color.White
-                    ),
-                ) {
-                    Column(
-                        modifier = modifier
-                            .padding(16.dp)
-                            .fillMaxHeight(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = message,
-                            style = MaterialTheme.typography.headlineSmall,
-                            textAlign = TextAlign.Center
-                        )
-                        Spacer(modifier = Modifier.size(16.dp))
-                        Text(
-                            text = description,
-                            style = MaterialTheme.typography.bodyLarge,
-                            textAlign = TextAlign.Center
-                        )
-                    }
-                }
+    // Efeito de auto-scroll
+    LaunchedEffect(pagerState) {
+        while (true) {
+            delay(3000)
+            yield() // Garante que a corrotina possa ser cancelada se necessário
+            if (!pagerState.isScrollInProgress) {
+                pagerState.animateScrollToPage(pagerState.currentPage + 1)
             }
+        }
+    }
 
-            coroutineScope.launch {
-                while (true) {
-                    delay(3000) // Tempo de espera entre as transições dos itens
+    Box(modifier = modifier.fillMaxWidth()) {
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.fillMaxWidth(),
+            contentPadding = PaddingValues(horizontal = 48.dp),
+            pageSpacing = 16.dp
+        ) { page ->
+            val actualIndex = page % itemList.size
+            val (message, description) = itemList[actualIndex]
 
-                    if (listState.firstVisibleItemIndex == items.size - 1) {
-                        listState.animateScrollToItem(0)
-                    } else {
-                        listState.animateScrollToItem((listState.firstVisibleItemIndex + 1) % items.size)
-                    }
+            ElevatedCard(
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 6.dp
+                ),
+                modifier = Modifier
+                    .padding(vertical = 8.dp)
+                    .fillMaxWidth()
+                    .height(250.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color.White
+                ),
+            ) {
+                Column(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxHeight(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        text = message,
+                        style = MaterialTheme.typography.headlineSmall,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = Modifier.size(16.dp))
+                    Text(
+                        text = description,
+                        style = MaterialTheme.typography.bodyLarge,
+                        textAlign = TextAlign.Center
+                    )
                 }
             }
         }
@@ -108,24 +118,13 @@ fun InfiniteCarousel(items: Map<String, String>, modifier: Modifier = Modifier) 
                 .padding(bottom = 16.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            repeat(items.size) { index ->
-
+            repeat(itemList.size) { index ->
                 PageIndicator(
-                    selected = index == ((listState.firstVisibleItemIndex) % (items.size)),
+                    selected = (pagerState.currentPage % itemList.size) == index,
                     shape = clip
                 )
             }
-
         }
-    }
-}
-
-@Composable
-fun rememberCarouselIndicatorsState(
-    pageCount: Int
-): CarouselIndicatorsState {
-    return remember {
-        CarouselIndicatorsState(pageCount)
     }
 }
 
@@ -142,5 +141,3 @@ fun PageIndicator(selected: Boolean, shape: Shape) {
             .background(color)
     )
 }
-
-class CarouselIndicatorsState(var currentPage: Int)
