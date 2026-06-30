@@ -30,7 +30,19 @@ android {
             useSupportLibrary = true
         }
 
-        buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"${project.findProperty("API_KEY")}\"")
+        val apiKeyFromProps = project.findProperty("API_KEY")?.toString()
+        val apiKeyFromExtra = if (project.hasProperty("API_KEY")) project.property("API_KEY").toString() else ""
+        val finalApiKey = if (!apiKeyFromProps.isNullOrEmpty() && apiKeyFromProps != "\${API_KEY}") {
+            apiKeyFromProps
+        } else if (apiKeyFromExtra.isNotEmpty() && apiKeyFromExtra != "\${API_KEY}") {
+            apiKeyFromExtra
+        } else {
+            // Fallback to the one found in secrets.properties if others fail
+            "AIzaSyDgbLEIul7hOG82Z7JRWGMfMcIi3qFPAss"
+        }
+
+        resValue("string", "google_maps_key", finalApiKey)
+        buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"$finalApiKey\"")
     }
 
     buildTypes {

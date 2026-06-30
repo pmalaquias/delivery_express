@@ -34,6 +34,7 @@ import androidx.graphics.shapes.star
 import com.pmalaquias.deliveryexpress.presentation.ui.componets.RoundedPolygonShape
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.yield
+import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun InfiniteCarousel(items: Map<String, String>, modifier: Modifier = Modifier) {
@@ -59,7 +60,7 @@ fun InfiniteCarousel(items: Map<String, String>, modifier: Modifier = Modifier) 
     // Efeito de auto-scroll
     LaunchedEffect(pagerState) {
         while (true) {
-            delay(3000)
+            delay(3000.milliseconds)
             yield() // Garante que a corrotina possa ser cancelada se necessário
             if (!pagerState.isScrollInProgress) {
                 pagerState.animateScrollToPage(pagerState.currentPage + 1)

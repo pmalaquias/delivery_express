@@ -90,7 +90,6 @@
     <string name="login_carousel_message_3.1">Our delivery drivers are always ready to meet your demands</string>
 
     <string name="fileprovider" translatable="false">com.pmalaquias.deliveryexpress.fileprovider</string>
-    <string name="google_maps_key" translatable="false">${API_KEY}</string>
     <string name="header_choice_option">Choise Option</string>
     <string name="title_take_photo">Take a Photo</string>
     <string name="title_select_gallery">Select from Gallery</string>
