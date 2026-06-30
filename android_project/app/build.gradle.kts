@@ -1,18 +1,17 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
 configurations.all {
     resolutionStrategy {
-        force("org.jetbrains.kotlin:kotlin-stdlib:2.1.0")
+        force("androidx.concurrent:concurrent-futures:1.2.0")
     }
 }
 
 android {
     namespace = "com.pmalaquias.deliveryexpress"
-    compileSdk = 36
+    compileSdk = 37
 
     buildFeatures {
         buildConfig = true
@@ -43,12 +42,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
     buildFeatures {
         compose = true
     }
@@ -60,65 +57,63 @@ android {
 }
 
 dependencies {
-    implementation("com.google.maps.android:maps-compose:6.1.1")
-    implementation("com.google.android.gms:play-services-maps:19.2.0")
-    implementation("androidx.wear.compose:compose-material:1.4.1")
-    implementation("com.google.code.gson:gson:2.11.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
-    implementation("androidx.compose.material3:material3:1.5.0-alpha09")
-    implementation("com.google.accompanist:accompanist-permissions:0.34.0")
-    implementation("io.coil-kt:coil:2.7.0")
-    implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation(libs.maps.compose)
+    implementation(libs.play.services.maps)
+    implementation(libs.compose.material)
+    implementation(libs.gson)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation (libs.lifecycle.runtime.ktx)
+    implementation(libs.material3)
+    implementation(libs.accompanist.permissions)
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
 
 
 
     //retrofit
     //retrofit-core
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation (libs.retrofit)
     //retrofit-converter-moshi
-    implementation ("com.squareup.retrofit2:converter-moshi:2.11.0")
+    implementation (libs.converter.moshi)
     //okhttp
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
-    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation (libs.logging.interceptor)
+    implementation (libs.okhttp)
     //moshi
-    implementation ("com.squareup.moshi:moshi-kotlin:1.15.2")
-    implementation("androidx.compose.animation:animation:1.8.0")
-    implementation("javax.inject:javax.inject:1")
-    implementation("com.google.android.datatransport:transport-runtime:4.0.0")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("dev.chrisbanes.haze:haze:0.7.3")
-    implementation("dev.chrisbanes.haze:haze-materials:0.7.3")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation (libs.moshi.kotlin)
+    implementation(libs.animation)
+    implementation(libs.javax.inject)
+    implementation(libs.transport.runtime)
+    implementation(libs.material)
+    implementation(libs.haze)
+    implementation(libs.haze.materials)
+    testImplementation(libs.kotlinx.coroutines.test)
+    implementation (libs.converter.gson)
 
     val navVersion = "2.8.9"
     val composeVersion = "1.8.0"
 
 
-    implementation("androidx.graphics:graphics-core:1.0.3")
-    implementation("androidx.graphics:graphics-path:1.0.1")
-    implementation("androidx.graphics:graphics-shapes:1.0.1")
-    implementation("com.google.accompanist:accompanist-pager:0.34.0")
-    implementation("com.google.accompanist:accompanist-pager-indicators:0.34.0")
-    implementation("androidx.navigation:navigation-compose:$navVersion")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.34.0")
-    implementation("androidx.core:core-ktx:1.16.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
-    implementation("androidx.activity:activity-compose:1.10.1")
-    implementation(platform("androidx.compose:compose-bom:2025.11.00"))
-    implementation("androidx.compose.ui:ui:$composeVersion")
-    implementation("androidx.compose.ui:ui-graphics:$composeVersion")
-    implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
-    implementation("androidx.compose.material:material-icons-extended-android:1.7.8")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2025.11.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.8.0")
-
-
+    implementation(libs.graphics.core)
+    implementation(libs.graphics.path)
+    implementation(libs.graphics.shapes)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicators)
+    implementation(libs.navigation.compose)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.core.ktx)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.activity.compose)
+    implementation(libs.compose.bom)
+    implementation(libs.ui)
+    implementation(libs.ui.graphics)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.material.icons.extended.android)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.compose.bom)
+    androidTestImplementation(libs.ui.test.junit4)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.ui.test.manifest)
 }

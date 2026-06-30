@@ -2,7 +2,7 @@ package com.pmalaquias.deliveryexpress.presentation.viewModel.signup
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -12,26 +12,28 @@ class SignUpAccessDataViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun `onEmailChange updates email state`(): Unit = runBlockingTest {
+    fun `onEmailChange updates email state`(): Unit = runTest {
         viewModel.onEmailChange("test@example.com")
         assertEquals("test@example.com", viewModel.uiState.first().email)
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun `onConfirmEmailChange updates confirmEmail state`(): Unit = runBlockingTest {
+    fun `onConfirmEmailChange updates confirmEmail state`(): Unit = runTest {
         viewModel.onConfirmEmailChange("test@example.com")
         assertEquals("test@example.com", viewModel.uiState.first().confirmEmail)
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun `onPasswordChange updates password state`(): Unit = runBlockingTest {
+    fun `onPasswordChange updates password state`(): Unit = runTest {
         viewModel.onPasswordChange("password")
         assertEquals("password", viewModel.uiState.first().password)
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun `onConfirmPasswordChange updates confirmPassword state`(): Unit = runBlockingTest {
+    fun `onConfirmPasswordChange updates confirmPassword state`(): Unit = runTest {
         viewModel.onConfirmPasswordChange("password")
         assertEquals("password", viewModel.uiState.first().confirmPassword)
     }
